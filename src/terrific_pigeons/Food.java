@@ -4,6 +4,11 @@ package terrific_pigeons;
  * A Food osztály az étely osztálya a játékban.
  */
 public class Food extends Thing{
+
+    public Food()
+    {
+        System.out.println("Food f created");
+    }
     /*
      * Növeli a karakter életerejét eggyel.
      */
