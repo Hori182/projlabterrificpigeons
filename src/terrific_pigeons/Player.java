@@ -69,7 +69,9 @@ public abstract class Player {
     /*
      * Növeli az életerőt eggyel.
      * */
-    public void addLife() {}
+    public void addLife() {
+        System.out.println("f <- e");
+    }
 
 
     /*

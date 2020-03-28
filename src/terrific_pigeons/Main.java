@@ -52,10 +52,7 @@ public class Main {
                 Food f = new Food();
                 f.useThing();
                 Eskimo e = new Eskimo();
-                e.addLife();
-                e.removeThing(f);
-                e.work();
-                e.setWork(e.getWork()+1);
+                f.owner = e;
                 break;
             }
             case 9:
