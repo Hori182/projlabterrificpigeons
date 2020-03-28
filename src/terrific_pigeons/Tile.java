@@ -41,7 +41,7 @@ public class Tile {
 
     /*
      * Játékos átmozgatása.
-     * @param p Az átléptetendő játékos
+     * @param p: Az átléptetendő játékos
      * */
     public void moveRequest(Player p)
     {
@@ -58,20 +58,27 @@ public class Tile {
 
     /*
      * Eltávolítja a mezőn lévő tárgyat.
-     * */
+     */
     public void removeThing() {}
 
-    /**/
+    /*
+    *Visszaadja a tile-on lévő hó mennyiségét.
+    */
     public int getSnow() {
         return snow;
     }
 
-    /**/
+    /*
+    *A snow változó értékét megváltoztatja.
+    * @param snow: A snow változót ezzel az értékkel írja felül.
+    */
     public void setSnow(int snow) {
         this.snow = snow;
     }
 
-    /**/
+    /*
+    * Visszaadja az adott tile szomszédait.
+    */
     public Tile[] getNeighbours() {
         return neighbours;
     }

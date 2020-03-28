@@ -1,7 +1,7 @@
 package terrific_pigeons;
 
 public abstract class Player {
-
+    /*???????A life kell egyáltalán ide??????*/
     protected int life;
     protected int work = 4;
     protected Tile myTile;
@@ -32,7 +32,6 @@ public abstract class Player {
      * @param t A játékos által használni kívánt tárgy
      * */
     public void use(Thing t) {}
-
 
     /*
      * A játékos elpasszolja a körét, nem él az összes lépésével.
@@ -77,11 +76,16 @@ public abstract class Player {
      * */
     public void subLife() {}
 
-    /**/
+    /*
+    * Visszaadja a work változó értékét.
+    * */
     public int getWork() {
         return work;
     }
-    /**/
+    /*
+    * A work változó értékét megváltoztatja.
+    * @param work: A work változót ezzel az értékkel írja felül.
+    * */
     public void setWork(int work) {
         this.work = work;
     }
