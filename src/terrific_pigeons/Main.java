@@ -76,9 +76,10 @@ public class Main {
             {
                 Eskimo e = new Eskimo();
                 Tile t = new Tile();
-                t.Receive(e);
+                t.receive(e);
                 e.myTile = t;
                 e.dig();
+                break;
             }
             case 12:
             {
