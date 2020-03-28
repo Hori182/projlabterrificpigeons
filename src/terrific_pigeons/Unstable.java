@@ -61,7 +61,7 @@ public class Unstable extends Tile{
         System.out.println("t1 -> getTile(e) -> e");
         Tile t2 = p.getTile();
         System.out.println("t1 -> remove(e) -> t2");
-        t2.Remove(p);
+        t2.remove(p);
         System.out.println("t1 -> setMyTile(e) -> e");
         p.setMyTile(this);
         System.out.println("t1 <- e");

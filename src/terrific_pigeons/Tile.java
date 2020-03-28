@@ -1,16 +1,19 @@
 package terrific_pigeons;
 
+import java.util.ArrayList;
+
 public class Tile {
 
     protected int snow;
     protected boolean safe = false;
     protected int limit = 666;
     protected Thing thing;
-    protected Player[] players;
+    protected ArrayList<Player> players;
     private Tile[] neighbours;
 
     public Tile()
     {
+        players = new ArrayList<>();
         System.out.println("Tile created");
     }
 
@@ -18,9 +21,10 @@ public class Tile {
      * Megnöveli a jégtáblán lévő hó mennyiségét.
      * @param snow Ennyivel növeli a havat
      * */
-    public void addSnow(int snow)
+    public void addSnow(int sn)
     {
-        System.out.println("t <- m");
+        snow+=sn;
+        System.out.println("m <- t");
     }
 
     /*
@@ -32,13 +36,16 @@ public class Tile {
      * Fogadja a játékost.
      * @param p A mezőre lépő játékos
      * */
-    public void Receive(Player p) {}
+    public void receive(Player p)
+    {
+        players.add(p);
+    }
 
     /*
      * Eltávolítja a játékost.
      * @param p A mezőről távozó játékos
      * */
-    public void Remove(Player p)
+    public void remove(Player p)
     {
         System.out.println("t1 <- t2");
     }
@@ -52,7 +59,7 @@ public class Tile {
         System.out.println("t1 -> getTile(e) -> e");
         Tile t2 = p.getTile();
         System.out.println("t1 -> remove(e) -> t2");
-        t2.Remove(p);
+        t2.remove(p);
         System.out.println("t1 -> setMyTile(e) -> e");
         p.setMyTile(this);
         System.out.println("t1 <- e");
@@ -125,5 +132,10 @@ public class Tile {
     {
         System.out.println("? <- t");
         limit= l;
+    }
+
+    public ArrayList<Player> getPlayers()
+    {
+        return players;
     }
 }

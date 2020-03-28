@@ -60,10 +60,23 @@ public class Main {
             case 10:
             {
                Researcher r = new Researcher();
+               System.out.println(r.getLife());
                Tile t1 = new Tile();
                Tile t2 = new Tile();
                r.setMyTile(t1);
+
                r.look(t2);
+            }
+            case 14:
+            {
+                Eskimo e = new Eskimo();
+                Tile t = new Tile();
+                Map m = new Map();
+                m.getTiles().add(t);
+                e.setMyTile(t);
+                t.receive(e);
+
+                m.snowStorm();
             }
         }
 

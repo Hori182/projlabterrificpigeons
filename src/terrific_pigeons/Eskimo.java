@@ -6,6 +6,7 @@ public class Eskimo extends Player {
 
     public Eskimo()
     {
+        super();
         System.out.println("Eskimo created");
     }
 
@@ -23,20 +24,7 @@ public class Eskimo extends Player {
         System.out.println("<- e");
     }
 
-    /*
-    * Visszaadja, hogy jelenleg hány élete van.
-    */
-    public int getLife() {
-        return life;
-    }
 
-    /*
-    * Beállítja a life attribútum új értékét.
-    * @param life: élet - a life új értéke
-    */
-    public void setLife(int life) {
-        this.life = life;
-    }
 
     public void work()
     {
@@ -44,5 +32,18 @@ public class Eskimo extends Player {
         this.setWork(work+1);
         System.out.println("e <- e");
     }
+    /*
+     * Visszaadja, hogy jelenleg hány élete van.
+     */
+    public int getLife() {
+        return life;
+    }
 
+    /*
+     * Beállítja a life attribútum új értékét.
+     * @param life: élet - a life új értéke
+     */
+    public void setLife(int life) {
+        this.life = life;
+    }
 }
