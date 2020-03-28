@@ -5,8 +5,7 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        Eskimo e;
-        Tile t1,t2;
+
 
         System.out.println("Menu");
         System.out.println("1.Eskimo moves to stable tile");
@@ -30,7 +29,17 @@ public class Main {
         Scanner input = new Scanner( System.in );
         int choice = input.nextInt();
 
-
+        switch (choice)
+        {
+            case 1:
+            {
+                Eskimo e = new Eskimo();
+                Tile t1 = new Tile();
+                Tile t2 = new Tile();
+                e.setMyTile(t2);
+                e.move(t1);
+            }
+        }
 
 
 

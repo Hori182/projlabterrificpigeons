@@ -29,13 +29,27 @@ public class Tile {
      * Eltávolítja a játékost.
      * @param p A mezőről távozó játékos
      * */
-    public void Remove(Player p) {}
+    public void Remove(Player p)
+    {
+        System.out.println("t1 <- t2");
+    }
 
     /*
      * Játékos átmozgatása.
      * @param p Az átléptetendő játékos
      * */
-    public void moveRequest(Player p) {}
+    public void moveRequest(Player p)
+    {
+        System.out.println("t1 -> getTile(e) -> e");
+        Tile t2 = p.getTile();
+        System.out.println("t1 -> remove(e) -> t2");
+        t2.Remove(p);
+        System.out.println("t1 -> setMyTile(e) -> e");
+        p.setMyTile(this);
+        System.out.println("t1 <- e");
+        System.out.println("t1 -> Receive(e) -> t1");
+        System.out.println("e <- t1");
+    }
 
     /*
      * Eltávolítja a mezőn lévő tárgyat.

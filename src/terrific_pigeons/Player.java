@@ -13,7 +13,13 @@ public abstract class Player {
      * a másikra való mozgatásáért.
      * @param t A jégtábla amire a játékos lép.
      */
-    public void move(Tile t) {}
+    public void move(Tile t)
+    {
+        System.out.println("-> move(t1) -> e");
+        System.out.println("e -> moveRequest(e) -> t1");
+        t.moveRequest(this);
+        System.out.println("<- e");
+    }
 
     /*
      * A játékos lelapátol egy egység havat a
@@ -81,13 +87,15 @@ public abstract class Player {
     }
 
     /**/
-    public Tile getTile() {
+    public Tile getTile()
+    {
+        System.out.println("t1 <- t2 <- e");
         return myTile;
     }
 
-    /**/
-    public void setTile(Tile tile) {
-        this.myTile = tile;
+    public void setMyTile(Tile t) {
+
+        this.myTile = t;
     }
 
     /**/
@@ -115,6 +123,8 @@ public abstract class Player {
     public void setInWater(boolean inWater) {
         this.inWater = inWater;
     }
+
+
     public static void main(String[] args) {
         // TODO Auto-generated method stub
 
