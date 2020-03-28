@@ -74,10 +74,11 @@ public abstract class Player {
      * */
     public void addLife() {}
 
+
     /*
      * Csökkenti az életerőt eggyel.
      * */
-    public void subLife() {}
+    public void subLife(int i) {}
 
     /*
     * Visszaadja a work változó értékét.

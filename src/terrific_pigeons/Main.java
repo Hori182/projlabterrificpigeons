@@ -48,6 +48,16 @@ public class Main {
                 e.move(t1);
                 break;
             }
+            case 7: {
+                Food f = new Food();
+                f.useThing();
+                Eskimo e = new Eskimo();
+                e.addLife();
+                e.removeThing(f);
+                e.work();
+                e.setWork(e.getWork()+1);
+                break;
+            }
             case 9:
             {
                 Eskimo e = new Eskimo();
