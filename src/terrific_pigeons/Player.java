@@ -29,6 +29,7 @@ public abstract class Player {
         //ezt jelölni kéne hogy ez a myTile????? vagy mindegy
         System.out.println("e -> subSnow -> t");
         System.out.println("t -> setSnow(snow-1) -> t");
+        System.out.println("t <- t");
         System.out.println("e <- t");
         work();
         System.out.println("<- e");
