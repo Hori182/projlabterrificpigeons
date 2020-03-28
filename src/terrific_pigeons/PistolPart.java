@@ -6,8 +6,15 @@ package terrific_pigeons;
  */
 public class PistolPart extends Thing{
     private int usedParts;
-
+    /*
+    *Visszaadja a usedParts értékét.
+    */
     public int getUsedParts() {return usedParts;}
+
+    /*
+    *A usedParts változónak új értéket állít be.
+    * @param i: Ez lesz a usedParts új értéke.
+    */
     public void setUsedParts(int i) {this.usedParts = i;}
     /*
      * Összeszerli a pisztolyt a pisztolydarabokból.
