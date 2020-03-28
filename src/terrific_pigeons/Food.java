@@ -7,7 +7,7 @@ public class Food extends Thing{
     /*
      * Növeli a karakter életerejét eggyel.
      */
-    public void UseThing() {
+    public void useThing() {
         System.out.println("f -> addLife() -> e");
         System.out.println("f <- e");
         System.out.println("f -> removeThing(f) -> e");

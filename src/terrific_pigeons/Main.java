@@ -50,9 +50,9 @@ public class Main {
             }
             case 7: {
                 Food f = new Food();
-                f.useThing();
                 Eskimo e = new Eskimo();
                 f.owner = e;
+                f.useThing();
                 break;
             }
             case 9:
