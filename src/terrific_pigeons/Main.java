@@ -58,11 +58,13 @@ public class Main {
                 e.setMyTile(t);
 
                 e.build();
-
+                break;
+            }
+            case 10:
+            {
+               Researcher r = new Researcher();
             }
         }
-
-
 
     }
 
