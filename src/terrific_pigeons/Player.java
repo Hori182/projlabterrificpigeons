@@ -36,7 +36,13 @@ public abstract class Player {
     /*
      * A játékos elpasszolja a körét, nem él az összes lépésével.
      * */
-    public void pass() {}
+    public void pass() {
+        System.out.println("-> pass() -> e");
+        this.setWork(4);
+        System.out.println("e -> setWork(4) -> e");
+        System.out.println("<- e");
+
+    }
 
     /*
      * A játékos meghal.

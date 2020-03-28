@@ -72,6 +72,11 @@ public class Main {
                r.look(t2);
                break;
             }
+            case 12:
+            {
+                Eskimo e = new Eskimo();
+                e.pass();
+            }
         }
 
     }
