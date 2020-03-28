@@ -100,6 +100,7 @@ public class Tile {
      */
     public void setSafe(boolean s)
     {
+        System.out.println("e <- t1");
         safe=s;
     }
 }

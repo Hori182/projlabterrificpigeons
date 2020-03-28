@@ -37,28 +37,26 @@ public class Main {
                 Tile t1 = new Tile();
                 Tile t2 = new Tile();
                 e.setMyTile(t2);
+
                 e.move(t1);
                 break;
             }
             case 2:
             {
                 Eskimo e = new Eskimo();
-                System.out.println("Eskimo e created");
                 Unstable t1 = new Unstable();
-                System.out.println("Unstable tile created");
                 Tile t2 = new Tile();
-                System.out.println("Tile created");
                 e.setMyTile(t2);
+
                 e.move(t1);
                 break;
             }
             case 9:
             {
                 Eskimo e = new Eskimo();
-                System.out.println("Eskimo e created");
                 Tile t = new Tile();
-                System.out.println("Tile t created");
                 e.setMyTile(t);
+
                 e.build();
 
             }
