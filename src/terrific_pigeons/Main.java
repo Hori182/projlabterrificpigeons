@@ -34,8 +34,11 @@ public class Main {
             case 1:
             {
                 Eskimo e = new Eskimo();
+                System.out.println("Eskimo e created");
                 Tile t1 = new Tile();
+                System.out.println("Tile created");
                 Tile t2 = new Tile();
+                System.out.println("Tile created");
                 e.setMyTile(t2);
                 e.move(t1);
                 break;
