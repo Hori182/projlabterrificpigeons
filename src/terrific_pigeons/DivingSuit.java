@@ -10,3 +10,5 @@ public class DivingSuit extends Thing{
      */
     public void UseThing() {}
 }
+
+//RANDOM KOMMENT BY ARNOLD

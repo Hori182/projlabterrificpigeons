@@ -3,7 +3,7 @@ package terrific_pigeons;
 public abstract class Player {
     /*???????A life kell egyáltalán ide??????*/
     protected int life;
-    protected int work = 4;
+    protected int work = 0;
     protected Tile myTile;
     protected Thing[] things;
     protected boolean inWater = false;
@@ -90,19 +90,26 @@ public abstract class Player {
         this.work = work;
     }
 
-    /**/
+    /*
+    * Visszaadja azt a tile-t amin a player áll.
+    * */
     public Tile getTile()
     {
         System.out.println("t1 <- t2 <- e");
         return myTile;
     }
-
+    /*
+    * Beáálítja a myTile változó értékét.
+    * @param t: Ez a myTile változó új értéke.
+    * */
     public void setMyTile(Tile t) {
 
         this.myTile = t;
     }
 
-    /**/
+    /*
+    * Visszaadja a Player-nél lévő Thing-ek tömbjét(things).
+    * */
     public Thing[] getThings() {
         return things;
     }
@@ -111,6 +118,9 @@ public abstract class Player {
      * Sztem ez nem kell ide mert van egy addThingunk
      * opinions???
      * de nem ezt használná?(énsevagyokbiztos)
+     * Hozzáad a things tömbhöz egy új thing-et egy adott pozícióban.
+     * @param thing: Ezt a Thing-et adja a tömbhöz.
+     * @param position: A things ezen pozíciójú elemét írja felül.
      * */
     public void setThings(Thing thing, int position) {
         this.things[position] = thing;
@@ -123,14 +133,12 @@ public abstract class Player {
         return inWater;
     }
 
-    /**/
+    /*
+    * Beállítja az inWater értékét.
+    * @param inWater: Ezzel az értékkel írja felül az inWater értékét.
+    * */
     public void setInWater(boolean inWater) {
         this.inWater = inWater;
     }
 
-
-    public static void main(String[] args) {
-        // TODO Auto-generated method stub
-
-    }
 }

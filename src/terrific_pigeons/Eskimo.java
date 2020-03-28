@@ -4,7 +4,7 @@ public class Eskimo extends Player {
 
     private int life = 5;
 
-    public void Eskimo()
+    public Eskimo()
     {
         System.out.println("Eskimo e created");
     }
@@ -13,7 +13,13 @@ public class Eskimo extends Player {
      * Iglut épít a saját jégtáblájára, ezzel biztonságossá
      * teszi a mezőt.
      * */
-    public void build() {}
+    public void build()
+    {
+        System.out.println("-> build() -> e");
+        System.out.println("e -> setSafe(true) -> myTile");
+        myTile.setSafe(true);
+
+    }
 
     /*
     * Visszaadja, hogy jelenleg hány élete van.
