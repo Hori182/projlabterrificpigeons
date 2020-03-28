@@ -11,7 +11,10 @@ public class Food extends Thing{
         System.out.println("f -> addLife() -> e");
         System.out.println("f <- e");
         System.out.println("f -> removeThing(f) -> e");
+        System.out.println("e -> work() -> e");
         owner.work();
+        System.out.println("f <- e");
+        System.out.println("<- f");
     }
 }
 
