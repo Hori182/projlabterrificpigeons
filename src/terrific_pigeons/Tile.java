@@ -64,6 +64,7 @@ public class Tile {
         p.setMyTile(this);
         System.out.println("t1 <- e");
         System.out.println("t1 -> Receive(e) -> t1");
+        this.receive(p);
         System.out.println("t1 <- t1");
         System.out.println("e <- t1");
     }
