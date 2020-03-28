@@ -59,6 +59,7 @@ public class Main {
                 Tile t = new Tile();
                 System.out.println("Tile t created");
                 e.setMyTile(t);
+                e.build();
 
             }
         }

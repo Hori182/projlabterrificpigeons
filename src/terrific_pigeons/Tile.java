@@ -8,7 +8,7 @@ public class Tile {
     protected Player[] players;
     private Tile[] neighbours;
 
-    public void Tile()
+    public Tile()
     {
         System.out.println("Tile created");
     }
@@ -85,5 +85,21 @@ public class Tile {
     /*Ez nemtomkelle*/
     public void setNeighbours(Tile[] neighbours) {
         this.neighbours = neighbours;
+    }
+
+    /*
+    *Visszaadja, hogy a mezőn van-e iglu
+     */
+    public boolean getSafe()
+    {
+        return safe;
+    }
+
+    /*
+    *Beállítja, hogy a mezőn van-e iglu
+     */
+    public void setSafe(boolean s)
+    {
+        safe=s;
     }
 }
