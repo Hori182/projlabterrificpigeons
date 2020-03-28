@@ -64,10 +64,7 @@ public abstract class Player {
      * A játékos elvégez egy munkát, ezzel munkamennyisége
      * eggyel megnő.
      * */
-    public void work()
-    {
-        System.out.println("e -> setWork(work+1) -> e");
-    }
+    public void work() {}
 
     /*
      * Növeli az életerőt eggyel.
@@ -89,8 +86,11 @@ public abstract class Player {
     * A work változó értékét megváltoztatja.
     * @param work: A work változót ezzel az értékkel írja felül.
     * */
-    public void setWork(int work) {
+
+    public void setWork(int work)
+    {
         this.work = work;
+        System.out.println("p <- p");
     }
 
     /*

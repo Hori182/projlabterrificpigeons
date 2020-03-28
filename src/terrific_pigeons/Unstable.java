@@ -3,7 +3,6 @@ package terrific_pigeons;
 import java.util.Scanner;
 
 public class Unstable extends Tile{
-    private int limit;
 
     public Unstable()
     {

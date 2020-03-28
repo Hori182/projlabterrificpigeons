@@ -4,6 +4,7 @@ public class Tile {
 
     protected int snow;
     protected boolean safe;
+    protected int limit;
     protected Thing thing;
     protected Player[] players;
     private Tile[] neighbours;
@@ -95,6 +96,7 @@ public class Tile {
      */
     public boolean getSafe()
     {
+        System.out.println("? <- t");
         return safe;
     }
 
@@ -103,7 +105,25 @@ public class Tile {
      */
     public void setSafe(boolean s)
     {
-        System.out.println("e <- t1");
+        System.out.println("e <- t");
         safe=s;
+    }
+
+    /*
+     *Beállítja, hogy a mezőn van-e iglu
+     */
+    public int getLimit()
+    {
+        System.out.println("r <- limit <- t");
+        return limit;
+    }
+
+    /*
+     *Beállítja, hogy a mezőn van-e iglu
+     */
+    public void setLimit(int l)
+    {
+        System.out.println("? <- t");
+        limit= l;
     }
 }

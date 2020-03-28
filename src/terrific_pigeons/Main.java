@@ -60,6 +60,10 @@ public class Main {
             case 10:
             {
                Researcher r = new Researcher();
+               Tile t1 = new Tile();
+               Tile t2 = new Tile();
+               r.setMyTile(t1);
+               r.look(t2);
             }
         }
 
