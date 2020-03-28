@@ -60,7 +60,6 @@ public class Main {
                 Eskimo e = new Eskimo();
                 Tile t = new Tile();
                 e.setMyTile(t);
-
                 e.build();
                 break;
             }
@@ -71,6 +70,7 @@ public class Main {
                Tile t2 = new Tile();
                r.setMyTile(t1);
                r.look(t2);
+               break;
             }
         }
 

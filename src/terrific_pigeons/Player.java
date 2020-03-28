@@ -93,7 +93,6 @@ public abstract class Player {
     public void setWork(int work)
     {
         this.work = work;
-        System.out.println("p <- p");
     }
 
     /*
@@ -108,8 +107,8 @@ public abstract class Player {
     * Beáálítja a myTile változó értékét.
     * @param t: Ez a myTile változó új értéke.
     * */
-    public void setMyTile(Tile t) {
-
+    public void setMyTile(Tile t)
+    {
         this.myTile = t;
     }
 
