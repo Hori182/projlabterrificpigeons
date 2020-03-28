@@ -25,7 +25,9 @@ public abstract class Player {
      * A játékos lelapátol egy egység havat a
      * saját jégtáblájáról.
      * */
-    public void dig() {}
+    public void dig() {
+        
+    }
 
     /*
      * A játékos használja valamelyik tárgyát.

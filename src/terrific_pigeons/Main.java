@@ -72,11 +72,20 @@ public class Main {
                r.look(t2);
                break;
             }
+            case 11:
+            {
+                Eskimo e = new Eskimo();
+                Tile t = new Tile();
+                t.Receive(e);
+                e.myTile = t;
+                e.dig();
+            }
             case 12:
             {
                 Eskimo e = new Eskimo();
                 e.pass();
             }
+
         }
 
     }
