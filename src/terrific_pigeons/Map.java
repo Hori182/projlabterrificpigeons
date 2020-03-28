@@ -9,8 +9,7 @@ public class Map {
     * */
     public void snowStorm()
     {
-        System.out.println("-> snowstorm() -> m");
-        System.out.println("-> snowstorm() -> m");
+
 
     }
 

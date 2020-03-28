@@ -10,7 +10,6 @@ public class Main {
         System.out.println("Menu");
         System.out.println("1.Eskimo moves to stable tile");
         System.out.println("2.Eskimo moves to unstable tile");
-        //lehet akk itt meg kene kerdezni h tobben allnak e rajta mint amennyit elbir
         System.out.println("3.Eskimo drowns");
         System.out.println("4.Eskimo freezes");
         System.out.println("5.Eskimo uses diving suit");
@@ -37,7 +36,6 @@ public class Main {
                 Tile t1 = new Tile();
                 Tile t2 = new Tile();
                 e.setMyTile(t2);
-
                 e.move(t1);
                 break;
             }
@@ -47,7 +45,6 @@ public class Main {
                 Unstable t1 = new Unstable();
                 Tile t2 = new Tile();
                 e.setMyTile(t2);
-
                 e.move(t1);
                 break;
             }

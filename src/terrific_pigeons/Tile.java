@@ -17,7 +17,10 @@ public class Tile {
      * Megnöveli a jégtáblán lévő hó mennyiségét.
      * @param snow Ennyivel növeli a havat
      * */
-    public void addSnow(int snow) {}
+    public void addSnow(int snow)
+    {
+        System.out.println("t <- m");
+    }
 
     /*
      * Csökenti a jégtáblán lévő hó mennyiségét.
