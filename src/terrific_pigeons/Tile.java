@@ -8,6 +8,11 @@ public class Tile {
     protected Player[] players;
     private Tile[] neighbours;
 
+    public void Tile()
+    {
+        System.out.println("Tile created");
+    }
+
     /*
      * Megnöveli a jégtáblán lévő hó mennyiségét.
      * @param snow Ennyivel növeli a havat

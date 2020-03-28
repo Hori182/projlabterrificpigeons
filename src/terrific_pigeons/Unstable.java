@@ -5,6 +5,11 @@ import java.util.Scanner;
 public class Unstable extends Tile{
     private int limit;
 
+    public void Unstable()
+    {
+        System.out.println("Unstable tile created");
+    }
+
     /**/
     public void turnOver()
     {
@@ -37,7 +42,6 @@ public class Unstable extends Tile{
         this.limit = limit;
     }
 
-    @Override
     public void moveRequest(Player p)
     {
         System.out.println("t1 -> getTile(e) -> e");
