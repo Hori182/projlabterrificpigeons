@@ -16,7 +16,6 @@ public abstract class Player {
     public void move(Tile t)
     {
         System.out.println("-> move(t1) -> e");
-        System.out.println("e -> moveRequest(e) -> t1");
         t.moveRequest(this);
         System.out.println("<- e");
     }
@@ -50,7 +49,6 @@ public abstract class Player {
         System.out.println("e -> setWork(4) -> e");
         System.out.println("e <- e");
         System.out.println("<- e");
-
     }
 
     /*
@@ -119,6 +117,7 @@ public abstract class Player {
     * */
     public Tile getTile()
     {
+        System.out.println("t1 -> getTile(e) -> e");
         System.out.println("t1 <- t2 <- e");
         return myTile;
     }
@@ -128,6 +127,8 @@ public abstract class Player {
     * */
     public void setMyTile(Tile t)
     {
+        System.out.println("t1 -> setMyTile(e) -> e");
+        System.out.println("t1 <- e");
         this.myTile = t;
     }
 

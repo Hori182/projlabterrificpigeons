@@ -23,7 +23,8 @@ public class Tile {
      * */
     public void addSnow(int sn)
     {
-        snow+=sn;
+        System.out.println("m -> AddSnow(1) -> t");
+        setSnow(sn+snow);
         System.out.println("m <- t");
     }
 
@@ -38,6 +39,8 @@ public class Tile {
      * */
     public void receive(Player p)
     {
+        System.out.println("t1 -> Receive(e) -> t1");
+        System.out.println("t1 <- t1");
         players.add(p);
     }
 
@@ -47,6 +50,7 @@ public class Tile {
      * */
     public void remove(Player p)
     {
+        System.out.println("t1 -> remove(e) -> t2");
         System.out.println("t1 <- t2");
     }
 
@@ -56,16 +60,16 @@ public class Tile {
      * */
     public void moveRequest(Player p)
     {
-        System.out.println("t1 -> getTile(e) -> e");
+        System.out.println("e -> moveRequest(e) -> t1");
+
         Tile t2 = p.getTile();
-        System.out.println("t1 -> remove(e) -> t2");
+
         t2.remove(p);
-        System.out.println("t1 -> setMyTile(e) -> e");
+
         p.setMyTile(this);
-        System.out.println("t1 <- e");
-        System.out.println("t1 -> Receive(e) -> t1");
+
         this.receive(p);
-        System.out.println("t1 <- t1");
+
         System.out.println("e <- t1");
     }
 
@@ -90,6 +94,7 @@ public class Tile {
     * @param snow: A snow változót ezzel az értékkel írja felül.
     */
     public void setSnow(int snow) {
+        System.out.println("t -> setSnow(snow+1) -> t");
         this.snow = snow;
     }
 
@@ -109,7 +114,7 @@ public class Tile {
      */
     public boolean getSafe()
     {
-        System.out.println("? <- t");
+        System.out.println("m -> getSafe() -> t");
         return safe;
     }
 

@@ -16,12 +16,16 @@ public class Map {
     * */
     public void snowStorm()
     {
+        System.out.println("-> snowstorm() -> m");
         for( Tile t : tiles)
         {
+           // Player p1()
             t.addSnow(1);
+            System.out.println("m -> getPlayers() -> t");
+            System.out.println("m <- players <- t");
             for( Player p : t.getPlayers())
             {
-                //p.subLife();
+               // p.subLife(1);
             }
         }
 
