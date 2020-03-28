@@ -40,34 +40,34 @@ public class Main {
                 Tile t2 = new Tile();
                 System.out.println("Tile created");
                 e.setMyTile(t2);
+
                 e.move(t1);
                 break;
             }
             case 2:
             {
                 Eskimo e = new Eskimo();
-                System.out.println("Eskimo e created");
                 Unstable t1 = new Unstable();
-                System.out.println("Unstable tile created");
                 Tile t2 = new Tile();
-                System.out.println("Tile created");
                 e.setMyTile(t2);
+
                 e.move(t1);
                 break;
             }
             case 9:
             {
                 Eskimo e = new Eskimo();
-                System.out.println("Eskimo e created");
                 Tile t = new Tile();
-                System.out.println("Tile t created");
                 e.setMyTile(t);
-                e.build();
 
+                e.build();
+                break;
+            }
+            case 10:
+            {
+               Researcher r = new Researcher();
             }
         }
-
-
 
     }
 

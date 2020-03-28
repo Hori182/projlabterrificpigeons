@@ -1,8 +1,10 @@
 package terrific_pigeons;
 
-public class Resercher extends Player {
+public class Researcher extends Player {
 
     private int life = 4;
+
+    public Researcher(){System.out.println("Researcher created");}
 
     /*
      * Megnézi, hogy az adott táblának mennyi a teherbírása.
