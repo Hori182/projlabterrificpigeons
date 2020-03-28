@@ -3,8 +3,8 @@ package terrific_pigeons;
 public class Tile {
 
     protected int snow;
-    protected boolean safe;
-    protected int limit;
+    protected boolean safe = false;
+    protected int limit = 666;
     protected Thing thing;
     protected Player[] players;
     private Tile[] neighbours;

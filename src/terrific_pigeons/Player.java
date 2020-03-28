@@ -8,7 +8,6 @@ public abstract class Player {
     protected Thing[] things;
     protected boolean inWater = false;
 
-
     /*Ez a függvény felel a Player egyik tile-ról
      * a másikra való mozgatásáért.
      * @param t A jégtábla amire a játékos lép.

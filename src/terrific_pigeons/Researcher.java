@@ -4,7 +4,10 @@ public class Researcher extends Player {
 
     private int life = 4;
 
-    public Researcher(){System.out.println("Researcher created");}
+    public Researcher()
+    {
+        System.out.println("Researcher created");
+    }
 
     /*
      * A kutató elvégez egy munkát, ezzel munkamennyisége

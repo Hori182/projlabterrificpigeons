@@ -6,7 +6,7 @@ public class Eskimo extends Player {
 
     public Eskimo()
     {
-        System.out.println("Eskimo e created");
+        System.out.println("Eskimo created");
     }
 
     /*

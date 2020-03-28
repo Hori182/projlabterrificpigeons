@@ -4,9 +4,11 @@ import java.util.Scanner;
 
 public class Unstable extends Tile{
 
+    private int limit = 0;
+
     public Unstable()
     {
-        System.out.println("Unstable tile created");
+        System.out.println("Unstabile tile created"+limit);
     }
 
     /*
