@@ -52,6 +52,15 @@ public class Main {
                 e.move(t1);
                 break;
             }
+            case 9:
+            {
+                Eskimo e = new Eskimo();
+                System.out.println("Eskimo e created");
+                Tile t = new Tile();
+                System.out.println("Tile t created");
+                e.setMyTile(t);
+
+            }
         }
 
 
