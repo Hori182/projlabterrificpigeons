@@ -39,6 +39,14 @@ public class Main {
                 e.setMyTile(t2);
                 e.move(t1);
             }
+            case 2:
+            {
+                Eskimo e = new Eskimo();
+                Unstable t1 = new Unstable();
+                Tile t2 = new Tile();
+                e.setMyTile(t2);
+                e.move(t1);
+            }
         }
 
 

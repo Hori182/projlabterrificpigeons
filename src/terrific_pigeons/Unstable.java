@@ -1,13 +1,32 @@
 package terrific_pigeons;
 
+import java.util.Scanner;
+
 public class Unstable extends Tile{
     private int limit;
 
     /**/
-    public void turnOver() {}
+    public void turnOver()
+    {
+        System.out.println("t1 -> setInWater(true) -> e");
+        System.out.println("t1 <- e");
+        System.out.println("t1 -> pass() -> e");
+        System.out.println("t1 <- e");
+        System.out.println("turnOver() vége");
+    }
 
     /**/
-    public void check() {}
+    public void check()
+    {
+        System.out.println("Többen állnak rajta mint kéne (1: igen, 0: nem )");
+        System.out.print("Please choose: ");
+        Scanner input = new Scanner( System.in );
+        int choice = input.nextInt();
+        if(choice == 1) {
+            System.out.println("t1 -> turnOver() -> t1");
+            this.turnOver();
+        }
+    }
 
     /**/
     public int getLimit() {
@@ -16,5 +35,21 @@ public class Unstable extends Tile{
     /**/
     public void setLimit(int limit) {
         this.limit = limit;
+    }
+
+    @Override
+    public void moveRequest(Player p)
+    {
+        System.out.println("t1 -> getTile(e) -> e");
+        Tile t2 = p.getTile();
+        System.out.println("t1 -> remove(e) -> t2");
+        t2.Remove(p);
+        System.out.println("t1 -> setMyTile(e) -> e");
+        p.setMyTile(this);
+        System.out.println("t1 <- e");
+        System.out.println("t1 -> Receive(e) -> t1");
+        System.out.println("t1 -> check(e) -> t1");
+        this.check();
+        System.out.println("e <- t1");
     }
 }
