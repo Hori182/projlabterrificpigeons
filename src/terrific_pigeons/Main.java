@@ -48,36 +48,44 @@ public class Main {
                 e.move(t1);
                 break;
             }
+            case 6: {
+                Food f = new Food();
+                Eskimo e = new Eskimo();
+                f.owner = e;
+                f.useThing();
+                break;
+            }
             case 9:
             {
                 Eskimo e = new Eskimo();
                 Tile t = new Tile();
                 e.setMyTile(t);
-
                 e.build();
                 break;
             }
             case 10:
             {
                Researcher r = new Researcher();
-               System.out.println(r.getLife());
                Tile t1 = new Tile();
                Tile t2 = new Tile();
                r.setMyTile(t1);
-
                r.look(t2);
+               break;
             }
-            case 14:
+            case 11:
             {
                 Eskimo e = new Eskimo();
                 Tile t = new Tile();
-                Map m = new Map();
-                m.getTiles().add(t);
-                e.setMyTile(t);
-                t.receive(e);
-
-                m.snowStorm();
+                t.Receive(e);
+                e.myTile = t;
+                e.dig();
             }
+            case 12:
+            {
+                Eskimo e = new Eskimo();
+                e.pass();
+            }
+
         }
 
     }

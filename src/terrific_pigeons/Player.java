@@ -8,6 +8,7 @@ public abstract class Player {
     protected Thing[] things;
     protected boolean inWater = false;
 
+
     /*Ez a függvény felel a Player egyik tile-ról
      * a másikra való mozgatásáért.
      * @param t A jégtábla amire a játékos lép.
@@ -24,7 +25,9 @@ public abstract class Player {
      * A játékos lelapátol egy egység havat a
      * saját jégtáblájáról.
      * */
-    public void dig() {}
+    public void dig() {
+        
+    }
 
     /*
      * A játékos használja valamelyik tárgyát.
@@ -35,7 +38,13 @@ public abstract class Player {
     /*
      * A játékos elpasszolja a körét, nem él az összes lépésével.
      * */
-    public void pass() {}
+    public void pass() {
+        System.out.println("-> pass() -> e");
+        this.setWork(4);
+        System.out.println("e -> setWork(4) -> e");
+        System.out.println("<- e");
+
+    }
 
     /*
      * A játékos meghal.
@@ -68,16 +77,15 @@ public abstract class Player {
     /*
      * Növeli az életerőt eggyel.
      * */
-    public void addLife() {}
+    public void addLife() {
+        System.out.println("f <- e");
+    }
+
 
     /*
      * Csökkenti az életerőt eggyel.
      * */
-    public void subLife()
-    {
-        if (!this.myTile.getSafe()) this.setLife(this.getLife()-1);
-
-    }
+    public void subLife(int i) {}
 
     /*
     * Visszaadja a work változó értékét.
@@ -93,7 +101,6 @@ public abstract class Player {
     public void setWork(int work)
     {
         this.work = work;
-        System.out.println("p <- p");
     }
 
     /*
@@ -108,8 +115,8 @@ public abstract class Player {
     * Beáálítja a myTile változó értékét.
     * @param t: Ez a myTile változó új értéke.
     * */
-    public void setMyTile(Tile t) {
-
+    public void setMyTile(Tile t)
+    {
         this.myTile = t;
     }
 
@@ -147,18 +154,4 @@ public abstract class Player {
         this.inWater = inWater;
     }
 
-    /*
-     * Visszaadja, hogy jelenleg hány élete van.
-     */
-    public int getLife() {
-        return life;
-    }
-
-    /*
-     * Beállítja a life attribútum új értékét.
-     * @param life: élet - a life új értéke
-     */
-    public void setLife(int life) {
-        this.life = life;
-    }
 }
