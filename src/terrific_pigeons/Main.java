@@ -48,7 +48,7 @@ public class Main {
                 e.move(t1);
                 break;
             }
-            case 7: {
+            case 6: {
                 Food f = new Food();
                 Eskimo e = new Eskimo();
                 f.owner = e;
