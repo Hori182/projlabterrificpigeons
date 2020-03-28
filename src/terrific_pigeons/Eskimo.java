@@ -18,6 +18,9 @@ public class Eskimo extends Player {
         System.out.println("-> build() -> e");
         System.out.println("e -> setSafe(true) -> t1");
         myTile.setSafe(true);
+        System.out.println("e <- t1");
+        System.out.println("e -> work() -> e");
+        work();
         System.out.println("<- e");
     }
 

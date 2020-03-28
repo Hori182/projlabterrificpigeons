@@ -7,7 +7,12 @@ public class Map {
     /*
     * ??
     * */
-    public void snowStorm() {}
+    public void snowStorm()
+    {
+        System.out.println("-> snowstorm() -> m");
+        System.out.println("-> snowstorm() -> m");
+
+    }
 
     /*
     * Visszaadja a tile-okat, amik a Map-ot alkotjak.
