@@ -21,7 +21,7 @@ public class Map {
             t.addSnow(1);
             for( Player p : t.getPlayers())
             {
-                p.subLife();
+                //p.subLife();
             }
         }
 

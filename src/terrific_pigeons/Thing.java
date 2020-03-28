@@ -12,4 +12,10 @@ public class Thing {
      * függvény viselkedése változik.
      */
     protected void useThing() {}
+
+    protected void setOwner(Player p)
+    {
+        System.out.println("e <- shovel");
+       this.owner = p;
+    }
 }

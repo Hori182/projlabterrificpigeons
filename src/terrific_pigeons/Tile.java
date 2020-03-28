@@ -6,7 +6,7 @@ public class Tile {
 
     protected int snow;
     protected boolean safe = false;
-    protected int limit = 666;
+    protected int limit = 100;
     protected Thing thing;
     protected ArrayList<Player> players;
     private Tile[] neighbours;
@@ -71,7 +71,11 @@ public class Tile {
     /*
      * Eltávolítja a mezőn lévő tárgyat.
      */
-    public void removeThing() {}
+    public void removeThing()
+    {
+        System.out.println("e <- t");
+        this.thing = null;
+    }
 
     /*
     *Visszaadja a tile-on lévő hó mennyiségét.
@@ -138,5 +142,11 @@ public class Tile {
     public ArrayList<Player> getPlayers()
     {
         return players;
+    }
+
+    public Thing getThing()
+    {
+        System.out.println("e <- shovel <- t");
+        return thing;
     }
 }

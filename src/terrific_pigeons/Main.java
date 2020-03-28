@@ -20,7 +20,7 @@ public class Main {
         System.out.println("10.Researcher scans tile");
         System.out.println("11.Eskimo digs");
         System.out.println("12.Eskimo pass");
-        System.out.println("13.Eskimo equips thing");
+        System.out.println("13.Eskimo equips shovel");
         System.out.println("14.Snowstorm catches player");
         System.out.println("15.Snowstorm comes, player safe in iglu\n");
 
@@ -85,6 +85,17 @@ public class Main {
             {
                 Eskimo e = new Eskimo();
                 e.pass();
+                break;
+            }
+            case 13:
+            {
+                Eskimo e = new Eskimo();
+                Tile t = new Tile();
+                Shovel shovel = new Shovel();
+                e.setMyTile(t);
+                t.thing = shovel;
+                e.equip();
+                break;
             }
 
         }

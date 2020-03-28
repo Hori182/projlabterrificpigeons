@@ -48,6 +48,7 @@ public abstract class Player {
         System.out.println("-> pass() -> e");
         this.setWork(4);
         System.out.println("e -> setWork(4) -> e");
+        System.out.println("e <- e");
         System.out.println("<- e");
 
     }
@@ -66,7 +67,11 @@ public abstract class Player {
      * Az adott tárgy bekerül a játékos tárgyai közé.
      * @param t A berakott tárgy.
      * */
-    public void addThing(Thing t) {}
+    public void addThing(Thing t)
+    {
+        //things.add(t);
+        System.out.println("e <- e");
+    }
 
     /*
      * Az adott tárgy kikerül a játékos tárgyai közül.

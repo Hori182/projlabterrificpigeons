@@ -8,5 +8,6 @@ public class Game {
 
     public void startGame(){}
     public void nextPlayer(){}
+    public void assemble(){}
     public void endGame(){}
 }

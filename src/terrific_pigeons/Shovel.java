@@ -5,6 +5,8 @@ package terrific_pigeons;
  * Ennek a tárgynak a segítségével 2 egységnyi havat tud eltávolítani a játékos.
  */
 public class Shovel extends Thing{
+
+    public Shovel(){System.out.println("Shovel created");}
     /*
      * Két egységnyi havat lapátol el a játékos a saját
      * jégtáblájáról.
