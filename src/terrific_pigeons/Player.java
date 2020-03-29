@@ -15,7 +15,7 @@ public abstract class Player {
      */
     public void move(Tile t)
     {
-        System.out.println("-> move(t1) -> e");
+        System.out.println("-> move(" + t + ") -> e");
         t.moveRequest(this);
         System.out.println("<- e");
     }
