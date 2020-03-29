@@ -1,7 +1,6 @@
 package terrific_pigeons;
 
 public abstract class Player {
-    /*???????A life kell egyáltalán ide??????*/
     protected int life;
     protected int work = 0;
     protected Tile myTile;
