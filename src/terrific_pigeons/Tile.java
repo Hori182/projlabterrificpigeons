@@ -176,4 +176,9 @@ public class Tile {
 
     public void setName(String s){this.name = s;}
     public String getName(){return this.name;}
+
+    public void addNeighbour(Tile t)
+    {
+        neighbours.add(t);
+    }
 }
