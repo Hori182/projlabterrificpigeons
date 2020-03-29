@@ -119,6 +119,7 @@ public class Tile {
     public boolean getSafe()
     {
         System.out.println("m -> getSafe() -> t");
+        System.out.println("m <- t");
         return safe;
     }
 

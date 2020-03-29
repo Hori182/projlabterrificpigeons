@@ -120,6 +120,7 @@ public class Main {
                     Map m = new Map();
                     Eskimo e = new Eskimo();
                     Tile t = new Tile();
+                    t.setName("t");
                     e.setMyTile(t);
                     t.receive(e);
                     m.addTile(t);
