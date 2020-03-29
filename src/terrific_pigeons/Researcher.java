@@ -27,7 +27,6 @@ public class Researcher extends Player {
     public void look(Tile t)
     {
         System.out.println("-> look(t) -> r");
-        System.out.println("r -> getLimit() -> t");
         t.getLimit();
         System.out.println("<- limit <- r");
     }

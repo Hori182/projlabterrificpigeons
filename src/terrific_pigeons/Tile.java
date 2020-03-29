@@ -138,6 +138,9 @@ public class Tile {
      */
     public int getLimit()
     {
+
+        System.out.println("r -> getLimit() -> t");
+
         System.out.println("r <- limit <- t");
         return limit;
     }
