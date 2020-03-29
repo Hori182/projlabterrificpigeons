@@ -59,13 +59,12 @@ public class Unstable extends Tile{
      * */
     public void moveRequest(Player p)
     {
-        System.out.println("t1 -> getTile(e) -> e");
         Tile t2 = p.getTile();
-        System.out.println("t1 -> remove(e) -> t2");
+
         t2.remove(p);
-        System.out.println("t1 -> setMyTile(e) -> e");
+
         p.setMyTile(this);
-        System.out.println("t1 <- e");
+
         System.out.println("t1 -> Receive(e) -> t1");
         System.out.println("t1 -> check(e) -> t1");
         this.check();
