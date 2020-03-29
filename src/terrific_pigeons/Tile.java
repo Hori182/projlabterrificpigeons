@@ -24,7 +24,7 @@ public class Tile {
      * */
     public void addSnow(int sn)
     {
-        System.out.println("m -> AddSnow(1) -> t");
+        System.out.println("m -> AddSnow(1) -> " + this.getName());
         setSnow(sn+snow);
         System.out.println("m <- t");
     }
@@ -44,8 +44,8 @@ public class Tile {
      * */
     public void receive(Player p)
     {
-        System.out.println("t1 -> Receive(e) -> t1");
-        System.out.println("t1 <- t1");
+        System.out.println(this.getName() + " -> Receive(e) -> " + this.getName() );
+        System.out.println(this.getName() + " <-" + this.getName());
         players.add(p);
     }
 
@@ -96,9 +96,9 @@ public class Tile {
     */
     public void setSnow(int snow)
     {
-        System.out.println("t -> setSnow(" + snow + ") -> t");
+        System.out.println(this.getName() + " -> setSnow(" + snow + ") -> " + this.getName());
         this.snow = snow;
-        System.out.println("t <- t");
+        System.out.println(this.getName() + " <- " + this.getName());
     }
 
     /*
@@ -130,7 +130,7 @@ public class Tile {
     public void setSafe(boolean s)
     {
         System.out.println("e -> setSafe(true) -> t");
-        safe=s;
+        this.safe=s;
         System.out.println("e <- t");
     }
 
@@ -151,7 +151,7 @@ public class Tile {
      */
     public void setLimit(int l)
     {
-        System.out.println("? <- t");
+        System.out.println("<- t");
         limit= l;
     }
 

@@ -19,7 +19,7 @@ public class Unstable extends Tile{
         System.out.println("t1 -> setInWater(true) -> e");
         System.out.println("t1 <- e");
         System.out.println("t1 -> pass() -> e");
-        //pass()
+        players.get(0).pass();
         System.out.println("t1 <- e");
     }
 

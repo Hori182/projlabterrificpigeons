@@ -16,7 +16,7 @@ public abstract class Player {
      */
     public void move(Tile t)
     {
-        System.out.println("-> move(t1) -> e");
+        System.out.println("-> move("+ t.getName()+") -> e");
         t.moveRequest(this);
         System.out.println("<- e");
     }
@@ -26,7 +26,6 @@ public abstract class Player {
      * saját jégtáblájáról.
      * */
     public void dig() {
-        //ezt jelölni kéne hogy ez a myTile????? vagy mindegy
         myTile.subSnow(1);
         work();
         System.out.println("<- e");
@@ -113,7 +112,7 @@ public abstract class Player {
      * */
     public void subLife()
     {
-        System.out.println("m -> subLife() -> p");
+        System.out.println("m -> subLife() -> e");
         if (!this.myTile.getSafe())
         {
             if(this.getLife()-1 > 1) {
