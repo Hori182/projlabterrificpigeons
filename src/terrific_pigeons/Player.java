@@ -111,6 +111,7 @@ public abstract class Player {
     {
         this.work = work;
         System.out.println("e -> setWork(" + work + ") -> e");
+        System.out.println("e <- e");
     }
 
     /*
