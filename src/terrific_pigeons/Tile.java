@@ -128,8 +128,9 @@ public class Tile {
      */
     public void setSafe(boolean s)
     {
-        System.out.println("e <- t");
+        System.out.println("e -> setSafe(true) -> t");
         safe=s;
+        System.out.println("e <- t");
     }
 
     /*
