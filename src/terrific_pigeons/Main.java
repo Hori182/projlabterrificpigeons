@@ -118,6 +118,14 @@ public class Main {
                     break;
                 }
                 //MEGVAN
+                case 5:
+                {
+                    Eskimo e = new Eskimo();
+                    Unstable u = new Unstable();
+                    Tile t = new Tile();
+                    break;
+                }
+
                 case 6: {
                     Food f = new Food();
                     Eskimo e = new Eskimo();
