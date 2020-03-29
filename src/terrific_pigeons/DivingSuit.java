@@ -8,7 +8,13 @@ public class DivingSuit extends Thing{
      * Vízbe esés esetén életben tartja a játékost,
      * amíg ki nem mentik.
      */
-    public void UseThing() {}
+    public void useThing()
+    {
+        if (this.owner.getInWater()==true)
+        {
+            this.owner.getTile();
+        }
+    }
 }
 
 //RANDOM KOMMENT BY ARNOLD

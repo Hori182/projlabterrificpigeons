@@ -8,14 +8,13 @@ public class Tile {
     protected boolean safe = false;
     protected int limit = 100;
     protected Thing thing;
-    protected ArrayList<Player> players;
-    private Tile[] neighbours;
+    protected ArrayList<Player> players = new ArrayList<>();
+    private ArrayList<Tile> neighbours = new ArrayList<>();
     //csak a szkeletonhot hoztuk létre ezt a változót
     private String name;
 
     public Tile()
     {
-        players = new ArrayList<>();
         System.out.println("Tile created");
     }
 
@@ -105,11 +104,11 @@ public class Tile {
     /*
     * Visszaadja az adott tile szomszédait.
     */
-    public Tile[] getNeighbours() {
+    public ArrayList<Tile> getNeighbours() {
         return neighbours;
     }
     /*Ez nemtomkelle*/
-    public void setNeighbours(Tile[] neighbours) {
+    public void setNeighbours(ArrayList<Tile> neighbours) {
         this.neighbours = neighbours;
     }
 
