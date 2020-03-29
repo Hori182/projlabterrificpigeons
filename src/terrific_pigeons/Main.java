@@ -117,6 +117,7 @@ public class Main {
                     g.nextPlayer();
                     break;
                 }
+                //MEGVAN
                 case 4:
                 {
                     Map m = new Map();
@@ -161,10 +162,12 @@ public class Main {
                     f.useThing();
                     break;
                 }
+                //MEGVAN
                 case 9:
                 {
                     Eskimo e = new Eskimo();
                     Tile t = new Tile();
+                    t.setName("t");
                     e.setMyTile(t);
                     e.build();
                     break;
