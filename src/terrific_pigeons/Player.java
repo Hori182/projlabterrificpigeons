@@ -94,7 +94,7 @@ public abstract class Player {
     public void work()
     {
         System.out.println("e -> work() -> e");
-        this.setWork(1);
+        this.setWork(this.work + 1);
         System.out.println("e <- e");
     }
 
