@@ -124,6 +124,7 @@ public class Main {
                     m.addTile(t);
 
                     m.snowStorm();
+                    break;
                 }
                 case 16:
                 {
