@@ -94,7 +94,7 @@ public abstract class Player {
     /*
      * Csökkenti az életerőt eggyel.
      * */
-    public void subLife(int i) {}
+    public void subLife() {}
 
     /*
     * Visszaadja a work változó értékét.
