@@ -105,8 +105,8 @@ public class Tile {
     * Visszaadja az adott tile szomszédait.
     */
     public ArrayList<Tile> getNeighbours() {
-        System.out.println("divingsuit -> getNeighbours() -> t");
-        System.out.println("divingsuit <- t");
+        System.out.println("divingsuit -> getNeighbours() -> "+this.getName());
+        System.out.println("divingsuit <- neighbours <- "+this.getName());
         return neighbours;
     }
     /*Ez nemtomkelle*/

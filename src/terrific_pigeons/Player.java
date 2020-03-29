@@ -6,7 +6,7 @@ public abstract class Player {
     protected int life;
     protected int work = 0;
     protected Tile myTile;
-    protected ArrayList<Thing> things = new ArrayList<Thing>();
+    protected ArrayList<Thing> things = new ArrayList<>();
     protected boolean inWater = false;
 
 
@@ -115,7 +115,7 @@ public abstract class Player {
     public void subLife()
     {
         System.out.println("m -> subLife() -> p");
-        if (this.myTile.getSafe()==false)
+        if (!this.myTile.getSafe())
         {
             setLife(this.getLife()-1);
         }
@@ -148,7 +148,7 @@ public abstract class Player {
     public Tile getTile()
     {
         System.out.println("t1 -> getTile(e) -> e");
-        System.out.println("t1 <- t2 <- e");
+        System.out.println("t1 <- "+this.myTile.getName()+" <- e");
         return myTile;
     }
     /*
