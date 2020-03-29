@@ -2,10 +2,9 @@ package terrific_pigeons;
 
 public class Researcher extends Player {
 
-    private int life = 4;
-
     public Researcher()
     {
+        life=4;
         System.out.println("Researcher created");
     }
 
