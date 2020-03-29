@@ -30,19 +30,5 @@ public class Researcher extends Player {
         t.getLimit();
         System.out.println("<- limit <- r");
     }
-    /*
-     * Visszaadja, hogy jelenleg hány élete van.
-     */
-    public int getLife() {
-        return life;
-    }
-
-    /*
-     * Beállítja a life attribútum új értékét.
-     * @param life: élet - a life új értéke
-     */
-    public void setLife(int life) {
-        this.life = life;
-    }
 
 }

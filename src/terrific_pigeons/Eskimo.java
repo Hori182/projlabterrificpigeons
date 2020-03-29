@@ -29,19 +29,8 @@ public class Eskimo extends Player {
         System.out.println("e -> work() -> e");
         this.setWork(work+1);
 
-    }
-    /*
-     * Visszaadja, hogy jelenleg hány élete van.
-     */
-    public int getLife() {
-        return life;
+        System.out.println("e <- e");
+
     }
 
-    /*
-     * Beállítja a life attribútum új értékét.
-     * @param life: élet - a life új értéke
-     */
-    public void setLife(int life) {
-        this.life = life;
-    }
 }

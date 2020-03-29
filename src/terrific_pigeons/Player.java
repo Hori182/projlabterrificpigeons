@@ -109,7 +109,15 @@ public abstract class Player {
     /*
      * Csökkenti az életerőt eggyel.
      * */
-    public void subLife() {}
+    public void subLife()
+    {
+        System.out.println("m -> subLife() -> p");
+        if (this.myTile.getSafe()==false)
+        {
+            setLife(life-1);
+        }
+        System.out.println("m <- p");
+    }
 
     /*
     * Visszaadja a work változó értékét.
@@ -171,4 +179,18 @@ public abstract class Player {
         this.inWater = inWater;
     }
 
+    /*
+     * Visszaadja, hogy jelenleg hány élete van.
+     */
+    public int getLife() {
+        return life;
+    }
+
+    /*
+     * Beállítja a life attribútum új értékét.
+     * @param life: élet - a life új értéke
+     */
+    public void setLife(int life) {
+        this.life = life;
+    }
 }

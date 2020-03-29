@@ -92,8 +92,9 @@ public class Main {
                 {
                     Eskimo e = new Eskimo();
                     Tile t = new Tile();
+                    t.setName("t1");
                     t.receive(e);
-                    e.myTile = t;
+                    e.setMyTile(t);
                     e.dig();
                     break;
                 }
@@ -113,6 +114,17 @@ public class Main {
                     t.setThing(shovel);
                     e.equip();
                     break;
+                }
+                case 14:
+                {
+                    Map m = new Map();
+                    Eskimo e = new Eskimo();
+                    Tile t = new Tile();
+                    e.setMyTile(t);
+                    t.receive(e);
+                    m.addTile(t);
+
+                    m.snowStorm();
                 }
                 case 16:
                 {

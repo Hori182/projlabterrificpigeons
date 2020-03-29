@@ -25,9 +25,9 @@ public class Tile {
      * */
     public void addSnow(int sn)
     {
-        System.out.println("m -> AddSnow(1) -> " + this.getName());
+        System.out.println("m -> AddSnow(1) -> t");
         setSnow(sn+snow);
-        System.out.println("m <- " + this.getName());
+        System.out.println("m <- t");
     }
 
     /*
@@ -95,7 +95,8 @@ public class Tile {
     *A snow változó értékét megváltoztatja.
     * @param snow: A snow változót ezzel az értékkel írja felül.
     */
-    public void setSnow(int snow) {
+    public void setSnow(int snow)
+    {
         System.out.println("t -> setSnow(" + snow + ") -> t");
         this.snow = snow;
         System.out.println("t <- t");
