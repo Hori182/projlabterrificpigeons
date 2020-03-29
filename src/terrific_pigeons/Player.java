@@ -188,8 +188,11 @@ public abstract class Player {
     * Beállítja az inWater értékét.
     * @param inWater: Ezzel az értékkel írja felül az inWater értékét.
     * */
-    public void setInWater(boolean inWater) {
+    public void setInWater(boolean inWater)
+    {
+        System.out.println("t1 -> setInWater(true) -> e");
         this.inWater = inWater;
+        System.out.println("t1 <- e");
     }
 
     /*

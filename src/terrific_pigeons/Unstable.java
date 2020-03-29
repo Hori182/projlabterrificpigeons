@@ -16,12 +16,10 @@ public class Unstable extends Tile{
     * */
     public void turnOver()
     {
-        System.out.println("t1 -> setInWater(true) -> e");
+        System.out.println(this.getName() + " -> trunOver() ->" + this.getName());
         //this.getPlayers().get(0).setInWater(true);
-        System.out.println("t1 <- e");
-        System.out.println("t1 -> pass() -> e");
         //this.getPlayers().get(0).pass();
-        System.out.println("t1 <- e");
+        System.out.println(this.getName() + " <- " + this.getName());
     }
 
     /*
