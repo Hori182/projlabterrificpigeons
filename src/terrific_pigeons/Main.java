@@ -193,6 +193,7 @@ public class Main {
                     e.dig();
                     break;
                 }
+                // KÉSZ
                 case 12:
                 {
                     Eskimo e = new Eskimo();
@@ -211,6 +212,7 @@ public class Main {
                     e.equip();
                     break;
                 }
+                // MEGVAN
                 case 14:
                 {
                     Map m = new Map();
