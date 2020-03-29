@@ -20,11 +20,18 @@ public class Map {
         for( Tile t : tiles)
         {
             t.addSnow(1);
-            for( Player p : t.getPlayers())
+            ArrayList<Player> temp = t.getPlayers();
+            for( Player p : temp)
             {
+                p.subLife();
             }
         }
+        System.out.println("<- m");
+    }
 
+    public void addTile(Tile t)
+    {
+        tiles.add(t);
     }
 
     /*

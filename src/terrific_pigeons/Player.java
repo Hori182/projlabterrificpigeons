@@ -94,7 +94,15 @@ public abstract class Player {
     /*
      * Csökkenti az életerőt eggyel.
      * */
-    public void subLife() {}
+    public void subLife()
+    {
+        System.out.println("m -> subLife() -> p");
+        if (this.myTile.getSafe()==false)
+        {
+            setLife(life-1);
+        }
+        System.out.println("m <- p");
+    }
 
     /*
     * Visszaadja a work változó értékét.
