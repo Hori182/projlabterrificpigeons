@@ -43,6 +43,7 @@ public class Main {
                     Tile t2 = new Tile();
                     t2.setName("t2");
                     e.setMyTile(t2);
+                    System.out.println("\n");
                     e.move(t1);
                     break;
                 }
@@ -55,6 +56,7 @@ public class Main {
                     t2.setName("t2");
                     e.setMyTile(t2);
                     System.out.println("t1 is unstable");
+                    System.out.println("\n");
                     e.move(t1);
                     break;
                 }
@@ -68,10 +70,13 @@ public class Main {
                     g.nextPlayer();
                     break;
                 }
+                //MEGVAN
                 case 6: {
                     Food f = new Food();
                     Eskimo e = new Eskimo();
-                    f.owner = e;
+                    e.setWork(0);
+                    f.setOwner(e);
+                    System.out.println("\n");
                     f.useThing();
                     break;
                 }
@@ -124,8 +129,24 @@ public class Main {
                 {
                     Map m = new Map();
                     Eskimo e = new Eskimo();
+                    System.out.println("Life: "+e.getLife());
                     Tile t = new Tile();
                     t.setName("t");
+                    e.setMyTile(t);
+                    t.receive(e);
+                    m.addTile(t);
+
+                    m.snowStorm();
+                    break;
+                }
+                case 15:
+                {
+                    Map m = new Map();
+                    Eskimo e = new Eskimo();
+                    System.out.println("Life: "+e.getLife());
+                    Tile t = new Tile();
+                    t.setName("t");
+                    t.setSafe(true);
                     e.setMyTile(t);
                     t.receive(e);
                     m.addTile(t);

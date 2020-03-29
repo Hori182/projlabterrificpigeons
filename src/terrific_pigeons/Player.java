@@ -97,7 +97,7 @@ public abstract class Player {
     public void work()
     {
         System.out.println("e -> work() -> e");
-        this.setWork(1);
+        this.setWork(this.work + 1);
         System.out.println("e <- e");
     }
 
@@ -117,7 +117,7 @@ public abstract class Player {
         System.out.println("m -> subLife() -> p");
         if (this.myTile.getSafe()==false)
         {
-            setLife(life-1);
+            setLife(this.getLife()-1);
         }
         System.out.println("m <- p");
     }
