@@ -15,6 +15,7 @@ public class Thing {
 
     protected void setOwner(Player p)
     {
+        System.out.println("e-> setOwner(e) -> shovel");
         System.out.println("e <- shovel");
        this.owner = p;
     }

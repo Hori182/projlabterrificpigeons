@@ -57,7 +57,16 @@ public abstract class Player {
     /*
      * A játékos felveszi a jégtábláján lévő tárgyat.
      * */
-    public void equip() {}
+    public void equip()
+    {
+        System.out.println("-> equip() -> e");
+        Thing th = myTile.getThing();
+        th.setOwner(this);
+        addThing(th);
+        myTile.removeThing();
+        this.work();
+        System.out.println("<- e");
+    }
 
     /*
      * Az adott tárgy bekerül a játékos tárgyai közé.
@@ -65,7 +74,8 @@ public abstract class Player {
      * */
     public void addThing(Thing t)
     {
-        things.add(t);
+        System.out.println("e-> addThing(shovel) -> e");
+        this.things.add(t);
         System.out.println("e <- e");
     }
 
@@ -81,7 +91,12 @@ public abstract class Player {
      * A játékos elvégez egy munkát, ezzel munkamennyisége
      * eggyel megnő.
      * */
-    public void work() {}
+    public void work()
+    {
+        System.out.println("e -> work() -> e");
+        this.setWork(1);
+        System.out.println("e <- e");
+    }
 
     /*
      * Növeli az életerőt eggyel.
