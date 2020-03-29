@@ -122,7 +122,19 @@ public class Main {
                 {
                     Eskimo e = new Eskimo();
                     Unstable u = new Unstable();
+                    u.setName("u");
                     Tile t = new Tile();
+                    t.setName("t");
+                    e.setMyTile(u);
+                    e.setInWater(true);
+                    u.addNeighbour(t);
+
+                    DivingSuit divingsuit = new DivingSuit();
+                    divingsuit.setOwner(e);
+                    e.addThing(divingsuit);
+
+                    divingsuit.useThing();
+
                     break;
                 }
 
