@@ -92,8 +92,9 @@ public class Main {
                 {
                     Eskimo e = new Eskimo();
                     Tile t = new Tile();
+                    t.setName("t1");
                     t.receive(e);
-                    e.myTile = t;
+                    e.setMyTile(t);
                     e.dig();
                     break;
                 }
