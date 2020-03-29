@@ -10,7 +10,7 @@ public class Tile {
     protected Thing thing;
     protected ArrayList<Player> players = new ArrayList<>();
     private ArrayList<Tile> neighbours = new ArrayList<>();
-    //csak a szkeletonhot hoztuk létre ezt a változót
+    //csak a szkeletonhoz hoztuk létre ezt a változót
     private String name;
 
     public Tile()
