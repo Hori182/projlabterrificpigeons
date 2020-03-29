@@ -6,7 +6,7 @@ public abstract class Player {
     protected int life;
     protected int work = 0;
     protected Tile myTile;
-    protected ArrayList<Thing> things = new ArrayList<Thing>();
+    protected ArrayList<Thing> things = new ArrayList<>();
     protected boolean inWater = false;
 
 
@@ -114,7 +114,7 @@ public abstract class Player {
         System.out.println("m -> subLife() -> p");
         if (this.myTile.getSafe()==false)
         {
-            setLife(life-1);
+            setLife(this.getLife()-1);
         }
         System.out.println("m <- p");
     }
@@ -190,7 +190,10 @@ public abstract class Player {
      * Beállítja a life attribútum új értékét.
      * @param life: élet - a life új értéke
      */
-    public void setLife(int life) {
+    public void setLife(int life)
+    {
+        System.out.println("e -> setLife(" + life + ") -> e");
         this.life = life;
+        System.out.println("t1 <- e");
     }
 }
