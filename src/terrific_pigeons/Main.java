@@ -143,16 +143,15 @@ public class Main {
                     e.setMyTile(u);
                     e.setInWater(true);
                     u.addNeighbour(t);
-
                     DivingSuit divingsuit = new DivingSuit();
                     divingsuit.setOwner(e);
                     e.addThing(divingsuit);
+                    System.out.println(" ");
 
                     divingsuit.useThing();
-
                     break;
                 }
-
+                //KESZ
                 case 6: {
                     Food f = new Food();
                     Eskimo e = new Eskimo();
