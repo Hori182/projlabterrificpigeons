@@ -120,6 +120,7 @@ public abstract class Player {
             }
             else{
                 setLife(this.getLife()-1);
+                System.out.println("m <- t");
                 System.out.print("m -> ");
                 die();
                 System.out.print(" -> e\n");
@@ -210,6 +211,6 @@ public abstract class Player {
     {
         System.out.println("e -> setLife(" + life + ") -> e");
         this.life = life;
-        System.out.println("t1 <- e");
+        System.out.println("t <- e");
     }
 }

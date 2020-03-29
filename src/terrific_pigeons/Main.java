@@ -72,6 +72,10 @@ public class Main {
             Hovihar nem bantja a jatekost az iglu miatt
              */
             System.out.println("15.Snowstorm comes, player safe in iglu");
+            /*
+            Az eskimo használja az ásót
+            */
+            System.out.println("16. Eskimo uses shovel");
             System.out.println("16. Exit\n");
 
             System.out.print("Please choose: ");
@@ -123,7 +127,7 @@ public class Main {
                     Map m = new Map();
                     Tile t = new Tile();
                     Eskimo e = new Eskimo();
-                    t.setName("t1");
+                    t.setName("t");
                     e.setMyTile(t);
                     t.receive(e);
                     m.addTile(t);
@@ -161,6 +165,9 @@ public class Main {
                     System.out.println("\n");
                     f.useThing();
                     break;
+                }
+                case 7:{
+
                 }
                 //MEGVAN
                 case 9:
@@ -243,8 +250,16 @@ public class Main {
                     m.snowStorm();
                     break;
                 }
-                //MEGVAN
                 case 16:
+                {
+                    Shovel s = new Shovel();
+                    Eskimo e = new Eskimo();
+                    Tile t = new Tile();
+                    t.setName("t");
+                    break;
+                }
+                //MEGVAN
+                case 17:
                 {
                     exit = 1;
                 }
