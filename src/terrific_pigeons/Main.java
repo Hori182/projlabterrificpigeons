@@ -112,7 +112,7 @@ public class Main {
                     Eskimo e1 = new Eskimo();
                     e1.setWork(0);
                     e1.setInWater(true);
-                    g.setPlayers(e1,1);
+                    g.setPlayers(e1);
                     g.nextPlayer();
                     break;
                 }
