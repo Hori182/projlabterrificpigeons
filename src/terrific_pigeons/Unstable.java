@@ -21,7 +21,6 @@ public class Unstable extends Tile{
         System.out.println("t1 -> pass() -> e");
         //pass()
         System.out.println("t1 <- e");
-        System.out.println("turnOver() vége");
     }
 
     /*
