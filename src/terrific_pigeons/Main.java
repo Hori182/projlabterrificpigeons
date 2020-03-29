@@ -114,6 +114,17 @@ public class Main {
                     e.equip();
                     break;
                 }
+                case 14:
+                {
+                    Map m = new Map();
+                    Eskimo e = new Eskimo();
+                    Tile t = new Tile();
+                    e.setMyTile(t);
+                    t.receive(e);
+                    m.addTile(t);
+
+                    m.snowStorm();
+                }
                 case 16:
                 {
                     exit = 1;
