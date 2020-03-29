@@ -15,7 +15,7 @@ public abstract class Player {
      */
     public void move(Tile t)
     {
-        System.out.println("-> move(t1) -> e");
+        System.out.println("-> move(" + t + ") -> e");
         t.moveRequest(this);
         System.out.println("<- e");
     }
@@ -26,10 +26,7 @@ public abstract class Player {
      * */
     public void dig() {
         //ezt jelölni kéne hogy ez a myTile????? vagy mindegy
-        System.out.println("e -> subSnow -> t");
-        System.out.println("t -> setSnow(snow-1) -> t");
-        System.out.println("t <- t");
-        System.out.println("e <- t");
+        myTile.subSnow(1);
         work();
         System.out.println("<- e");
     }
@@ -46,7 +43,7 @@ public abstract class Player {
     public void pass() {
         System.out.println("-> pass() -> e");
         this.setWork(4);
-        System.out.println("e -> setWork(4) -> e");
+        //System.out.println("e -> setWork(4) -> e");
         System.out.println("e <- e");
         System.out.println("<- e");
     }
@@ -75,7 +72,9 @@ public abstract class Player {
      * Az adott tárgy kikerül a játékos tárgyai közül.
      * @param t A kikerülő tárgy.
      * */
-    public void removeThing(Thing t) {}
+    public void removeThing(Thing t) {
+        System.out.println("f -> removeThing(f) -> e");
+    }
 
     /*
      * A játékos elvégez egy munkát, ezzel munkamennyisége
@@ -87,6 +86,7 @@ public abstract class Player {
      * Növeli az életerőt eggyel.
      * */
     public void addLife() {
+        System.out.println("f -> addLife() -> e");
         System.out.println("f <- e");
     }
 
@@ -110,6 +110,7 @@ public abstract class Player {
     public void setWork(int work)
     {
         this.work = work;
+        System.out.println("e -> setWork(" + work + ") -> e");
     }
 
     /*

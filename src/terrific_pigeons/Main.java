@@ -116,8 +116,6 @@ public class Main {
             if(exit == 0) { promptEnterKey(); }
         }
 
-
-
     }
     public static void promptEnterKey(){
         System.out.println("Press \"ENTER\" to continue...");
