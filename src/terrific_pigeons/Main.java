@@ -143,6 +143,7 @@ public class Main {
                     e.build();
                     break;
                 }
+                //MEGVAN
                 case 10:
                 {
                     Researcher r = new Researcher();
@@ -152,6 +153,7 @@ public class Main {
                     r.look(t2);
                     break;
                 }
+                //MEGVAN
                 case 11:
                 {
                     Eskimo e = new Eskimo();
@@ -194,6 +196,7 @@ public class Main {
                     m.snowStorm();
                     break;
                 }
+                //MEGVAN
                 case 15:
                 {
                     Map m = new Map();
@@ -209,6 +212,7 @@ public class Main {
                     m.snowStorm();
                     break;
                 }
+                //MEGVAN
                 case 16:
                 {
                     exit = 1;
