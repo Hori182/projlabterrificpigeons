@@ -5,14 +5,21 @@ public class Game {
     private Player[] players;
     private boolean win = false;
     private boolean die = false;
-    private int currentPlayer;
+
+    public Game() {
+        System.out.println("Game created");
+    }
+
     /**/
     public void startGame(){}
 
     /**/
     public void nextPlayer(){
         System.out.println("nextPlayer() -> g");
-        
+        players[1].getWork();
+        players[1].getInWater();
+        players[1].die();
+        System.out.println("<- g");
     }
 
     /**/
@@ -20,4 +27,13 @@ public class Game {
 
     /**/
     public void endGame(){}
+
+    public Player[] getPlayers() {
+        return players;
+    }
+
+    public void setPlayers(Player p, int position) {
+        players[position] = p;
+    }
+
 }

@@ -52,7 +52,10 @@ public abstract class Player {
     /*
      * A játékos meghal.
      * */
-    public void die() {}
+    public void die() {
+        System.out.println("g -> die() ->e");
+        System.out.println("g <- e");
+    }
 
     /*
      * A játékos felveszi a jégtábláján lévő tárgyat.
@@ -123,6 +126,8 @@ public abstract class Player {
     * Visszaadja a work változó értékét.
     * */
     public int getWork() {
+        System.out.println("g-> getWork() -> e");
+        System.out.println("g <- "+ work + " <- e");
         return work;
     }
     /*
@@ -168,6 +173,8 @@ public abstract class Player {
      * Visszaadja, hogy a játékos vízben van-e.
      * */
     public boolean getInWater() {
+        System.out.println("g-> getInWater() -> e");
+        System.out.println("g <- "+ inWater + " <- e");
         return inWater;
     }
 
