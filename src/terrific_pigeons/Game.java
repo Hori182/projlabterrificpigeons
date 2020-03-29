@@ -21,7 +21,10 @@ public class Game {
         System.out.println("nextPlayer() -> g");
         players.get(0).getWork();
         players.get(0).getInWater();
+        System.out.print("g->");
         players.get(0).die();
+        System.out.println("<- e");
+        System.out.println("->e");
         System.out.println("<- g");
     }
 

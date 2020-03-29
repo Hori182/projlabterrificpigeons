@@ -53,8 +53,7 @@ public abstract class Player {
      * A játékos meghal.
      * */
     public void die() {
-        System.out.println("g -> die() ->e");
-        System.out.println("g <- e");
+        System.out.print("die()");
     }
 
     /*
