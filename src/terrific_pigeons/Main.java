@@ -134,10 +134,9 @@ public class Main {
                     System.out.println(" ");
 
                     divingsuit.useThing();
-
                     break;
                 }
-
+                //KESZ
                 case 6: {
                     Food f = new Food();
                     Eskimo e = new Eskimo();
