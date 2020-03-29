@@ -65,15 +65,10 @@ public class Tile {
     public void moveRequest(Player p)
     {
         System.out.println("e -> moveRequest(e) -> t1");
-
         Tile t2 = p.getTile();
-
         t2.remove(p);
-
         p.setMyTile(this);
-
         this.receive(p);
-
         System.out.println("e <- t1");
     }
 
@@ -128,8 +123,9 @@ public class Tile {
      */
     public void setSafe(boolean s)
     {
-        System.out.println("e <- t");
+        System.out.println("e -> setSafe(true) -> t");
         safe=s;
+        System.out.println("e <- t");
     }
 
     /*
@@ -137,6 +133,9 @@ public class Tile {
      */
     public int getLimit()
     {
+
+        System.out.println("r -> getLimit() -> t");
+
         System.out.println("r <- limit <- t");
         return limit;
     }

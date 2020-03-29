@@ -33,9 +33,7 @@ public class Eskimo extends Player {
     public void build()
     {
         System.out.println("-> build() -> e");
-        System.out.println("e -> setSafe(true) -> t");
         myTile.setSafe(true);
-        System.out.println("e -> work() -> e");
         work();
         System.out.println("<- e");
     }
@@ -46,7 +44,7 @@ public class Eskimo extends Player {
     {
         System.out.println("e -> work() -> e");
         this.setWork(work+1);
-        System.out.println("e <- e");
+
     }
     /*
      * Visszaadja, hogy jelenleg hány élete van.
