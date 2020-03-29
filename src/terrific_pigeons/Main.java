@@ -54,7 +54,8 @@ public class Main {
                 }
                 case 3:
                 {
-
+                    Game g = new Game();
+                    g.nextPlayer();
                     break;
                 }
                 case 6: {
