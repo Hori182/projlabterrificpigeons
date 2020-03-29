@@ -104,6 +104,7 @@ public class Main {
                     e.pass();
                     break;
                 }
+                //MEGVAN
                 case 13:
                 {
                     Eskimo e = new Eskimo();
