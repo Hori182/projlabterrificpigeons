@@ -123,7 +123,7 @@ public class Main {
                     Map m = new Map();
                     Tile t = new Tile();
                     Eskimo e = new Eskimo();
-                    t.setName("t");
+                    t.setName("t1");
                     e.setMyTile(t);
                     t.receive(e);
                     m.addTile(t);
