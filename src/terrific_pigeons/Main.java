@@ -63,6 +63,10 @@ public class Main {
                 case 3:
                 {
                     Game g = new Game();
+                    Eskimo e1 = new Eskimo();
+                    e1.setWork(0);
+                    e1.setInWater(true);
+                    g.setPlayers(e1,1);
                     g.nextPlayer();
                     break;
                 }
