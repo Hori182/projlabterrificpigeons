@@ -168,6 +168,7 @@ public class Main {
                 }
                 case 7:{
                         //proba push
+                    break;
                 }
                 //MEGVAN
                 case 9:
@@ -268,7 +269,6 @@ public class Main {
                 {
                     exit = 1;
                 }
-
             }
             if(exit == 0) { promptEnterKey(); }
         }

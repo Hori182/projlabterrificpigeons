@@ -17,8 +17,8 @@ public class Unstable extends Tile{
     public void turnOver()
     {
         System.out.println(this.getName() + " -> turnOver() ->" + this.getName());
-        //this.getPlayers().get(0).setInWater(true);
-        //this.getPlayers().get(0).pass();
+        this.getPlayers().get(0).setInWater(true);
+        this.getPlayers().get(0).pass();
         System.out.println(this.getName() + " <- " + this.getName());
     }
 
@@ -56,13 +56,17 @@ public class Unstable extends Tile{
      * */
     public void moveRequest(Player p)
     {
+        System.out.println("e -> moveRequest(e) -> " + this.getName());
         Tile t2 = p.getTile();
+        //System.out.println("lol");
 
         t2.remove(p);
 
         p.setMyTile(this);
 
-        System.out.println("t1 -> Receive(e) -> t1");
+        //System.out.println("t1 -> Receive(e) -> t1");
+        this.receive(p);
+
         System.out.println("t1 -> check(e) -> t1");
         this.check();
         System.out.println("e <- t1");
