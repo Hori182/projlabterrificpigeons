@@ -108,9 +108,10 @@ public class Main {
                 {
                     Eskimo e = new Eskimo();
                     Tile t = new Tile();
+                    t.setName("t");
                     Shovel shovel = new Shovel();
                     e.setMyTile(t);
-                    t.thing = shovel;
+                    t.setThing(shovel);
                     e.equip();
                     break;
                 }

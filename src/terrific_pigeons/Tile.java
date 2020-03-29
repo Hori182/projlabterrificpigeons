@@ -79,7 +79,8 @@ public class Tile {
      */
     public void removeThing()
     {
-        System.out.println("e <- t");
+        System.out.println("e -> removeThing() -> " + this.getName());
+        System.out.println("e <- " + this.getName());
         this.thing = null;
     }
 
@@ -157,11 +158,17 @@ public class Tile {
         return players;
     }
 
-    public void setThing(Thing t){this.thing = t;}
+    public void setThing(Thing t)
+    {
+        System.out.println("-> setThing(shovel) ->" + this.getName());
+        System.out.println("<- " + this.getName() );
+        this.thing = t;
+    }
 
     public Thing getThing()
     {
-        System.out.println("e <- shovel <- t");
+        System.out.println("e -> getThing() -> " + this.getName());
+        System.out.println("e <- shovel <- " + this.getName());
         return thing;
     }
 
