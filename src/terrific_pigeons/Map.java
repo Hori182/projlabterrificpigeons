@@ -19,16 +19,19 @@ public class Map {
         System.out.println("-> snowstorm() -> m");
         for( Tile t : tiles)
         {
-           // Player p1()
             t.addSnow(1);
-            System.out.println("m -> getPlayers() -> t");
-            System.out.println("m <- players <- t");
-            for( Player p : t.getPlayers())
+            ArrayList<Player> temp = t.getPlayers();
+            for( Player p : temp)
             {
-               // p.subLife(1);
+                p.subLife();
             }
         }
+        System.out.println("<- m");
+    }
 
+    public void addTile(Tile t)
+    {
+        tiles.add(t);
     }
 
     /*

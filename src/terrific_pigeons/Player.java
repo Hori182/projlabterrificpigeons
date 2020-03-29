@@ -6,7 +6,7 @@ public abstract class Player {
     protected int life;
     protected int work = 0;
     protected Tile myTile;
-    protected ArrayList<Thing> things;
+    protected ArrayList<Thing> things = new ArrayList<Thing>();
     protected boolean inWater = false;
 
 
@@ -52,12 +52,24 @@ public abstract class Player {
     /*
      * A játékos meghal.
      * */
-    public void die() {}
+    public void die() {
+        System.out.println("g -> die() ->e");
+        System.out.println("g <- e");
+    }
 
     /*
      * A játékos felveszi a jégtábláján lévő tárgyat.
      * */
-    public void equip() {}
+    public void equip()
+    {
+        System.out.println("-> equip() -> e");
+        Thing th = myTile.getThing();
+        th.setOwner(this);
+        addThing(th);
+        myTile.removeThing();
+        this.work();
+        System.out.println("<- e");
+    }
 
     /*
      * Az adott tárgy bekerül a játékos tárgyai közé.
@@ -65,7 +77,8 @@ public abstract class Player {
      * */
     public void addThing(Thing t)
     {
-        things.add(t);
+        System.out.println("e-> addThing(shovel) -> e");
+        this.things.add(t);
         System.out.println("e <- e");
     }
 
@@ -81,7 +94,12 @@ public abstract class Player {
      * A játékos elvégez egy munkát, ezzel munkamennyisége
      * eggyel megnő.
      * */
-    public void work() {}
+    public void work()
+    {
+        System.out.println("e -> work() -> e");
+        this.setWork(this.work + 1);
+        System.out.println("e <- e");
+    }
 
     /*
      * Növeli az életerőt eggyel.
@@ -94,12 +112,22 @@ public abstract class Player {
     /*
      * Csökkenti az életerőt eggyel.
      * */
-    public void subLife() {}
+    public void subLife()
+    {
+        System.out.println("m -> subLife() -> p");
+        if (this.myTile.getSafe()==false)
+        {
+            setLife(this.getLife()-1);
+        }
+        System.out.println("m <- p");
+    }
 
     /*
     * Visszaadja a work változó értékét.
     * */
     public int getWork() {
+        System.out.println("g-> getWork() -> e");
+        System.out.println("g <- "+ work + " <- e");
         return work;
     }
     /*
@@ -129,8 +157,8 @@ public abstract class Player {
     * */
     public void setMyTile(Tile t)
     {
-        System.out.println("t -> setMyTile(t) -> e");
-        System.out.println("t <- e");
+        System.out.println(t.getName() + " -> setMyTile("+ t.getName() + ") -> e");
+        System.out.println(t.getName() + " <- e");
         this.myTile = t;
     }
 
@@ -145,6 +173,8 @@ public abstract class Player {
      * Visszaadja, hogy a játékos vízben van-e.
      * */
     public boolean getInWater() {
+        System.out.println("g-> getInWater() -> e");
+        System.out.println("g <- "+ inWater + " <- e");
         return inWater;
     }
 
@@ -156,4 +186,21 @@ public abstract class Player {
         this.inWater = inWater;
     }
 
+    /*
+     * Visszaadja, hogy jelenleg hány élete van.
+     */
+    public int getLife() {
+        return life;
+    }
+
+    /*
+     * Beállítja a life attribútum új értékét.
+     * @param life: élet - a life új értéke
+     */
+    public void setLife(int life)
+    {
+        System.out.println("e -> setLife(" + life + ") -> e");
+        this.life = life;
+        System.out.println("t1 <- e");
+    }
 }

@@ -8,12 +8,13 @@ public class Tile {
     protected boolean safe = false;
     protected int limit = 100;
     protected Thing thing;
-    protected ArrayList<Player> players;
-    private Tile[] neighbours;
+    protected ArrayList<Player> players = new ArrayList<>();
+    private ArrayList<Tile> neighbours = new ArrayList<>();
+    //csak a szkeletonhot hoztuk létre ezt a változót
+    private String name;
 
     public Tile()
     {
-        players = new ArrayList<>();
         System.out.println("Tile created");
     }
 
@@ -32,9 +33,9 @@ public class Tile {
      * Csökenti a jégtáblán lévő hó mennyiségét.
      * @param snow Ennyivel csökkenti a havat*/
     public void subSnow(int snow) {
-        System.out.println("e -> subSnow(" + snow + ") -> t");
+        System.out.println("e -> subSnow(" + snow + ") -> " + this.getName());
         this.setSnow(snow-1);
-        System.out.println("e <- t");
+        System.out.println("e <- " + this.getName());
     }
 
     /*
@@ -64,12 +65,12 @@ public class Tile {
      * */
     public void moveRequest(Player p)
     {
-        System.out.println("e -> moveRequest(e) -> t1");
+        System.out.println("e -> moveRequest(e) -> " + this.getName());
         Tile t2 = p.getTile();
         t2.remove(p);
         p.setMyTile(this);
         this.receive(p);
-        System.out.println("e <- t1");
+        System.out.println("e <- " + this.getName());
     }
 
     /*
@@ -77,7 +78,8 @@ public class Tile {
      */
     public void removeThing()
     {
-        System.out.println("e <- t");
+        System.out.println("e -> removeThing() -> " + this.getName());
+        System.out.println("e <- " + this.getName());
         this.thing = null;
     }
 
@@ -92,7 +94,8 @@ public class Tile {
     *A snow változó értékét megváltoztatja.
     * @param snow: A snow változót ezzel az értékkel írja felül.
     */
-    public void setSnow(int snow) {
+    public void setSnow(int snow)
+    {
         System.out.println("t -> setSnow(" + snow + ") -> t");
         this.snow = snow;
         System.out.println("t <- t");
@@ -101,11 +104,13 @@ public class Tile {
     /*
     * Visszaadja az adott tile szomszédait.
     */
-    public Tile[] getNeighbours() {
+    public ArrayList<Tile> getNeighbours() {
+        System.out.println("divingsuit -> getNeighbours() -> t");
+        System.out.println("divingsuit <- t");
         return neighbours;
     }
     /*Ez nemtomkelle*/
-    public void setNeighbours(Tile[] neighbours) {
+    public void setNeighbours(ArrayList<Tile> neighbours) {
         this.neighbours = neighbours;
     }
 
@@ -115,6 +120,7 @@ public class Tile {
     public boolean getSafe()
     {
         System.out.println("m -> getSafe() -> t");
+        System.out.println("m <- t");
         return safe;
     }
 
@@ -154,9 +160,20 @@ public class Tile {
         return players;
     }
 
+    public void setThing(Thing t)
+    {
+        System.out.println("-> setThing(shovel) ->" + this.getName());
+        System.out.println("<- " + this.getName() );
+        this.thing = t;
+    }
+
     public Thing getThing()
     {
-        System.out.println("e <- shovel <- t");
+        System.out.println("e -> getThing() -> " + this.getName());
+        System.out.println("e <- shovel <- " + this.getName());
         return thing;
     }
+
+    public void setName(String s){this.name = s;}
+    public String getName(){return this.name;}
 }

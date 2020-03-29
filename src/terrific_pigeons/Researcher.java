@@ -2,10 +2,9 @@ package terrific_pigeons;
 
 public class Researcher extends Player {
 
-    private int life = 4;
-
     public Researcher()
     {
+        life=4;
         System.out.println("Researcher created");
     }
 
@@ -29,20 +28,6 @@ public class Researcher extends Player {
         System.out.println("-> look(t) -> r");
         t.getLimit();
         System.out.println("<- limit <- r");
-    }
-    /*
-     * Visszaadja, hogy jelenleg hány élete van.
-     */
-    public int getLife() {
-        return life;
-    }
-
-    /*
-     * Beállítja a life attribútum új értékét.
-     * @param life: élet - a life új értéke
-     */
-    public void setLife(int life) {
-        this.life = life;
     }
 
 }
