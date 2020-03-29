@@ -106,9 +106,13 @@ public class Main {
                     e.equip();
                     break;
                 }
+                case 16:
+                {
+                    exit = 1;
+                }
 
             }
-            promptEnterKey();
+            if(exit == 0) { promptEnterKey(); }
         }
 
 
