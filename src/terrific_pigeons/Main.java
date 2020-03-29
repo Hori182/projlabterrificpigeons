@@ -117,6 +117,21 @@ public class Main {
                     g.nextPlayer();
                     break;
                 }
+                case 4:
+                {
+                    Map m = new Map();
+                    Tile t = new Tile();
+                    Eskimo e = new Eskimo();
+                    t.setName("t");
+                    e.setMyTile(t);
+                    t.receive(e);
+                    m.addTile(t);
+                    e.setLife(1);
+                    System.out.println("Life: "+e.getLife());
+
+                    m.snowStorm();
+                    break;
+                }
                 //MEGVAN
                 case 5:
                 {

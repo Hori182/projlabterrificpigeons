@@ -117,7 +117,13 @@ public abstract class Player {
         System.out.println("m -> subLife() -> p");
         if (this.myTile.getSafe()==false)
         {
-            setLife(this.getLife()-1);
+            if(this.getLife()-1 > 1) {
+                setLife(this.getLife() - 1);
+            }
+            else{
+                setLife(this.getLife()-1);
+                die();
+            }
         }
         System.out.println("m <- p");
     }
