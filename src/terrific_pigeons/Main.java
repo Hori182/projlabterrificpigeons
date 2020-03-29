@@ -106,6 +106,7 @@ public class Main {
                     e.move(t1);
                     break;
                 }
+                //MEGVAN
                 case 3:
                 {
                     Game g = new Game();
