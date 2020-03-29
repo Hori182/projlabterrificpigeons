@@ -1,4 +1,6 @@
 package terrific_pigeons;
+import java.util.ArrayList;
+import java.util.concurrent.ThreadLocalRandom;
 
 /*
  * A DivingSuit osztály a búvárruha osztálya a játékban.
@@ -12,9 +14,13 @@ public class DivingSuit extends Thing{
     {
         if (this.owner.getInWater()==true)
         {
-            this.owner.getTile();
+            ArrayList<Tile> temp = this.owner.getTile().getNeighbours();
+
+            int randomNum = ThreadLocalRandom.current().nextInt(0, temp.size() );
+
+            temp.get(randomNum).moveRequest(this.owner);
+
+            this.owner.work();
         }
     }
 }
-
-//RANDOM KOMMENT BY ARNOLD
