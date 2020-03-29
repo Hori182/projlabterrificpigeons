@@ -44,7 +44,7 @@ public class Eskimo extends Player {
 
     public void work()
     {
-        System.out.println("e -> setWork(work+1) -> e");
+        System.out.println("e -> work() -> e");
         this.setWork(work+1);
         System.out.println("e <- e");
     }

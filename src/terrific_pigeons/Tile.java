@@ -31,7 +31,11 @@ public class Tile {
     /*
      * Csökenti a jégtáblán lévő hó mennyiségét.
      * @param snow Ennyivel csökkenti a havat*/
-    public void subSnow(int snow) {}
+    public void subSnow(int snow) {
+        System.out.println("e -> subSnow(" + snow + ") -> t");
+        this.setSnow(snow-1);
+        System.out.println("e <- t");
+    }
 
     /*
      * Fogadja a játékost.
@@ -94,8 +98,9 @@ public class Tile {
     * @param snow: A snow változót ezzel az értékkel írja felül.
     */
     public void setSnow(int snow) {
-        System.out.println("t -> setSnow(snow+1) -> t");
+        System.out.println("t -> setSnow(" + snow + ") -> t");
         this.snow = snow;
+        System.out.println("t <- t");
     }
 
     /*
