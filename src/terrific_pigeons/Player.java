@@ -1,11 +1,12 @@
 package terrific_pigeons;
 
+import java.util.ArrayList;
+
 public abstract class Player {
-    /*???????A life kell egyáltalán ide??????*/
     protected int life;
     protected int work = 0;
     protected Tile myTile;
-    protected Thing[] things;
+    protected ArrayList<Thing> things;
     protected boolean inWater = false;
 
 
@@ -64,7 +65,7 @@ public abstract class Player {
      * */
     public void addThing(Thing t)
     {
-        //things.add(t);
+        things.add(t);
         System.out.println("e <- e");
     }
 
@@ -90,7 +91,6 @@ public abstract class Player {
         System.out.println("f <- e");
     }
 
-
     /*
      * Csökkenti az életerőt eggyel.
      * */
@@ -111,6 +111,7 @@ public abstract class Player {
     {
         this.work = work;
         System.out.println("e -> setWork(" + work + ") -> e");
+        System.out.println("e <- e");
     }
 
     /*
@@ -134,22 +135,10 @@ public abstract class Player {
     }
 
     /*
-    * Visszaadja a Player-nél lévő Thing-ek tömbjét(things).
+    * Visszaadja a Player-nél lévő Thing-eket (things).
     * */
-    public Thing[] getThings() {
+    public ArrayList<Thing> getThings() {
         return things;
-    }
-
-    /*
-     * Sztem ez nem kell ide mert van egy addThingunk
-     * opinions???
-     * de nem ezt használná?(énsevagyokbiztos)
-     * Hozzáad a things tömbhöz egy új thing-et egy adott pozícióban.
-     * @param thing: Ezt a Thing-et adja a tömbhöz.
-     * @param position: A things ezen pozíciójú elemét írja felül.
-     * */
-    public void setThings(Thing thing, int position) {
-        this.things[position] = thing;
     }
 
     /*

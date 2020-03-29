@@ -44,7 +44,7 @@ public class Eskimo extends Player {
     {
         System.out.println("e -> work() -> e");
         this.setWork(work+1);
-        System.out.println("e <- e");
+
     }
     /*
      * Visszaadja, hogy jelenleg hány élete van.
