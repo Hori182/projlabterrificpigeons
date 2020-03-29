@@ -130,6 +130,21 @@ public class Main {
                     m.snowStorm();
                     break;
                 }
+                case 15:
+                {
+                    Map m = new Map();
+                    Eskimo e = new Eskimo();
+                    System.out.println("Life: "+e.getLife());
+                    Tile t = new Tile();
+                    t.setName("t");
+                    t.setSafe(true);
+                    e.setMyTile(t);
+                    t.receive(e);
+                    m.addTile(t);
+
+                    m.snowStorm();
+                    break;
+                }
                 case 16:
                 {
                     exit = 1;
