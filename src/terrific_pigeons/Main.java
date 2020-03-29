@@ -11,20 +11,66 @@ public class Main {
         while (exit == 0) {
 
             System.out.println("Menu");
+            /*
+                Eszkimo stabil mezőről stabilra mozog
+             */
             System.out.println("1.Eskimo moves to stable tile");
+            /*
+                Eszkimo stabil mezőről instabilra mozog
+                és a döntés alapján vízbe eshet
+             */
             System.out.println("2.Eskimo moves to unstable tile");
+            /*
+            Az eskimo megfullad
+             */
             System.out.println("3.Eskimo drowns");
+            /*
+            Az eszkimo megfagy
+             */
             System.out.println("4.Eskimo freezes");
+            /*
+            A buvarruha eletben tartja az eszkimot
+             */
             System.out.println("5.Eskimo uses diving suit");
+            /*
+            Eszkimo eszik egy ételt
+             */
             System.out.println("6.Eskimo eats food");
+            /*
+            Eszkimo osszeszereli a pisztolyt
+             */
             System.out.println("7.Eskimo assembles pistol");
+            /*
+            Eszkimo kiment valakit egy kötéllel
+             */
             System.out.println("8.Eskimo saves with rope");
+            /*
+            Eszkimo épít egy iglut
+             */
             System.out.println("9.Eskimo builds iglu");
+            /*
+            Kutató megvizsgálja a jegtablat
+             */
             System.out.println("10.Researcher scans tile");
+            /*
+            Eszkimo havat ás
+             */
             System.out.println("11.Eskimo digs");
+            /*
+            Eszkimo elpasszolja a körét
+             */
             System.out.println("12.Eskimo pass");
+            /*
+            Eszkimo felvesz egy lapatot
+             */
             System.out.println("13.Eskimo equips shovel");
+            /*
+            Hovihar elkapja a jatekost
+             */
             System.out.println("14.Snowstorm catches player");
+            /*
+            Hovihar nem bantja a jatekost az iglu miatt
+             */
             System.out.println("15.Snowstorm comes, player safe in iglu");
             System.out.println("16. Exit\n");
 
