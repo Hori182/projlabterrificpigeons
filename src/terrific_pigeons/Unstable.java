@@ -16,7 +16,7 @@ public class Unstable extends Tile{
     * */
     public void turnOver()
     {
-        System.out.println(this.getName() + " -> trunOver() ->" + this.getName());
+        System.out.println(this.getName() + " -> turnOver() ->" + this.getName());
         //this.getPlayers().get(0).setInWater(true);
         //this.getPlayers().get(0).pass();
         System.out.println(this.getName() + " <- " + this.getName());
@@ -33,7 +33,6 @@ public class Unstable extends Tile{
         Scanner input = new Scanner( System.in );
         int choice = input.nextInt();
         if(choice == 1) {
-            System.out.println("t1 -> turnOver() -> t1");
             this.turnOver();
         }
     }
