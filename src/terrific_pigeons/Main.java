@@ -167,7 +167,7 @@ public class Main {
                     break;
                 }
                 case 7:{
-
+                        //proba push
                 }
                 //MEGVAN
                 case 9:
