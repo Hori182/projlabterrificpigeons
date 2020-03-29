@@ -76,7 +76,7 @@ public class Main {
             Az eskimo használja az ásót
             */
             System.out.println("16. Eskimo uses shovel");
-            System.out.println("16. Exit\n");
+            System.out.println("17. Exit\n");
 
             System.out.print("Please choose: ");
             Scanner input = new Scanner( System.in );
@@ -250,12 +250,17 @@ public class Main {
                     m.snowStorm();
                     break;
                 }
+                // Kész(??)
                 case 16:
                 {
                     Shovel s = new Shovel();
                     Eskimo e = new Eskimo();
                     Tile t = new Tile();
-                    t.setName("t");
+                    t.setName("t1");
+                    e.setMyTile(t);
+                    s.setOwner(e);
+
+                    s.useThing();
                     break;
                 }
                 //MEGVAN

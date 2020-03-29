@@ -32,10 +32,16 @@ public class Tile {
     /*
      * Csökenti a jégtáblán lévő hó mennyiségét.
      * @param snow Ennyivel csökkenti a havat*/
-    public void subSnow(int snow) {
-        System.out.println("e -> subSnow(" + snow + ") -> " + this.getName());
-        this.setSnow(snow-1);
-        System.out.println("e <- " + this.getName());
+    public void subSnow(int i) {
+        if(i == 1){
+            System.out.println("e -> subSnow(" + i + ") -> " + this.getName());
+            this.setSnow(snow-i);
+            System.out.println("e <- " + this.getName());
+        } else if(i == 2){
+            System.out.println("s -> subSnow(" + i + ") -> " + this.getName());
+            this.setSnow(snow-i);
+            System.out.println("e <- " + this.getName());
+        }
     }
 
     /*

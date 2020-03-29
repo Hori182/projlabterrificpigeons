@@ -17,6 +17,6 @@ public class Thing {
     {
         System.out.println("e-> setOwner(e) -> shovel");
         System.out.println("e <- shovel");
-       this.owner = p;
+        this.owner = p;
     }
 }
