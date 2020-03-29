@@ -34,6 +34,7 @@ public class Main {
 
             switch (choice)
             {
+                //ELSO KETTOT MEG NEZZUK AT
                 case 1:
                 {
                     Eskimo e = new Eskimo();
