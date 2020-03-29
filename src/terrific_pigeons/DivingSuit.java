@@ -14,6 +14,7 @@ public class DivingSuit extends Thing{
     {
         if (this.owner.getInWater()==true)
         {
+            System.out.println("-> useThing() -> divingsuit");
             ArrayList<Tile> temp = this.owner.getTile().getNeighbours();
 
             int randomNum = ThreadLocalRandom.current().nextInt(0, temp.size() );
@@ -21,6 +22,7 @@ public class DivingSuit extends Thing{
             temp.get(randomNum).moveRequest(this.owner);
 
             this.owner.work();
+            System.out.println("<- divingsuit");
         }
     }
 }
