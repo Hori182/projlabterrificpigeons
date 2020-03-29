@@ -49,6 +49,7 @@ public class Main {
                     Unstable t1 = new Unstable();
                     Tile t2 = new Tile();
                     e.setMyTile(t2);
+                    System.out.println("t/t1 is unstable");
                     e.move(t1);
                     break;
                 }

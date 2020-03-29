@@ -65,15 +65,10 @@ public class Tile {
     public void moveRequest(Player p)
     {
         System.out.println("e -> moveRequest(e) -> t1");
-
         Tile t2 = p.getTile();
-
         t2.remove(p);
-
         p.setMyTile(this);
-
         this.receive(p);
-
         System.out.println("e <- t1");
     }
 

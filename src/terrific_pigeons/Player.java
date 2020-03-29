@@ -15,7 +15,7 @@ public abstract class Player {
      */
     public void move(Tile t)
     {
-        System.out.println("-> move(" + t + ") -> e");
+        System.out.println("-> move(t1) -> e");
         t.moveRequest(this);
         System.out.println("<- e");
     }
@@ -128,8 +128,8 @@ public abstract class Player {
     * */
     public void setMyTile(Tile t)
     {
-        System.out.println("t1 -> setMyTile(e) -> e");
-        System.out.println("t1 <- e");
+        System.out.println("t -> setMyTile(t) -> e");
+        System.out.println("t <- e");
         this.myTile = t;
     }
 

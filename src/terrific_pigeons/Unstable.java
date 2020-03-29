@@ -8,7 +8,7 @@ public class Unstable extends Tile{
 
     public Unstable()
     {
-        System.out.println("Unstabile tile created"+limit);
+        System.out.println("Unstabile tile created");
     }
 
     /*
@@ -21,7 +21,6 @@ public class Unstable extends Tile{
         System.out.println("t1 -> pass() -> e");
         //pass()
         System.out.println("t1 <- e");
-        System.out.println("turnOver() vége");
     }
 
     /*
@@ -30,14 +29,15 @@ public class Unstable extends Tile{
     * */
     public void check()
     {
+        System.out.println("t1 -> check(e) -> t1");
         System.out.println("Többen állnak rajta mint kéne (1: igen, 0: nem )");
         System.out.print("Please choose: ");
         Scanner input = new Scanner( System.in );
         int choice = input.nextInt();
         if(choice == 1) {
-            System.out.println("t1 -> turnOver() -> t1");
             this.turnOver();
         }
+        System.out.println("t1 <- t1");
     }
 
     /*
@@ -59,15 +59,11 @@ public class Unstable extends Tile{
      * */
     public void moveRequest(Player p)
     {
-        System.out.println("t1 -> getTile(e) -> e");
+        System.out.println("e -> moveRequest(e) -> t1");
         Tile t2 = p.getTile();
-        System.out.println("t1 -> remove(e) -> t2");
         t2.remove(p);
-        System.out.println("t1 -> setMyTile(e) -> e");
         p.setMyTile(this);
-        System.out.println("t1 <- e");
-        System.out.println("t1 -> Receive(e) -> t1");
-        System.out.println("t1 -> check(e) -> t1");
+        this.receive(p);
         this.check();
         System.out.println("e <- t1");
     }
