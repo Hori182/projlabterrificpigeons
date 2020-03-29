@@ -39,7 +39,9 @@ public class Main {
                 {
                     Eskimo e = new Eskimo();
                     Tile t1 = new Tile();
+                    t1.setName("t1");
                     Tile t2 = new Tile();
+                    t2.setName("t2");
                     e.setMyTile(t2);
                     e.move(t1);
                     break;
@@ -48,9 +50,11 @@ public class Main {
                 {
                     Eskimo e = new Eskimo();
                     Unstable t1 = new Unstable();
+                    t1.setName("t1");
                     Tile t2 = new Tile();
+                    t2.setName("t2");
                     e.setMyTile(t2);
-                    System.out.println("t/t1 is unstable");
+                    System.out.println("t1 is unstable");
                     e.move(t1);
                     break;
                 }

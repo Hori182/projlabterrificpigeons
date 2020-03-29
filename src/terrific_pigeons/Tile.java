@@ -10,6 +10,8 @@ public class Tile {
     protected Thing thing;
     protected ArrayList<Player> players;
     private Tile[] neighbours;
+    //csak a szkeletonhot hoztuk létre ezt a változót
+    private String name;
 
     public Tile()
     {
@@ -23,18 +25,18 @@ public class Tile {
      * */
     public void addSnow(int sn)
     {
-        System.out.println("m -> AddSnow(1) -> t");
+        System.out.println("m -> AddSnow(1) -> " + this.getName());
         setSnow(sn+snow);
-        System.out.println("m <- t");
+        System.out.println("m <- " + this.getName());
     }
 
     /*
      * Csökenti a jégtáblán lévő hó mennyiségét.
      * @param snow Ennyivel csökkenti a havat*/
     public void subSnow(int snow) {
-        System.out.println("e -> subSnow(" + snow + ") -> t");
+        System.out.println("e -> subSnow(" + snow + ") -> " + this.getName());
         this.setSnow(snow-1);
-        System.out.println("e <- t");
+        System.out.println("e <- " + this.getName());
     }
 
     /*
@@ -64,12 +66,12 @@ public class Tile {
      * */
     public void moveRequest(Player p)
     {
-        System.out.println("e -> moveRequest(e) -> t1");
+        System.out.println("e -> moveRequest(e) -> " + this.getName());
         Tile t2 = p.getTile();
         t2.remove(p);
         p.setMyTile(this);
         this.receive(p);
-        System.out.println("e <- t1");
+        System.out.println("e <- " + this.getName());
     }
 
     /*
@@ -154,9 +156,14 @@ public class Tile {
         return players;
     }
 
+    public void setThing(Thing t){this.thing = t;}
+
     public Thing getThing()
     {
         System.out.println("e <- shovel <- t");
         return thing;
     }
+
+    public void setName(String s){this.name = s;}
+    public String getName(){return this.name;}
 }

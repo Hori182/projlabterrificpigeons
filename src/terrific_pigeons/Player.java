@@ -129,8 +129,8 @@ public abstract class Player {
     * */
     public void setMyTile(Tile t)
     {
-        System.out.println("t -> setMyTile(t) -> e");
-        System.out.println("t <- e");
+        System.out.println(t.getName() + " -> setMyTile("+ t.getName() + ") -> e");
+        System.out.println(t.getName() + " <- e");
         this.myTile = t;
     }
 
