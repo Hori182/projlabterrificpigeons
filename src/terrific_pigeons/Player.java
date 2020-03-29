@@ -121,10 +121,12 @@ public abstract class Player {
             }
             else{
                 setLife(this.getLife()-1);
+                System.out.print("m -> ");
                 die();
+                System.out.print(" -> e\n");
             }
         }
-        System.out.println("m <- p");
+        System.out.println("m <- e");
     }
 
     /*
