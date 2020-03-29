@@ -6,7 +6,7 @@ public abstract class Player {
     protected int life;
     protected int work = 0;
     protected Tile myTile;
-    protected ArrayList<Thing> things;
+    protected ArrayList<Thing> things = new ArrayList<Thing>();
     protected boolean inWater = false;
 
 
