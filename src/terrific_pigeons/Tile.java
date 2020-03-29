@@ -123,8 +123,9 @@ public class Tile {
      */
     public void setSafe(boolean s)
     {
-        System.out.println("e <- t");
+        System.out.println("e -> setSafe(true) -> t");
         safe=s;
+        System.out.println("e <- t");
     }
 
     /*
@@ -132,6 +133,9 @@ public class Tile {
      */
     public int getLimit()
     {
+
+        System.out.println("r -> getLimit() -> t");
+
         System.out.println("r <- limit <- t");
         return limit;
     }
