@@ -250,10 +250,8 @@ public class Main {
                 {
                     Map m = new Map();
                     Eskimo e = new Eskimo();
-                    System.out.println("Life: "+e.getLife());
                     Tile t = new Tile();
                     t.setName("t");
-                    m.addTile(t);
                     e.setMyTile(t);
                     t.receive(e);
                     m.addTile(t);
