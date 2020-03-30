@@ -161,11 +161,17 @@ public class Tile {
         limit= l;
     }
 
+    /*
+     * Visszaadja a jégtáblán álló karakterek listáját.
+     */
     public ArrayList<Player> getPlayers()
     {
         return players;
     }
 
+    /*
+     * Beállítja milyen tárgy legyen a mezőn..
+     */
     public void setThing(Thing t)
     {
         System.out.println("-> setThing(shovel) ->" + this.getName());

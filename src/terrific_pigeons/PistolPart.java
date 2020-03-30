@@ -10,6 +10,9 @@ public class PistolPart extends Thing{
      */
     public PistolPart(){ System.out.println("PistolPart created");}
 
+    /*
+    Megpróbálja összeszerelni a pisztolyt.
+     */
     public void UseThing() {
         Game g = new Game();
         PistolPart pp2 = new PistolPart();

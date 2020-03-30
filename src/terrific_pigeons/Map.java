@@ -12,7 +12,8 @@ public class Map {
         System.out.println("Map created");
     }
     /*
-    * ??
+    * Hóvihar, ami elkaphatja a játékosokat, ezzel csökkentve az életüket,
+    * valamint növeli a hó mennyiségét a jégtáblákon.
     * */
     public void snowStorm()
     {

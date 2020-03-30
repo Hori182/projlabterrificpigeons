@@ -15,6 +15,9 @@ public class Thing {
      */
     protected void useThing() {}
 
+    /*
+     * Beállítja a tárgy tulajdonosát.
+     */
     protected void setOwner(Player p)
     {
         System.out.println("e-> setOwner(e) -> shovel");
