@@ -148,6 +148,7 @@ public class Main {
                     u.addNeighbour(t);
                     t.addNeighbour(u);
                     DivingSuit divingsuit = new DivingSuit();
+                    divingsuit.setName("DivingSuit");
                     divingsuit.setOwner(e);
                     e.addThing(divingsuit);
                     System.out.println(" ");
@@ -157,6 +158,7 @@ public class Main {
                 }
                 case 6: {
                     Food f = new Food();
+                    f.setName("Food");
                     Eskimo e = new Eskimo();
                     e.setWork(0);
                     f.setOwner(e);
@@ -166,6 +168,7 @@ public class Main {
                 }
                 case 7: {
                     PistolPart pp1 = new PistolPart();
+                    pp1.setName("PistolPart");
                     Eskimo e1 = new Eskimo();
                     Tile t1 = new Tile();
                     pp1.owner = e1;
@@ -186,6 +189,7 @@ public class Main {
                     res.setInWater(true);
                     res.setMyTile(t2);
                     Rope r = new Rope();
+                    r.setName("Rope");
                     r.setOwner(e);
                     e.addThing(r);
                     System.out.println(" ");
@@ -236,6 +240,7 @@ public class Main {
                     Tile t = new Tile();
                     t.setName("t");
                     Shovel shovel = new Shovel();
+                    shovel.setName("Shovel");
                     e.setMyTile(t);
                     t.setThing(shovel);
                     e.equip();
@@ -277,6 +282,7 @@ public class Main {
                 case 16:
                 {
                     Shovel s = new Shovel();
+                    s.setName("Shovel");
                     Eskimo e = new Eskimo();
                     Tile t = new Tile();
                     t.setName("t1");

@@ -7,6 +7,10 @@ public class Thing {
      * Minden tárgynak van egy tulajdonosa.
      */
     protected Player owner;
+    protected String Name;
+
+    String getName(){ return Name; }
+    void setName(String s) { this.Name = s; }
     //csak a skeletonhoz hoztuk létre ezt a változót:
 
     /*
@@ -20,8 +24,8 @@ public class Thing {
      */
     protected void setOwner(Player p)
     {
-        System.out.println("e-> setOwner(e) -> shovel");
-        System.out.println("e <- shovel");
+        System.out.println("e-> setOwner(e) -> " + this.getName());
+        System.out.println("e <- " + this.getName());
         this.owner = p;
     }
 }

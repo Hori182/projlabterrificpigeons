@@ -75,7 +75,7 @@ public abstract class Player {
      * */
     public void addThing(Thing t)
     {
-        System.out.println("e-> addThing(shovel) -> e");
+        System.out.println("e-> addThing("+ t.getName() +") -> e");
         this.things.add(t);
         System.out.println("e <- e");
     }

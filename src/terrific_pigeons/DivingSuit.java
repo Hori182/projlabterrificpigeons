@@ -12,7 +12,7 @@ public class DivingSuit extends Thing{
      */
     public void useThing()
     {
-        System.out.println("-> useThing() -> divingsuit");
+        System.out.println("-> useThing() -> " + this.getName());
         if (this.owner.getInWater())
         {
             ArrayList<Tile> temp = this.owner.getTile().getNeighbours();
@@ -23,6 +23,6 @@ public class DivingSuit extends Thing{
 
             this.owner.work();
         }
-        System.out.println("<- divingsuit");
+        System.out.println("<- " + this.getName());
     }
 }

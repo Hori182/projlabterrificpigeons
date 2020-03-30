@@ -6,7 +6,8 @@ package terrific_pigeons;
  */
 public class Shovel extends Thing{
 
-    public Shovel(){System.out.println("Shovel created");}
+
+    public Shovel(){ System.out.println("Shovel created"); }
     /*
      * Két egységnyi havat lapátol el a játékos a saját
      * jégtáblájáról.
