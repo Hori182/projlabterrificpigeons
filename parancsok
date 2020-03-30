@@ -1,0 +1,4 @@
+set PATH=%PATH%;C:\Program Files\Java\?????????????\bin
+md bin
+javac -d bin -sourcepath src -encoding utf-8 src/terrific_pigeons/Main.java
+java -classpath bin terrific_pigeons.Main
