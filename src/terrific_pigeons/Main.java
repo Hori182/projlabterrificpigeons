@@ -84,7 +84,6 @@ public class Main {
 
             switch (choice)
             {
-                //ELSO KETTOT MEG NEZZUK AT
                 case 1:
                 {
                     Eskimo e = new Eskimo();
@@ -112,7 +111,6 @@ public class Main {
                     e.move(t1);
                     break;
                 }
-                //MEGVAN
                 case 3:
                 {
                     Game g = new Game();
@@ -123,7 +121,6 @@ public class Main {
                     g.nextPlayer();
                     break;
                 }
-                //MEGVAN
                 case 4:
                 {
                     Map m = new Map();
@@ -139,7 +136,6 @@ public class Main {
                     m.snowStorm();
                     break;
                 }
-                //MEGVAN
                 case 5:
                 {
                     Eskimo e = new Eskimo();
@@ -159,7 +155,6 @@ public class Main {
                     divingsuit.useThing();
                     break;
                 }
-                //KESZ
                 case 6: {
                     Food f = new Food();
                     Eskimo e = new Eskimo();
@@ -169,7 +164,6 @@ public class Main {
                     f.useThing();
                     break;
                 }
-                //Nézzetek rá
                 case 7: {
                     PistolPart pp1 = new PistolPart();
                     Eskimo e1 = new Eskimo();
@@ -179,7 +173,6 @@ public class Main {
                     pp1.UseThing();
                     break;
                 }
-                //Nézzetek rá
                 case 8: {
                     Eskimo e = new Eskimo();
                     Tile t1 = new Tile();
@@ -200,7 +193,6 @@ public class Main {
                     r.useThing();
                     break;
                 }
-                //MEGVAN
                 case 9:
                 {
                     Eskimo e = new Eskimo();
@@ -210,7 +202,6 @@ public class Main {
                     e.build();
                     break;
                 }
-                //MEGVAN
                 case 10:
                 {
                     Researcher r = new Researcher();
@@ -223,7 +214,6 @@ public class Main {
                     r.look(t2);
                     break;
                 }
-                //MEGVAN
                 case 11:
                 {
                     Eskimo e = new Eskimo();
@@ -234,14 +224,12 @@ public class Main {
                     e.dig();
                     break;
                 }
-                // KÉSZ
                 case 12:
                 {
                     Eskimo e = new Eskimo();
                     e.pass();
                     break;
                 }
-                //MEGVAN
                 case 13:
                 {
                     Eskimo e = new Eskimo();
@@ -253,7 +241,6 @@ public class Main {
                     e.equip();
                     break;
                 }
-                // MEGVAN
                 case 14:
                 {
                     Map m = new Map();
@@ -271,7 +258,6 @@ public class Main {
                     m.snowStorm();
                     break;
                 }
-                //MEGVAN
                 case 15:
                 {
                     Map m = new Map();
@@ -288,7 +274,6 @@ public class Main {
                     m.snowStorm();
                     break;
                 }
-                // Kész(??)
                 case 16:
                 {
                     Shovel s = new Shovel();
@@ -302,7 +287,6 @@ public class Main {
                     s.useThing();
                     break;
                 }
-                //MEGVAN
                 case 17:
                 {
                     exit = 1;
