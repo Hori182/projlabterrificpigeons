@@ -115,9 +115,14 @@ public class Tile {
         System.out.println("d <- neighbours <- "+this.getName());
         return neighbours;
     }
-    /*Ez nemtomkelle*/
-    public void setNeighbours(ArrayList<Tile> neighbours) {
-        this.neighbours = neighbours;
+    /*
+     * Beállít egy jégtáblát szomszédnak.
+     */
+    public void addNeighbour(Tile t)
+    {
+        System.out.println(this.getName() + " -> addNeighbor(" + t.getName() + ") -> " + this.getName());
+        this.neighbours.add(t);
+        System.out.println(this.getName() + " <- " + this.getName());
     }
 
     /*
@@ -125,8 +130,8 @@ public class Tile {
      */
     public boolean getSafe()
     {
-        System.out.println("m -> getSafe() -> t");
-        System.out.println("m <- t");
+        System.out.println("m -> getSafe() -> " + this.getName());
+        System.out.println("m <- "+ String.valueOf(this.safe) +" <- " + this.getName());
         return safe;
     }
 
@@ -146,9 +151,9 @@ public class Tile {
     public int getLimit()
     {
 
-        System.out.println("r -> getLimit() -> t");
+        System.out.println("r -> getLimit() -> " + this.getName());
 
-        System.out.println("r <- limit <- t");
+        System.out.println("r <- limit <- " + this.getName());
         return limit;
     }
 
@@ -188,11 +193,5 @@ public class Tile {
 
     public void setName(String s){this.name = s;}
     public String getName(){return this.name;}
-
-    public void addNeighbour(Tile t)
-    {
-        neighbours.add(t);
-    }
-
-    public void addPlayer(Player p) { players.add(p); }
+    public void addPlayer(Player p) { this.players.add(p); }
 }

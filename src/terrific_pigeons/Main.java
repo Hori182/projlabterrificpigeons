@@ -92,6 +92,7 @@ public class Main {
                     t1.setName("t1");
                     Tile t2 = new Tile();
                     t2.setName("t2");
+                    t2.addNeighbour(t1);
                     e.setMyTile(t2);
                     System.out.println("\n");
                     e.move(t1);
@@ -104,6 +105,7 @@ public class Main {
                     t1.setName("t1");
                     Tile t2 = new Tile();
                     t2.setName("t2");
+                    t2.addNeighbour(t1);
                     e.setMyTile(t2);
                     System.out.println("t1 is unstable");
                     System.out.println("\n");
@@ -213,8 +215,11 @@ public class Main {
                 {
                     Researcher r = new Researcher();
                     Tile t1 = new Tile();
+                    t1.setName("t1");
                     Tile t2 = new Tile();
+                    t2.setName("t2");
                     r.setMyTile(t1);
+                    t1.addNeighbour(t2);
                     r.look(t2);
                     break;
                 }
@@ -256,9 +261,12 @@ public class Main {
                     System.out.println("Life: "+e.getLife());
                     Tile t = new Tile();
                     t.setName("t");
+                    m.addTile(t);
                     e.setMyTile(t);
                     t.receive(e);
                     m.addTile(t);
+
+                    System.out.println("\n");
 
                     m.snowStorm();
                     break;
@@ -271,10 +279,11 @@ public class Main {
                     System.out.println("Life: "+e.getLife());
                     Tile t = new Tile();
                     t.setName("t");
+                    m.addTile(t);
                     t.setSafe(true);
                     e.setMyTile(t);
                     t.receive(e);
-                    m.addTile(t);
+                    System.out.println("\n");
 
                     m.snowStorm();
                     break;
@@ -288,6 +297,7 @@ public class Main {
                     t.setName("t1");
                     e.setMyTile(t);
                     s.setOwner(e);
+                    System.out.println("\n");
 
                     s.useThing();
                     break;

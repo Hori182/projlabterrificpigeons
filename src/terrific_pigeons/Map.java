@@ -32,7 +32,9 @@ public class Map {
 
     public void addTile(Tile t)
     {
-        tiles.add(t);
+        System.out.println("-> addTile(" + t.getName() + ") -> m");
+        this.tiles.add(t);
+        System.out.println("<- m");
     }
 
     /*
