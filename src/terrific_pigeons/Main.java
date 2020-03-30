@@ -148,6 +148,7 @@ public class Main {
                     e.setMyTile(u);
                     e.setInWater(true);
                     u.addNeighbour(t);
+                    t.addNeighbour(u);
                     DivingSuit divingsuit = new DivingSuit();
                     divingsuit.setOwner(e);
                     e.addThing(divingsuit);
@@ -166,8 +167,28 @@ public class Main {
                     f.useThing();
                     break;
                 }
-                case 7:{
-                        //proba push
+                case 7: {
+
+                }
+
+                case 8: {
+                    Eskimo e = new Eskimo();
+                    Tile t1 = new Tile();
+                    t1.setName("t1");
+                    Tile t2 = new Tile();
+                    t2.setName("t2");
+                    e.setMyTile(t1);
+                    t1.addNeighbour(t2);
+                    Researcher res = new Researcher();
+                    t2.addPlayer(res);
+                    res.setInWater(true);
+                    res.setMyTile(t2);
+                    Rope r = new Rope();
+                    r.setOwner(e);
+                    e.addThing(r);
+                    System.out.println(" ");
+
+                    r.useThing();
                     break;
                 }
                 //MEGVAN
@@ -269,6 +290,7 @@ public class Main {
                 {
                     exit = 1;
                 }
+
             }
             if(exit == 0) { promptEnterKey(); }
         }

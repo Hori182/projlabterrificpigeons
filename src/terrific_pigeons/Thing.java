@@ -7,6 +7,9 @@ public class Thing {
      * Minden tárgynak van egy tulajdonosa.
      */
     protected Player owner;
+    //csak a skeletonhoz hoztuk létre ezt a változót:
+    private String name;
+
     /*
      * Minden tárgyat lehet használni. Attól függően, hogy melyik tárgyról van szó a
      * függvény viselkedése változik.

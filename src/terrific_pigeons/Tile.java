@@ -187,4 +187,6 @@ public class Tile {
     {
         neighbours.add(t);
     }
+
+    public void addPlayer(Player p) { players.add(p); }
 }
