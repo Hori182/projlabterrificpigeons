@@ -8,7 +8,6 @@ public class Thing {
      */
     protected Player owner;
     //csak a skeletonhoz hoztuk létre ezt a változót:
-    private String name;
 
     /*
      * Minden tárgyat lehet használni. Attól függően, hogy melyik tárgyról van szó a

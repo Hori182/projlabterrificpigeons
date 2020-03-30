@@ -167,10 +167,17 @@ public class Main {
                     f.useThing();
                     break;
                 }
+                //Nézzetek rá
                 case 7: {
-
+                    PistolPart pp1 = new PistolPart();
+                    Eskimo e1 = new Eskimo();
+                    Tile t1 = new Tile();
+                    pp1.owner = e1;
+                    pp1.owner.myTile = t1;
+                    pp1.UseThing();
+                    break;
                 }
-
+                //Nézzetek rá
                 case 8: {
                     Eskimo e = new Eskimo();
                     Tile t1 = new Tile();

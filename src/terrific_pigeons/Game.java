@@ -8,10 +8,10 @@ public class Game {
     ArrayList<Player> players = new ArrayList<>();
     private boolean win = false;
     private boolean die = false;
+    private int usedParts;
 
-    public Game() {
-        System.out.println("Game created");
-    }
+
+    public Game() { System.out.println("Game created"); }
 
     /**/
     public void startGame(){}
@@ -29,7 +29,16 @@ public class Game {
     }
 
     /**/
-    public void assemble(){}
+    public void assemble(PistolPart pp1,PistolPart pp2,PistolPart pp3){
+        System.out.println("pp1 -> assemble(pp1, pp2, pp3) -> g");
+        setUsedParts(usedParts+1);
+        pp1.owner.getTile();
+        pp2.owner.getTile();
+        pp3.owner.getTile();
+        setWin(true);
+        setUsedParts(0);
+        System.out.println("pp1 <- g");
+    }
 
     /**/
     public void endGame(){}
@@ -43,4 +52,27 @@ public class Game {
         players.add(p);
     }
 
+    public void setWin(boolean win) {
+        System.out.println("g -> setWin(true) -> g");
+        System.out.println("g <- g");
+        this.win = win;
+    }
+
+    /*
+     *Visszaadja a usedParts értékét.
+     */
+    public int getUsedParts() {
+        System.out.println("g -> getUsedParts() -> g");
+        System.out.println("g <- g ");
+        return usedParts;}
+
+    /*
+     *A usedParts változónak új értéket állít be.
+     * @param i: Ez lesz a usedParts új értéke.
+     */
+    public void setUsedParts(int i) {
+        System.out.println("g -> setUsedParts() -> g");
+        System.out.println("g <- g ");
+        this.usedParts = i;
+    }
 }
