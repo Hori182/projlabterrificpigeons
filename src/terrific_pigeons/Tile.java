@@ -50,8 +50,8 @@ public class Tile {
      * */
     public void receive(MoveAble m)
     {
-        System.out.println(this.getName() + " -> Receive(e) -> " + this.getName() );
-        System.out.println(this.getName() + " <-" + this.getName());
+        //System.out.println(this.getName() + " -> Receive(e) -> " + this.getName() );
+        //System.out.println(this.getName() + " <-" + this.getName());
         movables.add(m);
     }
 
@@ -61,8 +61,9 @@ public class Tile {
      * */
     public void remove(MoveAble m)
     {
-        System.out.println("t1 -> remove(e) -> t2");
-        System.out.println("t1 <- t2");
+        //System.out.println("t1 -> remove(e) -> t2");
+        movables.remove(m);
+        //System.out.println("t1 <- t2");
     }
 
     /*
@@ -71,12 +72,12 @@ public class Tile {
      * */
     public void moveRequest(MoveAble m)
     {
-        System.out.println("e -> moveRequest(e) -> " + this.getName());
+        //System.out.println("e -> moveRequest(e) -> " + this.getName());
         Tile t2 = m.getTile();
         t2.remove(m);
         m.setMyTile(this);
         this.receive(m);
-        System.out.println("e <- " + this.getName());
+        //System.out.println("e <- " + this.getName());
     }
 
     /*

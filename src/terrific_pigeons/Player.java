@@ -15,9 +15,9 @@ public abstract class Player extends MoveAble {
      */
     public void move(Tile t)
     {
-        System.out.println("-> move("+ t.getName()+") -> e");
+        //System.out.println("-> move("+ t.getName()+") -> e");
         t.moveRequest(this);
-        System.out.println("<- e");
+        //System.out.println("<- e");
     }
 
     /*

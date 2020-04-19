@@ -10,7 +10,6 @@ public class Game {
     private boolean die = false;
     private int usedParts;
 
-
     public Game() { System.out.println("Game created"); }
 
     /*
