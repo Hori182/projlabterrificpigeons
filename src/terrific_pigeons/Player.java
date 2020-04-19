@@ -2,13 +2,12 @@ package terrific_pigeons;
 
 import java.util.ArrayList;
 
-public abstract class Player {
+public abstract class Player extends MoveAble {
     protected int life;
-    protected int work = 0;
-    protected Tile myTile;
+    //protected int work = 0;
+    //protected Tile myTile;
     protected ArrayList<Thing> things = new ArrayList<>();
-    protected boolean inWater = false;
-
+    //protected boolean inWater = false;
 
     /*Ez a függvény felel a Player egyik tile-ról
      * a másikra való mozgatásáért.
@@ -36,17 +35,6 @@ public abstract class Player {
      * @param t A játékos által használni kívánt tárgy
      * */
     public void use(Thing t) {}
-
-    /*
-     * A játékos elpasszolja a körét, nem él az összes lépésével.
-     * */
-    public void pass() {
-        System.out.println(" -> pass() -> e");
-        this.setWork(4);
-        //System.out.println("e -> setWork(4) -> e");
-        System.out.println("e <- e");
-        System.out.println("<- e");
-    }
 
     /*
      * A játékos meghal.
@@ -130,70 +118,10 @@ public abstract class Player {
     }
 
     /*
-    * Visszaadja a work változó értékét.
-    * */
-    public int getWork() {
-        System.out.println("g-> getWork() -> e");
-        System.out.println("g <- "+ work + " <- e");
-        return work;
-    }
-    /*
-    * A work változó értékét megváltoztatja.
-    * @param work: A work változót ezzel az értékkel írja felül.
-    * */
-
-    public void setWork(int work)
-    {
-        this.work = work;
-        System.out.println("e -> setWork(" + work + ") -> e");
-        System.out.println("e <- e");
-    }
-
-    /*
-    * Visszaadja azt a tile-t amin a player áll.
-    * */
-    public Tile getTile()
-    {
-        System.out.println("t1 -> getTile(e) -> e");
-        System.out.println("t1 <- "+this.myTile.getName()+" <- e");
-        return myTile;
-    }
-    /*
-    * Beáálítja a myTile változó értékét.
-    * @param t: Ez a myTile változó új értéke.
-    * */
-    public void setMyTile(Tile t)
-    {
-        System.out.println(t.getName() + " -> setMyTile("+ t.getName() + ") -> e");
-        System.out.println(t.getName() + " <- e");
-        this.myTile = t;
-    }
-
-    /*
     * Visszaadja a Player-nél lévő Thing-eket (things).
     * */
     public ArrayList<Thing> getThings() {
         return things;
-    }
-
-    /*
-     * Visszaadja, hogy a játékos vízben van-e.
-     * */
-    public boolean getInWater() {
-        System.out.println("g-> getInWater() -> e");
-        System.out.println("g <- "+ inWater + " <- e");
-        return inWater;
-    }
-
-    /*
-    * Beállítja az inWater értékét.
-    * @param inWater: Ezzel az értékkel írja felül az inWater értékét.
-    * */
-    public void setInWater(boolean inWater)
-    {
-        System.out.println("t1 -> setInWater(true) -> e");
-        this.inWater = inWater;
-        System.out.println("t1 <- e");
     }
 
     /*
