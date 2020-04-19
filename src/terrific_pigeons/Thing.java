@@ -28,4 +28,10 @@ public class Thing {
         System.out.println("e <- " + this.getName());
         this.owner = p;
     }
+    /*
+    * Visszaadja az owner változó értékét.
+    * */
+    protected  Player getOwner(){
+        return owner;
+    }
 }
