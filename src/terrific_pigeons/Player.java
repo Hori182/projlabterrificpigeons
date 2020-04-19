@@ -88,10 +88,7 @@ public abstract class Player extends MoveAble {
     /*
      * Növeli az életerőt eggyel.
      * */
-    public void addLife() {
-        System.out.println("f -> addLife() -> e");
-        System.out.println("f <- e");
-    }
+    protected boolean addLife() { return  true;}
 
     /*
      * Csökkenti az életerőt eggyel.

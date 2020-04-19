@@ -30,4 +30,14 @@ public class Researcher extends Player {
         System.out.println("<- limit <- r");
     }
 
+    public boolean addLife()
+    {
+        if(this.life+1 <= 4)
+        {
+            this.life++;
+            return true;
+        }
+        return false;
+    }
+
 }
