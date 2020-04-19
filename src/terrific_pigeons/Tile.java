@@ -8,7 +8,7 @@ public class Tile {
     protected boolean safe = false;
     protected int limit = 100;
     protected Thing thing;
-    protected ArrayList<Player> players = new ArrayList<>();
+    protected ArrayList<MoveAble> movables = new ArrayList<>();
     private ArrayList<Tile> neighbours = new ArrayList<>();
     //csak a szkeletonhoz hoztuk létre ezt a változót
     private String name;
@@ -48,18 +48,18 @@ public class Tile {
      * Fogadja a játékost.
      * @param p A mezőre lépő játékos
      * */
-    public void receive(Player p)
+    public void receive(MoveAble m)
     {
         System.out.println(this.getName() + " -> Receive(e) -> " + this.getName() );
         System.out.println(this.getName() + " <-" + this.getName());
-        players.add(p);
+        movables.add(m);
     }
 
     /*
      * Eltávolítja a játékost.
      * @param p A mezőről távozó játékos
      * */
-    public void remove(Player p)
+    public void remove(MoveAble m)
     {
         System.out.println("t1 -> remove(e) -> t2");
         System.out.println("t1 <- t2");
@@ -69,13 +69,13 @@ public class Tile {
      * Játékos átmozgatása.
      * @param p: Az átléptetendő játékos
      * */
-    public void moveRequest(Player p)
+    public void moveRequest(MoveAble m)
     {
         System.out.println("e -> moveRequest(e) -> " + this.getName());
-        Tile t2 = p.getTile();
-        t2.remove(p);
-        p.setMyTile(this);
-        this.receive(p);
+        Tile t2 = m.getTile();
+        t2.remove(m);
+        m.setMyTile(this);
+        this.receive(m);
         System.out.println("e <- " + this.getName());
     }
 
@@ -169,9 +169,9 @@ public class Tile {
     /*
      * Visszaadja a jégtáblán álló karakterek listáját.
      */
-    public ArrayList<Player> getPlayers()
+    public ArrayList<MoveAble> getMovables()
     {
-        return players;
+        return movables;
     }
 
     /*
@@ -193,5 +193,5 @@ public class Tile {
 
     public void setName(String s){this.name = s;}
     public String getName(){return this.name;}
-    public void addPlayer(Player p) { this.players.add(p); }
+    public void addMoveAbles(MoveAble m) { this.movables.add(m); }
 }
