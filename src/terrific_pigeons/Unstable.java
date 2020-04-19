@@ -17,15 +17,11 @@ public class  Unstable extends Tile{
     * */
     public void turnOver(MoveAble m)
     {
-        //System.out.println(this.getName() + " -> turnOver() ->" + this.getName());
         for(int i = 0; i < this.movables.size(); i++)
         {
             this.getMovables().get(i).setInWater(true);
         }
         m.pass();
-        //System.out.print(this.getName());
-        //this.getMovables().get(0).pass();
-        //System.out.println(this.getName() + " <- " + this.getName());
     }
 
     /*
@@ -34,14 +30,6 @@ public class  Unstable extends Tile{
     * */
     public void check(MoveAble m)
     {
-        /*System.out.println("Többen állnak rajta mint kéne (1: igen, 0: nem )");
-        System.out.print("Please choose: ");
-        Scanner input = new Scanner( System.in );
-        int choice = input.nextInt();
-        if(choice == 1) {
-            this.turnOver();
-        }*/
-
         if(this.movables.size() >limit)
             this.turnOver(m);
 
@@ -66,19 +54,10 @@ public class  Unstable extends Tile{
      * */
     public void moveRequest(MoveAble m)
     {
-        System.out.println("e -> moveRequest(e) -> " + this.getName());
         Tile t2 = m.getTile();
-        //System.out.println("lol");
-
         t2.remove(m);
-
         m.setMyTile(this);
-
-        //System.out.println("t1 -> Receive(e) -> t1");
         this.receive(m);
-
-        System.out.println("t1 -> check(e) -> t1");
         this.check(m);
-        System.out.println("e <- t1");
     }
 }
