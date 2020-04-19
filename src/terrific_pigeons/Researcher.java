@@ -25,9 +25,8 @@ public class Researcher extends Player {
      * */
     public void look(Tile t)
     {
-        System.out.println("-> look(" + t.getName() + ") -> r");
-        t.getLimit();
-        System.out.println("<- limit <- r");
+        int l = t.getLimit();
+        System.out.println("Tile limit: " + l);
     }
 
     public boolean addLife()
