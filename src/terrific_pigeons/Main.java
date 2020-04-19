@@ -185,7 +185,7 @@ public class Main {
                     e.setMyTile(t1);
                     t1.addNeighbour(t2);
                     Researcher res = new Researcher();
-                    t2.addPlayer(res);
+                    t2.addMoveAbles(res);
                     res.setInWater(true);
                     res.setMyTile(t2);
                     Rope r = new Rope();
