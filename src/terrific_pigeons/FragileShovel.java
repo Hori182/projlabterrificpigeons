@@ -2,7 +2,7 @@ package terrific_pigeons;
 
 public class FragileShovel extends Shovel{
     // Hányszor volt használva a lapát.
-    private int usage;
+    private int usage = 0;
 
     /*
     * A tárgyat valamelyik játékos ennek a függvénynek a meghívásával használja.
@@ -10,9 +10,26 @@ public class FragileShovel extends Shovel{
     * a függvény 2 egység havat távolít el róla és megnöveli a használatot eggyel.
      */
     public void useThing() {
+        if(usage < 3)
+        {
+            Tile t = owner.getTile();
+            if(t.getSnow()-2 >= 0)
+            {
+                t.subSnow(2);
+            }
+            else
+            {
+                t.setSnow(0);
+            }
+            usage++;
+            if(usage == 3)
+            {
+                owner.removeThing(this);
+            }
+            owner.work();
+        }
 
     }
-
 
     /*
     *Visszaadja a usage változó értékét.

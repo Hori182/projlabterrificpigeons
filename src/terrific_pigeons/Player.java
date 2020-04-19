@@ -32,7 +32,10 @@ public abstract class Player extends MoveAble {
      * A játékos használja valamelyik tárgyát.
      * @param t A játékos által használni kívánt tárgy
      * */
-    public void use(Thing t) {}
+    public void use(Thing t)
+    {
+        t.useThing();
+    }
 
     /*
      * A játékos meghal.
@@ -80,9 +83,7 @@ public abstract class Player extends MoveAble {
      * */
     public void work()
     {
-        System.out.println("e -> work() -> e");
         this.setWork(this.work + 1);
-        System.out.println("e <- e");
     }
 
     /*

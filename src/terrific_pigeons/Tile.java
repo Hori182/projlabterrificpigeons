@@ -24,9 +24,7 @@ public class Tile {
      * */
     public void addSnow(int sn)
     {
-        System.out.println("m -> AddSnow(1) -> " + this.getName());
         setSnow(sn+snow);
-        System.out.println("m <- t");
     }
 
     /*
@@ -107,6 +105,7 @@ public class Tile {
     }
     /*
      * Beállít egy jégtáblát szomszédnak.
+     * @param t: a szomszédnak beállított tábla
      */
     public void addNeighbour(Tile t)
     {

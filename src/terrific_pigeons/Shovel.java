@@ -12,12 +12,16 @@ public class Shovel extends Thing{
      * Két egységnyi havat lapátol el a játékos a saját
      * jégtáblájáról.
      */
-    public void useThing() {
-        System.out.println("-> useThing() -> s");
+    protected void useThing() {
         Tile t = owner.getTile();
-        t.subSnow(2);
+        if(t.getSnow()-2 >= 0)
+        {
+            t.subSnow(2);
+        }
+        else
+        {
+            t.setSnow(0);
+        }
         owner.work();
-        System.out.println("s <- e");
-        System.out.println("<- s");
     }
 }

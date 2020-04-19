@@ -14,19 +14,10 @@ public class Eskimo extends Player {
      * */
     public void build()
     {
-        System.out.println("-> build() -> e");
         myTile.setSafe(true);
         work();
-        System.out.println("<- e");
     }
 
-    public void work()
-    {
-        System.out.println("e -> work() -> e");
-        this.setWork(work+1);
-        System.out.println("e <- e");
-
-    }
     public boolean addLife()
     {
         if(this.life+1 <= 5)

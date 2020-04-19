@@ -5,18 +5,6 @@ public class Researcher extends Player {
     public Researcher()
     {
         life=4;
-        System.out.println("Researcher created");
-    }
-
-    /*
-     * A kutató elvégez egy munkát, ezzel munkamennyisége
-     * eggyel megnő.
-     * */
-    public void work()
-    {
-        System.out.println("r -> setWork(work+1) -> r");
-        this.setWork(work+1);
-        System.out.println("r <- r");
     }
 
     /*
