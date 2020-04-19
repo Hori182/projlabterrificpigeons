@@ -5,6 +5,16 @@ public class FragileShovel extends Shovel{
     private int usage;
 
     /*
+    * A tárgyat valamelyik játékos ennek a függvénynek a meghívásával használja.
+    * Amennyiben van még hó a játékos mezőjén és nem használtuk el a 3 lehetőségünket,
+    * a függvény 2 egység havat távolít el róla és megnöveli a használatot eggyel.
+     */
+    public void useThing() {
+
+    }
+
+
+    /*
     *Visszaadja a usage változó értékét.
     * */
     public int getUsage() {
