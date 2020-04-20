@@ -15,6 +15,7 @@ public class Researcher extends Player {
     {
         int l = t.getLimit();
         System.out.println("Tile limit: " + l);
+        work();
     }
 
     public boolean addLife()
