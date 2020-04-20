@@ -6,6 +6,7 @@ public class Tile {
 
     protected int snow;
     protected boolean safe = false;
+    protected boolean safeByTent = false;
     protected int limit = 100;
     protected Thing thing;
     protected ArrayList<MoveAble> movables = new ArrayList<>();
@@ -169,4 +170,6 @@ public class Tile {
     public void setName(String s){this.name = s;}
     public String getName(){return this.name;}
     public void addMoveAbles(MoveAble m) { this.movables.add(m); }
+    public void setSafeByTent(boolean b){safeByTent = b;}
+    public boolean getSafeByTent(){return this.safeByTent ;}
 }

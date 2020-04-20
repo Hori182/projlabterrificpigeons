@@ -12,17 +12,12 @@ public class DivingSuit extends Thing{
      */
     public void useThing()
     {
-        System.out.println("-> useThing() -> " + this.getName());
         if (this.owner.getInWater())
         {
             ArrayList<Tile> temp = this.owner.getTile().getNeighbours();
-
             int randomNum = ThreadLocalRandom.current().nextInt(0, temp.size() );
-
             temp.get(randomNum).moveRequest(this.owner);
-
             this.owner.work();
         }
-        System.out.println("<- " + this.getName());
     }
 }

@@ -16,17 +16,23 @@ public class Rope extends Thing{
      */
 
     public void useThing() {
-        System.out.println("-> useThing() -> r");
         Tile t = owner.getTile();
         ArrayList<Tile> temp = t.getNeighbours();
-        int randomNum = ThreadLocalRandom.current().nextInt(0, temp.size() );   //A Tile szomszédjai közül véletlenszerüen választ egyet
-        ArrayList<Player> temp2 = temp.get(randomNum).getPlayers();
+        //int randomNum = ThreadLocalRandom.current().nextInt(0, temp.size() );   //A Tile szomszédjai közül véletlenszerüen választ egyet
+        /*for(int i = 0; i < temp.size(); i++)
+        {
+            if(temp.get(i).getLimit() == 0)
+            {
+                ArrayList<Player> wp = temp.get(i).getPlayers();
+            }
+        }
+
+        ArrayList<Player> wp = temp.get(randomNum).getPlayers();
+
         int randomNum2 = ThreadLocalRandom.current().nextInt(0, temp.size() );  //Az egyik szomszédon véletlenszerüen választ egy player
         temp2.get(randomNum2).getInWater();                                            //Akinek megvizsgálja hogy vízben van-e
         t.moveRequest(temp2.get(randomNum2));
-        owner.work();
-        System.out.println("r <- e");
-        System.out.println("<- r");
+        owner.work();*/
     }
 }
 

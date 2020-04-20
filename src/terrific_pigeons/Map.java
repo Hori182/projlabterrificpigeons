@@ -17,24 +17,23 @@ public class Map {
     * */
     public void snowStorm()
     {
-        System.out.println("-> snowstorm() -> m");
         for( Tile t : tiles)
         {
             t.addSnow(1);
-            /*ArrayList<Player> temp = t.getPlayers();
-            for( Player p : temp)
-            {
-                p.subLife();
-            }*/
+            /*
+            ArrayList<Player> temp = t.getPlayers();
+                for( Player p : temp)
+                {
+                    p.subLife();
+                }
+            }
+            */
         }
-        System.out.println("<- m");
     }
 
     public void addTile(Tile t)
     {
-        System.out.println("-> addTile(" + t.getName() + ") -> m");
         this.tiles.add(t);
-        System.out.println("<- m");
     }
 
     /*

@@ -25,7 +25,6 @@ public abstract class Player extends MoveAble {
     public void dig() {
         myTile.subSnow(1);
         work();
-        System.out.println("<- e");
     }
 
     /*
@@ -49,13 +48,11 @@ public abstract class Player extends MoveAble {
      * */
     public void equip()
     {
-        System.out.println("-> equip() -> e");
         Thing th = myTile.getThing();
         th.setOwner(this);
         addThing(th);
         myTile.removeThing();
         this.work();
-        System.out.println("<- e");
     }
 
     /*
@@ -64,9 +61,7 @@ public abstract class Player extends MoveAble {
      * */
     public void addThing(Thing t)
     {
-        System.out.println("e-> addThing("+ t.getName() +") -> e");
         this.things.add(t);
-        System.out.println("e <- e");
     }
 
     /*
@@ -74,7 +69,7 @@ public abstract class Player extends MoveAble {
      * @param t A kikerülő tárgy.
      * */
     public void removeThing(Thing t) {
-        System.out.println("f -> removeThing(f) -> e");
+        this.things.remove(t);
     }
 
     /*
@@ -96,21 +91,16 @@ public abstract class Player extends MoveAble {
      * */
     public void subLife()
     {
-        System.out.println("m -> subLife() -> e");
-        if (!this.myTile.getSafe())
+        if (this.myTile.getSafe() == false && this.myTile.getSafeByTent() == false)
         {
             if(this.getLife()-1 > 1) {
                 setLife(this.getLife() - 1);
             }
             else{
                 setLife(this.getLife()-1);
-                System.out.println("m <- t");
-                System.out.print("m -> ");
                 die();
-                System.out.print(" -> e\n");
             }
         }
-        System.out.println("m <- e");
     }
 
     /*

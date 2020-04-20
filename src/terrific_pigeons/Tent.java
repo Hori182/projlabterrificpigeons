@@ -7,6 +7,7 @@ public class Tent extends Thing{
     *változók igazra állításával.
     */
     public void useThing() {
-
+        owner.getTile().setSafeByTent(true);
+        owner.work();
     }
 }
