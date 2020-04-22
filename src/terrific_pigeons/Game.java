@@ -72,7 +72,6 @@ public class Game {
         System.out.println("g <- g");
         this.win = win;
     }
-
     /*
      *Visszaadja a usedParts értékét.
      */
@@ -89,5 +88,10 @@ public class Game {
         System.out.println("g -> setUsedParts() -> g");
         System.out.println("g <- g ");
         this.usedParts = i;
+    }
+
+    public void setDie(boolean die) {
+        this.die = die;
+        endGame();
     }
 }
