@@ -14,7 +14,7 @@ public class Researcher extends Player {
     public void look(Tile t)
     {
         int l = t.getLimit();
-        System.out.println("Tile limit: " + l);
+        /*System.out.println("Tile limit: " + l);*/
         work();
     }
 

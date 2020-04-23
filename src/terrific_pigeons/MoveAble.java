@@ -5,7 +5,9 @@ public abstract class MoveAble {
     protected int work = 0;
     protected Tile myTile;
 
-    protected  void move(Tile t){}
+    protected  void move(Tile t){
+
+    }
     /*
      * A játékos elpasszolja a körét, nem él az összes lépésével.
      * */
@@ -57,4 +59,5 @@ public abstract class MoveAble {
     {
         this.myTile = t;
     }
+
 }

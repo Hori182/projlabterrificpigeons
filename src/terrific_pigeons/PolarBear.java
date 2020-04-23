@@ -5,9 +5,13 @@ public class PolarBear extends MoveAble {
      * a másikra való mozgatásáért.
      * @param t A jégtábla amire a medve lép.
      */
-    public void move(Tile t){}
+    public void move(Tile t){
+        
+    }
     /*
     A medve megöli a játékos(oka)t.
      */
-    public void kill(){}
+    public void kill(Game g){
+        g.setDie(true);
+    }
 }

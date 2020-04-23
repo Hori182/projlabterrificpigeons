@@ -82,7 +82,7 @@ public class Main {
             Scanner input = new Scanner( System.in );
             int choice = input.nextInt();
 
-            switch (choice)
+            /*switch (choice)
             {
                 case 1:
                 {
@@ -296,7 +296,7 @@ public class Main {
                     exit = 1;
                 }
 
-            }
+            }*/
             if(exit == 0) { promptEnterKey(); }
         }
 

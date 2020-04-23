@@ -7,17 +7,14 @@ public class Tile {
     protected int snow;
     protected boolean safe = false;
     protected boolean safeByTent = false;
-    protected int limit = 100;
+    protected int limit = -1;
     protected Thing thing;
     protected ArrayList<MoveAble> movables = new ArrayList<>();
     private ArrayList<Tile> neighbours = new ArrayList<>();
     //csak a szkeletonhoz hoztuk létre ezt a változót
     private String name;
 
-    public Tile()
-    {
-        System.out.println("Tile created");
-    }
+    public Tile(){ }
 
     /*
      * Megnöveli a jégtáblán lévő hó mennyiségét.
@@ -99,12 +96,13 @@ public class Tile {
         return neighbours;
     }
     /*
-     * Beállít egy jégtáblát szomszédnak.
+     * Beállít egy jégtáblát szomszédnak és a paraméterként beállított mezőnek is beállítja szomszédnak.
      * @param t: a szomszédnak beállított tábla
      */
     public void addNeighbour(Tile t)
     {
         this.neighbours.add(t);
+        t.addNeighbour(this);
     }
 
     /*
@@ -112,8 +110,8 @@ public class Tile {
      */
     public boolean getSafe()
     {
-        System.out.println("m -> getSafe() -> " + this.getName());
-        System.out.println("m <- "+ String.valueOf(this.safe) +" <- " + this.getName());
+        /*System.out.println("m -> getSafe() -> " + this.getName());
+        System.out.println("m <- "+ String.valueOf(this.safe) +" <- " + this.getName());*/
         return safe;
     }
 
@@ -123,23 +121,6 @@ public class Tile {
     public void setSafe(boolean s)
     {
         this.safe=s;
-    }
-
-    /*
-     *Beállítja, hogy a mezőn van-e iglu
-     */
-    public int getLimit()
-    {
-        return limit;
-    }
-
-    /*
-     *Beállítja, hogy a mezőn van-e iglu
-     */
-    public void setLimit(int l)
-    {
-        System.out.println("<- t");
-        limit= l;
     }
 
     /*
@@ -155,8 +136,8 @@ public class Tile {
      */
     public void setThing(Thing t)
     {
-        System.out.println("-> setThing(shovel) ->" + this.getName());
-        System.out.println("<- " + this.getName() );
+        /*System.out.println("-> setThing(shovel) ->" + this.getName());
+        System.out.println("<- " + this.getName() );*/
         this.thing = t;
     }
 
@@ -165,6 +146,10 @@ public class Tile {
         System.out.println("e -> getThing() -> " + this.getName());
         System.out.println("e <- shovel <- " + this.getName());
         return thing;
+    }
+
+    public int getLimit() {
+        return limit;
     }
 
     public void setName(String s){this.name = s;}

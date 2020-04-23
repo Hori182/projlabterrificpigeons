@@ -24,14 +24,14 @@ public class Thing {
      */
     protected void setOwner(Player p)
     {
-        System.out.println("e-> setOwner(e) -> " + this.getName());
-        System.out.println("e <- " + this.getName());
+        /*System.out.println("e-> setOwner(e) -> " + this.getName());
+        System.out.println("e <- " + this.getName());*/
         this.owner = p;
     }
     /*
     * Visszaadja az owner változó értékét.
     * */
-    protected  Player getOwner(){
+    protected Player getOwner(){
         return owner;
     }
 }

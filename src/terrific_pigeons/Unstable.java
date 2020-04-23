@@ -5,11 +5,10 @@ import java.util.Scanner;
 
 public class  Unstable extends Tile{
 
-    private int limit = 0;
-
-    public Unstable()
+    public Unstable(int limit)
     {
-        System.out.println("Unstabile tile created"+limit);
+        //System.out.println("Unstabile tile created"+limit);
+        this.limit = limit;
     }
 
     /*
@@ -32,13 +31,6 @@ public class  Unstable extends Tile{
     {
         if(this.movables.size() >limit)
             this.turnOver(m);
-    }
-
-    /*
-    * Visszaadja a limit változó értékét.
-    * */
-    public int getLimit() {
-        return limit;
     }
     /*
     * A limit változó értékét megváltoztatja.

@@ -22,7 +22,7 @@ public class Game {
     * Követkető játékosra vált.
     * */
     public void nextPlayer(){
-        if(players.get(currentPlayer).getWork() == 0 && players.get(currentPlayer).getInWater() == true)
+        if(players.get(currentPlayer).getWork() == 0 && players.get(currentPlayer).getInWater())
         {
             players.get(currentPlayer).die();
         }
@@ -49,7 +49,9 @@ public class Game {
     /*
     * Játék vége.
     * */
-    public void endGame(){}
+    public void endGame(){
+        System.out.println("Game Over!");
+    }
 
     public ArrayList<Player> getPlayers() {
         return players;

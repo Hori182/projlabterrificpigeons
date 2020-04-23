@@ -50,4 +50,7 @@ public class Map {
     public void setTiles(ArrayList<Tile> tiles) {
         this.tiles = tiles;
     }
+
+    public void generateMap(int x, int y){
+    }
 }
