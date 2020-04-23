@@ -11,11 +11,12 @@ public class Researcher extends Player {
      * Megnézi, hogy az adott táblának mennyi a teherbírása.
      * @param t A megviszgált jégtábla.
      * */
-    public void look(Tile t)
+    public int look(Tile t)
     {
         int l = t.getLimit();
         /*System.out.println("Tile limit: " + l);*/
         work();
+        return l;
     }
 
     public boolean addLife()

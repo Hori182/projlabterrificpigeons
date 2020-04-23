@@ -9,6 +9,5 @@ public class Tent extends Thing{
     public void useThing() {
         owner.getTile().setSafeByTent(true);
         owner.work();
-        owner.getTile().getSafe();
     }
 }
