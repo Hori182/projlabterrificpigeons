@@ -32,10 +32,6 @@ public class Main {
                 switch(commandparam[0])
                 {
                     case "load":
-
-
-                        break;
-
                     case "pass":
 
                 }

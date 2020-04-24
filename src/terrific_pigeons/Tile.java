@@ -11,10 +11,11 @@ public class Tile {
     protected Thing thing;
     protected ArrayList<MoveAble> movables = new ArrayList<>();
     private ArrayList<Tile> neighbours = new ArrayList<>();
+    private int tileId;
     //csak a szkeletonhoz hoztuk létre ezt a változót
     private String name;
 
-    public Tile(){ }
+    public Tile(int id){tileId = id; }
 
     /*
      * Megnöveli a jégtáblán lévő hó mennyiségét.
