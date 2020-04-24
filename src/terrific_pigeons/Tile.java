@@ -10,7 +10,7 @@ public class Tile {
     protected int limit = -1;
     protected Thing thing;
     protected ArrayList<MoveAble> movables = new ArrayList<>();
-    private ArrayList<Tile> neighbours = new ArrayList<>();
+    protected ArrayList<Tile> neighbours = new ArrayList<>();
     private int tileId;
     //csak a szkeletonhoz hoztuk létre ezt a változót
     private String name;
@@ -103,7 +103,7 @@ public class Tile {
     public void addNeighbour(Tile t)
     {
         this.neighbours.add(t);
-        t.addNeighbour(this);
+        t.getNeighbours().add(this);
     }
 
     /*
@@ -137,15 +137,11 @@ public class Tile {
      */
     public void setThing(Thing t)
     {
-        /*System.out.println("-> setThing(shovel) ->" + this.getName());
-        System.out.println("<- " + this.getName() );*/
         this.thing = t;
     }
 
     public Thing getThing()
     {
-        System.out.println("e -> getThing() -> " + this.getName());
-        System.out.println("e <- shovel <- " + this.getName());
         return thing;
     }
 
@@ -158,4 +154,8 @@ public class Tile {
     public void addMoveAbles(MoveAble m) { this.movables.add(m); }
     public void setSafeByTent(boolean b){safeByTent = b;}
     public boolean getSafeByTent(){return this.safeByTent ;}
+
+    public int getTileId() {
+        return tileId;
+    }
 }

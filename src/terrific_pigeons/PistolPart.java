@@ -5,10 +5,13 @@ package terrific_pigeons;
  * Ezek összeszerelésével lehet megnyerni a játékot.
  */
 public class PistolPart extends Thing{
+    private int id;
     /*
      * Összeszerli a pisztolyt a pisztolydarabokból.
      */
-    public PistolPart(){ System.out.println("PistolPart created");}
+    public PistolPart(){
+        System.out.println("PistolPart created");
+    }
 
     /*
     Megpróbálja összeszerelni a pisztolyt.
@@ -28,5 +31,13 @@ public class PistolPart extends Thing{
 
         g.assemble(this, pp2, pp3);
         System.out.println("<- pp1");
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

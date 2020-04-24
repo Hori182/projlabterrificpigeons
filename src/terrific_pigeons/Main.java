@@ -24,8 +24,11 @@ public class Main {
             game.addPlayers(r);
         }
 
+        game.create_tiles(4, 5);
+        game.initNeighbours();
+
         String command = input.nextLine();
-        while(command != "exit")
+        /*while(command != "exit")
         {
             String[] commandparam = command.split(" ");
                 break;
@@ -37,7 +40,7 @@ public class Main {
                 }
             command = input.nextLine();
             commandparam = command.split(" ");
-        }
+        }*/
     }
     public static void promptEnterKey(){
         System.out.println("Press \"ENTER\" to continue...");

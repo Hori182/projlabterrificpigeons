@@ -1,9 +1,10 @@
 package terrific_pigeons;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Game {
-    private Map gameMap;
+    private Map gameMap = new Map();
 
     ArrayList<Player> players = new ArrayList<>();
     private int currentPlayer = 0;
@@ -11,7 +12,10 @@ public class Game {
     private boolean die = false;
     private int usedParts;
 
-    public Game() { System.out.println("Game created"); }
+    public Game() {
+        System.out.println("Game created");
+
+    }
 
     /*
     * Játék indítása.
@@ -96,4 +100,57 @@ public class Game {
         this.die = die;
         endGame();
     }
+
+    public void create_tiles(int x, int y){
+        Random rand = new Random();
+
+        gameMap.generateMap(x, y);
+        int datas[] = gameMap.getMap_data();
+
+        for(int i = 0; i < datas[0]; i++){
+            Tile t = new Tile(i);
+            gameMap.addTile(t);
+        }
+        for(int i = 0; i < datas[1]; i++){
+            Tile t = new Unstable(rand.nextInt(players.size()-1),i + datas[0]);
+            gameMap.addTile(t);
+        }
+        for(int i = 0; i < datas[2]; i++){
+            Tile t = new Unstable(0, i + datas[0] + datas[1]);
+            gameMap.addTile(t);
+        }
+        gameMap.shuffle();
+    }
+
+    public void initNeighbours(){
+        int cnt = 0;
+
+        // Set the neighbours
+        for(int i = 0; i < gameMap.getL(); i++){
+            for(int j = 0; j < gameMap.getW(); j++){
+                if(i == 0){
+                    if(j > 0){
+                        gameMap.getTiles().get(cnt).addNeighbour(gameMap.getTiles().get(cnt-1));
+                    }
+                } else if(i > 0){
+                    if(j == 0){
+                        gameMap.getTiles().get(cnt).addNeighbour(gameMap.getTiles().get(cnt-gameMap.getW()));
+                        gameMap.getTiles().get(cnt).addNeighbour(gameMap.getTiles().get(cnt-gameMap.getW()+1));
+                    }
+                    if(j != 0 && j < gameMap.getW() - 1){
+                        gameMap.getTiles().get(cnt).addNeighbour(gameMap.getTiles().get(cnt-1));
+                        gameMap.getTiles().get(cnt).addNeighbour(gameMap.getTiles().get(cnt-gameMap.getW()-1));
+                        gameMap.getTiles().get(cnt).addNeighbour(gameMap.getTiles().get(cnt-gameMap.getW()));
+                        gameMap.getTiles().get(cnt).addNeighbour(gameMap.getTiles().get(cnt-gameMap.getW()+1));
+                    } else if(j == gameMap.getW() - 1){
+                        gameMap.getTiles().get(cnt).addNeighbour(gameMap.getTiles().get(cnt-1));
+                        gameMap.getTiles().get(cnt).addNeighbour(gameMap.getTiles().get(cnt-gameMap.getW()-1));
+                        gameMap.getTiles().get(cnt).addNeighbour(gameMap.getTiles().get(cnt-gameMap.getW()));
+                    }
+                }
+                cnt++;
+            }
+        }
+    }
+
 }
