@@ -12,10 +12,14 @@ public class Main {
         int numOfReserchers = Integer.parseInt(input.nextLine());
         Game game = new Game();
         for(int i = 0; i < numOfEskimoes; i++) {
-            Eskimo e = new Eskimo();
+            Integer.toString(i);
+            String id = "E"+i;
+            Eskimo e = new Eskimo(id);
             game.addPlayers(e);
         }
         for(int i = 0; i < numOfReserchers; i++) {
+            Integer.toString(i);
+            String id = "R"+i;
             Researcher r = new Researcher();
             game.addPlayers(r);
         }

@@ -1,11 +1,10 @@
 package terrific_pigeons;
 
 public class Eskimo extends Player {
-
-    public Eskimo()
+    public Eskimo(String id)
     {
         life=5;
-        System.out.println("Eskimo created");
+        playerid = id;
     }
 
     /*

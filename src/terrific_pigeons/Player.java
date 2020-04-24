@@ -7,6 +7,7 @@ public abstract class Player extends MoveAble {
     //protected int work = 0;
     //protected Tile myTile;
     protected ArrayList<Thing> things = new ArrayList<>();
+    protected String playerid;
     //protected boolean inWater = false;
 
     /*Ez a függvény felel a Player egyik tile-ról

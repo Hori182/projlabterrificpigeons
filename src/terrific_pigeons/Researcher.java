@@ -2,9 +2,10 @@ package terrific_pigeons;
 
 public class Researcher extends Player {
 
-    public Researcher()
+    public Researcher(String id)
     {
         life=4;
+        playerid = id;
     }
 
     /*
