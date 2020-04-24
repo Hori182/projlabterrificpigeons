@@ -6,18 +6,18 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        System.out.println("Number of eskimoes: ");
-        int numOfEskimoes = Integer.parseInt(input.nextLine());
-        System.out.println("Number of reserchers: ");
-        int numOfReserchers = Integer.parseInt(input.nextLine());
+        System.out.println("Number of eskimos: ");
+        int numOfEskimos = Integer.parseInt(input.nextLine());
+        System.out.println("Number of researchers: ");
+        int numOfResearchers = Integer.parseInt(input.nextLine());
         Game game = new Game();
-        for(int i = 0; i < numOfEskimoes; i++) {
+        for(int i = 0; i < numOfEskimos; i++) {
             Integer.toString(i);
             String id = "E"+i;
             Eskimo e = new Eskimo(id);
             game.addPlayers(e);
         }
-        for(int i = 0; i < numOfReserchers; i++) {
+        for(int i = 0; i < numOfResearchers; i++) {
             Integer.toString(i);
             String id = "R"+i;
             Researcher r = new Researcher(id);
@@ -42,7 +42,6 @@ public class Main {
             command = input.nextLine();
             commandparam = command.split(" ");
         }
-
     }
     public static void promptEnterKey(){
         System.out.println("Press \"ENTER\" to continue...");
