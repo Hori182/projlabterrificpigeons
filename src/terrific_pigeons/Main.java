@@ -20,7 +20,7 @@ public class Main {
         for(int i = 0; i < numOfReserchers; i++) {
             Integer.toString(i);
             String id = "R"+i;
-            Researcher r = new Researcher();
+            Researcher r = new Researcher(id);
             game.addPlayers(r);
         }
 
