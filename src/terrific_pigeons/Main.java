@@ -6,10 +6,9 @@ public class Main {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         String command = input.nextLine();
-        String commandparam[] = command.split(" ");
         while(command != "exit")
         {
-                System.out.println(commandparam[0] + ":" + commandparam[1] + ":" + commandparam[2]);
+            String[] commandparam = command.split(" ");
                 break;
                 switch(commandparam[0])
                 {
@@ -19,10 +18,8 @@ public class Main {
                         break;
                     }
                 }
-
-            input = new Scanner(System.in);
             command = input.nextLine();
-            commandparam[] = command.split(" ");
+            commandparam = command.split(" ");
         }
 
     }
