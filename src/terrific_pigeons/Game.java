@@ -109,10 +109,12 @@ public class Game {
 
         for(int i = 0; i < datas[0]; i++){
             Tile t = new Tile(i);
+            t.setSnow(rand.nextInt(5));
             gameMap.addTile(t);
         }
         for(int i = 0; i < datas[1]; i++){
             Tile t = new Unstable(rand.nextInt(players.size()-1),i + datas[0]);
+            t.setSnow(rand.nextInt(5));
             gameMap.addTile(t);
         }
         for(int i = 0; i < datas[2]; i++){
@@ -150,6 +152,29 @@ public class Game {
                 }
                 cnt++;
             }
+        }
+    }
+
+    public void initMap(int x, int y){
+        Random rand = new Random();
+        int num;
+        boolean ready = false;
+
+        create_tiles(x,y);
+        initNeighbours();
+
+        // Generate things
+
+        // Put the characters on it
+        for (int i = 0; i < players.size(); i++) {
+            while (ready != true) {
+                num = rand.nextInt(gameMap.getTiles().size());
+                if(gameMap.getTiles().get(num).getLimit() == -1){
+                    players.get(i).setMyTile(gameMap.getTiles().get(num));
+                    ready = true;
+                }
+            }
+            ready = false;
         }
     }
 

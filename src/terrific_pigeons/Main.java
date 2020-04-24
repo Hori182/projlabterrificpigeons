@@ -24,8 +24,7 @@ public class Main {
             game.addPlayers(r);
         }
 
-        game.create_tiles(4, 5);
-        game.initNeighbours();
+        game.initMap(4, 5);
 
         String command = input.nextLine();
         /*while(command != "exit")
