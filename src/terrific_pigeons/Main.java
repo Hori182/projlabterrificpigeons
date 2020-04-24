@@ -11,6 +11,18 @@ public class Main {
         {
                 System.out.println(commandparam[0] + ":" + commandparam[1] + ":" + commandparam[2]);
                 break;
+                switch(commandparam[0])
+                {
+                    case "load":
+                    {
+
+                        break;
+                    }
+                }
+
+            input = new Scanner(System.in);
+            command = input.nextLine();
+            commandparam[] = command.split(" ");
         }
 
     }
