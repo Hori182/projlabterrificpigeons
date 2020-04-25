@@ -245,4 +245,10 @@ public class Game {
            }
         }
     }
+    public int getCurrentPlayer() {
+        return currentPlayer;
+    }
+    public Map getGameMap() {
+        return gameMap;
+    }
 }

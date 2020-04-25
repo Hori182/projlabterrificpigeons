@@ -30,6 +30,18 @@ public class Main {
                     case "pass":
                         game.nextPlayer();
                         break;
+                    case "move":
+                        Map map = game.getGameMap();
+                        ArrayList <Tile> tiles = map.getTiles();
+                        Tile moveParam = new Tile(999999);
+                        for(int i = 0; i < tiles.size() ;i++) {
+                            if(Integer.parseInt(commandparam[1]) == tiles.get(i).getTileId())
+                                moveParam = tiles.get(i);
+                        }
+
+                        int current = game.getCurrentPlayer();
+                        game.getPlayers().get(current).move(moveParam);
+                        break;
                     //case "exit":
                     //case "load":
 
