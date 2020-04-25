@@ -131,7 +131,6 @@ public class Tile {
     Kirajzolja a Tile-t
      */
     protected void draw(){
-        //TileID:safe:snow:standing on:neighbours
         System.out.print(tileId + ":" + (safe ? "I" : (safeByTent ? "T" : " ")) + ":" + snow + ":");
         ArrayList<String> ids = new ArrayList<>();
         for (MoveAble m : movables )
