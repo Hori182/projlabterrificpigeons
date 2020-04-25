@@ -15,7 +15,7 @@ public class Tile {
     //csak a szkeletonhoz hoztuk létre ezt a változót
     private String name;
 
-    public Tile(int id){tileId = id; }
+    public Tile(int id){ tileId = id; }
 
     /*
      * Megnöveli a jégtáblán lévő hó mennyiségét.
@@ -102,8 +102,10 @@ public class Tile {
      */
     public void addNeighbour(Tile t)
     {
-        this.neighbours.add(t);
-        t.getNeighbours().add(this);
+        if(!neighbours.contains(t)) {
+            this.neighbours.add(t);
+        }
+        if(!t.neighbours.contains(this)) t.getNeighbours().add(this);
     }
 
     /*

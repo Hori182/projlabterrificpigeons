@@ -41,7 +41,7 @@ public class Game {
             this.addPlayers(r);
         }
 
-        this.initMap(4, 5);
+        this.initMap(20);
         this.draw();
     }
 
@@ -130,10 +130,11 @@ public class Game {
         endGame();
     }
 
-    public void create_tiles(int x, int y){
+    public void create_tiles(int tiles){
         Random rand = new Random();
 
-        gameMap.generateMap(x, y);
+        gameMap.generateMap(tiles);
+
         int[] datas = gameMap.getMap_data();
 
         for(int i = 0; i < datas[0]; i++){
@@ -142,7 +143,7 @@ public class Game {
             gameMap.addTile(t);
         }
         for(int i = 0; i < datas[1]; i++){
-            Tile t = new Unstable(rand.nextInt(players.size()-1),i + datas[0]);
+            Tile t = new Unstable(rand.nextInt(players.size()),i + datas[0]);
             t.setSnow(rand.nextInt(5));
             gameMap.addTile(t);
         }
@@ -154,42 +155,38 @@ public class Game {
     }
 
     public void initNeighbours(){
-        int cnt = 0;
+        Random rand = new Random();
+        int num = 0;
+        int neighbours;
 
-        // Set the neighbours
-        for(int i = 0; i < gameMap.getL(); i++){
-            for(int j = 0; j < gameMap.getW(); j++){
-                if(i == 0){
-                    if(j > 0){
-                        gameMap.getTiles().get(cnt).addNeighbour(gameMap.getTiles().get(cnt-1));
-                    }
-                } else{
-                    if(j == 0){
-                        gameMap.getTiles().get(cnt).addNeighbour(gameMap.getTiles().get(cnt-gameMap.getW()));
-                        gameMap.getTiles().get(cnt).addNeighbour(gameMap.getTiles().get(cnt-gameMap.getW()+1));
-                    }
-                    if(j != 0 && j < gameMap.getW() - 1){
-                        gameMap.getTiles().get(cnt).addNeighbour(gameMap.getTiles().get(cnt-1));
-                        gameMap.getTiles().get(cnt).addNeighbour(gameMap.getTiles().get(cnt-gameMap.getW()-1));
-                        gameMap.getTiles().get(cnt).addNeighbour(gameMap.getTiles().get(cnt-gameMap.getW()));
-                        gameMap.getTiles().get(cnt).addNeighbour(gameMap.getTiles().get(cnt-gameMap.getW()+1));
-                    } else if(j == gameMap.getW() - 1){
-                        gameMap.getTiles().get(cnt).addNeighbour(gameMap.getTiles().get(cnt-1));
-                        gameMap.getTiles().get(cnt).addNeighbour(gameMap.getTiles().get(cnt-gameMap.getW()-1));
-                        gameMap.getTiles().get(cnt).addNeighbour(gameMap.getTiles().get(cnt-gameMap.getW()));
-                    }
+        // Set at least one neighbour
+        for(int i = 0; i < gameMap.getNum_of_tiles(); i++){
+            num = gameMap.getTiles().get(i).getTileId();
+            while (num == gameMap.getTiles().get(i).getTileId()){
+                num = rand.nextInt(gameMap.getTiles().size());
+                if (num != gameMap.getTiles().get(i).getTileId()){
+                    gameMap.getTiles().get(i).addNeighbour(gameMap.getTiles().get(num));
                 }
-                cnt++;
+            }
+        }
+
+        //Set plus neighbours
+        for(int i = 0; i < gameMap.getNum_of_tiles(); i++){
+            if(i != gameMap.getTiles().get(i).getTileId()){
+                num = rand.nextInt(10);
+                if(num <= 2){
+                    gameMap.getTiles().get(i).addNeighbour(gameMap.getTiles().get(num));
+                }
             }
         }
     }
 
-    public void initMap(int x, int y){
+    public void initMap(int tiles){
         Random rand = new Random();
         int num =  0, rand_thing;
         boolean ready = false;
 
-        create_tiles(x,y);
+        create_tiles(tiles);
         initNeighbours();
 
         // Pistolparts
@@ -203,7 +200,7 @@ public class Game {
         }
 
         // Generate things
-        int things_pct = (int)(x * y * 0.2);
+        int things_pct = (int)(tiles * 0.2);
         for (int i = 0; i < things_pct; i++){
             while (gameMap.getTiles().get(num).getLimit() != 0 && gameMap.getTiles().get(num).getThing() != null)
                 num = rand.nextInt(gameMap.getTiles().size());
