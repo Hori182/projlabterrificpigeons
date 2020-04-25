@@ -2,6 +2,7 @@ package terrific_pigeons;
 
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Scanner;
 
 public class Game {
     private Map gameMap = new Map();
@@ -20,7 +21,29 @@ public class Game {
     /*
     * Játék indítása.
     * */
-    public void startGame(){}
+    public void startGame(){
+        Scanner input = new Scanner(System.in);
+        System.out.println("Number of eskimos: ");
+        int numOfEskimos = Integer.parseInt(input.nextLine());
+        System.out.println("Number of researchers: ");
+        int numOfResearchers = Integer.parseInt(input.nextLine());
+
+        for(int i = 0; i < numOfEskimos; i++) {
+            Integer.toString(i);
+            String id = "E"+i;
+            Eskimo e = new Eskimo(id);
+            this.addPlayers(e);
+        }
+        for(int i = 0; i < numOfResearchers; i++) {
+            Integer.toString(i);
+            String id = "R"+i;
+            Researcher r = new Researcher(id);
+            this.addPlayers(r);
+        }
+
+        this.initMap(4, 5);
+        this.draw();
+    }
 
     /*
     * Követkető játékosra vált.
