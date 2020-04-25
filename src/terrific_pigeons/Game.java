@@ -8,6 +8,7 @@ public class Game {
     private Map gameMap = new Map();
 
     ArrayList<Player> players = new ArrayList<>();
+    ArrayList<PolarBear> polarbears = new ArrayList<>();
     private int currentPlayer = 0;
     private boolean win = false;
     private boolean die = false;
@@ -223,6 +224,7 @@ public class Game {
     }
 
     public void draw() {
+        /*
         int cnt = 0;
 
         for (int i = 0; i < gameMap.getL(); i++) {
@@ -245,7 +247,23 @@ public class Game {
            }
         }
         System.out.println("Current player: "+players.get(currentPlayer).getId());
+
+        */
+        System.out.println("Tiles\n" + "TileID:safe:snow:standing on:neighbours;\n");
+        for (Tile t : gameMap.getTiles()){
+            t.draw();
+        }
+        System.out.println("\nPlayers\n" + "PlayerID:your Tile:life:work left:your Things;\n");
+        for (Player p : players){
+            p.draw();
+        }
+        System.out.println("\nPolarBears\n");
+        for (PolarBear p : polarbears){
+            p.draw();
+        }
+        System.out.println("");
     }
+
     public int getCurrentPlayer() {
         return currentPlayer;
     }
