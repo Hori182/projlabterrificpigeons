@@ -35,8 +35,8 @@ public class PolarBear extends MoveAble {
     A medve megöli a játékos(oka)t.
      */
     public void kill(){
-        for (int i=0; i<myTile.getMovables().size()-1; i++){
-            myTile.getMovables().get(i).attacked();
+        for (MoveAble m :myTile.getMovables()){
+            m.attacked();
         }
     }
 }
