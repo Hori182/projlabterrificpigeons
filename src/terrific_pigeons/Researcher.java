@@ -28,5 +28,7 @@ public class Researcher extends Player {
         }
         return false;
     }
-
+    public void draw(){
+        System.out.print(playerid);
+    }
 }

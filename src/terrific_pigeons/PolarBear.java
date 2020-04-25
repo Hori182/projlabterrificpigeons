@@ -8,6 +8,10 @@ public class PolarBear extends MoveAble {
     public void move(Tile t){
         
     }
+
+    public void draw(){
+        System.out.print("P");
+    }
     /*
     A medve megöli a játékos(oka)t.
      */

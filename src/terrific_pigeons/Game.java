@@ -157,13 +157,32 @@ public class Game {
 
     public void initMap(int x, int y){
         Random rand = new Random();
-        int num;
+        int num =  0, rand_thing;
         boolean ready = false;
 
         create_tiles(x,y);
         initNeighbours();
 
+        // Pistolparts
+        for (int i = 0; i < 3; i++){
+            while (gameMap.getTiles().get(num).getLimit() != 0 && gameMap.getTiles().get(num).getThing() != null)
+                num = rand.nextInt(gameMap.getTiles().size());
+
+            Thing t = new PistolPart();
+            gameMap.getTiles().get(num).setThing(t);
+            num = 0;
+        }
+
         // Generate things
+        int things_pct = (int)(x * y * 0.2);
+        for (int i = 0; i < things_pct; i++){
+            while (gameMap.getTiles().get(num).getLimit() != 0 && gameMap.getTiles().get(num).getThing() != null)
+                num = rand.nextInt(gameMap.getTiles().size());
+
+            rand_thing = rand.nextInt(6);
+            gameMap.getTiles().get(num).setThing(rand_thing);
+            num = 0;
+        }
 
         // Put the characters on it
         for (int i = 0; i < players.size(); i++) {
@@ -178,4 +197,17 @@ public class Game {
         }
     }
 
+    public void draw() {
+        int cnt = 0;
+
+        for (int i = 0; i < gameMap.getL(); i++) {
+            for (int j = 0; j < gameMap.getW(); j++) {
+                System.out.print("| ");
+                gameMap.getTiles().get(cnt).draw();
+                System.out.print(" |");
+                cnt++;
+            }
+            System.out.print('\n');
+        }
+    }
 }

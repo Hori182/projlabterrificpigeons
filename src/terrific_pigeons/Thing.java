@@ -27,7 +27,10 @@ public class Thing {
         /*System.out.println("e-> setOwner(e) -> " + this.getName());
         System.out.println("e <- " + this.getName());*/
         this.owner = p;
+        p.getThings().add(this);
     }
+
+    protected void draw() {}
     /*
     * Visszaadja az owner változó értékét.
     * */

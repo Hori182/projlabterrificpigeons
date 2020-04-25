@@ -8,7 +8,7 @@ public class Tile {
     protected boolean safe = false;
     protected boolean safeByTent = false;
     protected int limit = -1;
-    protected Thing thing;
+    protected Thing thing = null;
     protected ArrayList<MoveAble> movables = new ArrayList<>();
     protected ArrayList<Tile> neighbours = new ArrayList<>();
     private int tileId;
@@ -125,6 +125,30 @@ public class Tile {
     }
 
     /*
+    Kirajzolja a Tile-t
+     */
+    public void draw(){
+        if(limit == 0)
+            System.out.print(getTileId() + "W");
+        else {
+            if(movables.size() > 0){
+                System.out.print(getTileId() + ",");
+                for (int i=0; i < movables.size(); i++){
+                    movables.get(i).draw();
+                    if(movables.size() > 1) System.out.print(",");
+                }
+            } else if(snow != 0){
+                System.out.print(getTileId() + "S");
+            } else{
+                if(thing != null) {
+                    System.out.print(getTileId() + ",");
+                    thing.draw();
+                } else System.out.print(getTileId() + "X");
+            }
+        }
+    }
+
+    /*
      * Visszaadja a jégtáblán álló karakterek listáját.
      */
     public ArrayList<MoveAble> getMovables()
@@ -142,7 +166,10 @@ public class Tile {
 
     public Thing getThing()
     {
-        return thing;
+        if(thing!=null){
+            return thing;
+        }
+        return null;
     }
 
     public int getLimit() {
@@ -154,8 +181,41 @@ public class Tile {
     public void addMoveAbles(MoveAble m) { this.movables.add(m); }
     public void setSafeByTent(boolean b){safeByTent = b;}
     public boolean getSafeByTent(){return this.safeByTent ;}
-
     public int getTileId() {
         return tileId;
+    }
+    public void setThing(int a) {
+        switch (a) {
+            case 0: {
+                Thing t = new Tent();
+                this.thing = t;
+                break;
+            }
+            case 1: {
+                Thing t = new Food();
+                this.thing = t;
+                break;
+            }
+            case 2: {
+                Thing t = new Shovel();
+                this.thing = t;
+                break;
+            }
+            case 3: {
+                Thing t = new Rope();
+                this.thing = t;
+                break;
+            }
+            case 4: {
+                Thing t = new FragileShovel();
+                this.thing = t;
+                break;
+            }
+            case 5: {
+                Thing t = new DivingSuit();
+                this.thing = t;
+                break;
+            }
+        }
     }
 }

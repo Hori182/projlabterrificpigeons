@@ -10,4 +10,7 @@ public class Tent extends Thing{
         owner.getTile().setSafeByTent(true);
         owner.work();
     }
+    public void draw(){
+        System.out.print("T");
+    }
 }

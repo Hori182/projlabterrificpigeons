@@ -6,8 +6,6 @@ package terrific_pigeons;
  */
 public class Shovel extends Thing{
 
-
-    public Shovel(){}
     /*
      * Két egységnyi havat lapátol el a játékos a saját
      * jégtáblájáról.
@@ -23,5 +21,9 @@ public class Shovel extends Thing{
             t.setSnow(0);
         }
         owner.work();
+    }
+
+    public void draw(){
+        System.out.print("Sh");
     }
 }

@@ -9,8 +9,6 @@ import java.util.concurrent.ThreadLocalRandom;
  */
 public class Rope extends Thing{
 
-    public Rope() { System.out.println("Rope r created"); }
-
     /*
      * A saját jégtáblájára húzza a mellette vízben levő játékost.
      */
@@ -33,6 +31,9 @@ public class Rope extends Thing{
         temp2.get(randomNum2).getInWater();                                            //Akinek megvizsgálja hogy vízben van-e
         t.moveRequest(temp2.get(randomNum2));
         owner.work();*/
+    }
+    public void draw(){
+        System.out.print("R");
     }
 }
 

@@ -6,10 +6,6 @@ package terrific_pigeons;
 public class Food extends Thing{
 
     private boolean used = false;
-    public Food()
-    {
-        System.out.println("Food f created");
-    }
     /*
      * Növeli a karakter életerejét eggyel.
      */
@@ -22,6 +18,9 @@ public class Food extends Thing{
             owner.work();
         }
         else System.out.println("Your health is at max!");
+    }
+    public void draw(){
+        System.out.print("F");
     }
 }
 

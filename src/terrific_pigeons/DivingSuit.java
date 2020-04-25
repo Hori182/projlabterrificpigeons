@@ -20,4 +20,7 @@ public class DivingSuit extends Thing{
             this.owner.work();
         }
     }
+    public void draw(){
+        System.out.print("D");
+    }
 }

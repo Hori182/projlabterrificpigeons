@@ -30,6 +30,9 @@ public class FragileShovel extends Shovel{
         }
 
     }
+    public void draw(){
+        System.out.print("FR");
+    }
 
     /*
     *Visszaadja a usage változó értékét.

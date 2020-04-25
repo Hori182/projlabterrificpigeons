@@ -25,6 +25,7 @@ public class Main {
         }
 
         game.initMap(4, 5);
+        game.draw();
 
         String command = input.nextLine();
         /*while(command != "exit")

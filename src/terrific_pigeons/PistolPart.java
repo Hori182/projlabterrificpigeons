@@ -9,9 +9,6 @@ public class PistolPart extends Thing{
     /*
      * Összeszerli a pisztolyt a pisztolydarabokból.
      */
-    public PistolPart(){
-        System.out.println("PistolPart created");
-    }
 
     /*
     Megpróbálja összeszerelni a pisztolyt.
@@ -31,6 +28,10 @@ public class PistolPart extends Thing{
 
         g.assemble(this, pp2, pp3);
         System.out.println("<- pp1");
+    }
+
+    public void draw(){
+        System.out.print(getId()+"P");
     }
 
     public int getId() {

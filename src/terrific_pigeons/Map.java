@@ -70,15 +70,6 @@ public class Map {
         map_data[2] = water;
     }
 
-    public void initThings(){
-        things[0] = new Tent();
-        things[1] = new Shovel();
-        things[2] = new Rope();
-        things[3] = new FragileShovel();
-        things[4] = new DivingSuit();
-        things[5] = new Food();
-    }
-
     public void initPistolParts(){
         ppt[0] = new PistolPart();
         ppt[1] = new PistolPart();
