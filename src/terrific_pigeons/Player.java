@@ -41,7 +41,7 @@ public abstract class Player extends MoveAble {
      * A játékos meghal.
      * */
     public void die() {
-        System.out.print("die()");
+
     }
 
     /*
@@ -124,8 +124,6 @@ public abstract class Player extends MoveAble {
      */
     public void setLife(int life)
     {
-        System.out.println("e -> setLife(" + life + ") -> e");
         this.life = life;
-        System.out.println("t <- e");
     }
 }

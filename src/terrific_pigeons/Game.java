@@ -14,7 +14,7 @@ public class Game {
     private int usedParts;
 
     public Game() {
-        System.out.println("Game created");
+
 
     }
 
@@ -63,14 +63,12 @@ public class Game {
     * Pistoly összeszerelése.
     * */
     public void assemble(PistolPart pp1,PistolPart pp2,PistolPart pp3){
-        System.out.println("pp1 -> assemble(pp1, pp2, pp3) -> g");
         setUsedParts(usedParts+1);
         pp1.owner.getTile();
         pp2.owner.getTile();
         pp3.owner.getTile();
         setWin(true);
         setUsedParts(0);
-        System.out.println("pp1 <- g");
     }
 
     /*
@@ -97,16 +95,13 @@ public class Game {
     * @param win: win változó új értéke.
     * */
     public void setWin(boolean win) {
-        System.out.println("g -> setWin(true) -> g");
-        System.out.println("g <- g");
         this.win = win;
+        System.out.println("You won!");
     }
     /*
      *Visszaadja a usedParts értékét.
      */
     public int getUsedParts() {
-        System.out.println("g -> getUsedParts() -> g");
-        System.out.println("g <- g ");
         return usedParts;}
 
     /*
@@ -114,8 +109,6 @@ public class Game {
      * @param i: Ez lesz a usedParts új értéke.
      */
     public void setUsedParts(int i) {
-        System.out.println("g -> setUsedParts() -> g");
-        System.out.println("g <- g ");
         this.usedParts = i;
     }
 
