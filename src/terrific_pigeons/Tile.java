@@ -1,6 +1,7 @@
 package terrific_pigeons;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Tile {
 
@@ -130,33 +131,23 @@ public class Tile {
     Kirajzolja a Tile-t
      */
     protected void draw(){
-        //if(limit == 0)
-        if(limit == 0)
-        {
-            System.out.print(getTileId()+",W");
-        }
+        //TileID:safe:snow:standing on:neighbours
+        System.out.print(tileId + ":" + (safe ? "I" : (safeByTent ? "T" : " ")) + ":" + snow + ":");
+        ArrayList<String> ids = new ArrayList<>();
+        for (MoveAble m : movables )
+            ids.add(m.getId());
+        if (ids.size()>0)
+            System.out.print(String.join(",", ids) + ":");
         else
-        {
-            if(getSnow() == 0 && getThing() != null) System.out.print(getTileId()+",T,"+this.getThing().Name());
-            else System.out.print(getTileId()+",T,"+this.getSnow());
+            System.out.print(" :");
 
-        }
-        /*else {
-            if(movables.size() > 0){
-                System.out.print(getTileId() + ",");
-                for (int i=0; i < movables.size(); i++){
-                    movables.get(i).draw();
-                    if(movables.size() > 1) System.out.print(",");
-                }
-            } else if(snow != 0){
-                System.out.print(getTileId() + "S");
-            } else{
-                if(thing != null) {
-                    System.out.print(getTileId() + ",");
-                    thing.draw();
-                } else System.out.print(getTileId() + "X");
-            }
-        }*/
+        ArrayList<String> tileids = new ArrayList<>();
+        for (Tile t : neighbours)
+            tileids.add(String.valueOf(t.getTileId()));
+        if (tileids.size()>0)
+            System.out.println(String.join(",", tileids) + ";");
+        else
+            System.out.println(" ;");
     }
 
     /*

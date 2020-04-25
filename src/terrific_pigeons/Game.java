@@ -253,7 +253,7 @@ public class Game {
         for (Tile t : gameMap.getTiles()){
             t.draw();
         }
-        System.out.println("\nPlayers\n" + "PlayerID:your Tile:life:work left:your Things;\n");
+        System.out.println("\nPlayers\n" + "PlayerID:your Tile:life:work left:in water:your Things;\n");
         for (Player p : players){
             p.draw();
         }
