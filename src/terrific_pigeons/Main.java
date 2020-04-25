@@ -62,6 +62,14 @@ public class Main {
                     case "draw":
                         game.draw();
                         break;
+                    case "use":
+                        current = game.getCurrentPlayer();
+                        System.out.println(game.getPlayers().get(current).getThings().size());
+                        if(game.getPlayers().get(current).getThings().size() > 0){
+                            for(int i=0; i < game.getPlayers().get(current).getThings().size(); i++)
+                                System.out.println(i + ". " + game.getPlayers().get(current).getThings().get(i).Name());
+                        } else System.out.println("Inventory is empty!");
+                        break;
                     //case "save":
                     //case "exit":
                     //case "load":

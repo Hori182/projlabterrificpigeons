@@ -111,4 +111,6 @@ public abstract class MoveAble {
         this.life = life;
     }
 
+    public void attacked(){}
+
 }
