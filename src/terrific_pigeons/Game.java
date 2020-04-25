@@ -87,7 +87,6 @@ public class Game {
         return players;
     }
 
-
     /*
     * A players ArrayList-het új elemet ad.
     * @param p: Ezt adja az Arraylisthez.
@@ -102,6 +101,11 @@ public class Game {
     public void setWin(boolean win) {
         this.win = win;
         System.out.println("You won!");
+    }
+
+    public boolean getWin()
+    {
+        return win;
     }
     /*
      *Visszaadja a usedParts értékét.
@@ -126,7 +130,7 @@ public class Game {
         Random rand = new Random();
 
         gameMap.generateMap(x, y);
-        int datas[] = gameMap.getMap_data();
+        int[] datas = gameMap.getMap_data();
 
         for(int i = 0; i < datas[0]; i++){
             Tile t = new Tile(i);
@@ -155,7 +159,7 @@ public class Game {
                     if(j > 0){
                         gameMap.getTiles().get(cnt).addNeighbour(gameMap.getTiles().get(cnt-1));
                     }
-                } else if(i > 0){
+                } else{
                     if(j == 0){
                         gameMap.getTiles().get(cnt).addNeighbour(gameMap.getTiles().get(cnt-gameMap.getW()));
                         gameMap.getTiles().get(cnt).addNeighbour(gameMap.getTiles().get(cnt-gameMap.getW()+1));

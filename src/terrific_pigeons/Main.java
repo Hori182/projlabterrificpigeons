@@ -24,6 +24,7 @@ public class Main {
             command = input.nextLine();
             commandparam = command.split(" ");
         }*/
+
     }
     public static void promptEnterKey(){
         System.out.println("Press \"ENTER\" to continue...");

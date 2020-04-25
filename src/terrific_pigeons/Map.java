@@ -7,7 +7,7 @@ import java.util.Random;
 public class Map {
 
     private ArrayList<Tile> tiles;
-    private int map_data[] = new int[3];
+    private int[] map_data = new int[3];
     private Thing[] things = new Thing[6];
     private PistolPart[] ppt = new PistolPart[3];
     private int l,w;
