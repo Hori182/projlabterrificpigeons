@@ -14,7 +14,7 @@ public class Main {
 
         game.startGame();
         String command = input.nextLine();
-        while(command != "exit")
+        /*while(command != "exit")
         {
             String[] commandparam = command.split(" ");
                 break;
@@ -32,7 +32,8 @@ public class Main {
                 }
             command = input.nextLine();
             commandparam = command.split(" ");
-        }
+        }*/
+        loadTestMap("src/maps/test_map_01.txt");
 
     }
     public static void promptEnterKey(){
@@ -45,12 +46,10 @@ public class Main {
     {
         BufferedReader reader;
         try {
-            reader = new BufferedReader(new FileReader(
-                    "/Users/pankaj/Downloads/myfile.txt"));
+            reader = new BufferedReader(new FileReader(test));
             String line = reader.readLine();
             while (line != null) {
                 System.out.println(line);
-                // read next line
                 line = reader.readLine();
             }
             reader.close();
