@@ -194,6 +194,8 @@ public class Game {
             while (gameMap.getTiles().get(num).getLimit() != 0 && gameMap.getTiles().get(num).getThing() != null)
                 num = rand.nextInt(gameMap.getTiles().size());
 
+            PistolPart p = new PistolPart();
+            pistolParts.add(p);
             pistolParts.get(i).setId(i);
             gameMap.getTiles().get(num).setThing(pistolParts.get(i));
             num = 0;
