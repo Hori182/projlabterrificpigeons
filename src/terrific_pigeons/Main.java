@@ -30,6 +30,7 @@ public class Main {
                         game.startGame();
                         break;
                     case "pass":
+                        game.getPlayers().get(game.getCurrentPlayer()).pass();
                         game.nextPlayer();
                         break;
                     case "move":

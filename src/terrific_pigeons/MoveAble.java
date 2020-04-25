@@ -3,7 +3,7 @@ package terrific_pigeons;
 public abstract class MoveAble {
     protected int life;
     protected boolean inWater = false;
-    protected int work = 0;
+    protected int work = 4;
     protected Tile myTile;
     protected String moveableid;
 
