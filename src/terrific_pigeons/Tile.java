@@ -127,10 +127,17 @@ public class Tile {
     /*
     Kirajzolja a Tile-t
      */
-    public void draw(){
+    protected void draw(){
+        //if(limit == 0)
         if(limit == 0)
-            System.out.print(getTileId() + "W");
-        else {
+        {
+            System.out.print(getTileId()+",W,"+this.getSnow());
+        }
+        else
+        {
+            System.out.print(getTileId()+",T,"+this.getSnow());
+        }
+        /*else {
             if(movables.size() > 0){
                 System.out.print(getTileId() + ",");
                 for (int i=0; i < movables.size(); i++){
@@ -145,7 +152,7 @@ public class Tile {
                     thing.draw();
                 } else System.out.print(getTileId() + "X");
             }
-        }
+        }*/
     }
 
     /*
@@ -156,9 +163,7 @@ public class Tile {
         return movables;
     }
 
-    /*
-     * Beállítja milyen tárgy legyen a mezőn..
-     */
+
     public void setThing(Thing t)
     {
         this.thing = t;
@@ -184,6 +189,9 @@ public class Tile {
     public int getTileId() {
         return tileId;
     }
+    /*
+     * Beállítja milyen tárgy legyen a mezőn..
+     */
     public void setThing(int a) {
         switch (a) {
             case 0: {

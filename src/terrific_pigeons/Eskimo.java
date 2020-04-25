@@ -27,6 +27,6 @@ public class Eskimo extends Player {
         return false;
     }
     public void draw(){
-        System.out.print(playerid);
+        System.out.println(playerid + " is in " + myTile.getTileId());
     }
 }

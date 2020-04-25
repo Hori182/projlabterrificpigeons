@@ -61,6 +61,6 @@ public abstract class MoveAble {
         t.getMovables().add(this);
     }
 
-    public void draw(){}
+    protected void draw(){}
 
 }

@@ -225,5 +225,15 @@ public class Game {
             }
             System.out.print('\n');
         }
+        for(int i = 0; i < gameMap.getTiles().size(); i++)
+        {
+           if(gameMap.getTiles().get(i).getMovables().size() != 0)
+           {
+               for (int j = 0; j < gameMap.getTiles().get(i).getMovables().size(); j++)
+               {
+                   gameMap.getTiles().get(i).getMovables().get(j).draw();
+               }
+           }
+        }
     }
 }

@@ -10,7 +10,7 @@ public class PolarBear extends MoveAble {
     }
 
     public void draw(){
-        System.out.print("P");
+        System.out.println("Polar bear is at " + myTile.getTileId());
     }
     /*
     A medve megöli a játékos(oka)t.
