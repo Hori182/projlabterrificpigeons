@@ -12,27 +12,35 @@ public class Main {
         Game game = new Game();
         Scanner input = new Scanner(System.in);
 
-        game.startGame();
         String command = input.nextLine();
-        /*while(command != "exit")
+        while(command != "exit")
         {
-            String[] commandparam = command.split(" ");
-                break;
+                String[] commandparam = command.split(" ");
                 switch(commandparam[0])
                 {
-                    case "load":
+                    /*case "load":
                         loadTestMap(commandparam[1]);
                         if (commandparam[1] == "/maps/test_01.txt")
                         {
 
-                        }
+                        }*/
+                    case "init":
+                        game.startGame();
+                        break;
                     case "pass":
                         game.nextPlayer();
                         break;
+                    //case "exit":
+                    //case "load":
+
+                    default:
+                        System.out.println("There is no command like this!");
+
                 }
             command = input.nextLine();
             commandparam = command.split(" ");
-        }*/
+        }
+        game.endGame();
         loadTestMap("src/maps/test_map_01.txt");
 
     }
