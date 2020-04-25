@@ -36,8 +36,7 @@ public class PolarBear extends MoveAble {
      */
     public void kill(){
         for (int i=0; i<myTile.getMovables().size()-1; i++){
-            //ezt mindjárt javítom, Arnold
-            //myTile.getMovables().get(i).attacked();
+            myTile.getMovables().get(i).attacked();
         }
     }
 }

@@ -86,5 +86,12 @@ public abstract class Player extends MoveAble {
         return things;
     }
 
+    /*
+    * A játékost megtámadta egy medve
+    * */
+    public void attacked(){
+        if (!myTile.getSafe())
+            setLife(0);
+    }
 
 }
