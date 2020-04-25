@@ -24,6 +24,8 @@ public class PolarBear extends MoveAble {
      */
     public void move(Tile t){
         t.moveRequest(this);
+        kill();
+        pass();
     }
 
     public void draw(){
@@ -32,7 +34,10 @@ public class PolarBear extends MoveAble {
     /*
     A medve megöli a játékos(oka)t.
      */
-    public void kill(Game g){
-        g.setDie(true);
+    public void kill(){
+        for (int i=0; i<myTile.getMovables().size()-1; i++){
+            //ezt mindjárt javítom, Arnold
+            //myTile.getMovables().get(i).attacked();
+        }
     }
 }
