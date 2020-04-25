@@ -12,10 +12,9 @@ public class Game {
     private boolean win = false;
     private boolean die = false;
     private int usedParts;
+    ArrayList<PistolPart> pistolParts = new ArrayList<>(3);
 
     public Game() {
-
-
     }
 
     /*
@@ -67,13 +66,17 @@ public class Game {
     /*
     * Pistoly összeszerelése.
     * */
-    public void assemble(PistolPart pp1,PistolPart pp2,PistolPart pp3){
-        setUsedParts(usedParts+1);
-        pp1.owner.getTile();
-        pp2.owner.getTile();
-        pp3.owner.getTile();
-        setWin(true);
-        setUsedParts(0);
+    public void assemble() {
+        setUsedParts(usedParts + 1);
+        if (usedParts == 3) {
+            int id1 = pistolParts.get(1).owner.getTile().getTileId();
+            int id2 = pistolParts.get(2).owner.getTile().getTileId();
+            int id3 = pistolParts.get(3).owner.getTile().getTileId();
+            if (id1 == id2 && id1 == id3) {
+                setWin(true);
+            }
+            setUsedParts(0);
+        }
     }
 
     /*
@@ -193,8 +196,8 @@ public class Game {
             while (gameMap.getTiles().get(num).getLimit() != 0 && gameMap.getTiles().get(num).getThing() != null)
                 num = rand.nextInt(gameMap.getTiles().size());
 
-            Thing t = new PistolPart();
-            gameMap.getTiles().get(num).setThing(t);
+            pistolParts.get(i).setId(i);
+            gameMap.getTiles().get(num).setThing(pistolParts.get(i));
             num = 0;
         }
 
