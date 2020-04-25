@@ -1,5 +1,7 @@
 package terrific_pigeons;
 
+import java.util.ArrayList;
+
 public class Eskimo extends Player {
     public Eskimo(String id)
     {
@@ -26,7 +28,5 @@ public class Eskimo extends Player {
         }
         return false;
     }
-    public void draw(){
-        System.out.println(moveableid + " is in " + myTile.getTileId());
-    }
+
 }

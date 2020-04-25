@@ -90,4 +90,12 @@ public abstract class Player extends MoveAble {
             setLife(0);
     }
 
+    public void draw(){
+        System.out.print(moveableid + ":" + myTile.getTileId() + ":" + life + ":" + (4-work) + ":");
+        ArrayList<String> thingids = new ArrayList<>();
+        for (Thing t : things)
+            thingids.add(t.Name);
+        System.out.println(String.join(",", thingids) + ";");
+    }
+
 }
