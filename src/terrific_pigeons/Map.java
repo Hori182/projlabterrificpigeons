@@ -30,7 +30,8 @@ public class Map {
             ArrayList<MoveAble> temp = t.getMovables();
                 for( MoveAble m : temp)
                 {
-                    m.subLife();
+                    if(m.myTile.getSafe() == false || m.myTile.getSafeByTent() == false)
+                        m.subLife();
                 }
         }
     }
