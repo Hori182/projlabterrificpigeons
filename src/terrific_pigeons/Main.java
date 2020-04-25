@@ -59,6 +59,9 @@ public class Main {
                             game.getPlayers().get(current).equip();
                         else System.out.println("There is nothing to equip!");
                         break;
+                    case "draw":
+                        game.draw();
+                        break;
                     //case "save":
                     //case "exit":
                     //case "load":
