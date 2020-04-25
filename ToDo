@@ -5,7 +5,7 @@
 -tent usething-je <- megvan
 -polarbear fgvényei <- megvan
 -snowstormba rá kell vizsgálni arra, hogy van e sátor <- megvan
--polarebeart nem irja ki a draw
+-polarebeart nem irja ki a draw <- megvan
 -loadtestmap alapjan letrehozni testpalyakat
 -kimeneti elvart txt-k létrehozása, az osszehasonlito
 -amikor beolvasunk figyelni kell, és vhogy megcsinalni, hogy eloszor letrehozzuk a tileokat
