@@ -83,7 +83,7 @@ public abstract class MoveAble {
             }
             else{
                 setLife(this.getLife()-1);
-                die();
+                pass();
             }
         }
     }
