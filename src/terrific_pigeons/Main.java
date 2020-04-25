@@ -42,6 +42,7 @@ public class Main {
 
                         int current = game.getCurrentPlayer();
                         game.getPlayers().get(current).move(moveParam);
+                        game.draw();
                         break;
                     //case "exit":
                     //case "load":
