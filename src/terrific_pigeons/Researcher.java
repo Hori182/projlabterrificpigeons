@@ -28,7 +28,4 @@ public class Researcher extends Player {
         }
         return false;
     }
-    public void draw(){
-        System.out.println(moveableid + " is in " + myTile.getTileId());
-    }
 }
