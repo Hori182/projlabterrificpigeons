@@ -15,6 +15,7 @@ public class PistolPart extends Thing{
      */
     public void UseThing(Game g) {
         g.assemble();
+        g.assemble();
     }
 
     public String Name(){
