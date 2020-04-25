@@ -42,6 +42,7 @@ public class Game {
         }
 
         this.initMap(20);
+        this.getPlayers().get(currentPlayer).setWork(0);
         this.draw();
     }
 
@@ -62,6 +63,7 @@ public class Game {
             currentPlayer++;
         else
             currentPlayer = 0;
+        getPlayers().get(currentPlayer).setWork(0);
     }
 
     /*
