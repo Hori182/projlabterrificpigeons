@@ -131,7 +131,7 @@ public class Tile {
         //if(limit == 0)
         if(limit == 0)
         {
-            System.out.print(getTileId()+",W,"+this.getSnow());
+            System.out.print(getTileId()+",W");
         }
         else
         {
