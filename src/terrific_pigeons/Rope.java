@@ -1,7 +1,6 @@
 package terrific_pigeons;
 
 import java.util.ArrayList;
-import java.util.concurrent.ThreadLocalRandom;
 
 /*
  * A Rope a kötél osztály a játékban.
@@ -32,8 +31,8 @@ public class Rope extends Thing{
         t.moveRequest(temp2.get(randomNum2));
         owner.work();*/
     }
-    public void draw(){
-        System.out.print("R");
+    public String Name(){
+        return "R";
     }
 }
 

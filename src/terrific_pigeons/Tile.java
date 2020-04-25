@@ -135,7 +135,9 @@ public class Tile {
         }
         else
         {
-            System.out.print(getTileId()+",T,"+this.getSnow());
+            if(getSnow() == 0 && getThing() != null) System.out.print(getTileId()+",T,"+this.getThing().Name());
+            else System.out.print(getTileId()+",T,"+this.getSnow());
+
         }
         /*else {
             if(movables.size() > 0){

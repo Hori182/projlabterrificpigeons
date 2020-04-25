@@ -30,8 +30,8 @@ public class FragileShovel extends Shovel{
         }
 
     }
-    public void draw(){
-        System.out.print("FR");
+    public String Name(){
+        return "FR";
     }
 
     /*

@@ -19,8 +19,8 @@ public class Food extends Thing{
         }
         else System.out.println("Your health is at max!");
     }
-    public void draw(){
-        System.out.print("F");
+    public String Name(){
+        return "F";
     }
 }
 

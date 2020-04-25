@@ -30,8 +30,8 @@ public class PistolPart extends Thing{
         System.out.println("<- pp1");
     }
 
-    public void draw(){
-        System.out.print(getId()+"P");
+    public String Name(){
+        return "P";
     }
 
     public int getId() {

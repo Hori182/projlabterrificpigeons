@@ -23,7 +23,7 @@ public class Shovel extends Thing{
         owner.work();
     }
 
-    public void draw(){
-        System.out.print("Sh");
+    public String Name(){
+        return "Sh";
     }
 }

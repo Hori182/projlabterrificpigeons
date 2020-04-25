@@ -44,12 +44,27 @@ public class Main {
                         game.getPlayers().get(current).move(moveParam);
                         game.draw();
                         break;
+                    case "dig":
+                        current = game.getCurrentPlayer();
+                        if(game.getPlayers().get(current).myTile.getSnow() > 0) {
+                            game.getPlayers().get(current).dig();
+                            game.draw();
+                        }
+                        else System.out.println("Snow: 0");
+                        break;
+
+                    case "equip":
+                        current = game.getCurrentPlayer();
+                        if(game.getPlayers().get(current).myTile.getThing() != null && game.getPlayers().get(current).myTile.getSnow() == 0)
+                            game.getPlayers().get(current).equip();
+                        else System.out.println("There is nothing to equip!");
+                        break;
+                    //case "save":
                     //case "exit":
                     //case "load":
 
                     default:
                         System.out.println("There is no command like this!");
-
                 }
                 System.out.println("Next command: ");
             command = input.nextLine();

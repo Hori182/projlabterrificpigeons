@@ -10,6 +10,8 @@ public class Thing {
     protected String Name;
 
     String getName(){ return Name; }
+
+    String Name(){return "";}
     void setName(String s) { this.Name = s; }
     //csak a skeletonhoz hoztuk létre ezt a változót:
 
