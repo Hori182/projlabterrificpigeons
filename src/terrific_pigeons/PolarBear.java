@@ -5,6 +5,10 @@ public class PolarBear extends MoveAble {
      * a másikra való mozgatásáért.
      * @param t A jégtábla amire a medve lép.
      */
+    public PolarBear()
+    {
+        life=99999999;
+    }
     public void move(Tile t){
         
     }
