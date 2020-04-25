@@ -5,7 +5,7 @@ public class Researcher extends Player {
     public Researcher(String id)
     {
         life=4;
-        playerid = id;
+        moveableid = id;
     }
 
     /*
@@ -29,6 +29,6 @@ public class Researcher extends Player {
         return false;
     }
     public void draw(){
-        System.out.println(playerid + " is in " + myTile.getTileId());
+        System.out.println(moveableid + " is in " + myTile.getTileId());
     }
 }

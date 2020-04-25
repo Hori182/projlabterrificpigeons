@@ -7,7 +7,7 @@ public abstract class Player extends MoveAble {
     //protected int work = 0;
     //protected Tile myTile;
     protected ArrayList<Thing> things = new ArrayList<>();
-    protected String playerid;
+    //protected String playerid;
     //protected boolean inWater = false;
 
     /*Ez a függvény felel a Player egyik tile-ról
@@ -27,11 +27,7 @@ public abstract class Player extends MoveAble {
         myTile.subSnow(1);
         work();
     }
-    //Visszaadja a playerid
-    public String getPlayerId()
-    {
-        return playerid;
-    }
+
     /*
      * A játékos használja valamelyik tárgyát.
      * @param t A játékos által használni kívánt tárgy

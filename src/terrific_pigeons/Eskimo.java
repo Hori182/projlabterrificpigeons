@@ -4,7 +4,7 @@ public class Eskimo extends Player {
     public Eskimo(String id)
     {
         life=5;
-        playerid = id;
+        moveableid = id;
     }
 
     /*
@@ -27,6 +27,6 @@ public class Eskimo extends Player {
         return false;
     }
     public void draw(){
-        System.out.println(playerid + " is in " + myTile.getTileId());
+        System.out.println(moveableid + " is in " + myTile.getTileId());
     }
 }

@@ -5,6 +5,7 @@ public abstract class MoveAble {
     protected boolean inWater = false;
     protected int work = 0;
     protected Tile myTile;
+    protected String moveableid;
 
     protected  void move(Tile t){
 
@@ -112,5 +113,7 @@ public abstract class MoveAble {
     }
 
     public void attacked(){}
+
+    public String getId(){return moveableid;}
 
 }
