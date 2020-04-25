@@ -27,7 +27,11 @@ public abstract class Player extends MoveAble {
         myTile.subSnow(1);
         work();
     }
-
+    //Visszaadja a playerid
+    public String getPlayerId()
+    {
+        return playerid;
+    }
     /*
      * A játékos használja valamelyik tárgyát.
      * @param t A játékos által használni kívánt tárgy

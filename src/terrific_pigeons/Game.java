@@ -244,6 +244,7 @@ public class Game {
                }
            }
         }
+        System.out.println("Current player: "+players.get(currentPlayer).getPlayerId());
     }
     public int getCurrentPlayer() {
         return currentPlayer;

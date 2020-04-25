@@ -10,6 +10,7 @@ public class Main {
 
     public static void main(String[] args) {
         Game game = new Game();
+        System.out.println("Command: ");
         Scanner input = new Scanner(System.in);
 
         String command = input.nextLine();
@@ -49,6 +50,7 @@ public class Main {
                         System.out.println("There is no command like this!");
 
                 }
+                System.out.println("Next command: ");
             command = input.nextLine();
             commandparam = command.split(" ");
         }
@@ -62,19 +64,44 @@ public class Main {
         scanner.nextLine();
     }
 
+    //Betölti a felhasználó által megadott testesetet
     public static void loadTestMap(String test)
     {
+        System.out.println("map loaded");
         BufferedReader reader;
         try {
             reader = new BufferedReader(new FileReader(test));
-            String line = reader.readLine();
-            while (line != null) {
-                System.out.println(line);
+            String line;
+            line = reader.readLine();
+            while (line != null)
+            {
+                while(!line.equals("tiles end")) {
+                    String[] tileParams = line.split(":");
+                    System.out.println("TileID: " + tileParams[0] + " stabil: " + tileParams[1] +
+                            " limit: " + tileParams[2] + " védettség: " + tileParams[3] +
+                            " rajta áll: " + tileParams[4] + " tárgy: " + tileParams[5]);
+                    line = reader.readLine();
+                }
                 line = reader.readLine();
+                while (!line.equals("movaebles end"))
+                {
+                    String[] moveableParams = line.split(":");
+                    System.out.println("MovableID: " + moveableParams[0] + " myTileID: " + moveableParams[1] +
+                            " life: " + moveableParams[2] + " work: " + moveableParams[3] +
+                            " inWater: " + moveableParams[4] + " tárgy: " + moveableParams[5] );
+                    line = reader.readLine();
+                }
             }
             reader.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
+    //Összehasonlítja a teszt végrahajtása után kapott txt-t egy txt-vel ami az elvárt kimenetet tartalmazza
+    public static void compareResult(String result, String expectation)
+    {
+
+    }
 }
+
