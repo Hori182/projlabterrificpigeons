@@ -1,14 +1,15 @@
 package terrific_pigeons;
 
 public class PolarBear extends MoveAble {
-    /*Ez a függvény felel a PolarBear egyik tile-ról
-     * a másikra való mozgatásáért.
-     * @param t A jégtábla amire a medve lép.
-     */
     public PolarBear()
     {
         life=99999999;
     }
+
+    /*Ez a függvény felel a PolarBear egyik tile-ról
+     * a másikra való mozgatásáért.
+     * @param t A jégtábla amire a medve lép.
+     */
     public void move(Tile t){
         
     }
