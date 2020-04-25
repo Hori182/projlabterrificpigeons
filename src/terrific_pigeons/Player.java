@@ -3,7 +3,7 @@ package terrific_pigeons;
 import java.util.ArrayList;
 
 public abstract class Player extends MoveAble {
-    protected int life;
+    //protected int life;
     //protected int work = 0;
     //protected Tile myTile;
     protected ArrayList<Thing> things = new ArrayList<>();
@@ -35,13 +35,6 @@ public abstract class Player extends MoveAble {
     public void use(Thing t)
     {
         t.useThing();
-    }
-
-    /*
-     * A játékos meghal.
-     * */
-    public void die() {
-
     }
 
     /*
@@ -83,47 +76,11 @@ public abstract class Player extends MoveAble {
     }
 
     /*
-     * Növeli az életerőt eggyel.
-     * */
-    protected boolean addLife() { return  true;}
-
-    /*
-     * Csökkenti az életerőt eggyel.
-     * */
-    public void subLife()
-    {
-        if (this.myTile.getSafe() == false && this.myTile.getSafeByTent() == false)
-        {
-            if(this.getLife()-1 > 1) {
-                setLife(this.getLife() - 1);
-            }
-            else{
-                setLife(this.getLife()-1);
-                die();
-            }
-        }
-    }
-
-    /*
     * Visszaadja a Player-nél lévő Thing-eket (things).
     * */
     public ArrayList<Thing> getThings() {
         return things;
     }
 
-    /*
-     * Visszaadja, hogy jelenleg hány élete van.
-     */
-    public int getLife() {
-        return life;
-    }
 
-    /*
-     * Beállítja a life attribútum új értékét.
-     * @param life: élet - a life új értéke
-     */
-    public void setLife(int life)
-    {
-        this.life = life;
-    }
 }

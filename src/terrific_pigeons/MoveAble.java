@@ -1,6 +1,7 @@
 package terrific_pigeons;
 
 public abstract class MoveAble {
+    protected int life;
     protected boolean inWater = false;
     protected int work = 0;
     protected Tile myTile;
@@ -62,5 +63,52 @@ public abstract class MoveAble {
     }
 
     protected void draw(){}
+
+
+    
+    /*
+     * Növeli az életerőt eggyel.
+     * */
+    protected boolean addLife() { return  true;}
+
+    /*
+     * Csökkenti az életerőt eggyel.
+     * */
+    public void subLife()
+    {
+        if (this.myTile.getSafe() == false && this.myTile.getSafeByTent() == false)
+        {
+            if(this.getLife()-1 > 1) {
+                setLife(this.getLife() - 1);
+            }
+            else{
+                setLife(this.getLife()-1);
+                die();
+            }
+        }
+    }
+
+    /*
+     * A játékos meghal.
+     * */
+    public void die() {
+
+    }
+
+    /*
+     * Visszaadja, hogy jelenleg hány élete van.
+     */
+    public int getLife() {
+        return life;
+    }
+
+    /*
+     * Beállítja a life attribútum új értékét.
+     * @param life: élet - a life új értéke
+     */
+    public void setLife(int life)
+    {
+        this.life = life;
+    }
 
 }

@@ -26,14 +26,12 @@ public class Map {
         for( Tile t : tiles)
         {
             t.addSnow(1);
-            /*
-            ArrayList<Player> temp = t.getPlayers();
-                for( Player p : temp)
+
+            ArrayList<MoveAble> temp = t.getMovables();
+                for( MoveAble m : temp)
                 {
-                    p.subLife();
+                    m.subLife();
                 }
-            }
-            */
         }
     }
 
