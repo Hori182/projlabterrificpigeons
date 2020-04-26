@@ -35,7 +35,7 @@ public class Main {
         Scanner input = new Scanner(System.in);
 
         String command = input.nextLine();
-        while(command.equals("exit"))
+        while(!command.equals("exit"))
         {
 
                 int current = game.getCurrentPlayer();
@@ -51,7 +51,7 @@ public class Main {
 
                     case "pass":
                         game.getPlayers().get(current).pass();
-                        game.nextPlayer();
+                        //game.nextPlayer();
                         game.draw();
                         break;
                     case "move":
@@ -127,7 +127,7 @@ public class Main {
                 commandparam = command.split(" ");
         }
         game.endGame();
-        loadTestMap("src/maps/test_map_01.txt");
+        //loadTestMap("src/maps/test_map_01.txt");
 
     }
     public static void promptEnterKey(){
