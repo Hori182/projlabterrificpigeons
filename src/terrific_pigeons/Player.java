@@ -33,6 +33,10 @@ public abstract class Player extends MoveAble {
         System.out.println("Current player is not an eskimo!");
     }
 
+    public void look(Tile t) {
+        System.out.println("Current player is not a researcher!");
+    }
+
     /*
      * A játékos használja valamelyik tárgyát.
      * @param t A játékos által használni kívánt tárgy
