@@ -265,7 +265,10 @@ public class Main {
     public static Tile setTileParams(Tile temp,String[] tileParams, ArrayList<MoveAble> moveAbles)
     {
         String[] tempNeighbors = tileParams[7].split(",");
-        String[] tempMovables = tileParams[4].split(",");
+        String[] tempMovables = null;
+        if(!tileParams[5].equals("-")) {
+            tempMovables = tileParams[5].split(",");
+        }
         //vedettseg
         if(tileParams[3].equals("T")) temp.setSafe(true);
         else if(tileParams[3].equals("I")) temp.setSafeByTent(true);
@@ -276,16 +279,19 @@ public class Main {
             Tile neighbortemp = new Tile(Integer.parseInt(tempNeighbors[i]));
             temp.addNeighbour(neighbortemp);
         }
+
         //Rajta allo karakterek
-        for (int i = 0; i < tempMovables.length; i++ )
-        {
-            int j = 0;
-            while(j < moveAbles.size())
+        if(tempMovables != null){
+            for (int i = 0; i < tempMovables.length; i++ )
             {
-                if(moveAbles.get(j).getId().equals(tempMovables[i]))
+                int j = 0;
+                while(j < moveAbles.size())
                 {
-                    temp.addMoveAbles(moveAbles.get(j));
-                    moveAbles.get(j).setMyTile(temp);
+                    if(moveAbles.get(j).getId().equals(tempMovables[i]))
+                    {
+                        temp.addMoveAbles(moveAbles.get(j));
+                        moveAbles.get(j).setMyTile(temp);
+                    }
                     j++;
                 }
             }
@@ -307,7 +313,12 @@ public class Main {
     public static Unstable setUnstableParams(Unstable temp,String[] tileParams, ArrayList<MoveAble> moveAbles)
     {
         String[] tempNeighbors = tileParams[7].split(",");
-        String[] tempMovables = tileParams[4].split(",");
+        String[] tempMovables = null;
+
+        if(!tileParams[5].equals("-")) {
+            tempMovables = tileParams[5].split(",");
+        }
+
         //vedettseg
         if(tileParams[3].equals("T")) temp.setSafe(true);
         else if(tileParams[3].equals("I")) temp.setSafeByTent(true);
@@ -319,20 +330,21 @@ public class Main {
             temp.addNeighbour(neighbortemp);
         }
         //Rajta allo karakterek
-        for (int i = 0; i < tempMovables.length; i++ )
-        {
-            int j = 0;
-            while(j < moveAbles.size())
+        if(tempMovables != null){
+            for (int i = 0; i < tempMovables.length; i++ )
             {
-                if(moveAbles.get(j).getId().equals(tempMovables[i]))
+                int j = 0;
+                while(j < moveAbles.size())
                 {
-                    temp.addMoveAbles(moveAbles.get(j));
-                    moveAbles.get(j).setMyTile(temp);
+                    if(moveAbles.get(j).getId().equals(tempMovables[i]))
+                    {
+                        temp.addMoveAbles(moveAbles.get(j));
+                        moveAbles.get(j).setMyTile(temp);
+                    }
                     j++;
                 }
             }
         }
-
         //Targy benne
         switch(tileParams[7])
         {
