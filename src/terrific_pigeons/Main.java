@@ -25,7 +25,7 @@ public class Main {
                 started = true;
             }
             else if(load[0].equals("load")) {
-                loadTestMap("./src/maps/" + load[1]);
+                game = loadTestMap("./src/maps/" + load[1]);
                 started = true;
             }
         }
@@ -129,6 +129,10 @@ public class Main {
             else if(game.getPlayers().get(current).getInWater()) {
                 game.nextPlayer();
             }
+    }
+
+    public void read_test(String test){
+
     }
 
     public static void promptEnterKey(){
