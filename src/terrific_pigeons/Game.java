@@ -209,7 +209,7 @@ public class Game {
         // Generate things
         int things_pct = (int)(tiles * 0.2);
         for (int i = 0; i < things_pct; i++){
-            while (gameMap.getTiles().get(num).getLimit() != 0 && gameMap.getTiles().get(num).getThing() != null)
+            while (gameMap.getTiles().get(num).getLimit() == 0 && gameMap.getTiles().get(num).getThing() != null)
                 num = rand.nextInt(gameMap.getTiles().size());
 
             rand_thing = rand.nextInt(6);
