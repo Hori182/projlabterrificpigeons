@@ -280,7 +280,7 @@ public class Main {
             case "FS":  temp.setThing(new FragileShovel());break;
             case "F":  temp.setThing(new Food());break;
             case "DS":  temp.setThing(new DivingSuit());break;
-            case "R":  temp.setThing(new Rope());break;
+            case "Ro":  temp.setThing(new Rope());break;
             case "S":  temp.setThing(new Shovel());break;
         }
         return temp;
@@ -323,7 +323,7 @@ public class Main {
             case "FS":  temp.setThing(new FragileShovel());break;
             case "F":  temp.setThing(new Food());break;
             case "DS":  temp.setThing(new DivingSuit());break;
-            case "R":  temp.setThing(new Rope());break;
+            case "Ro":  temp.setThing(new Rope());break;
             case "S":  temp.setThing(new Shovel());break;
         }
         return temp;
