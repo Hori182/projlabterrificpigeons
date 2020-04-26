@@ -92,9 +92,21 @@ public class Main {
                                 System.out.println(i + ". " + game.getPlayers().get(current).getThings().get(i).Name());
                         } else System.out.println("Inventory is empty!");
                         break;
-                    case "iglu":
+                    case "eskimoSpecialAbility":
                         current = game.getCurrentPlayer();
                         game.getPlayers().get(current).build();
+                        break;
+                    case "reasercherSpecialAbility":
+                        map = game.getGameMap();
+                        tiles = map.getTiles();
+                        moveParam = new Tile(999999);
+                        for(int i = 0; i < tiles.size() ;i++) {
+                            if(Integer.parseInt(commandparam[1]) == tiles.get(i).getTileId())
+                                moveParam = tiles.get(i);
+                        }
+
+                        current = game.getCurrentPlayer();
+                        game.getPlayers().get(current).look(moveParam);
                         break;
                     //case "save":
                     //case "exit":
