@@ -13,7 +13,7 @@ public class PolarBear extends MoveAble {
      * egy random másikra való mozgatásáért.
      * @param t A jégtábla amire a medve lép.
      */
-    public void move(){
+    public void moveToRandom(){
         Random r = new Random();
         int randomNeighbor = r.nextInt(myTile.getNeighbours().size());
         move(myTile.getNeighbours().get(randomNeighbor));

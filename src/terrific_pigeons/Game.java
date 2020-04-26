@@ -49,6 +49,9 @@ public class Game {
     * Követkető játékosra vált.
     * */
     public void nextPlayer(){
+        for(int i = 0; i < polarbears.size();i++) {
+            polarbears.get(i).moveToRandom();
+        }
         Random rand = new Random();
         rand.nextInt(10);
         if( rand.equals(3))
