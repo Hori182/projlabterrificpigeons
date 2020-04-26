@@ -1,5 +1,6 @@
 package terrific_pigeons;
 
+import java.io.PrintWriter;
 import java.util.Random;
 
 public class PolarBear extends MoveAble {
@@ -39,5 +40,9 @@ public class PolarBear extends MoveAble {
         for (MoveAble m :myTile.getMovables()){
             m.attacked();
         }
+    }
+
+    public void save(PrintWriter writer){
+        writer.println(getId()+":"+getTile().getTileId());
     }
 }
