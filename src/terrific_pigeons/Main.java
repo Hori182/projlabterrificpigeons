@@ -11,10 +11,6 @@ public class Main {
     public static void main(String[] args) {
 
         Game game = new Game();
-        System.out.println("Command: ");
-        Scanner input = new Scanner(System.in);
-
-        String command = input.nextLine();
 
         boolean started = false;
         while(!started) {
@@ -22,18 +18,23 @@ public class Main {
             System.out.println("2. Start the game with generated map - type: init");
             Scanner choose = new Scanner(System.in);
 
-            String choosedStart = choose.nextLine();
+            String chosedStart = choose.nextLine();
 
-            if(choosedStart == "init") {
+            if(chosedStart.equals("init")) {
                 game.startGame();
                 started = true;
             }
-            else if(choosedStart == "load") {
+            else if(chosedStart.equals("load")) {
                 /*VALAMI*/
                 started = true;
             }
 
         }
+
+        System.out.println("Command: ");
+        Scanner input = new Scanner(System.in);
+
+        String command = input.nextLine();
         while(command != "exit")
         {
                 int current = game.getCurrentPlayer();
