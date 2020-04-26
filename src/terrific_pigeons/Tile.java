@@ -69,14 +69,12 @@ public class Tile {
         if(isNeighbour) {
             t2.remove(m);
             m.setMyTile(this);
+            //this.receive(m);
         }
         else {
             System.out.println("Not neighbour!");
         }
-        /*
-        * Ha ez nincs kikommentelve, akkor hozzáadja annyiszor a movableshez a karaktert ahányszor lép.
-        * */
-        //this.receive(m);
+
     }
 
     /*

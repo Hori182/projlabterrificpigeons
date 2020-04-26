@@ -46,9 +46,19 @@ public class  Unstable extends Tile{
     public void moveRequest(MoveAble m)
     {
         Tile t2 = m.getTile();
-        t2.remove(m);
-        m.setMyTile(this);
-        this.receive(m);
-        this.check(m);
+        boolean isNeighbour = false;
+        for(int i = 0; i < t2.getNeighbours().size(); i++) {
+            if(this == t2.getNeighbours().get(i))
+                isNeighbour = true;
+        }
+        if(isNeighbour){
+            t2.remove(m);
+            m.setMyTile(this);
+            //this.receive(m);
+            this.check(m);
+        }
+        else {
+            System.out.println("Not neighbour!");
+        }
     }
 }
