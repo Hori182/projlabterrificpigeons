@@ -167,12 +167,10 @@ public class Game {
         // Set at least one neighbour
         for(int i = 0; i < gameMap.getNum_of_tiles(); i++){
             num = gameMap.getTiles().get(i).getTileId();
-            while (num == gameMap.getTiles().get(i).getTileId()){
+            while (num == gameMap.getTiles().get(i).getTileId() && gameMap.getTiles().get(num).getLimit()!=0){
                 num = rand.nextInt(gameMap.getTiles().size());
-                if (num != gameMap.getTiles().get(i).getTileId()){
-                        gameMap.getTiles().get(i).addNeighbour(gameMap.getTiles().get(num));
-                }
             }
+            gameMap.getTiles().get(i).addNeighbour(gameMap.getTiles().get(num));
         }
 
         //Set plus neighbours
