@@ -19,6 +19,8 @@ public class Game {
     ArrayList<PistolPart> pistolParts = new ArrayList<>(3);
 
     public Game() {}
+
+
     public void setGameMap(Map m)
     {
        gameMap = m;
@@ -59,9 +61,9 @@ public class Game {
     * Követkető játékosra vált.
     * */
     public void nextPlayer(){
-        for(int i = 0; i < polarbears.size();i++) {
+        /*for(int i = 0; i < polarbears.size();i++) {
             polarbears.get(i).moveToRandom();
-        }
+        }*/
         Random rand = new Random();
         rand.nextInt(10);
         if( rand.equals(3))

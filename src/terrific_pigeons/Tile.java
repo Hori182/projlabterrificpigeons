@@ -242,9 +242,10 @@ public class Tile {
         ArrayList<String> ids = new ArrayList<>();
         for (MoveAble m : movables)
             ids.add(m.getId());
-        if (ids.size()>0)
+
+        if (ids.size()>0) {
             writer.print(String.join(",", ids) + ":");
-        else
+        }else
             writer.print(" :");
         writer.print(thing==null?" :":(thing.Name()+":"));
         ids = new ArrayList<>();
