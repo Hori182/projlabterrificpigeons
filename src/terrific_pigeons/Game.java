@@ -225,6 +225,16 @@ public class Game {
             }
             ready = false;
         }
+
+        PolarBear p = new PolarBear("P0");
+        polarbears.add(p);
+        while (ready != true) {
+            num = rand.nextInt(gameMap.getTiles().size());
+            if (gameMap.getTiles().get(num).getLimit() == -1 && gameMap.getTiles().get(num).getMovables().size() == 0) {
+                p.setMyTile(gameMap.getTiles().get(num));
+                ready = true;
+            }
+        }
     }
 
     public void draw() {
@@ -261,10 +271,11 @@ public class Game {
         for (Player p : players){
             p.draw();
         }
-        System.out.println("\nPolarBears\n");
+        System.out.println("\nPolarBears");
         for (PolarBear p : polarbears){
             p.draw();
         }
+        System.out.println("\nCurrent player: " + players.get(currentPlayer).getId());
         System.out.println("");
     }
 

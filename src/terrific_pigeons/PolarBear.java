@@ -3,8 +3,9 @@ package terrific_pigeons;
 import java.util.Random;
 
 public class PolarBear extends MoveAble {
-    public PolarBear()
+    public PolarBear(String id)
     {
+        moveableid = id;
         life=99999999;
     }
 
