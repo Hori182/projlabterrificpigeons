@@ -100,7 +100,7 @@ public abstract class Player extends MoveAble {
     }
 
     public void draw(){
-        System.out.print(moveableid + ":" + myTile.getTileId() + ":" + life + ":" + (4-work) + ":" + (inWater ? "+" : "-"));
+        System.out.print(moveableid + ":" + myTile.getTileId() + ":" + life + ":" + (4-work) + ":" + (inWater ? "+:" : "-:"));
         ArrayList<String> thingids = new ArrayList<>();
         for (Thing t : things)
             thingids.add(t.Name);
