@@ -29,6 +29,10 @@ public abstract class Player extends MoveAble {
         work();
     }
 
+    public void build() {
+        System.out.println("Current player is not an eskimo!");
+    }
+
     /*
      * A játékos használja valamelyik tárgyát.
      * @param t A játékos által használni kívánt tárgy

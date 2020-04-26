@@ -73,6 +73,10 @@ public class Main {
                                 System.out.println(i + ". " + game.getPlayers().get(current).getThings().get(i).Name());
                         } else System.out.println("Inventory is empty!");
                         break;
+                    case "iglu":
+                        current = game.getCurrentPlayer();
+                        game.getPlayers().get(current).build();
+                        break;
                     //case "save":
                     //case "exit":
                     //case "load":
