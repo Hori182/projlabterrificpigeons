@@ -84,10 +84,14 @@ public class Main {
                         break;
                     case "useThing":
                         current = game.getCurrentPlayer();
-                        System.out.println(game.getPlayers().get(current).getThings().size());
                         if(game.getPlayers().get(current).getThings().size() > 0){
                             for(int i=0; i < game.getPlayers().get(current).getThings().size(); i++)
                                 System.out.println(i + ". " + game.getPlayers().get(current).getThings().get(i).Name());
+
+                            System.out.println("which item would you like to use?");
+                            Scanner menu = new Scanner(System.in);
+                            int choose = Integer.parseInt(input.nextLine());
+                            game.getPlayers().get(current).getThings().get(choose).useThing();
                         } else System.out.println("Inventory is empty!");
                         break;
                     case "eskimoSpecialAbility":
