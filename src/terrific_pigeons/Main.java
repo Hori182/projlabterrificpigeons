@@ -80,8 +80,14 @@ public class Main {
                     default:
                         System.out.println("There is no command like this!");
                 }
-                if(game.getPlayers().get(current).getWork() >= 4)
+                if(game.getPlayers().get(current).getWork() >= 4 && game.getPlayers().get(current).getInWater() == false){
+                    game.getPlayers().get(current).setWork(0);
                     game.nextPlayer();
+                }
+                else if(game.getPlayers().get(current).getInWater() == true) {
+                    game.nextPlayer();
+                }
+
                 System.out.println("Next command: ");
             command = input.nextLine();
             commandparam = command.split(" ");
