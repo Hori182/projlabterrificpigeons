@@ -1,0 +1,4 @@
+load src/maps/test_map_04.txt
+draw
+move<E1><02>
+draw

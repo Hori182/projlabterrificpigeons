@@ -1,0 +1,4 @@
+load src/maps/test_map_09.txt
+draw
+move 02  //P1
+draw

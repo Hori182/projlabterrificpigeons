@@ -1,0 +1,2 @@
+load src/maps/test_map_01.txt
+exit
