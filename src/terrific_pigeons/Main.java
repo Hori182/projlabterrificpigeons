@@ -5,11 +5,13 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) throws FileNotFoundException, UnsupportedEncodingException {
+    public static void main(String[] args) throws IOException {
 
         Game game = new Game();
 
-        //loadTestMap("./src/maps/test_map_12.txt");
+        read_test("./src/tests/test_01.txt");
+
+        //loadTestMap("./src/maps/test_map_00.txt");
 
         boolean started = false;
         while(!started) {
@@ -131,8 +133,26 @@ public class Main {
             }
     }
 
-    public void read_test(String test){
+    public static void read_test(String test) throws IOException {
+        Game game = new Game();
+        int current = 0;
+        BufferedReader reader;
+        reader = new BufferedReader(new FileReader(test));
+        String line;
 
+        line = reader.readLine();
+        String[] command = line.split(" ");
+        if(command[0].equals("load")){
+            System.out.println(command[1]);
+            game = loadTestMap(command[1]);
+            current = game.getCurrentPlayer();
+        }
+
+        while (!line.equals("exit")){
+            command = line.split(" ");
+            Command(command, game, current);
+            line = reader.readLine();
+        }
     }
 
     public static void promptEnterKey(){
