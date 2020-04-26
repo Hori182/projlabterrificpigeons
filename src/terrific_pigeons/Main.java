@@ -10,6 +10,9 @@ public class Main {
         Game game = new Game();
 
         read_test("./src/tests/test_01.txt");
+        boolean x = compareResult("./src/results/result_map_01.txt", "./src/expected/expected_map_01.txt");
+        if(x == true) System.out.println("Correct!");
+        else System.out.println("Not correct!");
 
         //loadTestMap("./src/maps/test_map_00.txt");
 

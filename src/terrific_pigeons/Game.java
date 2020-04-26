@@ -76,7 +76,7 @@ public class Game {
         else
             currentPlayer = 0;
         getPlayers().get(currentPlayer).setWork(0);
-        this.draw();
+        //this.draw();
     }
 
     /*
