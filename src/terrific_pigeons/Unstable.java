@@ -1,5 +1,7 @@
 package terrific_pigeons;
 
+import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -61,5 +63,25 @@ public class  Unstable extends Tile{
         else {
             System.out.println("Not neighbour!");
         }
+    }
+
+    public void save(PrintWriter writer){
+        writer.print(getTileId()+":-:"+limit+":"+(safe?"I:":(safeByTent?"T:":" :"))+snow+":");
+        ArrayList<String> ids = new ArrayList<>();
+        for (MoveAble m : movables)
+            ids.add(m.getId());
+        if (ids.size()>0)
+            writer.print(String.join(",", ids) + ":");
+        else
+            writer.print(" :");
+        writer.print(thing==null?" :":(thing.Name()+":"));
+        ids = new ArrayList<>();
+        for (Tile t: neighbours)
+            ids.add(String.valueOf(t.getTileId()));
+        if (ids.size()>0)
+            writer.println(String.join(",", ids) + ";");
+        else
+            writer.println(" ;");
+
     }
 }
