@@ -396,10 +396,20 @@ public class Main {
                 areEqual = false;
                 break;
             }
-            else if(! line1.equalsIgnoreCase(line2))
-            {
-                areEqual = false;
-                break;
+            else{
+                String[] ar_line1 = line1.split(":");
+                String[] ar_line2 = line2.split(":");
+                if(ar_line1.length == ar_line2.length){
+                    for (int i = 0; i < ar_line1.length; i++){
+                        if(ar_line1[i].equals(ar_line2[i])) {
+                            continue;
+                        }
+                        else{
+                            areEqual = false;
+                            break;
+                        }
+                    }
+                }
             }
             line1 = reader1.readLine();
             line2 = reader2.readLine();
