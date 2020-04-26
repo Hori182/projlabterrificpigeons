@@ -35,8 +35,9 @@ public class Main {
         Scanner input = new Scanner(System.in);
 
         String command = input.nextLine();
-        while(command != "exit")
+        while(command.equals("exit"))
         {
+
                 int current = game.getCurrentPlayer();
                 String[] commandparam = command.split(" ");
                 switch(commandparam[0])
@@ -122,8 +123,8 @@ public class Main {
                 }
 
                 System.out.println("Next command: ");
-            command = input.nextLine();
-            commandparam = command.split(" ");
+                command = input.nextLine();
+                commandparam = command.split(" ");
         }
         game.endGame();
         loadTestMap("src/maps/test_map_01.txt");
@@ -178,8 +179,8 @@ public class Main {
                                     case "T":  moveTemp.addThing(new Tent());break;
                                     case "FS":  moveTemp.addThing(new FragileShovel());break;
                                     case "F":  moveTemp.addThing(new Food());break;
-                                    case "DS":  moveTemp.addThing(new DivingSuit());break;
-                                    case "R":  moveTemp.addThing(new Rope());break;
+                                    case "D":  moveTemp.addThing(new DivingSuit());break;
+                                    case "Ro":  moveTemp.addThing(new Rope());break;
                                     case "S":  moveTemp.addThing(new Shovel());break;
                                 }
                             }
@@ -201,8 +202,8 @@ public class Main {
                                     case "T":  moveTemp.addThing(new Tent());break;
                                     case "FS":  moveTemp.addThing(new FragileShovel());break;
                                     case "F":  moveTemp.addThing(new Food());break;
-                                    case "DS":  moveTemp.addThing(new DivingSuit());break;
-                                    case "R":  moveTemp.addThing(new Rope());break;
+                                    case "D":  moveTemp.addThing(new DivingSuit());break;
+                                    case "Ro":  moveTemp.addThing(new Rope());break;
                                     case "S":  moveTemp.addThing(new Shovel());break;
                                 }
                             }
