@@ -1,5 +1,6 @@
 package terrific_pigeons;
 
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -235,5 +236,8 @@ public class Tile {
                 break;
             }
         }
+    }
+    public void save(PrintWriter writer){
+
     }
 }
