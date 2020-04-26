@@ -138,8 +138,9 @@ public class Main {
     }
 
     //Betölti a felhasználó által megadott testesetet
-    public static void loadTestMap(String test)
+    public static Game loadTestMap(String test)
     {
+        Game g = new Game();
         System.out.println("map loaded");
         BufferedReader reader;
         Map m = new Map();
@@ -186,6 +187,7 @@ public class Main {
                                 }
                             }
                             moveAbles.add(moveTemp);
+                            g.addPlayers(moveTemp);
                         }
                         else if(characterType.equals("E"))
                         {
@@ -209,17 +211,19 @@ public class Main {
                                 }
                             }
                             moveAbles.add(moveTemp);
+                            g.addPlayers(moveTemp);
                         }
                         else if(characterType.equals("P"))
                         {
-                            Eskimo moveTemp = new Eskimo(moveableParams[i]);
+                            PolarBear moveTemp = new PolarBear(moveableParams[i]);
                             moveAbles.add(moveTemp);
+                            g.addPolarBear(moveTemp);
                         }
                     }
                     line = reader.readLine();
                 }
                 line = reader.readLine();
-                if(line.equals("movaebles end")) reader.readLine();
+                //ITT KENE UGRANI
                 while(!line.equals("tiles end")) {
                     String[] tileParams = line.split(":");
                     System.out.println("TileID: " + tileParams[0] + " stabil: " + tileParams[1] +
@@ -246,6 +250,8 @@ public class Main {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        g.setGameMap(m);
+        return g;
     }
 
     public static Tile setTileParams(Tile temp,String[] tileParams, ArrayList<MoveAble> moveAbles)

@@ -1,0 +1,4 @@
+load src/maps/test_map_08.txt
+draw
+useThing FS1  //E1
+draw

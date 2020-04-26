@@ -19,7 +19,14 @@ public class Game {
     ArrayList<PistolPart> pistolParts = new ArrayList<>(3);
 
     public Game() {}
-
+    public void setGameMap(Map m)
+    {
+       gameMap = m;
+    }
+    public void addPolarBear(PolarBear p)
+    {
+        polarbears.add(p);
+    }
     /*
     * Játék indítása.
     * */

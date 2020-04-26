@@ -1,0 +1,4 @@
+load src/maps/test_map_12.txt
+draw
+useThing Ro  //E1
+draw

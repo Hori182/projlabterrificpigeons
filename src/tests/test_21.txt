@@ -1,0 +1,3 @@
+load src/maps/test_map_09.txt
+draw
+specialAbility 02  //R1

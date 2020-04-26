@@ -1,0 +1,4 @@
+load src/maps/test_map_17.txt
+draw
+snowstorm
+draw
