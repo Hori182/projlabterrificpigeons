@@ -10,12 +10,12 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Game game = new Game();
+       /* Game game = new Game();
         System.out.println("Command: ");
         Scanner input = new Scanner(System.in);
 
         String command = input.nextLine();
-       /* while(command != "exit")
+        while(command != "exit")
         {
                 int current = game.getCurrentPlayer();
                 String[] commandparam = command.split(" ");
@@ -114,34 +114,58 @@ public class Main {
             line = reader.readLine();
             while (line != null)
             {
+                ArrayList<MoveAble> moveAbles = new ArrayList<MoveAble>();
+                while (!line.equals("movaebles end"))
+                {
+                    System.out.println(line);
+                    String[] moveableParams = line.split(":");
+                    System.out.println("MovableID: " + moveableParams[0] + " myTileID: " + moveableParams[1] +
+                            " life: " + moveableParams[2] + " work: " + moveableParams[3] +
+                            " inWater: " + moveableParams[4] + " tárgy: " + moveableParams[5] );
+
+                    for (int i = 0; i < moveableParams.length; i++ )
+                    {
+                        //Megnezzuk milyen tipusu karaktert kene felvenni
+                        String characterType = Character.toString( moveableParams[i].charAt(0));
+                        if(characterType.equals("R"))
+                        {
+                            Researcher moveTemp = new Researcher(moveableParams[i]);
+                            moveAbles.add(moveTemp);
+                        }
+                        else if(characterType.equals("E"))
+                        {
+                            Eskimo moveTemp = new Eskimo(moveableParams[i]);
+                            moveAbles.add(moveTemp);
+                        }
+                        else if(characterType.equals("P"))
+                        {
+                            Eskimo moveTemp = new Eskimo(moveableParams[i]);
+                            moveAbles.add(moveTemp);
+                        }
+                    }
+                    line = reader.readLine();
+                }
+                line = reader.readLine();
+                if(line.equals("movaebles end")) reader.readLine();
                 while(!line.equals("tiles end")) {
                     String[] tileParams = line.split(":");
                     System.out.println("TileID: " + tileParams[0] + " stabil: " + tileParams[1] +
-                            " limit: " + tileParams[2] + " védettség: " + tileParams[3] +
-                            " rajta áll: " + tileParams[4] + " szomszédok: " + tileParams[5] + " tárgy: " + tileParams[6]);
+                            " limit: " + tileParams[2] + " védettség: " + tileParams[3] + " hó: " +tileParams[4] +
+                            " rajta áll: " + tileParams[5] + " szomszédok: " + tileParams[6] + " tárgy: " + tileParams[7]);
 
                     //ha stabil, stabilat, ha nem instabilat hozunk létre
                     if(tileParams[1].equals("+"))
                     {
                         Tile temp = new Tile(Integer.parseInt(tileParams[0]));
-                        setTileParams(temp,tileParams);
+                        setTileParams(temp,tileParams,moveAbles);
                         m.addTile(temp);
                     }
                     else
                     {
                         Unstable temp = new Unstable(Integer.parseInt(tileParams[2]), Integer.parseInt(tileParams[0]));
-                        setUnstableParams(temp,tileParams);
+                        setUnstableParams(temp,tileParams,moveAbles);
                         m.addTile(temp);
                     }
-                    line = reader.readLine();
-                }
-                line = reader.readLine();
-                while (!line.equals("movaebles end"))
-                {
-                    String[] moveableParams = line.split(":");
-                    System.out.println("MovableID: " + moveableParams[0] + " myTileID: " + moveableParams[1] +
-                            " life: " + moveableParams[2] + " work: " + moveableParams[3] +
-                            " inWater: " + moveableParams[4] + " tárgy: " + moveableParams[5] );
                     line = reader.readLine();
                 }
             }
@@ -151,13 +175,14 @@ public class Main {
         }
     }
 
-    public static Tile setTileParams(Tile temp,String[] tileParams)
+    public static Tile setTileParams(Tile temp,String[] tileParams, ArrayList<MoveAble> moveAbles)
     {
         String[] tempNeighbors = tileParams[6].split(",");
         String[] tempMovables = tileParams[4].split(",");
         //vedettseg
         if(tileParams[3].equals("T")) temp.setSafe(true);
         else if(tileParams[3].equals("I")) temp.setSafeByTent(true);
+        temp.setSnow(Integer.parseInt(tileParams[4]));
         //szomszedok beallitasa a beolvasas alapjan
         for (int i = 0; i < tempNeighbors.length; i++ )
         {
@@ -167,26 +192,18 @@ public class Main {
         //Rajta allo karakterek
         for (int i = 0; i < tempMovables.length; i++ )
         {
-            //Megnezzuk milyen tipusu karaktert kene felvenni
-            String characterType = Character.toString(tempMovables[i].charAt(0));
-            if(characterType.equals("R"))
+            int j = 0;
+            while(j < moveAbles.size())
             {
-                Researcher moveTemp = new Researcher(tempMovables[i]);
-                temp.addMoveAbles(moveTemp);
-            }
-            else if(characterType.equals("E"))
-            {
-                Eskimo moveTemp = new Eskimo(tempMovables[i]);
-                temp.addMoveAbles(moveTemp);
-            }
-            else if(characterType.equals("P"))
-            {
-                PolarBear moveTemp = new PolarBear(tempMovables[i]);
-                temp.addMoveAbles(moveTemp);
+                if(moveAbles.get(j).getId().equals(tempMovables[i]))
+                {
+                    temp.addMoveAbles(moveAbles.get(j));
+                    j++;
+                }
             }
         }
         //Targy benne
-        switch(tileParams[5])
+        switch(tileParams[7])
         {
             case "PP":  temp.setThing(new PistolPart());break;
             case "T":  temp.setThing(new Tent());break;
@@ -199,13 +216,14 @@ public class Main {
         return temp;
     }
 
-    public static Unstable setUnstableParams(Unstable temp,String[] tileParams)
+    public static Unstable setUnstableParams(Unstable temp,String[] tileParams, ArrayList<MoveAble> moveAbles)
     {
         String[] tempNeighbors = tileParams[6].split(",");
         String[] tempMovables = tileParams[4].split(",");
         //vedettseg
         if(tileParams[3].equals("T")) temp.setSafe(true);
         else if(tileParams[3].equals("I")) temp.setSafeByTent(true);
+        temp.setSnow(Integer.parseInt(tileParams[4]));
         //szomszedok beallitasa a beolvasas alapjan
         for (int i = 0; i < tempNeighbors.length; i++ )
         {
@@ -215,26 +233,19 @@ public class Main {
         //Rajta allo karakterek
         for (int i = 0; i < tempMovables.length; i++ )
         {
-            //Megnezzuk milyen tipusu karaktert kene felvenni
-            String characterType = Character.toString(tempMovables[i].charAt(0));
-            if(characterType.equals("R"))
-            {
-                Researcher moveTemp = new Researcher(tempMovables[i]);
-                temp.addMoveAbles(moveTemp);
-            }
-            else if(characterType.equals("E"))
-            {
-                Eskimo moveTemp = new Eskimo(tempMovables[i]);
-                temp.addMoveAbles(moveTemp);
-            }
-            else if(characterType.equals("P"))
-            {
-                PolarBear moveTemp = new PolarBear(tempMovables[i]);
-                temp.addMoveAbles(moveTemp);
-            }
+            int j = 0;
+                while(j < moveAbles.size())
+                {
+                    if(moveAbles.get(j).getId().equals(tempMovables[i]))
+                    {
+                        temp.addMoveAbles(moveAbles.get(j));
+                        j++;
+                    }
+                }
         }
+
         //Targy benne
-        switch(tileParams[5])
+        switch(tileParams[7])
         {
             case "PP":  temp.setThing(new PistolPart());break;
             case "T":  temp.setThing(new Tent());break;
