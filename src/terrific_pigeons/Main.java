@@ -15,6 +15,25 @@ public class Main {
         Scanner input = new Scanner(System.in);
 
         String command = input.nextLine();
+
+        boolean started = false;
+        while(!started) {
+            System.out.println("1. Start the game with your own map - type: load example.txt");
+            System.out.println("2. Start the game with generated map - type: init");
+            Scanner choose = new Scanner(System.in);
+
+            String choosedStart = choose.nextLine();
+
+            if(choosedStart == "init") {
+                game.startGame();
+                started = true;
+            }
+            else if(choosedStart == "load") {
+                /*VALAMI*/
+                started = true;
+            }
+
+        }
         while(command != "exit")
         {
                 int current = game.getCurrentPlayer();
@@ -27,9 +46,7 @@ public class Main {
                         {
 
                         }*/
-                    case "init":
-                        game.startGame();
-                        break;
+
                     case "pass":
                         game.getPlayers().get(current).pass();
                         game.nextPlayer();
