@@ -170,7 +170,6 @@ public class Game {
             while (num == gameMap.getTiles().get(i).getTileId()){
                 num = rand.nextInt(gameMap.getTiles().size());
                 if (num != gameMap.getTiles().get(i).getTileId()){
-                    if(gameMap.getTiles().get(num).getLimit() != 0)
                         gameMap.getTiles().get(i).addNeighbour(gameMap.getTiles().get(num));
                 }
             }
