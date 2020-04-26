@@ -15,8 +15,7 @@ public class Game {
     private int usedParts;
     ArrayList<PistolPart> pistolParts = new ArrayList<>(3);
 
-    public Game() {
-    }
+    public Game() {}
 
     /*
     * Játék indítása.
@@ -62,7 +61,7 @@ public class Game {
             players.get(currentPlayer).die();
             this.endGame();
         }
-        if(currentPlayer < players.size())
+        if(currentPlayer < players.size()-1)
             currentPlayer++;
         else
             currentPlayer = 0;
