@@ -375,8 +375,8 @@ public class Main {
             String expectedPath;
             if(i < 10)
             {
-                resultPath = resultBase + "0" + Integer.toString(i);
-                expectedPath = expectedBase + "0" + Integer.toString(i);
+                resultPath = resultBase + "0" + Integer.toString(i) +".txt";
+                expectedPath = expectedBase + "0" + Integer.toString(i) + ".txt";
             }
             else
             {
