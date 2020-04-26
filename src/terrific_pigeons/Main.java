@@ -37,6 +37,7 @@ public class Main {
         String command = input.nextLine();
         while(command != "exit")
         {
+
                 int current = game.getCurrentPlayer();
                 String[] commandparam = command.split(" ");
                 switch(commandparam[0])
@@ -122,8 +123,8 @@ public class Main {
                 }
 
                 System.out.println("Next command: ");
-            command = input.nextLine();
-            commandparam = command.split(" ");
+                command = input.nextLine();
+                commandparam = command.split(" ");
         }
         game.endGame();
         loadTestMap("src/maps/test_map_01.txt");
