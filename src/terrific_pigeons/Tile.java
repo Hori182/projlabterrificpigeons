@@ -151,13 +151,18 @@ public class Tile {
         else
             System.out.print(" :");
 
-        ArrayList<String> tileids = new ArrayList<>();
+        ids = new ArrayList<>();
         for (Tile t : neighbours)
-            tileids.add(String.valueOf(t.getTileId()));
-        if (tileids.size()>0)
-            System.out.println(String.join(",", tileids) + ";");
+            ids.add(String.valueOf(t.getTileId()));
+        if (ids.size()>0)
+            System.out.print(String.join(",", ids) + ":");
+        else
+            System.out.print(" :");
+        if (snow==0)
+            System.out.println(thing==null ? " ;" : (thing.getName() + ";"));
         else
             System.out.println(" ;");
+
     }
 
     /*
