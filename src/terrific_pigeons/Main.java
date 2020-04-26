@@ -340,7 +340,7 @@ public class Main {
         String line1 = reader1.readLine();
         String line2 = reader2.readLine();
         boolean areEqual = true;
-        int lineNum = 1;
+
         while (line1 != null || line2 != null)
         {
             if(line1 == null || line2 == null)
@@ -358,12 +358,7 @@ public class Main {
         }
         reader1.close();
         reader2.close();
-        if(areEqual){
-            return true;
-        }
-        else{
-           return false;
-        }
+        return areEqual;
     }
 
     //Osszehasonlitja az osszes tesztesetet es kiirja az eredmenyt
@@ -384,8 +379,8 @@ public class Main {
             }
             else
             {
-                resultPath = resultBase + Integer.toString(i);
-                expectedPath = expectedBase + Integer.toString(i);
+                resultPath = resultBase + Integer.toString(i)+".txt";
+                expectedPath = expectedBase + Integer.toString(i)+".txt";
             }
             boolean valid = compareResult(resultPath,expectedPath);
             if(valid)
