@@ -159,7 +159,7 @@ public class Tile {
         else
             System.out.print(" :");
         if (snow==0)
-            System.out.println(thing==null ? " ;" : (thing.getName() + ";"));
+            System.out.println(thing==null ? " ;" : (thing.Name() + ";"));
         else
             System.out.println(" ;");
 

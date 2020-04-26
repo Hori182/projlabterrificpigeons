@@ -266,11 +266,11 @@ public class Game {
         System.out.println("Current player: "+players.get(currentPlayer).getId());
 
         */
-        System.out.println("Tiles\n" + "TileID:safe:snow:standing on:neighbours;\n");
+        System.out.println("Tiles\n" + "TileID:safe:snow:standing on:neighbours:visible things;\n");
         for (Tile t : gameMap.getTiles()){
             t.draw();
         }
-        System.out.println("\nPlayers\n" + "PlayerID:your Tile:life:work left:in water:your Things:visible things;\n");
+        System.out.println("\nPlayers\n" + "PlayerID:your Tile:life:work left:in water:your Things;\n");
         for (Player p : players){
             p.draw();
         }
