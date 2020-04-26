@@ -65,7 +65,7 @@ public class Main {
                     case "draw":
                         game.draw();
                         break;
-                    case "use":
+                    case "useThing":
                         current = game.getCurrentPlayer();
                         System.out.println(game.getPlayers().get(current).getThings().size());
                         if(game.getPlayers().get(current).getThings().size() > 0){
@@ -76,7 +76,6 @@ public class Main {
                     //case "save":
                     //case "exit":
                     //case "load":
-
                     default:
                         System.out.println("There is no command like this!");
                 }
