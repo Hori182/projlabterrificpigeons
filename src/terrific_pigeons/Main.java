@@ -107,6 +107,7 @@ public class Main {
     {
         System.out.println("map loaded");
         BufferedReader reader;
+        Map m = new Map();
         try {
             reader = new BufferedReader(new FileReader(test));
             String line;
@@ -117,7 +118,22 @@ public class Main {
                     String[] tileParams = line.split(":");
                     System.out.println("TileID: " + tileParams[0] + " stabil: " + tileParams[1] +
                             " limit: " + tileParams[2] + " védettség: " + tileParams[3] +
-                            " rajta áll: " + tileParams[4] + " tárgy: " + tileParams[5]);
+                            " rajta áll: " + tileParams[4] + " tárgy: " + tileParams[5] + " szomszédok: " + tileParams[6]);
+
+
+                    //ha stabil, stabilat, ha nem instabilat hozunk létre
+                    if(tileParams[1].equals("+"))
+                    {
+                        Tile temp = new Tile(Integer.parseInt(tileParams[0]));
+                        setTileParams(temp,tileParams);
+                        m.addTile(temp);
+                    }
+                    else
+                    {
+                        Unstable temp = new Unstable(Integer.parseInt(tileParams[2]), Integer.parseInt(tileParams[0]));
+                    }
+
+
                     line = reader.readLine();
                 }
                 line = reader.readLine();
@@ -134,6 +150,54 @@ public class Main {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public static Tile setTileParams(Tile temp,String[] tileParams)
+    {
+        String[] tempNeighbors = tileParams[6].split(",");
+        String[] tempMovables = tileParams[4].split(",");
+        //vedettseg
+        if(tileParams[3].equals("T")) temp.setSafe(true);
+        else if(tileParams[3].equals("I")) temp.setSafeByTent(true);
+        //szomszedok beallitasa a beolvasas alapjan
+        for (int i = 0; i < tempNeighbors.length; i++ )
+        {
+            Tile neighbortemp = new Tile(Integer.parseInt(tempNeighbors[i]));
+            temp.addNeighbour(neighbortemp);
+        }
+        //Rajta allo karakterek
+        for (int i = 0; i < tempMovables.length; i++ )
+        {
+            //Megnezzuk milyen tipusu karaktert kene felvenni
+            String characterType = Character.toString(tempMovables[i].charAt(0));
+            if(characterType.equals("R"))
+            {
+                Researcher moveTemp = new Researcher(tempMovables[i]);
+                temp.addMoveAbles(moveTemp);
+            }
+            else if(characterType.equals("E"))
+            {
+                Eskimo moveTemp = new Eskimo(tempMovables[i]);
+                temp.addMoveAbles(moveTemp);
+            }
+            else if(characterType.equals("P"))
+            {
+                PolarBear moveTemp = new PolarBear(tempMovables[i]);
+                temp.addMoveAbles(moveTemp);
+            }
+        }
+        //Targy benne
+        switch(tileParams[5])
+        {
+            case "PP":  temp.setThing(new PistolPart());
+            case "T":  temp.setThing(new Tent());
+            case "FS":  temp.setThing(new FragileShovel());
+            case "F":  temp.setThing(new Food());
+            case "DS":  temp.setThing(new DivingSuit());
+            case "R":  temp.setThing(new Rope());
+            case "S":  temp.setThing(new Shovel());
+        }
+        return temp;
     }
 
     //Összehasonlítja a teszt végrahajtása után kapott txt-t egy txt-vel ami az elvárt kimenetet tartalmazza
