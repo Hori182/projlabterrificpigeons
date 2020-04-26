@@ -25,116 +25,109 @@ public class Main {
                 //Valami
                 started = true;
             }
-
         }
 
         System.out.println("Command: ");
         Scanner input = new Scanner(System.in);
 
         String command = input.nextLine();
-        while(!command.equals("exit"))
-        {
+        while(!command.equals("exit")) {
+            int current = game.getCurrentPlayer();
+            String[] commandparam = command.split(" ");
+            Command(commandparam, game, current);
 
-                int current = game.getCurrentPlayer();
-                String[] commandparam = command.split(" ");
-                switch(commandparam[0])
-                {
-                    /*case "load":
-                        loadTestMap(commandparam[1]);
-                        if (commandparam[1] == "/maps/test_01.txt")
-                        {
-
-                        }*/
-
-                    case "pass":
-                        game.getPlayers().get(current).pass();
-                        //game.nextPlayer();
-                        game.draw();
-                        break;
-                    case "move":
-                        Map map = game.getGameMap();
-                        ArrayList <Tile> tiles = map.getTiles();
-                        Tile moveParam = new Tile(999999);
-                        for(int i = 0; i < tiles.size() ;i++) {
-                            if(Integer.parseInt(commandparam[1]) == tiles.get(i).getTileId())
-                                moveParam = tiles.get(i);
-                        }
-
-                        current = game.getCurrentPlayer();
-                        game.getPlayers().get(current).move(moveParam);
-                        game.draw();
-                        break;
-                    case "dig":
-                        current = game.getCurrentPlayer();
-                        if(game.getPlayers().get(current).myTile.getSnow() > 0) {
-                            game.getPlayers().get(current).dig();
-                            game.draw();
-                        }
-                        else System.out.println("Snow: 0");
-                        break;
-
-                    case "equip":
-                        current = game.getCurrentPlayer();
-                        if(game.getPlayers().get(current).myTile.getThing() != null && game.getPlayers().get(current).myTile.getSnow() == 0)
-                            game.getPlayers().get(current).equip();
-                        else System.out.println("There is nothing to equip!");
-                        break;
-                    case "draw":
-                        game.draw();
-                        break;
-                    case "useThing":
-                        current = game.getCurrentPlayer();
-                        if(game.getPlayers().get(current).getThings().size() > 0){
-                            for(int i=0; i < game.getPlayers().get(current).getThings().size(); i++)
-                                System.out.println(i + ". " + game.getPlayers().get(current).getThings().get(i).Name());
-
-                            System.out.println("which item would you like to use?");
-                            Scanner menu = new Scanner(System.in);
-                            int choose = Integer.parseInt(input.nextLine());
-                            if(game.getPlayers().get(current).getThings().get(choose).Name() == "P") game.assemble();
-                            else game.getPlayers().get(current).getThings().get(choose).useThing();
-                        } else System.out.println("Inventory is empty!");
-                        break;
-                    case "eskimoSpecialAbility":
-                        current = game.getCurrentPlayer();
-                        game.getPlayers().get(current).build();
-                        break;
-                    case "reasercherSpecialAbility":
-                        map = game.getGameMap();
-                        tiles = map.getTiles();
-                        moveParam = new Tile(999999);
-                        for(int i = 0; i < tiles.size() ;i++) {
-                            if(Integer.parseInt(commandparam[1]) == tiles.get(i).getTileId())
-                                moveParam = tiles.get(i);
-                        }
-
-                        current = game.getCurrentPlayer();
-                        game.getPlayers().get(current).look(moveParam);
-                        break;
-                    case "save":
-                        game.save("probafajbairas.txt");
-                        break;
-
-                    //case "exit":
-                    //case "load":
-                    default:
-                        System.out.println("There is no command like this!");
-                }
-                if(game.getPlayers().get(current).getWork() >= 4 && game.getPlayers().get(current).getInWater() == false){
-                    game.nextPlayer();
-                }
-                else if(game.getPlayers().get(current).getInWater() == true) {
-                    game.nextPlayer();
-                }
-
-                System.out.println("Next command: ");
-                command = input.nextLine();
-                commandparam = command.split(" ");
+            System.out.println("Next command: ");
+            command = input.nextLine();
+            commandparam = command.split(" ");
         }
         game.endGame();
         //loadTestMap("src/maps/test_map_01.txt");
-
     }
+
+    public static void Command(String[] commandparam, Game game, int current) throws FileNotFoundException, UnsupportedEncodingException {
+            switch(commandparam[0])
+            {
+                case "pass":
+                    game.getPlayers().get(current).pass();
+                    game.draw();
+                    break;
+                case "move":
+                    Map map = game.getGameMap();
+                    ArrayList <Tile> tiles = map.getTiles();
+                    Tile moveParam = new Tile(999999);
+                    for(int i = 0; i < tiles.size() ;i++) {
+                        if(Integer.parseInt(commandparam[1]) == tiles.get(i).getTileId())
+                            moveParam = tiles.get(i);
+                    }
+
+                    current = game.getCurrentPlayer();
+                    game.getPlayers().get(current).move(moveParam);
+                    game.draw();
+                    break;
+                case "dig":
+                    current = game.getCurrentPlayer();
+                    if(game.getPlayers().get(current).myTile.getSnow() > 0) {
+                        game.getPlayers().get(current).dig();
+                        game.draw();
+                    }
+                    else System.out.println("Snow: 0");
+                    break;
+
+                case "equip":
+                    current = game.getCurrentPlayer();
+                    if(game.getPlayers().get(current).myTile.getThing() != null && game.getPlayers().get(current).myTile.getSnow() == 0)
+                        game.getPlayers().get(current).equip();
+                    else System.out.println("There is nothing to equip!");
+                    break;
+                case "draw":
+                    game.draw();
+                    break;
+                case "useThing":
+                    current = game.getCurrentPlayer();
+                    if(game.getPlayers().get(current).getThings().size() > 0){
+                        for(int i=0; i < game.getPlayers().get(current).getThings().size(); i++)
+                            System.out.println(i + ". " + game.getPlayers().get(current).getThings().get(i).Name());
+
+                        System.out.println("which item would you like to use?");
+                        Scanner menu = new Scanner(System.in);
+                        int choose = Integer.parseInt(menu.nextLine());
+                        if(game.getPlayers().get(current).getThings().get(choose).Name() == "P") game.assemble();
+                        else game.getPlayers().get(current).getThings().get(choose).useThing();
+                    } else System.out.println("Inventory is empty!");
+                    break;
+                case "eskimoSpecialAbility":
+                    current = game.getCurrentPlayer();
+                    game.getPlayers().get(current).build();
+                    break;
+                case "reasercherSpecialAbility":
+                    map = game.getGameMap();
+                    tiles = map.getTiles();
+                    moveParam = new Tile(999999);
+                    for(int i = 0; i < tiles.size() ;i++) {
+                        if(Integer.parseInt(commandparam[1]) == tiles.get(i).getTileId())
+                            moveParam = tiles.get(i);
+                    }
+
+                    current = game.getCurrentPlayer();
+                    game.getPlayers().get(current).look(moveParam);
+                    break;
+                case "save":
+                    game.save("./src/results/" + commandparam[1] + ".txt");
+                    break;
+
+                //case "exit":
+                //case "load":
+                default:
+                    System.out.println("There is no command like this!");
+            }
+            if(game.getPlayers().get(current).getWork() >= 4 && !game.getPlayers().get(current).getInWater()){
+                game.nextPlayer();
+            }
+            else if(game.getPlayers().get(current).getInWater()) {
+                game.nextPlayer();
+            }
+    }
+
     public static void promptEnterKey(){
         System.out.println("Press \"ENTER\" to continue...");
         Scanner scanner = new Scanner(System.in);
