@@ -10,7 +10,27 @@ public class Main {
 
     public static void main(String[] args) {
 
-       /* Game game = new Game();
+        Game game = new Game();
+
+        boolean started = false;
+        while(!started) {
+            System.out.println("1. Start the game with your own map - type: load example.txt");
+            System.out.println("2. Start the game with generated map - type: init");
+            Scanner choose = new Scanner(System.in);
+
+            String chosedStart = choose.nextLine();
+
+            if(chosedStart.equals("init")) {
+                game.startGame();
+                started = true;
+            }
+            else if(chosedStart.equals("load")) {
+                /*VALAMI*/
+                started = true;
+            }
+
+        }
+
         System.out.println("Command: ");
         Scanner input = new Scanner(System.in);
 
@@ -26,10 +46,8 @@ public class Main {
                         if (commandparam[1] == "/maps/test_01.txt")
                         {
 
-                        }
-                    case "init":
-                        game.startGame();
-                        break;
+                        }*/
+
                     case "pass":
                         game.getPlayers().get(current).pass();
                         game.nextPlayer();
@@ -65,7 +83,7 @@ public class Main {
                     case "draw":
                         game.draw();
                         break;
-                    case "use":
+                    case "useThing":
                         current = game.getCurrentPlayer();
                         System.out.println(game.getPlayers().get(current).getThings().size());
                         if(game.getPlayers().get(current).getThings().size() > 0){
@@ -73,10 +91,13 @@ public class Main {
                                 System.out.println(i + ". " + game.getPlayers().get(current).getThings().get(i).Name());
                         } else System.out.println("Inventory is empty!");
                         break;
+                    case "iglu":
+                        current = game.getCurrentPlayer();
+                        game.getPlayers().get(current).build();
+                        break;
                     //case "save":
                     //case "exit":
                     //case "load":
-
                     default:
                         System.out.println("There is no command like this!");
                 }
@@ -92,7 +113,7 @@ public class Main {
             command = input.nextLine();
             commandparam = command.split(" ");
         }
-        game.endGame();*/
+        game.endGame();
         loadTestMap("src/maps/test_map_01.txt");
 
     }
@@ -114,58 +135,35 @@ public class Main {
             line = reader.readLine();
             while (line != null)
             {
-                ArrayList<MoveAble> moveAbles = new ArrayList<MoveAble>();
-                while (!line.equals("movaebles end"))
-                {
-                    System.out.println(line);
-                    String[] moveableParams = line.split(":");
-                    System.out.println("MovableID: " + moveableParams[0] + " myTileID: " + moveableParams[1] +
-                            " life: " + moveableParams[2] + " work: " + moveableParams[3] +
-                            " inWater: " + moveableParams[4] + " tárgy: " + moveableParams[5] );
-
-                    for (int i = 0; i < moveableParams.length; i++ )
-                    {
-                        //Megnezzuk milyen tipusu karaktert kene felvenni
-                        String characterType = Character.toString( moveableParams[i].charAt(0));
-                        if(characterType.equals("R"))
-                        {
-                            Researcher moveTemp = new Researcher(moveableParams[i]);
-                            moveAbles.add(moveTemp);
-                        }
-                        else if(characterType.equals("E"))
-                        {
-                            Eskimo moveTemp = new Eskimo(moveableParams[i]);
-                            moveAbles.add(moveTemp);
-                        }
-                        else if(characterType.equals("P"))
-                        {
-                            Eskimo moveTemp = new Eskimo(moveableParams[i]);
-                            moveAbles.add(moveTemp);
-                        }
-                    }
-                    line = reader.readLine();
-                }
-                line = reader.readLine();
-                if(line.equals("movaebles end")) reader.readLine();
                 while(!line.equals("tiles end")) {
                     String[] tileParams = line.split(":");
                     System.out.println("TileID: " + tileParams[0] + " stabil: " + tileParams[1] +
-                            " limit: " + tileParams[2] + " védettség: " + tileParams[3] + " hó: " +tileParams[4] +
-                            " rajta áll: " + tileParams[5] + " szomszédok: " + tileParams[6] + " tárgy: " + tileParams[7]);
+                            " limit: " + tileParams[2] + " védettség: " + tileParams[3] +
+                            " rajta áll: " + tileParams[4] + " tárgy: " + tileParams[5] + " szomszédok: " + tileParams[6]);
+
 
                     //ha stabil, stabilat, ha nem instabilat hozunk létre
                     if(tileParams[1].equals("+"))
                     {
                         Tile temp = new Tile(Integer.parseInt(tileParams[0]));
-                        setTileParams(temp,tileParams,moveAbles);
+                        setTileParams(temp,tileParams);
                         m.addTile(temp);
                     }
                     else
                     {
                         Unstable temp = new Unstable(Integer.parseInt(tileParams[2]), Integer.parseInt(tileParams[0]));
-                        setUnstableParams(temp,tileParams,moveAbles);
-                        m.addTile(temp);
                     }
+
+
+                    line = reader.readLine();
+                }
+                line = reader.readLine();
+                while (!line.equals("movaebles end"))
+                {
+                    String[] moveableParams = line.split(":");
+                    System.out.println("MovableID: " + moveableParams[0] + " myTileID: " + moveableParams[1] +
+                            " life: " + moveableParams[2] + " work: " + moveableParams[3] +
+                            " inWater: " + moveableParams[4] + " tárgy: " + moveableParams[5] );
                     line = reader.readLine();
                 }
             }
@@ -175,14 +173,13 @@ public class Main {
         }
     }
 
-    public static Tile setTileParams(Tile temp,String[] tileParams, ArrayList<MoveAble> moveAbles)
+    public static Tile setTileParams(Tile temp,String[] tileParams)
     {
         String[] tempNeighbors = tileParams[6].split(",");
         String[] tempMovables = tileParams[4].split(",");
         //vedettseg
         if(tileParams[3].equals("T")) temp.setSafe(true);
         else if(tileParams[3].equals("I")) temp.setSafeByTent(true);
-        temp.setSnow(Integer.parseInt(tileParams[4]));
         //szomszedok beallitasa a beolvasas alapjan
         for (int i = 0; i < tempNeighbors.length; i++ )
         {
@@ -192,68 +189,34 @@ public class Main {
         //Rajta allo karakterek
         for (int i = 0; i < tempMovables.length; i++ )
         {
-            int j = 0;
-            while(j < moveAbles.size())
+            //Megnezzuk milyen tipusu karaktert kene felvenni
+            String characterType = Character.toString(tempMovables[i].charAt(0));
+            if(characterType.equals("R"))
             {
-                if(moveAbles.get(j).getId().equals(tempMovables[i]))
-                {
-                    temp.addMoveAbles(moveAbles.get(j));
-                    j++;
-                }
+                Researcher moveTemp = new Researcher(tempMovables[i]);
+                temp.addMoveAbles(moveTemp);
+            }
+            else if(characterType.equals("E"))
+            {
+                Eskimo moveTemp = new Eskimo(tempMovables[i]);
+                temp.addMoveAbles(moveTemp);
+            }
+            else if(characterType.equals("P"))
+            {
+                PolarBear moveTemp = new PolarBear(tempMovables[i]);
+                temp.addMoveAbles(moveTemp);
             }
         }
         //Targy benne
-        switch(tileParams[7])
+        switch(tileParams[5])
         {
-            case "PP":  temp.setThing(new PistolPart());break;
-            case "T":  temp.setThing(new Tent());break;
-            case "FS":  temp.setThing(new FragileShovel());break;
-            case "F":  temp.setThing(new Food());break;
-            case "DS":  temp.setThing(new DivingSuit());break;
-            case "R":  temp.setThing(new Rope());break;
-            case "S":  temp.setThing(new Shovel());break;
-        }
-        return temp;
-    }
-
-    public static Unstable setUnstableParams(Unstable temp,String[] tileParams, ArrayList<MoveAble> moveAbles)
-    {
-        String[] tempNeighbors = tileParams[6].split(",");
-        String[] tempMovables = tileParams[4].split(",");
-        //vedettseg
-        if(tileParams[3].equals("T")) temp.setSafe(true);
-        else if(tileParams[3].equals("I")) temp.setSafeByTent(true);
-        temp.setSnow(Integer.parseInt(tileParams[4]));
-        //szomszedok beallitasa a beolvasas alapjan
-        for (int i = 0; i < tempNeighbors.length; i++ )
-        {
-            Tile neighbortemp = new Tile(Integer.parseInt(tempNeighbors[i]));
-            temp.addNeighbour(neighbortemp);
-        }
-        //Rajta allo karakterek
-        for (int i = 0; i < tempMovables.length; i++ )
-        {
-            int j = 0;
-                while(j < moveAbles.size())
-                {
-                    if(moveAbles.get(j).getId().equals(tempMovables[i]))
-                    {
-                        temp.addMoveAbles(moveAbles.get(j));
-                        j++;
-                    }
-                }
-        }
-
-        //Targy benne
-        switch(tileParams[7])
-        {
-            case "PP":  temp.setThing(new PistolPart());break;
-            case "T":  temp.setThing(new Tent());break;
-            case "FS":  temp.setThing(new FragileShovel());break;
-            case "F":  temp.setThing(new Food());break;
-            case "DS":  temp.setThing(new DivingSuit());break;
-            case "R":  temp.setThing(new Rope());break;
-            case "S":  temp.setThing(new Shovel());break;
+            case "PP":  temp.setThing(new PistolPart());
+            case "T":  temp.setThing(new Tent());
+            case "FS":  temp.setThing(new FragileShovel());
+            case "F":  temp.setThing(new Food());
+            case "DS":  temp.setThing(new DivingSuit());
+            case "R":  temp.setThing(new Rope());
+            case "S":  temp.setThing(new Shovel());
         }
         return temp;
     }

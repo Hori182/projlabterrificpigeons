@@ -15,8 +15,7 @@ public class Game {
     private int usedParts;
     ArrayList<PistolPart> pistolParts = new ArrayList<>(3);
 
-    public Game() {
-    }
+    public Game() {}
 
     /*
     * Játék indítása.
@@ -50,6 +49,9 @@ public class Game {
     * Követkető játékosra vált.
     * */
     public void nextPlayer(){
+        for(int i = 0; i < polarbears.size();i++) {
+            polarbears.get(i).moveToRandom();
+        }
         Random rand = new Random();
         rand.nextInt(10);
         if( rand.equals(3))
@@ -59,7 +61,7 @@ public class Game {
             players.get(currentPlayer).die();
             this.endGame();
         }
-        if(currentPlayer < players.size())
+        if(currentPlayer < players.size()-1)
             currentPlayer++;
         else
             currentPlayer = 0;
