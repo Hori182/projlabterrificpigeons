@@ -178,8 +178,8 @@ public class Main {
                                     case "T":  moveTemp.addThing(new Tent());break;
                                     case "FS":  moveTemp.addThing(new FragileShovel());break;
                                     case "F":  moveTemp.addThing(new Food());break;
-                                    case "DS":  moveTemp.addThing(new DivingSuit());break;
-                                    case "R":  moveTemp.addThing(new Rope());break;
+                                    case "D":  moveTemp.addThing(new DivingSuit());break;
+                                    case "Ro":  moveTemp.addThing(new Rope());break;
                                     case "S":  moveTemp.addThing(new Shovel());break;
                                 }
                             }
@@ -201,8 +201,8 @@ public class Main {
                                     case "T":  moveTemp.addThing(new Tent());break;
                                     case "FS":  moveTemp.addThing(new FragileShovel());break;
                                     case "F":  moveTemp.addThing(new Food());break;
-                                    case "DS":  moveTemp.addThing(new DivingSuit());break;
-                                    case "R":  moveTemp.addThing(new Rope());break;
+                                    case "D":  moveTemp.addThing(new DivingSuit());break;
+                                    case "Ro":  moveTemp.addThing(new Rope());break;
                                     case "S":  moveTemp.addThing(new Shovel());break;
                                 }
                             }
