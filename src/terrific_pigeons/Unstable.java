@@ -29,7 +29,7 @@ public class  Unstable extends Tile{
     * */
     public void check(MoveAble m)
     {
-        if(this.movables.size() >limit)
+        if(this.movables.size() > limit)
             this.turnOver(m);
     }
     /*

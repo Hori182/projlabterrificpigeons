@@ -17,6 +17,7 @@ public abstract class Player extends MoveAble {
     public void move(Tile t)
     {
         t.moveRequest( this);
+        work();
     }
 
     /*

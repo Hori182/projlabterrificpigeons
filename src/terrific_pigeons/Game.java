@@ -54,7 +54,7 @@ public class Game {
         rand.nextInt(10);
         if( rand.equals(3))
             gameMap.snowStorm();
-        if((players.get(currentPlayer).getWork() == 0 && players.get(currentPlayer).getInWater()) || players.get(currentPlayer).getLife() == 0 )
+        if((players.get(currentPlayer).getWork() >=4 && players.get(currentPlayer).getInWater()) || players.get(currentPlayer).getLife() == 0 )
         {
             players.get(currentPlayer).die();
             this.endGame();
