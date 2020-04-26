@@ -9,6 +9,8 @@ public class Main {
 
         Game game = new Game();
 
+        loadTestMap("./src/maps/test_map_00.txt");
+
         boolean started = false;
         while(!started) {
             System.out.println("1. Start the game with your own map - type: load example.txt");
@@ -26,6 +28,8 @@ public class Main {
                 started = true;
             }
         }
+
+
 
         System.out.println("Command: ");
         Scanner input = new Scanner(System.in);
@@ -145,16 +149,13 @@ public class Main {
             reader = new BufferedReader(new FileReader(test));
             String line;
             line = reader.readLine();
-            while (line != null)
-            {
+            //while (line != null)
+            //{
                 ArrayList<MoveAble> moveAbles = new ArrayList<MoveAble>();
-                while (!line.equals("movaebles end"))
+                while (!line.equals("moveables end"))
                 {
-                    System.out.println(line);
+                    //System.out.println(line);
                     String[] moveableParams = line.split(":");
-                    System.out.println("MovableID: " + moveableParams[0] + " myTileID: " + moveableParams[1] +
-                            " life: " + moveableParams[2] + " work: " + moveableParams[3] +
-                            " inWater: " + moveableParams[4] + " tárgy: " + moveableParams[5] );
 
                     for (int i = 0; i < moveableParams.length; i++ )
                     {
@@ -185,6 +186,10 @@ public class Main {
                             }
                             moveAbles.add(moveTemp);
                             g.addPlayers(moveTemp);
+
+                            System.out.println("MovableID: " + moveableParams[0] + " myTileID: " + moveableParams[1] +
+                                    " life: " + moveableParams[2] + " work: " + moveableParams[3] +
+                                    " inWater: " + moveableParams[4] + " tárgy: " + moveableParams[5]);
                         }
                         else if(characterType.equals("E"))
                         {
@@ -209,23 +214,29 @@ public class Main {
                             }
                             moveAbles.add(moveTemp);
                             g.addPlayers(moveTemp);
+
+                            System.out.println("MovableID: " + moveableParams[0] + " myTileID: " + moveableParams[1] +
+                                    " life: " + moveableParams[2] + " work: " + moveableParams[3] +
+                                    " inWater: " + moveableParams[4] + " tárgy: " + moveableParams[5]);
                         }
-                        else if(characterType.equals("P"))
+                        if(characterType.equals("P"))
                         {
                             PolarBear moveTemp = new PolarBear(moveableParams[i]);
                             moveAbles.add(moveTemp);
                             g.addPolarBear(moveTemp);
+                            System.out.println("MovableID: " + moveableParams[0] + " myTileID: " + moveableParams[1]);
                         }
                     }
                     line = reader.readLine();
                 }
                 line = reader.readLine();
+                int i=0;
                 //ITT KENE UGRANI
                 while(!line.equals("tiles end")) {
                     String[] tileParams = line.split(":");
                     System.out.println("TileID: " + tileParams[0] + " stabil: " + tileParams[1] +
                             " limit: " + tileParams[2] + " védettség: " + tileParams[3] + " hó: " +tileParams[4] +
-                            " rajta áll: " + tileParams[5] + " szomszédok: " + tileParams[6] + " tárgy: " + tileParams[7]);
+                            " rajta áll: " + tileParams[5] + " tárgy: " + tileParams[6] + " szomszédok: " + tileParams[7]);
 
                     //ha stabil, stabilat, ha nem instabilat hozunk létre
                     if(tileParams[1].equals("+"))
@@ -242,7 +253,7 @@ public class Main {
                     }
                     line = reader.readLine();
                 }
-            }
+            //}
             reader.close();
         } catch (IOException e) {
             e.printStackTrace();
@@ -253,7 +264,7 @@ public class Main {
 
     public static Tile setTileParams(Tile temp,String[] tileParams, ArrayList<MoveAble> moveAbles)
     {
-        String[] tempNeighbors = tileParams[6].split(",");
+        String[] tempNeighbors = tileParams[7].split(",");
         String[] tempMovables = tileParams[4].split(",");
         //vedettseg
         if(tileParams[3].equals("T")) temp.setSafe(true);
@@ -280,7 +291,7 @@ public class Main {
             }
         }
         //Targy benne
-        switch(tileParams[7])
+        switch(tileParams[6])
         {
             case "PP":  temp.setThing(new PistolPart());break;
             case "T":  temp.setThing(new Tent());break;
@@ -295,7 +306,7 @@ public class Main {
 
     public static Unstable setUnstableParams(Unstable temp,String[] tileParams, ArrayList<MoveAble> moveAbles)
     {
-        String[] tempNeighbors = tileParams[6].split(",");
+        String[] tempNeighbors = tileParams[7].split(",");
         String[] tempMovables = tileParams[4].split(",");
         //vedettseg
         if(tileParams[3].equals("T")) temp.setSafe(true);
