@@ -1,5 +1,8 @@
 package terrific_pigeons;
 
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
@@ -289,5 +292,14 @@ public class Game {
     }
     public Map getGameMap() {
         return gameMap;
+    }
+
+    public void save(String filename) throws FileNotFoundException, UnsupportedEncodingException {
+        PrintWriter writer = new PrintWriter(filename, "UTF-8");
+        for (MoveAble m : players){
+            writer.print(m.getId()+":"+m.getTile().getTileId()+":"+m.getLife()+":"+m.getWork()+":"+(m.getInWater()?"+":"-")+":");
+            
+        }
+        writer.close();
     }
 }
