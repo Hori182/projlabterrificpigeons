@@ -63,7 +63,10 @@ public class Tile {
         Tile t2 = m.getTile();
         t2.remove(m);
         m.setMyTile(this);
-        this.receive(m);
+        /*
+        * Ha ez nincs kikommentelve, akkor hozzáadja annyiszor a movableshez a karaktert ahányszor lép.
+        * */
+        //this.receive(m);
     }
 
     /*

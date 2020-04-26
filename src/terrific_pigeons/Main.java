@@ -17,6 +17,7 @@ public class Main {
         String command = input.nextLine();
         while(command != "exit")
         {
+
                 String[] commandparam = command.split(" ");
                 switch(commandparam[0])
                 {
@@ -79,6 +80,7 @@ public class Main {
                     default:
                         System.out.println("There is no command like this!");
                 }
+
                 System.out.println("Next command: ");
             command = input.nextLine();
             commandparam = command.split(" ");
