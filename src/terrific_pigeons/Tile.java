@@ -238,6 +238,22 @@ public class Tile {
         }
     }
     public void save(PrintWriter writer){
+        writer.print(tileId+":+:"+limit+":"+(safe?"I:":(safeByTent?"T:":" :"))+snow+":");
+        ArrayList<String> ids = new ArrayList<>();
+        for (MoveAble m : movables)
+            ids.add(m.getId());
+        if (ids.size()>0)
+            writer.print(String.join(",", ids) + ":");
+        else
+            writer.print(" :");
+        writer.print(thing==null?" :":(thing.Name()+":"));
+        ids = new ArrayList<>();
+        for (Tile t: neighbours)
+            ids.add(String.valueOf(t.getTileId()));
+        if (ids.size()>0)
+            writer.println(String.join(",", ids));
+        else
+            writer.println(" ");
 
     }
 }

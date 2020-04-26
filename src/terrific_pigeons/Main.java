@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException, UnsupportedEncodingException {
 
         Game game = new Game();
 
@@ -110,7 +110,10 @@ public class Main {
                         current = game.getCurrentPlayer();
                         game.getPlayers().get(current).look(moveParam);
                         break;
-                    //case "save":
+                    case "save":
+                        game.save("probafajbairas.txt");
+                        break;
+
                     //case "exit":
                     //case "load":
                     default:

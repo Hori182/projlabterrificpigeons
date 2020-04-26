@@ -304,17 +304,10 @@ public class Game {
     public void save(String filename) throws FileNotFoundException, UnsupportedEncodingException {
         PrintWriter writer = new PrintWriter(filename, "UTF-8");
         for (Player m : players){
-            writer.print(m.getId()+":"+m.getTile().getTileId()+":"+m.getLife()+":"+m.getWork()+":"+(m.getInWater()?"+":"-")+":");
-            ArrayList<String> thingids = new ArrayList<>();
-            for (Thing t : m.getThings())
-                thingids.add(t.Name);
-            if (thingids.size()>0)
-                writer.println(String.join(",", thingids) + ";");
-            else
-                writer.println(" ;");
+            m.save(writer);
         }
         for (PolarBear p : polarbears){
-            writer.println(p.getId()+":"+p.getTile().getTileId());
+            p.save(writer);
         }
         writer.println("moveables end");
         for (Tile t : gameMap.getTiles()){

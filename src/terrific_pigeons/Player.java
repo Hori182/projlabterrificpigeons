@@ -1,5 +1,6 @@
 package terrific_pigeons;
 
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 public abstract class Player extends MoveAble {
@@ -108,6 +109,17 @@ public abstract class Player extends MoveAble {
             System.out.println(String.join(",", thingids) + ";");
         else
             System.out.println(" ;");
+    }
+
+    public void save(PrintWriter writer){
+        writer.print(getId()+":"+getTile().getTileId()+":"+getLife()+":"+getWork()+":"+(getInWater()?"+":"-")+":");
+        ArrayList<String> thingids = new ArrayList<>();
+        for (Thing t : getThings())
+            thingids.add(t.Name);
+        if (thingids.size()>0)
+            writer.println(String.join(",", thingids));
+        else
+            writer.println(" ");
     }
 
 }
