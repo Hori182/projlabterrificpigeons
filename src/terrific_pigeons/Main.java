@@ -1,8 +1,5 @@
 package terrific_pigeons;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -333,9 +330,72 @@ public class Main {
     }
 
     //Összehasonlítja a teszt végrahajtása után kapott txt-t egy txt-vel ami az elvárt kimenetet tartalmazza
-    public static void compareResult(String result, String expectation)
-    {
+    public static boolean compareResult(String result, String expectation) throws IOException {
+        BufferedReader reader1 = new BufferedReader(new FileReader(result));
+        BufferedReader reader2 = new BufferedReader(new FileReader(expectation));
+        String line1 = reader1.readLine();
+        String line2 = reader2.readLine();
+        boolean areEqual = true;
+        int lineNum = 1;
+        while (line1 != null || line2 != null)
+        {
+            if(line1 == null || line2 == null)
+            {
+                areEqual = false;
+                break;
+            }
+            else if(! line1.equalsIgnoreCase(line2))
+            {
+                areEqual = false;
+                break;
+            }
+            line1 = reader1.readLine();
+            line2 = reader2.readLine();
+        }
+        reader1.close();
+        reader2.close();
+        if(areEqual){
+            return true;
+        }
+        else{
+           return false;
+        }
+    }
 
+    //Osszehasonlitja az osszes tesztesetet es kiirja az eredmenyt
+    public static void testAll() throws IOException {
+        FileWriter fw = new FileWriter("src/allTestResults.txt");
+        String resultBase ="src/results/result_map_";
+        String expectedBase ="src/expected/expected_map_";
+        int good = 0;
+        int bad = 0;
+        for(int i = 1; i < 24; i++)
+        {
+            String resultPath;
+            String expectedPath;
+            if(i < 10)
+            {
+                resultPath = resultBase + "0" + Integer.toString(i);
+                expectedPath = expectedBase + "0" + Integer.toString(i);
+            }
+            else
+            {
+                resultPath = resultBase + Integer.toString(i);
+                expectedPath = expectedBase + Integer.toString(i);
+            }
+            boolean valid = compareResult(resultPath,expectedPath);
+            if(valid)
+            {
+                good++;
+                fw.write("Test " + i + "is good.\n");
+            }
+            else {
+                bad++;
+                fw.write("Test " + i + "is bad.\n");
+            }
+        }
+        fw.write("Test results: " + Integer.toString(good) +"/24");
+        fw.close();
     }
 }
 
