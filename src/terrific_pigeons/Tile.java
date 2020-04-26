@@ -61,8 +61,18 @@ public class Tile {
     public void moveRequest(MoveAble m)
     {
         Tile t2 = m.getTile();
-        t2.remove(m);
-        m.setMyTile(this);
+        boolean isNeighbour = false;
+        for(int i = 0; i < t2.getNeighbours().size(); i++) {
+            if(this == t2.getNeighbours().get(i))
+                isNeighbour = true;
+        }
+        if(isNeighbour) {
+            t2.remove(m);
+            m.setMyTile(this);
+        }
+        else {
+            System.out.println("Not neighbour!");
+        }
         /*
         * Ha ez nincs kikommentelve, akkor hozzáadja annyiszor a movableshez a karaktert ahányszor lép.
         * */
