@@ -35,7 +35,7 @@ public class Main {
         Scanner input = new Scanner(System.in);
 
         String command = input.nextLine();
-        while(command != "exit")
+        while(command.equals("exit"))
         {
 
                 int current = game.getCurrentPlayer();
