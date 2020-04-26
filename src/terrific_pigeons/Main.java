@@ -17,7 +17,7 @@ public class Main {
         String command = input.nextLine();
         while(command != "exit")
         {
-
+                int current = game.getCurrentPlayer();
                 String[] commandparam = command.split(" ");
                 switch(commandparam[0])
                 {
@@ -31,7 +31,7 @@ public class Main {
                         game.startGame();
                         break;
                     case "pass":
-                        game.getPlayers().get(game.getCurrentPlayer()).pass();
+                        game.getPlayers().get(current).pass();
                         game.nextPlayer();
                         break;
                     case "move":
@@ -43,7 +43,7 @@ public class Main {
                                 moveParam = tiles.get(i);
                         }
 
-                        int current = game.getCurrentPlayer();
+                        current = game.getCurrentPlayer();
                         game.getPlayers().get(current).move(moveParam);
                         game.draw();
                         break;
@@ -80,7 +80,8 @@ public class Main {
                     default:
                         System.out.println("There is no command like this!");
                 }
-
+                if(game.getPlayers().get(current).getWork() >= 4)
+                    game.nextPlayer();
                 System.out.println("Next command: ");
             command = input.nextLine();
             commandparam = command.split(" ");
