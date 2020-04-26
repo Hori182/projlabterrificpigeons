@@ -92,11 +92,11 @@ public class Main {
                                 System.out.println(i + ". " + game.getPlayers().get(current).getThings().get(i).Name());
                         } else System.out.println("Inventory is empty!");
                         break;
-                    case "iglu":
+                    case "eskimoSpecialAbility":
                         current = game.getCurrentPlayer();
                         game.getPlayers().get(current).build();
                         break;
-                    case "look":
+                    case "reasercherSpecialAbility":
                         map = game.getGameMap();
                         tiles = map.getTiles();
                         moveParam = new Tile(999999);
