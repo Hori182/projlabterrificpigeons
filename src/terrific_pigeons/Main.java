@@ -51,6 +51,7 @@ public class Main {
                     case "pass":
                         game.getPlayers().get(current).pass();
                         game.nextPlayer();
+                        game.draw();
                         break;
                     case "move":
                         Map map = game.getGameMap();
@@ -102,7 +103,6 @@ public class Main {
                         System.out.println("There is no command like this!");
                 }
                 if(game.getPlayers().get(current).getWork() >= 4 && game.getPlayers().get(current).getInWater() == false){
-                    game.getPlayers().get(current).setWork(0);
                     game.nextPlayer();
                 }
                 else if(game.getPlayers().get(current).getInWater() == true) {
