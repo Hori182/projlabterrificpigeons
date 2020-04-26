@@ -251,9 +251,9 @@ public class Tile {
         for (Tile t: neighbours)
             ids.add(String.valueOf(t.getTileId()));
         if (ids.size()>0)
-            writer.println(String.join(",", ids) + ";");
+            writer.println(String.join(",", ids));
         else
-            writer.println(" ;");
+            writer.println(" ");
 
     }
 }
