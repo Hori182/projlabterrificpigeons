@@ -9,7 +9,7 @@ public class Main {
 
         Game game = new Game();
 
-        loadTestMap("./src/maps/test_map_00.txt");
+        //loadTestMap("./src/maps/test_map_12.txt");
 
         boolean started = false;
         while(!started) {
@@ -18,17 +18,17 @@ public class Main {
             Scanner choose = new Scanner(System.in);
 
             String chosedStart = choose.nextLine();
+            String[] load = chosedStart.split(" ");
 
             if(chosedStart.equals("init")) {
                 game.startGame();
                 started = true;
             }
-            else if(chosedStart.equals("load")) {
-                //Valami
+            else if(load[0].equals("load")) {
+                loadTestMap("./src/maps/" + load[1]);
                 started = true;
             }
         }
-
 
 
         System.out.println("Command: ");
@@ -45,7 +45,6 @@ public class Main {
             commandparam = command.split(" ");
         }
         game.endGame();
-        //loadTestMap("src/maps/test_map_01.txt");
     }
 
     public static void Command(String[] commandparam, Game game, int current) throws FileNotFoundException, UnsupportedEncodingException {
@@ -149,8 +148,6 @@ public class Main {
             reader = new BufferedReader(new FileReader(test));
             String line;
             line = reader.readLine();
-            //while (line != null)
-            //{
                 ArrayList<MoveAble> moveAbles = new ArrayList<MoveAble>();
                 while (!line.equals("moveables end"))
                 {
@@ -230,8 +227,7 @@ public class Main {
                     line = reader.readLine();
                 }
                 line = reader.readLine();
-                int i=0;
-                //ITT KENE UGRANI
+
                 while(!line.equals("tiles end")) {
                     String[] tileParams = line.split(":");
                     System.out.println("TileID: " + tileParams[0] + " stabil: " + tileParams[1] +
@@ -253,7 +249,6 @@ public class Main {
                     }
                     line = reader.readLine();
                 }
-            //}
             reader.close();
         } catch (IOException e) {
             e.printStackTrace();
