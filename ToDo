@@ -14,3 +14,12 @@ sztem lehetne pl egy tombben eltarolni a szomszedjaikat és miután létrehoztuk
 -bemeneti nyelvi parancsok switch caseben
 - nem negyzatracsosnak kene lennie a palyanak
 -ha nem tud többet cselekedni a player, akkor jöjjön a következő, most tud többet is cselekedni
+
+/////////////////////////////////////////////////////////////////
+- Kijavítottuk a load-ot, mostmár elvileg működik
+- Kijavítottuk a compare-t, mostmár elv az is jó
+- A save-ben is kijavítottuk a hibákat, remélhetőleg jó
+- Megírtuk a parancsok beolvasását a testfile-okból
+- A map file-okat kb átírtuk a helyes formátumra
+- Az expected meg a test file-okat kell megírni
+- A menüt megcsinálni, ha tesztelni vagy játszani akar.

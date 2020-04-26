@@ -153,8 +153,10 @@ public class Main {
 
         while (!line.equals("exit")){
             command = line.split(" ");
-            Command(command, game, current);
-            line = reader.readLine();
+            if(!command[0].equals("exit")){
+                Command(command, game, current);
+                line = reader.readLine();
+            }
         }
     }
 
