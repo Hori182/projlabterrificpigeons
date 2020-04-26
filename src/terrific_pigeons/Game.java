@@ -170,7 +170,8 @@ public class Game {
             while (num == gameMap.getTiles().get(i).getTileId()){
                 num = rand.nextInt(gameMap.getTiles().size());
                 if (num != gameMap.getTiles().get(i).getTileId()){
-                    gameMap.getTiles().get(i).addNeighbour(gameMap.getTiles().get(num));
+                    if(gameMap.getTiles().get(num).getLimit() != 0)
+                        gameMap.getTiles().get(i).addNeighbour(gameMap.getTiles().get(num));
                 }
             }
         }
@@ -208,13 +209,17 @@ public class Game {
 
         // Generate things
         int things_pct = (int)(tiles * 0.2);
+        boolean x = false;
         for (int i = 0; i < things_pct; i++){
-            while (gameMap.getTiles().get(num).getLimit() == 0 && gameMap.getTiles().get(num).getThing() != null)
+            while(x == false){
                 num = rand.nextInt(gameMap.getTiles().size());
+                if(gameMap.getTiles().get(num).getLimit() != 0 && gameMap.getTiles().get(num).getThing() == null)
+                    x = true;
+            }
 
             rand_thing = rand.nextInt(6);
             gameMap.getTiles().get(num).setThing(rand_thing);
-            num = 0;
+            num = 0; x = false;
         }
 
         // Put the characters on it
