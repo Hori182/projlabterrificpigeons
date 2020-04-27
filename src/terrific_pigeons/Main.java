@@ -521,7 +521,7 @@ public class Main {
                 }
             }
         }
-            fw.write("Test results: " + Integer.toString(good) + "/22");
+            fw.write("Test results: " + Integer.toString(good) + "/21");
             fw.close();
     }
 }
