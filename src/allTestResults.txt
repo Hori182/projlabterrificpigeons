@@ -12,7 +12,7 @@ Test 12 is bad.
 Test 13 is good.
 Test 14 is bad.
 Test 15 is bad.
-Test 17 is bad.
+Test 17 is good.
 Test 18 is good.
 Test 19 is bad.
 Test 20 is good.

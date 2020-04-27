@@ -25,9 +25,11 @@ public class Map {
         for (Tile t : tiles) {
             t.addSnow(1);
 
-            ArrayList<MoveAble> temp = t.getMovables();
+            ArrayList<MoveAble> temp;
+            if(t.getMovables()!=null) temp = t.getMovables();
+            else temp = null;
             for (MoveAble m : temp) {
-                if (m.myTile.getSafe() == false || m.myTile.getSafeByTent() == false)
+                if (!m.myTile.getSafe() || !m.myTile.getSafeByTent())
                     m.subLife();
             }
         }
