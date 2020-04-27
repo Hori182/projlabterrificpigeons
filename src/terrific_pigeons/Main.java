@@ -20,7 +20,7 @@ public class Main {
         while(!started) {
             System.out.println("1. Start the game with your own map - type: load example.txt");
             System.out.println("2. Start the game with generated map - type: init");
-            System.out.println("3. Start a test - type: start test.txt");
+            System.out.println("3. Start all tests - type: test");
             Scanner choose = new Scanner(System.in);
 
             String chosedStart = choose.nextLine();
@@ -34,9 +34,18 @@ public class Main {
                 game = loadTestMap("./src/maps/" + load[1]);
                 started = true;
             }
-            else if(load[0].equals("start")) {
+            else if(load[0].equals("test")) {
                 started = true;
-                read_test("./src/tests/"+load[1]);
+                //
+                File folder = new File("./src/tests");
+                File[] listOfFiles = folder.listFiles();
+                for (int i = 0; i < listOfFiles.length; i++) {
+                    if (listOfFiles[i].isFile()) {
+                        read_test("./src/tests/"+listOfFiles[i].getName());
+
+                //read_test("./src/tests/"+load[1]);
+                    }
+                }
             }
         }
 

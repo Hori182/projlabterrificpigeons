@@ -30,11 +30,15 @@ public class PolarBear extends MoveAble {
         pass();
     }
 
+    /*
+     * Medve kirajzolása konzolra
+     * */
     public void draw(){
         System.out.print(moveableid + ":" + myTile.getTileId() + ";");
     }
+
     /*
-    A medve megöli a játékos(oka)t.
+    A medve megpróbálja megtámadni a játékos(oka)t.
      */
     public void kill(){
         for (MoveAble m :myTile.getMovables()){
@@ -42,6 +46,9 @@ public class PolarBear extends MoveAble {
         }
     }
 
+    /*
+     * Medve kiírása fájlba
+     * */
     public void save(PrintWriter writer){
         writer.println(getId()+":"+getTile().getTileId()+":");
     }
