@@ -118,7 +118,9 @@ public class Tile {
         if(!neighbours.contains(t)) {
             this.neighbours.add(t);
         }
-        if(!t.neighbours.contains(this)) t.getNeighbours().add(this);
+        if(!t.neighbours.contains(this)){
+            t.getNeighbours().add(this);
+        }
     }
 
     /*

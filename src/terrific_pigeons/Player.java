@@ -107,7 +107,7 @@ public abstract class Player extends MoveAble {
         System.out.print(moveableid + ":" + myTile.getTileId() + ":" + life + ":" + (4-work) + ":" + (inWater ? "+:" : "-:"));
         ArrayList<String> thingids = new ArrayList<>();
         for (Thing t : things)
-            thingids.add(t.Name);
+            thingids.add(t.Name());
         if (thingids.size()>0)
             System.out.println(String.join(",", thingids) + ";");
         else

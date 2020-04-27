@@ -41,6 +41,7 @@ public class Main {
                 File[] listOfFiles = folder.listFiles();
                 for (int i = 0; i < listOfFiles.length; i++) {
                     if (listOfFiles[i].isFile()) {
+                        System.out.println("Test " + i + ": ");
                         read_test("./src/tests/"+listOfFiles[i].getName());
                 //read_test("./src/tests/"+load[1]);  //ez kell az előző 5 sor helyett, ha egyesével akarsz tesztelni, pl. test test_07.txt
                     }
@@ -106,19 +107,33 @@ public class Main {
                 case "draw":
                     game.draw();
                     break;
-                case "useThing":
+                case "shovel":
                     current = game.getCurrentPlayer();
-                    if(game.getPlayers().get(current).getThings().size() > 0){
-                        for(int i=0; i < game.getPlayers().get(current).getThings().size(); i++)
-                            System.out.println(i + ". " + game.getPlayers().get(current).getThings().get(i).Name());
-
-                        System.out.println("which item would you like to use?");
-                        Scanner menu = new Scanner(System.in);
-                        int choose = Integer.parseInt(menu.nextLine());
-                        if(game.getPlayers().get(current).getThings().get(choose).Name() == "P") game.assemble();
-                        else game.getPlayers().get(current).getThings().get(choose).useThing();
-                    } else System.out.println("Inventory is empty!");
-                    game.draw();
+                    things("Sh", game, current);
+                    break;
+                case "rope":
+                    current = game.getCurrentPlayer();
+                    things("R", game, current);
+                    break;
+                case "pistolpart":
+                    current = game.getCurrentPlayer();
+                    game.assemble();
+                    break;
+                case "fragileshovel":
+                    current = game.getCurrentPlayer();
+                    things("FR", game, current);
+                    break;
+                case "tent":
+                    current = game.getCurrentPlayer();
+                    things("T", game, current);
+                    break;
+                case "food":
+                    current = game.getCurrentPlayer();
+                    things("F", game, current);
+                    break;
+                case "divingsuit":
+                    current = game.getCurrentPlayer();
+                    things("D", game, current);
                     break;
                 case "eskimoSpecialAbility":
                     current = game.getCurrentPlayer();
@@ -156,6 +171,18 @@ public class Main {
             }
     }
 
+    public static void things(String a, Game game, int current){
+        boolean x = false;
+        for(int i = 0; i < game.getPlayers().get(current).getThings().size(); i++){
+            System.out.println(game.getPlayers().get(current).getThings().size());
+            if (game.getPlayers().get(current).getThings().get(i).Name() == a){
+                game.getPlayers().get(current).getThings().get(i).useThing();
+                x = true;
+            }
+        }
+        if(x == false) System.out.println("No item.");
+    }
+
     public static void read_test(String test) throws IOException {
         Game game = new Game();
         int current = 0;
@@ -173,6 +200,7 @@ public class Main {
 
         while (!line.equals("exit")){
             line = reader.readLine();
+            System.out.println(line);
             command = line.split(" ");
             if(!command[0].equals("exit")){
                 Command(command, game, current);
