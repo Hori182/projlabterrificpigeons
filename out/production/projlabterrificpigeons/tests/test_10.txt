@@ -1,7 +1,6 @@
 load src/maps/test_map_10.txt
 draw
-useThing
-PP
+pistolpart
 draw
 save result_map_10
 exit
