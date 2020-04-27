@@ -218,7 +218,6 @@ public class Main {
             game = loadTestMap(command[1]);
             current = game.getCurrentPlayer();
         }
-
         while (!line.equals("exit")){
             line = reader.readLine();
             System.out.println(line);

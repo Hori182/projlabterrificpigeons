@@ -22,7 +22,9 @@ public class  Unstable extends Tile{
         {
             this.getMovables().get(i).setInWater(true);
         }
+        int temp = m.getWork();
         m.pass();
+        m.setWork(temp);
         System.out.println("Tile " + getTileId() + " turned over");
     }
 
