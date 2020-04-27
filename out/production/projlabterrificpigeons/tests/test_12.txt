@@ -1,6 +1,6 @@
 load src/maps/test_map_12.txt
 draw
-rope
+userope 2
 draw
 save result_map_12
 exit
