@@ -36,14 +36,13 @@ public class Main {
             }
             else if(load[0].equals("test")) {
                 started = true;
-                //
+
                 File folder = new File("./src/tests");
                 File[] listOfFiles = folder.listFiles();
                 for (int i = 0; i < listOfFiles.length; i++) {
                     if (listOfFiles[i].isFile()) {
                         read_test("./src/tests/"+listOfFiles[i].getName());
-
-                //read_test("./src/tests/"+load[1]);
+                //read_test("./src/tests/"+load[1]);  //ez kell az előző 5 sor helyett, ha egyesével akarsz tesztelni, pl. test test_07.txt
                     }
                 }
             }
