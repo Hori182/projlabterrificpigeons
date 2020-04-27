@@ -117,9 +117,9 @@ public abstract class Player extends MoveAble {
         for (Thing t : getThings())
             thingids.add(t.Name);
         if (thingids.size()>0)
-            writer.println(String.join(",", thingids));
+            writer.println(String.join(",", thingids)+":");
         else
-            writer.println(" ");
+            writer.println("-:");
     }
 
 }

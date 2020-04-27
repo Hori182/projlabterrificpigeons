@@ -23,4 +23,4 @@ sztem lehetne pl egy tombben eltarolni a szomszedjaikat és miután létrehoztuk
 - A map file-okat kb átírtuk a helyes formátumra
 - Az expected meg a test file-okat kell megírni
 - A menüt megcsinálni, ha tesztelni vagy játszani akar.
--test_map_01  (többi kész)
+-test_map_01 és expected_map_01  (többi kész)

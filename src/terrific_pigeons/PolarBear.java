@@ -43,6 +43,6 @@ public class PolarBear extends MoveAble {
     }
 
     public void save(PrintWriter writer){
-        writer.println(getId()+":"+getTile().getTileId());
+        writer.println(getId()+":"+getTile().getTileId()+":");
     }
 }

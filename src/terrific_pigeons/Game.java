@@ -255,31 +255,6 @@ public class Game {
     }
 
     public void draw() {
-        /*
-        int cnt = 0;
-
-        for (int i = 0; i < gameMap.getL(); i++) {
-            for (int j = 0; j < gameMap.getW(); j++) {
-                System.out.print("| ");
-                gameMap.getTiles().get(cnt).draw();
-                System.out.print(" |");
-                cnt++;
-            }
-            System.out.print('\n');
-        }
-        for(int i = 0; i < gameMap.getTiles().size(); i++)
-        {
-           if(gameMap.getTiles().get(i).getMovables().size() != 0)
-           {
-               for (int j = 0; j < gameMap.getTiles().get(i).getMovables().size(); j++)
-               {
-                   gameMap.getTiles().get(i).getMovables().get(j).draw();
-               }
-           }
-        }
-        System.out.println("Current player: "+players.get(currentPlayer).getId());
-
-        */
         System.out.println("Tiles\n" + "TileID:safe:snow:standing on:neighbours:visible things;\n");
         for (Tile t : gameMap.getTiles()){
             t.draw();
@@ -315,6 +290,7 @@ public class Game {
         for (Tile t : gameMap.getTiles()){
             t.save(writer);
         }
+        writer.println("tiles end");
         writer.close();
     }
 }

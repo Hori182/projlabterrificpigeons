@@ -107,7 +107,7 @@ public class Main {
                     current = game.getCurrentPlayer();
                     game.getPlayers().get(current).build();
                     break;
-                case "reasercherSpecialAbility":
+                case "researcherSpecialAbility":
                     map = game.getGameMap();
                     tiles = map.getTiles();
                     moveParam = new Tile(999999);
