@@ -372,8 +372,8 @@ public class Main {
             tempMovables = tileParams[5].split(",");
         }
         //vedettseg
-        if(tileParams[3].equals("T")) temp.setSafe(true);
-        else if(tileParams[3].equals("I")) temp.setSafeByTent(true);
+        if(tileParams[3].equals("I")) temp.setSafe(true);
+        else if(tileParams[3].equals("T")) temp.setSafeByTent(true);
         temp.setSnow(Integer.parseInt(tileParams[4]));
         //szomszedok beallitasa a beolvasas alapjan
         for (int i = 0; i < tempNeighbors.length; i++ )
@@ -422,8 +422,8 @@ public class Main {
         }
 
         //vedettseg
-        if(tileParams[3].equals("T")) temp.setSafe(true);
-        else if(tileParams[3].equals("I")) temp.setSafeByTent(true);
+        if(tileParams[3].equals("I")) temp.setSafe(true);
+        else if(tileParams[3].equals("T")) temp.setSafeByTent(true);
         temp.setSnow(Integer.parseInt(tileParams[4]));
         //szomszedok beallitasa a beolvasas alapjan
         for (int i = 0; i < tempNeighbors.length; i++ )

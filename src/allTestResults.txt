@@ -17,6 +17,6 @@ Test 18 is bad.
 Test 19 is bad.
 Test 20 is bad.
 Test 21 is bad.
-Test 22 is bad.
-Test 23 is bad.
-Test results: 7/22
+Test 22 is good.
+Test 23 is good.
+Test results: 9/22
