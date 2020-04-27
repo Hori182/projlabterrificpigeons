@@ -11,8 +11,6 @@ public class Shovel extends Thing{
      * jégtáblájáról.
      */
     protected void useThing() {
-        System.out.println("lol");
-        System.out.println(owner.getId());
         Tile t = owner.getTile();
         if(t.getSnow()-2 >= 0)
         {
