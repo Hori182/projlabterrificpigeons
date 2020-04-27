@@ -28,6 +28,7 @@ public class Rope extends Thing{
                      System.out.println("lefutottam 4");
                      t.moveRequest(m1);
                      m1.setInWater(false);
+                     //lololol
                    /*owner.getTile().moveRequest(owner.getTile().getNeighbours().get(i).getMovables().get(j));
                    owner.getTile().getNeighbours().get(i).getMovables().get(j).setInWater(false);*/
 
