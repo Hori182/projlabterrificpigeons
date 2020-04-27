@@ -1,4 +1,6 @@
 load src/maps/test_map_02.txt
 draw
-move 2 //E1
+move<E1><02> 
 draw
+save result_map_02
+exit
