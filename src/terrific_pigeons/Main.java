@@ -249,13 +249,13 @@ public class Main {
                             {
                                 switch (tempThings[j])
                                 {
-                                    case "P":  moveTemp.addThing(new PistolPart());break;
+                                    case "PP":  moveTemp.addThing(new PistolPart());break;
                                     case "T":  moveTemp.addThing(new Tent());break;
                                     case "FS":  moveTemp.addThing(new FragileShovel());break;
                                     case "F":  moveTemp.addThing(new Food());break;
                                     case "D":  moveTemp.addThing(new DivingSuit());break;
                                     case "Ro":  moveTemp.addThing(new Rope());break;
-                                    case "Sh":  moveTemp.addThing(new Shovel());break;
+                                    case "S":  moveTemp.addThing(new Shovel());break;
                                 }
                             }
                             moveAbles.add(moveTemp);
@@ -277,13 +277,13 @@ public class Main {
                             {
                                 switch (tempThings[j])
                                 {
-                                    case "P":  moveTemp.addThing(new PistolPart());break;
+                                    case "PP":  moveTemp.addThing(new PistolPart());break;
                                     case "T":  moveTemp.addThing(new Tent());break;
                                     case "FS":  moveTemp.addThing(new FragileShovel());break;
                                     case "F":  moveTemp.addThing(new Food());break;
                                     case "D":  moveTemp.addThing(new DivingSuit());break;
                                     case "Ro":  moveTemp.addThing(new Rope());break;
-                                    case "Sh":  moveTemp.addThing(new Shovel());break;
+                                    case "S":  moveTemp.addThing(new Shovel());break;
                                 }
                             }
                             moveAbles.add(moveTemp);
@@ -371,13 +371,13 @@ public class Main {
         //Targy benne
         switch(tileParams[6])
         {
-            case "P":  temp.setThing(new PistolPart());break;
+            case "PP":  temp.setThing(new PistolPart());break;
             case "T":  temp.setThing(new Tent());break;
             case "FS":  temp.setThing(new FragileShovel());break;
             case "F":  temp.setThing(new Food());break;
             case "DS":  temp.setThing(new DivingSuit());break;
             case "Ro":  temp.setThing(new Rope());break;
-            case "Sh":  temp.setThing(new Shovel());break;
+            case "S":  temp.setThing(new Shovel());break;
         }
         return temp;
     }
@@ -420,13 +420,13 @@ public class Main {
         //Targy benne
         switch(tileParams[7])
         {
-            case "P":  temp.setThing(new PistolPart());break;
+            case "PP":  temp.setThing(new PistolPart());break;
             case "T":  temp.setThing(new Tent());break;
             case "FS":  temp.setThing(new FragileShovel());break;
             case "F":  temp.setThing(new Food());break;
             case "DS":  temp.setThing(new DivingSuit());break;
             case "Ro":  temp.setThing(new Rope());break;
-            case "Sh":  temp.setThing(new Shovel());break;
+            case "S":  temp.setThing(new Shovel());break;
         }
         return temp;
     }
