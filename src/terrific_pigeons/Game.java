@@ -95,6 +95,7 @@ public class Game {
             }
             setUsedParts(0);
         }
+        players.get(currentPlayer).work();
     }
 
     /*
