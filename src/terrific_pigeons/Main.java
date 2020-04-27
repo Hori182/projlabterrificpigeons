@@ -536,6 +536,18 @@ public class Main {
         }
             fw.write("Test results: " + Integer.toString(good) + "/21");
             fw.close();
+        BufferedReader reader;
+        try {
+            reader = new BufferedReader(new FileReader("src/allTestResults.txt"));
+            String line = reader.readLine();
+            while (line != null) {
+                System.out.println(line);
+                line = reader.readLine();
+            }
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
 
