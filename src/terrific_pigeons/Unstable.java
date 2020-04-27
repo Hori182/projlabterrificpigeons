@@ -23,7 +23,6 @@ public class  Unstable extends Tile{
             this.getMovables().get(i).setInWater(true);
         }
         int temp = m.getWork();
-        m.pass();
         m.setWork(temp);
         System.out.println("Tile " + getTileId() + " turned over");
     }
@@ -34,8 +33,9 @@ public class  Unstable extends Tile{
     * */
     public void check(MoveAble m)
     {
-        if(this.movables.size() > limit)
+        if(this.movables.size() > limit){
             this.turnOver(m);
+        }
     }
     /*
     * A limit változó értékét megváltoztatja.
@@ -84,6 +84,5 @@ public class  Unstable extends Tile{
             writer.println(String.join(",", ids) + ":");
         else
             writer.println("-:");
-
     }
 }

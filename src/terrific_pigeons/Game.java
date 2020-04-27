@@ -69,9 +69,15 @@ public class Game {
             gameMap.snowStorm();
         if(currentPlayer < players.size()-1)
             currentPlayer++;
-        else
+        else{
             currentPlayer = 0;
-        if((players.get(currentPlayer).getWork() > 4 && players.get(currentPlayer).getInWater()) || players.get(currentPlayer).getLife() == 0 )
+            for(int i = 0; i < players.size()-1; i++){
+                if (players.get(i).drown == 1){
+                    players.get(i).drown = 2;
+                }
+            }
+        }
+        if((players.get(currentPlayer).drown == 2) || players.get(currentPlayer).getLife() == 0 )
         {
             players.get(currentPlayer).die();
             this.endGame();

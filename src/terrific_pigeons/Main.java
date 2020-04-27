@@ -91,6 +91,7 @@ public class Main {
             {
                 case "pass":
                     game.getPlayers().get(current).pass();
+                    System.out.println(game.getPlayers().get(current).myTile.getTileId());
                     game.draw();
                     break;
                 case "snowstorm":
@@ -197,7 +198,7 @@ public class Main {
                     System.out.println("There is no command like this!");
             }
             if(game.getPlayers().size() > 0) {
-                if (game.getPlayers().get(current).getWork() >= 4 && !game.getPlayers().get(current).getInWater()) {
+                if (game.getPlayers().get(current).getWork() == 4 && !game.getPlayers().get(current).getInWater()) {
                     game.nextPlayer();
                 } else if (game.getPlayers().get(current).getInWater()) {
                     game.nextPlayer();

@@ -3,6 +3,7 @@ package terrific_pigeons;
 public abstract class MoveAble {
     protected int life;
     protected boolean inWater = false;
+    protected int drown = 0;
     protected int work = 0;
     protected Tile myTile;
     protected String moveableid;
@@ -29,6 +30,7 @@ public abstract class MoveAble {
      * */
     public void setInWater(boolean inWater)
     {
+        this.drown = 1;
         this.inWater = inWater;
     }
 
