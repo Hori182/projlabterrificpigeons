@@ -1,8 +1,8 @@
 Test 1 is good.
 Test 2 is good.
-Test 3 is good.
+Test 3 is bad.
 Test 4 is good.
-Test 5 is bad.
+Test 5 is good.
 Test 6 is good.
 Test 7 is good.
 Test 8 is good.
@@ -11,7 +11,7 @@ Test 10 is good.
 Test 12 is bad.
 Test 13 is good.
 Test 14 is good.
-Test 15 is bad.
+Test 15 is good.
 Test 17 is good.
 Test 18 is good.
 Test 19 is bad.
@@ -19,4 +19,4 @@ Test 20 is good.
 Test 21 is good.
 Test 22 is good.
 Test 23 is good.
-Test results: 17/21
+Test results: 18/21

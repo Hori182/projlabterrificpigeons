@@ -91,8 +91,7 @@ public class Main {
             {
                 case "pass":
                     game.getPlayers().get(current).pass();
-                    System.out.println(game.getPlayers().get(current).myTile.getTileId());
-                    game.draw();
+                    //game.draw();
                     break;
                 case "snowstorm":
                     game.getGameMap().snowStorm();
@@ -198,7 +197,7 @@ public class Main {
                     System.out.println("There is no command like this!");
             }
             if(game.getPlayers().size() > 0) {
-                if (game.getPlayers().get(current).getWork() == 4 && !game.getPlayers().get(current).getInWater()) {
+                if (game.getPlayers().get(current).getWork() >= 4 && !game.getPlayers().get(current).getInWater()) {
                     game.nextPlayer();
                 } else if (game.getPlayers().get(current).getInWater()) {
                     game.nextPlayer();
@@ -277,7 +276,9 @@ public class Main {
                             Researcher moveTemp = new Researcher(moveableParams[0]);
                             moveTemp.setLife(Integer.parseInt(moveableParams[2]));
                             moveTemp.setWork(Integer.parseInt(moveableParams[3]));
-                            if(moveableParams[4].equals("-")) moveTemp.setInWater(false);
+                            if(moveableParams[4].equals("-")) {
+                                moveTemp.setInWater(false);
+                            }
                             else moveTemp.setInWater(true);
                             String[] tempThings = moveableParams[5].split(",");
                             for(int j = 0; j < tempThings.length; j++)

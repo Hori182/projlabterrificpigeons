@@ -63,6 +63,9 @@ public class Game {
         /*for(int i = 0; i < polarbears.size();i++) {
             polarbears.get(i).moveToRandom();
         }*/
+        for(int i = 0; i < players.size(); i++){
+            System.out.println(players.get(i).getId() + " " + players.get(i).getDrown());
+        }
         Random rand = new Random();
         rand.nextInt(10);
         if( rand.equals(3))
@@ -71,19 +74,19 @@ public class Game {
             currentPlayer++;
         else{
             currentPlayer = 0;
-            for(int i = 0; i < players.size()-1; i++){
-                if (players.get(i).drown == 1){
-                    players.get(i).drown = 2;
+            for(int i = 0; i < players.size(); i++){
+                if (players.get(i).getDrown() == 1){
+                    players.get(i).setDrown(2);
                 }
             }
         }
-        if((players.get(currentPlayer).drown == 2) || players.get(currentPlayer).getLife() == 0 )
+        if((players.get(currentPlayer).getDrown() == 2) || players.get(currentPlayer).getLife() == 0 )
         {
             players.get(currentPlayer).die();
             this.endGame();
         }
         getPlayers().get(currentPlayer).setWork(0);
-        //this.draw();
+        this.draw();
     }
 
     /*

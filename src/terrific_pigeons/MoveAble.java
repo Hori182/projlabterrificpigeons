@@ -11,6 +11,13 @@ public abstract class MoveAble {
     protected  void move(Tile t){
 
     }
+
+    public int getDrown(){
+        return drown;
+    }
+    public void setDrown(int x){
+        this.drown = x;
+    }
     /*
      * A játékos elpasszolja a körét, nem él az összes lépésével.
      * */
@@ -30,7 +37,11 @@ public abstract class MoveAble {
      * */
     public void setInWater(boolean inWater)
     {
-        this.drown = 1;
+        if(inWater){
+            this.setDrown(1);
+        } else{
+            this.setDrown(0);
+        }
         this.inWater = inWater;
     }
 
