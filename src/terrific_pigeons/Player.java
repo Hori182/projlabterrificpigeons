@@ -66,6 +66,7 @@ public abstract class Player extends MoveAble {
     public void addThing(Thing t)
     {
         this.things.add(t);
+        t.setOwner(this);
     }
 
     /*
