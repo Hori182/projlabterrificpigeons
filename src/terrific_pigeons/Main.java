@@ -437,7 +437,7 @@ public class Main {
             }
         }
         //Targy benne
-        switch(tileParams[7])
+        switch(tileParams[6])
         {
             case "PP":  temp.setThing(new PistolPart());break;
             case "T":  temp.setThing(new Tent());break;
