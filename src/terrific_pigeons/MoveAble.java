@@ -93,7 +93,7 @@ public abstract class MoveAble {
      * A játékos meghal.
      * */
     public void die() {
-
+        this.life = 0;
     }
 
     /*
