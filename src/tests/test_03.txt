@@ -2,3 +2,5 @@ load src/maps/test_map_03.txt
 draw
 move 2 //E1
 draw
+save result_map_03
+exit
