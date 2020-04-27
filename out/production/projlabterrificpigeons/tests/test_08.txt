@@ -4,5 +4,5 @@ fragileshovel
 fragileshovel
 fragileshovel
 draw
-save result_map_08.txt
+save result_map_08
 exit
