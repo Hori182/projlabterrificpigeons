@@ -266,14 +266,11 @@ public class Main {
                     System.out.println(line);
                     String[] moveableParams = line.split(":");
 
-                    //for (int i = 0; i < moveableParams.length; i++ )
-                    //{
+
                         //Megnezzuk milyen tipusu karaktert kene felvenni
                         String characterType = Character.toString( moveableParams[0].charAt(0));
                         if(characterType.equals("R"))
                         {
-                            //TILE BEALLITASANAL ALLITSUK BE A MOVEABLEK MYTILEJAT
-                            //!!!!!!!!!!!!!!!!!!!!
                             Researcher moveTemp = new Researcher(moveableParams[0]);
                             moveTemp.setLife(Integer.parseInt(moveableParams[2]));
                             moveTemp.setWork(Integer.parseInt(moveableParams[3]));
@@ -333,9 +330,9 @@ public class Main {
                             PolarBear moveTemp = new PolarBear(moveableParams[0]);
                             moveAbles.add(moveTemp);
                             g.addPolarBear(moveTemp);
-                            //System.out.println("MovableID: " + moveableParams[0] + " myTileID: " + moveableParams[1]);
+                            System.out.println("MovableID: " + moveableParams[0] + " myTileID: " + moveableParams[1]);
                         }
-                    //}
+
                     line = reader.readLine();
                 }
                 line = reader.readLine();
