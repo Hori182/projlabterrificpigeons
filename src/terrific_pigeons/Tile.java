@@ -63,14 +63,14 @@ public class Tile {
     {
         Tile t2 = m.getTile();
         boolean isNeighbour = false;
-        for(int i = 0; i < t2.getNeighbours().size(); i++) {
-            if(this == t2.getNeighbours().get(i))
+        for(int i = 0; i < neighbours.size(); i++) {
+            if(neighbours.get(i) == t2)
                 isNeighbour = true;
         }
         if(isNeighbour) {
             t2.remove(m);
             m.setMyTile(this);
-            //this.receive(m);
+            movables.add(m);
         }
         else {
             System.out.println("Not neighbour!");

@@ -1,4 +1,6 @@
 load src/maps/test_map_07.txt
 draw
-useThing S //E1
+useThing
+Sh
 draw
+exit

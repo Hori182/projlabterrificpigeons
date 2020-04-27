@@ -112,7 +112,7 @@ public abstract class Player extends MoveAble {
     }
 
     public void save(PrintWriter writer){
-        writer.print(getId()+":"+getTile().getTileId()+":"+getLife()+":"+getWork()+":"+(getInWater()?"+":"-")+":");
+        writer.print(getId()+":"+getTile().getTileId()+":"+getLife()+":"+(4-getWork())+":"+(getInWater()?"+":"-")+":");
         ArrayList<String> thingids = new ArrayList<>();
         for (Thing t : getThings())
             thingids.add(t.Name);

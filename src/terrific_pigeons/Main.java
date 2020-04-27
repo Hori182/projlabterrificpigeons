@@ -9,10 +9,10 @@ public class Main {
 
         Game game = new Game();
 
-        read_test("./src/tests/test_01.txt");
-        boolean x = compareResult("./src/results/result_map_01.txt", "./src/expected/expected_map_01.txt");
-        if(x == true) System.out.println("Correct!");
-        else System.out.println("Not correct!");
+     //   read_test("./src/tests/test_01.txt");
+     //   boolean x = compareResult("./src/results/result_map_01.txt", "./src/expected/expected_map_01.txt");
+     //   if(x == true) System.out.println("Correct!");
+    //    else System.out.println("Not correct!");
 
         //loadTestMap("./src/maps/test_map_00.txt");
 
@@ -20,6 +20,7 @@ public class Main {
         while(!started) {
             System.out.println("1. Start the game with your own map - type: load example.txt");
             System.out.println("2. Start the game with generated map - type: init");
+            System.out.println("3. Start a test - type: start test.txt");
             Scanner choose = new Scanner(System.in);
 
             String chosedStart = choose.nextLine();
@@ -32,6 +33,10 @@ public class Main {
             else if(load[0].equals("load")) {
                 game = loadTestMap("./src/maps/" + load[1]);
                 started = true;
+            }
+            else if(load[0].equals("start")) {
+                started = true;
+                read_test("./src/tests/"+load[1]);
             }
         }
 
@@ -152,10 +157,11 @@ public class Main {
         }
 
         while (!line.equals("exit")){
+            line = reader.readLine();
             command = line.split(" ");
             if(!command[0].equals("exit")){
                 Command(command, game, current);
-                line = reader.readLine();
+                //line = reader.readLine();
             }
         }
     }
