@@ -63,8 +63,8 @@ public class Tile {
     {
         Tile t2 = m.getTile();
         boolean isNeighbour = false;
-        for(int i = 0; i < neighbours.size(); i++) {
-            if(neighbours.get(i) == t2)
+        for(int i = 0; i < t2.getNeighbours().size(); i++) {
+            if(t2.getNeighbours().get(i).getTileId() == this.getTileId())
                 isNeighbour = true;
         }
         if(isNeighbour) {
