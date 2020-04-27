@@ -1,0 +1,6 @@
+load src/maps/test_map_15.txt
+draw
+pass
+draw
+save result_map_15
+exit

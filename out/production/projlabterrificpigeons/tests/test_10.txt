@@ -1,0 +1,7 @@
+load src/maps/test_map_10.txt
+draw
+useThing
+PP
+draw
+save result_map_10
+exit

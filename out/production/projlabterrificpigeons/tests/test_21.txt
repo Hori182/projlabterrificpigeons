@@ -1,0 +1,6 @@
+load src/maps/test_map_21.txt
+draw
+specialAbility 2
+draw
+save result_map_21
+exit

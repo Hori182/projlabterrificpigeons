@@ -1,0 +1,7 @@
+load src/maps/test_map_09.txt
+draw
+useThing
+TE
+draw
+save result_map_09
+exit

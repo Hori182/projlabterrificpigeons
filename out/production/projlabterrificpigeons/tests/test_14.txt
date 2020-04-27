@@ -1,0 +1,7 @@
+load src/maps/test_map_14.txt
+draw
+useThing
+D
+draw
+save result_map_14
+exit

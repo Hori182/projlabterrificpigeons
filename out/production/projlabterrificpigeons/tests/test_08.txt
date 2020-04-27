@@ -1,0 +1,11 @@
+load src/maps/test_map_08.txt
+draw
+useThing
+FS
+useThing
+FS
+useThing
+FS
+draw
+save result_map_08.txt
+exit

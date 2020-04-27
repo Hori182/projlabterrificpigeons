@@ -1,0 +1,6 @@
+load src/maps/test_map_00.txt
+draw
+eskimoSpecialAbility
+draw
+save result_map_20
+exit
