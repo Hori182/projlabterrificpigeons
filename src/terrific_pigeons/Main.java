@@ -508,9 +508,9 @@ public class Main {
         String resultBase ="src/results/result_map_";
         String expectedBase ="src/expected/expected_map_";
         int good = 0;
-        int bad = 0;
+        int j = 1;
         for(int i = 1; i < 24; i++) {
-            if (i == 11 || i == 16) {
+            if (i == 3 ||i == 11 || i == 16) {
 
             } else {
                 String resultPath;
@@ -525,14 +525,14 @@ public class Main {
                 boolean valid = compareResult(resultPath, expectedPath);
                 if (valid) {
                     good++;
-                    fw.write("Test " + i + " is good.\n");
+                    fw.write(j + ".Test " + i + " is good.\n");
                 } else {
-                    bad++;
-                    fw.write("Test " + i + " is bad.\n");
+                    fw.write(j + ".Test " + i + " is bad.\n");
                 }
+                j++;
             }
         }
-            fw.write("Test results: " + Integer.toString(good) + "/21");
+            fw.write("Test results: " + Integer.toString(good) + "/20");
             fw.close();
         BufferedReader reader;
         try {
