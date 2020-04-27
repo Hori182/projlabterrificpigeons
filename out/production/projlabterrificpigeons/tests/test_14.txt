@@ -2,5 +2,9 @@ load src/maps/test_map_14.txt
 draw
 divingsuit
 draw
+move 1
+draw
+move 2
+draw
 save result_map_14
 exit
