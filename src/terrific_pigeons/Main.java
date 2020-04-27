@@ -120,6 +120,17 @@ public class Main {
                     }
                     game.polarbears.get(0).move(moveParam);
                     break;
+                case "userope":
+                    map = game.getGameMap();
+                    tiles = map.getTiles();
+                    moveParam = new Tile(999999);
+                    for(int i = 0; i < tiles.size() ;i++) {
+                        if(Integer.parseInt(commandparam[1]) == tiles.get(i).getTileId())
+                            moveParam = tiles.get(i);
+                    }
+                    current = game.getCurrentPlayer();
+                    game.useRope(moveParam, game.getPlayers().get(current));
+                    break;
                 case "dig":
                     current = game.getCurrentPlayer();
                     if(game.getPlayers().get(current).myTile.getSnow() > 0) {

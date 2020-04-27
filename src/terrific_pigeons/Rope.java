@@ -26,7 +26,9 @@ public class Rope extends Thing{
                 System.out.println("lefutottam 3");
                  if (m1.getInWater() == true) {
                      System.out.println("lefutottam 4");
-                     t.moveRequest(m1);
+                     /*t.moveRequest(m1);
+                     m1.setInWater(false);*/
+                     m1.setMyTile(t);
                      m1.setInWater(false);
                      //lololol
                    /*owner.getTile().moveRequest(owner.getTile().getNeighbours().get(i).getMovables().get(j));

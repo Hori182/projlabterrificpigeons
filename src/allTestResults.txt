@@ -7,7 +7,7 @@
 7.Test 8 is good.
 8.Test 9 is good.
 9.Test 10 is good.
-10.Test 12 is bad.
+10.Test 12 is good.
 11.Test 13 is good.
 12.Test 14 is good.
 13.Test 15 is good.
@@ -18,4 +18,4 @@
 18.Test 21 is good.
 19.Test 22 is good.
 20.Test 23 is good.
-Test results: 19/20
+Test results: 20/20

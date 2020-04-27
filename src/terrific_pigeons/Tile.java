@@ -128,8 +128,6 @@ public class Tile {
      */
     public boolean getSafe()
     {
-        /*System.out.println("m -> getSafe() -> " + this.getName());
-        System.out.println("m <- "+ String.valueOf(this.safe) +" <- " + this.getName());*/
         return safe;
     }
 
@@ -239,6 +237,7 @@ public class Tile {
             }
         }
     }
+
     public void save(PrintWriter writer){
         writer.print(tileId+":+:"+limit+":"+(safe?"I:":(safeByTent?"T:":"-:"))+snow+":");
         ArrayList<String> ids = new ArrayList<>();

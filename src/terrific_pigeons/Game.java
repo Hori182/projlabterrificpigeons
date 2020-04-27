@@ -91,6 +91,32 @@ public class Game {
         this.draw();
     }
 
+    public void useRope(Tile t, Player p){
+        Tile t_owner = p.getTile();
+        boolean x = false;
+
+        if(t.getMovables().size() > 0){
+            for (int i = 0; i < t_owner.getNeighbours().size(); i++){
+                if(t_owner.getNeighbours().get(i).getTileId() == t.getTileId()){
+                    x = true;
+                    break;
+                }
+            }
+
+            if(x){
+                String id = t.getMovables().get(0).getId();
+                t.getMovables().get(0).setInWater(false);
+                t.getMovables().get(0).move(t_owner);
+                for (int i = 0; i < t_owner.getMovables().size(); i++){
+                    if(t_owner.getMovables().get(i).getId().equals(id)){
+                        t_owner.getMovables().get(i).setWork(0);
+                    }
+                }
+                p.work();
+            }
+        }
+    }
+
     /*
     * Pistoly összeszerelése.
     * */
