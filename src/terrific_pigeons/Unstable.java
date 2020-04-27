@@ -51,13 +51,15 @@ public class  Unstable extends Tile{
         Tile t2 = m.getTile();
         boolean isNeighbour = false;
         for(int i = 0; i < t2.getNeighbours().size(); i++) {
-            if(this.getTileId() == t2.getNeighbours().get(i).getTileId())
+            System.out.println(m.getId());
+            System.out.println( t2.getNeighbours().get(i).getTileId() + " " + this.getTileId());
+            if(t2.getNeighbours().get(i).getTileId() == this.getTileId())
                 isNeighbour = true;
         }
         if(isNeighbour){
             t2.remove(m);
             m.setMyTile(this);
-            //this.receive(m);
+            this.receive(m);
             this.check(m);
         }
         else {

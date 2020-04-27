@@ -82,7 +82,10 @@ public abstract class Player extends MoveAble {
      * */
     public void work()
     {
-        this.setWork(work + 1);
+        if( !(work+1 > 4)) {
+            this.setWork(work + 1);
+        }
+
     }
 
     /*
