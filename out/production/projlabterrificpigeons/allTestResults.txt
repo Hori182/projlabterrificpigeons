@@ -13,8 +13,8 @@ Test 13 is good.
 Test 14 is bad.
 Test 15 is bad.
 Test 17 is bad.
-Test 18 is bad.
-Test 19 is good.
+Test 18 is good.
+Test 19 is bad.
 Test 20 is good.
 Test 21 is good.
 Test 22 is good.
