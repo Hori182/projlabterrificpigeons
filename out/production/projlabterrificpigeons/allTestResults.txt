@@ -13,9 +13,9 @@
 13.Test 15 is good.
 14.Test 17 is good.
 15.Test 18 is good.
-16.Test 19 is bad.
+16.Test 19 is good.
 17.Test 20 is good.
 18.Test 21 is good.
 19.Test 22 is good.
 20.Test 23 is good.
-Test results: 18/20
+Test results: 19/20
