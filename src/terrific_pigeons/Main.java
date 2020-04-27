@@ -226,13 +226,13 @@ public class Main {
         line = reader.readLine();
         String[] command = line.split(" ");
         if(command[0].equals("load")){
-            //System.out.println(command[1]);
+            System.out.println(command[1]);
             game = loadTestMap(command[1]);
             current = game.getCurrentPlayer();
         }
         while (!line.equals("exit")){
             line = reader.readLine();
-            //System.out.println(line);
+            System.out.println(line);
             command = line.split(" ");
             if(!command[0].equals("exit")){
                 Command(command, game, current);
@@ -262,7 +262,7 @@ public class Main {
                 ArrayList<MoveAble> moveAbles = new ArrayList<MoveAble>();
                 while (!line.equals("moveables end"))
                 {
-                    //System.out.println(line);
+                    System.out.println(line);
                     String[] moveableParams = line.split(":");
 
                     //for (int i = 0; i < moveableParams.length; i++ )
@@ -295,9 +295,9 @@ public class Main {
                             moveAbles.add(moveTemp);
                             g.addPlayers(moveTemp);
 
-                            /*System.out.println("MovableID: " + moveableParams[0] + " myTileID: " + moveableParams[1] +
+                            System.out.println("MovableID: " + moveableParams[0] + " myTileID: " + moveableParams[1] +
                                     " life: " + moveableParams[2] + " work: " + moveableParams[3] +
-                                    " inWater: " + moveableParams[4] + " tárgy: " + moveableParams[5]);*/
+                                    " inWater: " + moveableParams[4] + " tárgy: " + moveableParams[5]);
                         }
                         else if(characterType.equals("E"))
                         {
@@ -323,9 +323,9 @@ public class Main {
                             moveAbles.add(moveTemp);
                             g.addPlayers(moveTemp);
 
-                            /*System.out.println("MovableID: " + moveableParams[0] + " myTileID: " + moveableParams[1] +
+                            System.out.println("MovableID: " + moveableParams[0] + " myTileID: " + moveableParams[1] +
                                     " life: " + moveableParams[2] + " work: " + moveableParams[3] +
-                                    " inWater: " + moveableParams[4] + " tárgy: " + moveableParams[5]);*/
+                                    " inWater: " + moveableParams[4] + " tárgy: " + moveableParams[5]);
                         }
                         if(characterType.equals("P"))
                         {
@@ -341,9 +341,9 @@ public class Main {
 
                 while(!line.equals("tiles end")) {
                     String[] tileParams = line.split(":");
-                   /* System.out.println("TileID: " + tileParams[0] + " stabil: " + tileParams[1] +
+                   System.out.println("TileID: " + tileParams[0] + " stabil: " + tileParams[1] +
                             " limit: " + tileParams[2] + " védettség: " + tileParams[3] + " hó: " +tileParams[4] +
-                            " rajta áll: " + tileParams[5] + " tárgy: " + tileParams[6] + " szomszédok: " + tileParams[7]);*/
+                            " rajta áll: " + tileParams[5] + " tárgy: " + tileParams[6] + " szomszédok: " + tileParams[7]);
 
                     //ha stabil, stabilat, ha nem instabilat hozunk létre
                     if(tileParams[1].equals("+"))

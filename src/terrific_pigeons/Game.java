@@ -51,7 +51,6 @@ public class Game {
             Researcher r = new Researcher(id);
             this.addPlayers(r);
         }
-
         this.initMap(20);
         this.getPlayers().get(currentPlayer).setWork(0);
         this.draw();
