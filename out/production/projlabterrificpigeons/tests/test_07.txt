@@ -1,7 +1,6 @@
 load src/maps/test_map_07.txt
 draw
-useThing
-Sh
+shovel
 draw
 save result_map_07
 exit

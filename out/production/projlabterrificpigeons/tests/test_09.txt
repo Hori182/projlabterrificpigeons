@@ -1,7 +1,6 @@
 load src/maps/test_map_09.txt
 draw
-useThing
-TE
+tent
 draw
 save result_map_09
 exit

@@ -1,7 +1,6 @@
 load src/maps/test_map_13.txt
 draw
-useThing
-F
+food
 draw
 save result_map_13
 exit
