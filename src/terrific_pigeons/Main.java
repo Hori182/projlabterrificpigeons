@@ -81,6 +81,9 @@ public class Main {
                     game.getPlayers().get(current).pass();
                     game.draw();
                     break;
+                case "snowstorm":
+                    game.getGameMap().snowStorm();
+                    break;
                 case "move":
                     Map map = game.getGameMap();
                     ArrayList <Tile> tiles = map.getTiles();
