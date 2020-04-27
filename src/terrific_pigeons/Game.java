@@ -85,18 +85,16 @@ public class Game {
     * Pistoly összeszerelése.
     * */
     public void assemble() {
-        setUsedParts(usedParts + 1);
-        if (usedParts == 3) {
-            int id1 = pistolParts.get(1).owner.getTile().getTileId();
-            int id2 = pistolParts.get(2).owner.getTile().getTileId();
-            int id3 = pistolParts.get(3).owner.getTile().getTileId();
+            int id1 = pistolParts.get(0).owner.getTile().getTileId();
+            int id2 = pistolParts.get(1).owner.getTile().getTileId();
+            int id3 = pistolParts.get(2).owner.getTile().getTileId();
             if (id1 == id2 && id1 == id3) {
                 setWin(true);
             }
-            setUsedParts(0);
-        }
         players.get(currentPlayer).work();
     }
+
+    public void addPistolPart(PistolPart pp){pistolParts.add(pp);}
 
     /*
     * Játék vége.

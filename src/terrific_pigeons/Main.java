@@ -270,7 +270,7 @@ public class Main {
                             {
                                 switch (tempThings[j])
                                 {
-                                    case "PP":  moveTemp.addThing(new PistolPart());break;
+                                    case "PP":  moveTemp.addThing(new PistolPart()); g.addPistolPart(new PistolPart());break;
                                     case "T":  moveTemp.addThing(new Tent());break;
                                     case "FS":  moveTemp.addThing(new FragileShovel());break;
                                     case "F":  moveTemp.addThing(new Food());break;
@@ -298,7 +298,9 @@ public class Main {
                             {
                                 switch (tempThings[j])
                                 {
-                                    case "PP":  moveTemp.addThing(new PistolPart());break;
+                                    case "PP":  PistolPart pp = new PistolPart();
+                                                moveTemp.addThing(pp);
+                                                g.addPistolPart(pp); break;
                                     case "T":  moveTemp.addThing(new Tent());break;
                                     case "FS":  moveTemp.addThing(new FragileShovel());break;
                                     case "F":  moveTemp.addThing(new Food());break;
