@@ -1,6 +1,6 @@
 Test 1 is good.
 Test 2 is good.
-Test 3 is bad.
+Test 3 is good.
 Test 4 is good.
 Test 5 is bad.
 Test 6 is good.
@@ -19,4 +19,4 @@ Test 20 is bad.
 Test 21 is bad.
 Test 22 is bad.
 Test 23 is bad.
-Test results: 6/22
+Test results: 7/22
