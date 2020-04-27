@@ -92,6 +92,7 @@ public class Main {
                         game.draw();
                     }
                     else System.out.println("Snow: 0");
+                    game.draw();
                     break;
 
                 case "equip":
@@ -99,6 +100,7 @@ public class Main {
                     if(game.getPlayers().get(current).myTile.getThing() != null && game.getPlayers().get(current).myTile.getSnow() == 0)
                         game.getPlayers().get(current).equip();
                     else System.out.println("There is nothing to equip!");
+                    game.draw();
                     break;
                 case "draw":
                     game.draw();
@@ -115,10 +117,12 @@ public class Main {
                         if(game.getPlayers().get(current).getThings().get(choose).Name() == "P") game.assemble();
                         else game.getPlayers().get(current).getThings().get(choose).useThing();
                     } else System.out.println("Inventory is empty!");
+                    game.draw();
                     break;
                 case "eskimoSpecialAbility":
                     current = game.getCurrentPlayer();
                     game.getPlayers().get(current).build();
+                    game.draw();
                     break;
                 case "researcherSpecialAbility":
                     map = game.getGameMap();
@@ -131,9 +135,11 @@ public class Main {
 
                     current = game.getCurrentPlayer();
                     game.getPlayers().get(current).look(moveParam);
+                    game.draw();
                     break;
                 case "save":
                     game.save("./src/results/" + commandparam[1] + ".txt");
+                    game.draw();
                     break;
 
                 //case "exit":
