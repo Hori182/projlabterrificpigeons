@@ -36,6 +36,7 @@ public class Main {
             }
             else if(load[0].equals("test")) {
                 started = true;
+                int c = 0, nc = 0;
 
                 File folder1 = new File("./src/tests");
                 File[] listOfFiles = folder1.listFiles();
@@ -49,12 +50,21 @@ public class Main {
                         System.out.println("Test " + i + ": ");
                         read_test("./src/tests/"+listOfFiles[i].getName());
                         boolean x = compareResult("./src/results/"+listOfresults[i].getName(), "./src/expected/"+listOfexpected[i].getName());
-                        if(x) System.out.println("Correct!");
-                        else System.out.println("Not correct!");
-                //read_test("./src/tests/"+load[1]);  //ez kell az előző 5 sor helyett, ha egyesével akarsz tesztelni, pl. test test_07.txt
+                        if(x) {
+                            System.out.println("Correct!");
+                            c++;
+                        }
+                        else {
+                            System.out.println("Not correct!");
+                            nc++;
+                        }
+                        //ead_test("./src/tests/"+load[1]);  //ez kell az előző 5 sor helyett, ha egyesével akarsz tesztelni, pl. test test_07.txt
                     }
                 }
                 testAll();
+                System.out.println("Correct: " + c);
+                System.out.println("Not correct: " + nc);
+
             }
         }
 
