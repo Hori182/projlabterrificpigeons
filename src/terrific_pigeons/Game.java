@@ -267,7 +267,8 @@ public class Game {
         for (PolarBear p : polarbears){
             p.draw();
         }
-        System.out.println("\nCurrent player: " + players.get(currentPlayer).getId());
+        if(players.size() > 0)
+            System.out.println("\nCurrent player: " + players.get(currentPlayer).getId());
         System.out.println("");
     }
 

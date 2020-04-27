@@ -171,11 +171,12 @@ public class Main {
                 default:
                     System.out.println("There is no command like this!");
             }
-            if(game.getPlayers().get(current).getWork() >= 4 && !game.getPlayers().get(current).getInWater()){
-                game.nextPlayer();
-            }
-            else if(game.getPlayers().get(current).getInWater()) {
-                game.nextPlayer();
+            if(game.getPlayers().size() > 0) {
+                if (game.getPlayers().get(current).getWork() >= 4 && !game.getPlayers().get(current).getInWater()) {
+                    game.nextPlayer();
+                } else if (game.getPlayers().get(current).getInWater()) {
+                    game.nextPlayer();
+                }
             }
     }
 
