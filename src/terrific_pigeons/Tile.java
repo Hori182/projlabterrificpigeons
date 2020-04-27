@@ -70,7 +70,7 @@ public class Tile {
         if(isNeighbour) {
             t2.remove(m);
             m.setMyTile(this);
-            movables.add(m);
+            receive(m);
         }
         else {
             System.out.println("Not neighbour!");

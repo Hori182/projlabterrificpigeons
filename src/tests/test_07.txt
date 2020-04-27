@@ -3,4 +3,5 @@ draw
 useThing
 Sh
 draw
+save result_map_07
 exit

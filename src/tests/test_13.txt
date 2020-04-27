@@ -1,4 +1,7 @@
 load src/maps/test_map_13.txt
 draw
-useThing F  //E1
+useThing
+F
 draw
+save result_map_13
+exit

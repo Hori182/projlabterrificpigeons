@@ -115,7 +115,7 @@ public abstract class Player extends MoveAble {
         writer.print(getId()+":"+getTile().getTileId()+":"+getLife()+":"+(4-getWork())+":"+(getInWater()?"+":"-")+":");
         ArrayList<String> thingids = new ArrayList<>();
         for (Thing t : getThings())
-            thingids.add(t.Name);
+            thingids.add(t.Name());
         if (thingids.size()>0)
             writer.println(String.join(",", thingids)+":");
         else

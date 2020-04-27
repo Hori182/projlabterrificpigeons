@@ -1,1 +1,0 @@
-load src/maps/test_map_16.txt
