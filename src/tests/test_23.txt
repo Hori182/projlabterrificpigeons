@@ -1,6 +1,6 @@
 load src/maps/test_map_23.txt
 draw
-move 02
+polarbear 02
 draw
 save result_map_23
 exit

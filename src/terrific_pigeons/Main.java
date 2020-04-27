@@ -49,22 +49,11 @@ public class Main {
                     if (listOfFiles[i].isFile()) {
                         System.out.println("Test " + i + ": ");
                         read_test("./src/tests/"+listOfFiles[i].getName());
-                        boolean x = compareResult("./src/results/"+listOfresults[i].getName(), "./src/expected/"+listOfexpected[i].getName());
-                        if(x) {
-                            System.out.println("Correct!");
-                            c++;
-                        }
-                        else {
-                            System.out.println("Not correct!");
-                            nc++;
-                        }
+                        compareResult("./src/results/"+listOfresults[i].getName(), "./src/expected/"+listOfexpected[i].getName());
                         //ead_test("./src/tests/"+load[1]);  //ez kell az előző 5 sor helyett, ha egyesével akarsz tesztelni, pl. test test_07.txt
                     }
                 }
                 testAll();
-                System.out.println("Correct: " + c);
-                System.out.println("Not correct: " + nc);
-
             }
         }
 
@@ -372,8 +361,8 @@ public class Main {
             tempMovables = tileParams[5].split(",");
         }
         //vedettseg
-        if(tileParams[3].equals("T")) temp.setSafe(true);
-        else if(tileParams[3].equals("I")) temp.setSafeByTent(true);
+        if(tileParams[3].equals("I")) temp.setSafe(true);
+        else if(tileParams[3].equals("T")) temp.setSafeByTent(true);
         temp.setSnow(Integer.parseInt(tileParams[4]));
         //szomszedok beallitasa a beolvasas alapjan
         for (int i = 0; i < tempNeighbors.length; i++ )
@@ -422,8 +411,8 @@ public class Main {
         }
 
         //vedettseg
-        if(tileParams[3].equals("T")) temp.setSafe(true);
-        else if(tileParams[3].equals("I")) temp.setSafeByTent(true);
+        if(tileParams[3].equals("I")) temp.setSafe(true);
+        else if(tileParams[3].equals("T")) temp.setSafeByTent(true);
         temp.setSnow(Integer.parseInt(tileParams[4]));
         //szomszedok beallitasa a beolvasas alapjan
         for (int i = 0; i < tempNeighbors.length; i++ )
