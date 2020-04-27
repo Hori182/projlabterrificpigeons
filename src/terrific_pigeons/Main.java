@@ -34,29 +34,48 @@ public class Main {
                 game = loadTestMap("./src/maps/" + load[1]);
                 started = true;
             }
-            else if(load[0].equals("test")) {
+            else if(load[0].equals("test"))
+            {
                 started = true;
                 int c = 0, nc = 0;
+                if(load[1].equals("all"))
+                {
+                    File folder1 = new File("./src/tests");
+                    File[] listOfFiles = folder1.listFiles();
 
-                File folder1 = new File("./src/tests");
-                File[] listOfFiles = folder1.listFiles();
-                File folder2 = new File("./src/expected");
-                File[] listOfexpected = folder2.listFiles();
-                File folder3 = new File("./src/results");
-                File[] listOfresults = folder3.listFiles();
-
-                for (int i = 0; i < listOfFiles.length; i++) {
-                    if (listOfFiles[i].isFile()) {
-                        System.out.println("Test " + i + ": ");
-                        read_test("./src/tests/"+listOfFiles[i].getName());
-                        compareResult("./src/results/"+listOfresults[i].getName(), "./src/expected/"+listOfexpected[i].getName());
-                        //ead_test("./src/tests/"+load[1]);  //ez kell az előző 5 sor helyett, ha egyesével akarsz tesztelni, pl. test test_07.txt
+                    for (int i = 0; i < listOfFiles.length; i++) {
+                        if (listOfFiles[i].isFile()) {
+                            System.out.println("Test " + i + ": ");
+                            read_test("./src/tests/" + listOfFiles[i].getName());
+                            //compareResult("./src/results/"+listOfresults[i].getName(), "./src/expected/"+listOfexpected[i].getName());
+                            //ead_test("./src/tests/"+load[1]);  //ez kell az előző 5 sor helyett, ha egyesével akarsz tesztelni, pl. test test_07.txt
+                        }
                     }
+                    System.out.println("Results are in allTestResults.txt");
+                    testAll();
                 }
-                testAll();
+                else {
+                        read_test("./src/tests/" + load[1] + ".txt");
+                        String[] t2 = load[1].split("_");
+                        boolean correct;
+                        if(t2[1].charAt(0) == '0') {
+                            correct = compareResult("./src/results/result_map_0" + t2[1].charAt(1) + ".txt",
+                                    "./src/expected/expected_map_0" + t2[1].charAt(1) + ".txt");
+                        }
+                        else
+                        {
+                            correct = compareResult("./src/results/result_map_" + t2[1].charAt(0) + t2[1].charAt(1) + ".txt",
+                                    "./src/expected/expected_map_" + t2[1].charAt(0) + t2[1].charAt(1) + ".txt");
+                        }
+                        if(correct)
+                        {
+                            System.out.println("The test was successful");
+                        }
+                        else System.out.println("Unsuccessful test");
+                }
             }
-        }
 
+        }
 
         System.out.println("Command: ");
         Scanner input = new Scanner(System.in);
@@ -214,19 +233,20 @@ public class Main {
         line = reader.readLine();
         String[] command = line.split(" ");
         if(command[0].equals("load")){
-            System.out.println(command[1]);
+            //System.out.println(command[1]);
             game = loadTestMap(command[1]);
             current = game.getCurrentPlayer();
         }
         while (!line.equals("exit")){
             line = reader.readLine();
-            System.out.println(line);
+            //System.out.println(line);
             command = line.split(" ");
             if(!command[0].equals("exit")){
                 Command(command, game, current);
                 //line = reader.readLine();
             }
         }
+
     }
 
     public static void promptEnterKey(){
@@ -282,9 +302,9 @@ public class Main {
                             moveAbles.add(moveTemp);
                             g.addPlayers(moveTemp);
 
-                            System.out.println("MovableID: " + moveableParams[0] + " myTileID: " + moveableParams[1] +
+                            /*System.out.println("MovableID: " + moveableParams[0] + " myTileID: " + moveableParams[1] +
                                     " life: " + moveableParams[2] + " work: " + moveableParams[3] +
-                                    " inWater: " + moveableParams[4] + " tárgy: " + moveableParams[5]);
+                                    " inWater: " + moveableParams[4] + " tárgy: " + moveableParams[5]);*/
                         }
                         else if(characterType.equals("E"))
                         {
@@ -310,16 +330,16 @@ public class Main {
                             moveAbles.add(moveTemp);
                             g.addPlayers(moveTemp);
 
-                            System.out.println("MovableID: " + moveableParams[0] + " myTileID: " + moveableParams[1] +
+                            /*System.out.println("MovableID: " + moveableParams[0] + " myTileID: " + moveableParams[1] +
                                     " life: " + moveableParams[2] + " work: " + moveableParams[3] +
-                                    " inWater: " + moveableParams[4] + " tárgy: " + moveableParams[5]);
+                                    " inWater: " + moveableParams[4] + " tárgy: " + moveableParams[5]);*/
                         }
                         if(characterType.equals("P"))
                         {
                             PolarBear moveTemp = new PolarBear(moveableParams[0]);
                             moveAbles.add(moveTemp);
                             g.addPolarBear(moveTemp);
-                            System.out.println("MovableID: " + moveableParams[0] + " myTileID: " + moveableParams[1]);
+                            //System.out.println("MovableID: " + moveableParams[0] + " myTileID: " + moveableParams[1]);
                         }
                     //}
                     line = reader.readLine();
@@ -328,9 +348,9 @@ public class Main {
 
                 while(!line.equals("tiles end")) {
                     String[] tileParams = line.split(":");
-                    System.out.println("TileID: " + tileParams[0] + " stabil: " + tileParams[1] +
+                   /* System.out.println("TileID: " + tileParams[0] + " stabil: " + tileParams[1] +
                             " limit: " + tileParams[2] + " védettség: " + tileParams[3] + " hó: " +tileParams[4] +
-                            " rajta áll: " + tileParams[5] + " tárgy: " + tileParams[6] + " szomszédok: " + tileParams[7]);
+                            " rajta áll: " + tileParams[5] + " tárgy: " + tileParams[6] + " szomszédok: " + tileParams[7]);*/
 
                     //ha stabil, stabilat, ha nem instabilat hozunk létre
                     if(tileParams[1].equals("+"))

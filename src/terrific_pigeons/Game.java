@@ -72,7 +72,7 @@ public class Game {
             currentPlayer++;
         else
             currentPlayer = 0;
-        if((players.get(currentPlayer).getWork() >4 && players.get(currentPlayer).getInWater()) || players.get(currentPlayer).getLife() == 0 )
+        if((players.get(currentPlayer).getWork() > 4 && players.get(currentPlayer).getInWater()) || players.get(currentPlayer).getLife() == 0 )
         {
             players.get(currentPlayer).die();
             this.endGame();

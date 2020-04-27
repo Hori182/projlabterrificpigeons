@@ -14,7 +14,6 @@ public class Map {
 
     public Map() {
         tiles = new ArrayList<>();
-        System.out.println("Map created");
     }
 
     /*
