@@ -86,7 +86,7 @@ public class Game {
             this.endGame();
         }
         getPlayers().get(currentPlayer).setWork(0);
-        if(getPlayers().get(currentPlayer).getInWater())
+        if(getPlayers().get(currentPlayer).getInWater() && getPlayers().size() > 1)
             nextPlayer();
         this.draw();
     }

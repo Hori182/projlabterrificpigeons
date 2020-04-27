@@ -190,18 +190,13 @@ public class Main {
                     game.save("./src/results/" + commandparam[1] + ".txt");
                     game.draw();
                     break;
-
-                //case "exit":
-                //case "load":
                 default:
                     System.out.println("There is no command like this!");
             }
             if(game.getPlayers().size() > 0) {
                 if (game.getPlayers().get(current).getWork() >= 4 && !game.getPlayers().get(current).getInWater()) {
-                    System.out.println("lel");
                     game.nextPlayer();
                 } else if (game.getPlayers().get(current).getInWater()) {
-                    System.out.println("lel");
                     game.nextPlayer();
                 }
             }
