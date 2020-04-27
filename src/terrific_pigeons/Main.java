@@ -174,7 +174,6 @@ public class Main {
     public static void things(String a, Game game, int current){
         boolean x = false;
         for(int i = 0; i < game.getPlayers().get(current).getThings().size(); i++){
-            System.out.println(game.getPlayers().get(current).getThings().size());
             if (game.getPlayers().get(current).getThings().get(i).Name() == a){
                 game.getPlayers().get(current).getThings().get(i).useThing();
                 x = true;
