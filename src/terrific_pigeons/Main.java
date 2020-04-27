@@ -49,22 +49,11 @@ public class Main {
                     if (listOfFiles[i].isFile()) {
                         System.out.println("Test " + i + ": ");
                         read_test("./src/tests/"+listOfFiles[i].getName());
-                        boolean x = compareResult("./src/results/"+listOfresults[i].getName(), "./src/expected/"+listOfexpected[i].getName());
-                        if(x) {
-                            System.out.println("Correct!");
-                            c++;
-                        }
-                        else {
-                            System.out.println("Not correct!");
-                            nc++;
-                        }
+                        compareResult("./src/results/"+listOfresults[i].getName(), "./src/expected/"+listOfexpected[i].getName());
                         //ead_test("./src/tests/"+load[1]);  //ez kell az előző 5 sor helyett, ha egyesével akarsz tesztelni, pl. test test_07.txt
                     }
                 }
                 testAll();
-                System.out.println("Correct: " + c);
-                System.out.println("Not correct: " + nc);
-
             }
         }
 
