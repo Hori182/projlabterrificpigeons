@@ -10,6 +10,7 @@ public class FragileShovel extends Shovel{
     * a függvény 2 egység havat távolít el róla és megnöveli a használatot eggyel.
      */
     public void useThing() {
+        System.out.println("lol");
         if(usage < 3)
         {
             Tile t = owner.getTile();
