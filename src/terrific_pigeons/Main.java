@@ -5,30 +5,48 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) throws FileNotFoundException, UnsupportedEncodingException {
+    public static void main(String[] args) throws IOException {
 
         Game game = new Game();
 
-        loadTestMap("./src/maps/test_map_00.txt");
+     //   read_test("./src/tests/test_01.txt");
+     //   boolean x = compareResult("./src/results/result_map_01.txt", "./src/expected/expected_map_01.txt");
+     //   if(x == true) System.out.println("Correct!");
+    //    else System.out.println("Not correct!");
+
+        //loadTestMap("./src/maps/test_map_00.txt");
 
         boolean started = false;
         while(!started) {
             System.out.println("1. Start the game with your own map - type: load example.txt");
             System.out.println("2. Start the game with generated map - type: init");
+            System.out.println("3. Start all tests - type: test");
             Scanner choose = new Scanner(System.in);
 
             String chosedStart = choose.nextLine();
+            String[] load = chosedStart.split(" ");
 
             if(chosedStart.equals("init")) {
                 game.startGame();
                 started = true;
             }
-            else if(chosedStart.equals("load")) {
-                //Valami
+            else if(load[0].equals("load")) {
+                game = loadTestMap("./src/maps/" + load[1]);
                 started = true;
             }
-        }
+            else if(load[0].equals("test")) {
+                started = true;
 
+                File folder = new File("./src/tests");
+                File[] listOfFiles = folder.listFiles();
+                for (int i = 0; i < listOfFiles.length; i++) {
+                    if (listOfFiles[i].isFile()) {
+                        read_test("./src/tests/"+listOfFiles[i].getName());
+                //read_test("./src/tests/"+load[1]);  //ez kell az előző 5 sor helyett, ha egyesével akarsz tesztelni, pl. test test_07.txt
+                    }
+                }
+            }
+        }
 
 
         System.out.println("Command: ");
@@ -45,7 +63,6 @@ public class Main {
             commandparam = command.split(" ");
         }
         game.endGame();
-        //loadTestMap("src/maps/test_map_01.txt");
     }
 
     public static void Command(String[] commandparam, Game game, int current) throws FileNotFoundException, UnsupportedEncodingException {
@@ -75,6 +92,7 @@ public class Main {
                         game.draw();
                     }
                     else System.out.println("Snow: 0");
+                    game.draw();
                     break;
 
                 case "equip":
@@ -82,6 +100,7 @@ public class Main {
                     if(game.getPlayers().get(current).myTile.getThing() != null && game.getPlayers().get(current).myTile.getSnow() == 0)
                         game.getPlayers().get(current).equip();
                     else System.out.println("There is nothing to equip!");
+                    game.draw();
                     break;
                 case "draw":
                     game.draw();
@@ -98,12 +117,14 @@ public class Main {
                         if(game.getPlayers().get(current).getThings().get(choose).Name() == "P") game.assemble();
                         else game.getPlayers().get(current).getThings().get(choose).useThing();
                     } else System.out.println("Inventory is empty!");
+                    game.draw();
                     break;
                 case "eskimoSpecialAbility":
                     current = game.getCurrentPlayer();
                     game.getPlayers().get(current).build();
+                    game.draw();
                     break;
-                case "reasercherSpecialAbility":
+                case "researcherSpecialAbility":
                     map = game.getGameMap();
                     tiles = map.getTiles();
                     moveParam = new Tile(999999);
@@ -114,11 +135,13 @@ public class Main {
 
                     current = game.getCurrentPlayer();
                     game.getPlayers().get(current).look(moveParam);
+                    game.draw();
                     break;
                 case "save":
                     // ide vmi olyasmi kene h src/results/result_map_ + commandparam[1] + txt nem?
                     //meg raviszgalni hha 10nel kisebb akk meg egy 0-t dobjon ele
                     game.save("./src/results/" + commandparam[1] + ".txt");
+                    game.draw();
                     break;
 
                 //case "exit":
@@ -132,6 +155,31 @@ public class Main {
             else if(game.getPlayers().get(current).getInWater()) {
                 game.nextPlayer();
             }
+    }
+
+    public static void read_test(String test) throws IOException {
+        Game game = new Game();
+        int current = 0;
+        BufferedReader reader;
+        reader = new BufferedReader(new FileReader(test));
+        String line;
+
+        line = reader.readLine();
+        String[] command = line.split(" ");
+        if(command[0].equals("load")){
+            System.out.println(command[1]);
+            game = loadTestMap(command[1]);
+            current = game.getCurrentPlayer();
+        }
+
+        while (!line.equals("exit")){
+            line = reader.readLine();
+            command = line.split(" ");
+            if(!command[0].equals("exit")){
+                Command(command, game, current);
+                //line = reader.readLine();
+            }
+        }
     }
 
     public static void promptEnterKey(){
@@ -151,8 +199,6 @@ public class Main {
             reader = new BufferedReader(new FileReader(test));
             String line;
             line = reader.readLine();
-            //while (line != null)
-            //{
                 ArrayList<MoveAble> moveAbles = new ArrayList<MoveAble>();
                 while (!line.equals("moveables end"))
                 {
@@ -232,8 +278,7 @@ public class Main {
                     line = reader.readLine();
                 }
                 line = reader.readLine();
-                int i=0;
-                //ITT KENE UGRANI
+
                 while(!line.equals("tiles end")) {
                     String[] tileParams = line.split(":");
                     System.out.println("TileID: " + tileParams[0] + " stabil: " + tileParams[1] +
@@ -255,7 +300,6 @@ public class Main {
                     }
                     line = reader.readLine();
                 }
-            //}
             reader.close();
         } catch (IOException e) {
             e.printStackTrace();
@@ -376,10 +420,20 @@ public class Main {
                 areEqual = false;
                 break;
             }
-            else if(! line1.equalsIgnoreCase(line2))
-            {
-                areEqual = false;
-                break;
+            else{
+                String[] ar_line1 = line1.split(":");
+                String[] ar_line2 = line2.split(":");
+                if(ar_line1.length == ar_line2.length){
+                    for (int i = 0; i < ar_line1.length; i++){
+                        if(ar_line1[i].equals(ar_line2[i])) {
+                            continue;
+                        }
+                        else{
+                            areEqual = false;
+                            break;
+                        }
+                    }
+                }
             }
             line1 = reader1.readLine();
             line2 = reader2.readLine();

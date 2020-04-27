@@ -60,7 +60,7 @@ public abstract class MoveAble {
     public void setMyTile(Tile t)
     {
         this.myTile = t;
-        t.getMovables().add(this);
+        //t.getMovables().add(this);
     }
 
     protected void draw(){}

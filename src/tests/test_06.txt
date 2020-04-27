@@ -1,4 +1,6 @@
 load src/maps/test_map_06.txt
 draw
-equip S //E1
+equip
 draw
+save result_map_06
+exit

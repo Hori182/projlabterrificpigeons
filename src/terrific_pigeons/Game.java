@@ -19,6 +19,8 @@ public class Game {
     ArrayList<PistolPart> pistolParts = new ArrayList<>(3);
 
     public Game() {}
+
+
     public void setGameMap(Map m)
     {
        gameMap = m;
@@ -59,9 +61,9 @@ public class Game {
     * Követkető játékosra vált.
     * */
     public void nextPlayer(){
-        for(int i = 0; i < polarbears.size();i++) {
+        /*for(int i = 0; i < polarbears.size();i++) {
             polarbears.get(i).moveToRandom();
-        }
+        }*/
         Random rand = new Random();
         rand.nextInt(10);
         if( rand.equals(3))
@@ -76,7 +78,7 @@ public class Game {
         else
             currentPlayer = 0;
         getPlayers().get(currentPlayer).setWork(0);
-        this.draw();
+        //this.draw();
     }
 
     /*
@@ -253,31 +255,6 @@ public class Game {
     }
 
     public void draw() {
-        /*
-        int cnt = 0;
-
-        for (int i = 0; i < gameMap.getL(); i++) {
-            for (int j = 0; j < gameMap.getW(); j++) {
-                System.out.print("| ");
-                gameMap.getTiles().get(cnt).draw();
-                System.out.print(" |");
-                cnt++;
-            }
-            System.out.print('\n');
-        }
-        for(int i = 0; i < gameMap.getTiles().size(); i++)
-        {
-           if(gameMap.getTiles().get(i).getMovables().size() != 0)
-           {
-               for (int j = 0; j < gameMap.getTiles().get(i).getMovables().size(); j++)
-               {
-                   gameMap.getTiles().get(i).getMovables().get(j).draw();
-               }
-           }
-        }
-        System.out.println("Current player: "+players.get(currentPlayer).getId());
-
-        */
         System.out.println("Tiles\n" + "TileID:safe:snow:standing on:neighbours:visible things;\n");
         for (Tile t : gameMap.getTiles()){
             t.draw();
@@ -313,6 +290,7 @@ public class Game {
         for (Tile t : gameMap.getTiles()){
             t.save(writer);
         }
+        writer.println("tiles end");
         writer.close();
     }
 }

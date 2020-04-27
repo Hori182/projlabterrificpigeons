@@ -82,7 +82,7 @@ public abstract class Player extends MoveAble {
      * */
     public void work()
     {
-        this.setWork(this.work + 1);
+        this.setWork(work + 1);
     }
 
     /*
@@ -100,6 +100,9 @@ public abstract class Player extends MoveAble {
             setLife(0);
     }
 
+    /*
+    * Játékos kirajzolása konzolra
+    * */
     public void draw(){
         System.out.print(moveableid + ":" + myTile.getTileId() + ":" + life + ":" + (4-work) + ":" + (inWater ? "+:" : "-:"));
         ArrayList<String> thingids = new ArrayList<>();
@@ -111,15 +114,18 @@ public abstract class Player extends MoveAble {
             System.out.println(" ;");
     }
 
+    /*
+     * Játékos kiírása fájlba
+     * */
     public void save(PrintWriter writer){
-        writer.print(getId()+":"+getTile().getTileId()+":"+getLife()+":"+getWork()+":"+(getInWater()?"+":"-")+":");
+        writer.print(getId()+":"+getTile().getTileId()+":"+getLife()+":"+(4-getWork())+":"+(getInWater()?"+":"-")+":");
         ArrayList<String> thingids = new ArrayList<>();
         for (Thing t : getThings())
-            thingids.add(t.Name);
+            thingids.add(t.Name());
         if (thingids.size()>0)
-            writer.println(String.join(",", thingids));
+            writer.println(String.join(",", thingids)+":");
         else
-            writer.println(" ");
+            writer.println("-:");
     }
 
 }

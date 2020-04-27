@@ -63,14 +63,14 @@ public class Tile {
     {
         Tile t2 = m.getTile();
         boolean isNeighbour = false;
-        for(int i = 0; i < t2.getNeighbours().size(); i++) {
-            if(this == t2.getNeighbours().get(i))
+        for(int i = 0; i < neighbours.size(); i++) {
+            if(neighbours.get(i) == t2)
                 isNeighbour = true;
         }
         if(isNeighbour) {
             t2.remove(m);
             m.setMyTile(this);
-            //this.receive(m);
+            receive(m);
         }
         else {
             System.out.println("Not neighbour!");
@@ -238,22 +238,23 @@ public class Tile {
         }
     }
     public void save(PrintWriter writer){
-        writer.print(tileId+":+:"+limit+":"+(safe?"I:":(safeByTent?"T:":" :"))+snow+":");
+        writer.print(tileId+":+:"+limit+":"+(safe?"I:":(safeByTent?"T:":"-:"))+snow+":");
         ArrayList<String> ids = new ArrayList<>();
         for (MoveAble m : movables)
             ids.add(m.getId());
-        if (ids.size()>0)
+
+        if (ids.size()>0) {
             writer.print(String.join(",", ids) + ":");
-        else
-            writer.print(" :");
-        writer.print(thing==null?" :":(thing.Name()+":"));
+        }else
+            writer.print("-:");
+        writer.print(thing==null?"-:":(thing.Name()+":"));
         ids = new ArrayList<>();
         for (Tile t: neighbours)
             ids.add(String.valueOf(t.getTileId()));
         if (ids.size()>0)
-            writer.println(String.join(",", ids));
+            writer.println(String.join(",", ids)+":");
         else
-            writer.println(" ");
+            writer.println("-:");
 
     }
 }

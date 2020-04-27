@@ -3,3 +3,5 @@ draw
 move 05  //P1 polarbear
 move 05  //E1
 draw
+save result_map_18.txt
+exit

@@ -1,2 +1,3 @@
-load src/maps/test_map_01.txt
+load ./src/maps/test_map_00.txt
+save result_map_01
 exit

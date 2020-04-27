@@ -1,5 +1,7 @@
-load src/maps/test_map_05.txt
+load src/maps/test_map_00.txt
 draw
-pass //E1
-move 12 //R1
+pass
+move 12
 draw
+save result_map_05
+exit
