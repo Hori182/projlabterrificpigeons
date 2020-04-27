@@ -45,6 +45,7 @@ public class Main {
                 //read_test("./src/tests/"+load[1]);  //ez kell az előző 5 sor helyett, ha egyesével akarsz tesztelni, pl. test test_07.txt
                     }
                 }
+                testAll();
             }
         }
 
@@ -343,13 +344,13 @@ public class Main {
         //Targy benne
         switch(tileParams[6])
         {
-            case "PP":  temp.setThing(new PistolPart());break;
+            case "P":  temp.setThing(new PistolPart());break;
             case "T":  temp.setThing(new Tent());break;
             case "FS":  temp.setThing(new FragileShovel());break;
             case "F":  temp.setThing(new Food());break;
             case "DS":  temp.setThing(new DivingSuit());break;
             case "Ro":  temp.setThing(new Rope());break;
-            case "S":  temp.setThing(new Shovel());break;
+            case "Sh":  temp.setThing(new Shovel());break;
         }
         return temp;
     }
