@@ -92,7 +92,8 @@ public class Main {
                     }
 
                     current = game.getCurrentPlayer();
-                    game.getPlayers().get(current).move(moveParam);
+                    if(game.getPlayers().size() > 0)
+                        game.getPlayers().get(current).move(moveParam);
                     game.draw();
                     break;
                 case "dig":
