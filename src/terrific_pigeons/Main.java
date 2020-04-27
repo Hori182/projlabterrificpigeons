@@ -190,9 +190,6 @@ public class Main {
                     game.save("./src/results/" + commandparam[1] + ".txt");
                     game.draw();
                     break;
-
-                //case "exit":
-                //case "load":
                 default:
                     System.out.println("There is no command like this!");
             }
@@ -303,8 +300,12 @@ public class Main {
                             Eskimo moveTemp = new Eskimo(moveableParams[0]);
                             moveTemp.setLife(Integer.parseInt(moveableParams[2]));
                             moveTemp.setWork(Integer.parseInt(moveableParams[3]));
-                            if(moveableParams[4].equals("-")) moveTemp.setInWater(false);
-                            else moveTemp.setInWater(true);
+                            if(moveableParams[4].equals("-")) {
+                                moveTemp.setInWater(false);
+                            }
+                            else {
+                                moveTemp.setInWater(true);
+                            }
                             String[] tempThings = moveableParams[5].split(",");
                             for(int j = 0; j < tempThings.length; j++)
                             {

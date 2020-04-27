@@ -63,15 +63,13 @@ public class Game {
         /*for(int i = 0; i < polarbears.size();i++) {
             polarbears.get(i).moveToRandom();
         }*/
-        for(int i = 0; i < players.size(); i++){
-            System.out.println(players.get(i).getId() + " " + players.get(i).getDrown());
-        }
         Random rand = new Random();
         rand.nextInt(10);
         if( rand.equals(3))
             gameMap.snowStorm();
-        if(currentPlayer < players.size()-1)
+        if(currentPlayer < players.size()-1) {
             currentPlayer++;
+        }
         else{
             currentPlayer = 0;
             for(int i = 0; i < players.size(); i++){
@@ -80,12 +78,16 @@ public class Game {
                 }
             }
         }
+        System.out.println(currentPlayer + " " + players.get(currentPlayer).getTile().getTileId());
+
         if((players.get(currentPlayer).getDrown() == 2) || players.get(currentPlayer).getLife() == 0 )
         {
             players.get(currentPlayer).die();
             this.endGame();
         }
         getPlayers().get(currentPlayer).setWork(0);
+        if(getPlayers().get(currentPlayer).getInWater() && getPlayers().size() > 1)
+            nextPlayer();
         this.draw();
     }
 

@@ -2,5 +2,6 @@ load src/maps/test_map_19.txt
 draw
 pass
 draw
+pass
 save result_map_19
 exit
