@@ -14,9 +14,9 @@ Test 14 is bad.
 Test 15 is bad.
 Test 17 is bad.
 Test 18 is good.
-Test 19 is bad.
+Test 19 is good.
 Test 20 is good.
 Test 21 is good.
 Test 22 is good.
 Test 23 is good.
-Test results: 16/22
+Test results: 17/22
