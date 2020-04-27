@@ -13,7 +13,7 @@ public class Main {
         while(!started) {
             System.out.println("1. Start the game with your own map - type: load example.txt");
             System.out.println("2. Start the game with generated map - type: init");
-            System.out.println("3. Testing - type: test all (for all tests) / test test_10 (to run single test #10 for example ");
+            System.out.println("3. Testing - type: test all (for all tests) / test test_10 (to run single test #10 for example) ");
             Scanner choose = new Scanner(System.in);
 
             String chosedStart = choose.nextLine();
