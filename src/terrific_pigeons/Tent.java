@@ -8,6 +8,7 @@ public class Tent extends Thing{
     */
     public void useThing() {
         owner.getTile().setSafeByTent(true);
+        owner.removeThing(this);
         owner.work();
     }
     public String Name(){

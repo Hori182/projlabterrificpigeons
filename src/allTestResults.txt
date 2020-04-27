@@ -6,7 +6,7 @@ Test 5 is bad.
 Test 6 is good.
 Test 7 is good.
 Test 8 is good.
-Test 9 is bad.
+Test 9 is good.
 Test 10 is bad.
 Test 12 is bad.
 Test 13 is good.
@@ -19,4 +19,4 @@ Test 20 is bad.
 Test 21 is good.
 Test 22 is good.
 Test 23 is good.
-Test results: 9/22
+Test results: 11/22
