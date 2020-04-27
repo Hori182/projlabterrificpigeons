@@ -51,7 +51,6 @@ public class Game {
             Researcher r = new Researcher(id);
             this.addPlayers(r);
         }
-
         this.initMap(20);
         this.getPlayers().get(currentPlayer).setWork(0);
         this.draw();
@@ -64,21 +63,30 @@ public class Game {
         /*for(int i = 0; i < polarbears.size();i++) {
             polarbears.get(i).moveToRandom();
         }*/
+        for(int i = 0; i < players.size(); i++){
+            System.out.println(players.get(i).getId() + " " + players.get(i).getDrown());
+        }
         Random rand = new Random();
         rand.nextInt(10);
         if( rand.equals(3))
             gameMap.snowStorm();
         if(currentPlayer < players.size()-1)
             currentPlayer++;
-        else
+        else{
             currentPlayer = 0;
-        if((players.get(currentPlayer).getWork() > 4 && players.get(currentPlayer).getInWater()) || players.get(currentPlayer).getLife() == 0 )
+            for(int i = 0; i < players.size(); i++){
+                if (players.get(i).getDrown() == 1){
+                    players.get(i).setDrown(2);
+                }
+            }
+        }
+        if((players.get(currentPlayer).getDrown() == 2) || players.get(currentPlayer).getLife() == 0 )
         {
             players.get(currentPlayer).die();
             this.endGame();
         }
         getPlayers().get(currentPlayer).setWork(0);
-        //this.draw();
+        this.draw();
     }
 
     /*
