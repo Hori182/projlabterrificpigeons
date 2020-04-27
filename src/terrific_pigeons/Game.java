@@ -68,15 +68,15 @@ public class Game {
         rand.nextInt(10);
         if( rand.equals(3))
             gameMap.snowStorm();
-        if((players.get(currentPlayer).getWork() >=4 && players.get(currentPlayer).getInWater()) || players.get(currentPlayer).getLife() == 0 )
-        {
-            players.get(currentPlayer).die();
-            this.endGame();
-        }
         if(currentPlayer < players.size()-1)
             currentPlayer++;
         else
             currentPlayer = 0;
+        if((players.get(currentPlayer).getWork() >4 && players.get(currentPlayer).getInWater()) || players.get(currentPlayer).getLife() == 0 )
+        {
+            players.get(currentPlayer).die();
+            this.endGame();
+        }
         getPlayers().get(currentPlayer).setWork(0);
         //this.draw();
     }
