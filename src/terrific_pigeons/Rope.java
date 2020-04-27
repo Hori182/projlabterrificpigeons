@@ -1,6 +1,7 @@
 package terrific_pigeons;
 
 import java.util.ArrayList;
+import java.util.concurrent.ThreadLocalRandom;
 
 /*
  * A Rope a kötél osztály a játékban.
@@ -15,16 +16,16 @@ public class Rope extends Thing{
     public void useThing() {
         Tile t = owner.getTile();
         ArrayList<Tile> temp = t.getNeighbours();
-        //int randomNum = ThreadLocalRandom.current().nextInt(0, temp.size() );   //A Tile szomszédjai közül véletlenszerüen választ egyet
-        /*for(int i = 0; i < temp.size(); i++)
+        /*int randomNum = ThreadLocalRandom.current().nextInt(0, temp.size() );   //A Tile szomszédjai közül véletlenszerüen választ egyet
+        for(int i = 0; i < temp.size(); i++)
         {
             if(temp.get(i).getLimit() == 0)
             {
-                ArrayList<Player> wp = temp.get(i).getPlayers();
+                ArrayList<MoveAble> wp = temp.get(i).getMovables();
             }
         }
 
-        ArrayList<Player> wp = temp.get(randomNum).getPlayers();
+        ArrayList<MoveAble> wp = temp.get(randomNum).getMovables();
 
         int randomNum2 = ThreadLocalRandom.current().nextInt(0, temp.size() );  //Az egyik szomszédon véletlenszerüen választ egy player
         temp2.get(randomNum2).getInWater();                                            //Akinek megvizsgálja hogy vízben van-e

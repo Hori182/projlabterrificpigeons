@@ -1,7 +1,6 @@
 load src/maps/test_map_12.txt
 draw
-useThing
-Ro
+rope
 draw
 save result_map_12
 exit
