@@ -15,23 +15,28 @@ public class Rope extends Thing{
 
     public void useThing() {
         Tile t = owner.getTile();
-        ArrayList<Tile> temp = t.getNeighbours();
-        /*int randomNum = ThreadLocalRandom.current().nextInt(0, temp.size() );   //A Tile szomszédjai közül véletlenszerüen választ egyet
-        for(int i = 0; i < temp.size(); i++)
-        {
-            if(temp.get(i).getLimit() == 0)
-            {
-                ArrayList<MoveAble> wp = temp.get(i).getMovables();
+        ArrayList<Tile> neighbours = t.getNeighbours();
+        System.out.println("lefutottam 1");
+
+        for (int i = 0; i < neighbours.size(); i++){
+            ArrayList<MoveAble> wp = neighbours.get(i).getMovables();
+            System.out.println("lefutottam 2");
+            for (int j = 0; j < wp.size(); j++) {
+                MoveAble m1 = wp.get(j);
+                System.out.println("lefutottam 3");
+                 if (m1.getInWater() == true) {
+                     System.out.println("lefutottam 4");
+                     t.moveRequest(m1);
+                     m1.setInWater(false);
+                   /*owner.getTile().moveRequest(owner.getTile().getNeighbours().get(i).getMovables().get(j));
+                   owner.getTile().getNeighbours().get(i).getMovables().get(j).setInWater(false);*/
+
+                }
             }
         }
-
-        ArrayList<MoveAble> wp = temp.get(randomNum).getMovables();
-
-        int randomNum2 = ThreadLocalRandom.current().nextInt(0, temp.size() );  //Az egyik szomszédon véletlenszerüen választ egy player
-        temp2.get(randomNum2).getInWater();                                            //Akinek megvizsgálja hogy vízben van-e
-        t.moveRequest(temp2.get(randomNum2));
-        owner.work();*/
+        owner.work();
     }
+
     public String Name(){
         return "R";
     }
