@@ -138,8 +138,6 @@ public class Main {
                     game.draw();
                     break;
                 case "save":
-                    // ide vmi olyasmi kene h src/results/result_map_ + commandparam[1] + txt nem?
-                    //meg raviszgalni hha 10nel kisebb akk meg egy 0-t dobjon ele
                     game.save("./src/results/" + commandparam[1] + ".txt");
                     game.draw();
                     break;
