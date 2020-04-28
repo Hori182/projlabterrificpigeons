@@ -91,6 +91,12 @@ public class Main {
 
     }
 
+    /*
+    A felhasználó által megadott parancsok végrehajtása
+    @param commandparam: a parancs paraméterei
+    @param game: a játék amin végrehajtjuk a parancsot
+    @param current: a játékban aktuálisan soron lévő játékos
+     */
     public static void Command(String[] commandparam, Game game, int current) throws FileNotFoundException, UnsupportedEncodingException {
             switch(commandparam[0])
             {
@@ -218,6 +224,12 @@ public class Main {
             }
     }
 
+    /*
+    A felhasználó tárgyat használ
+    @param a: a tárgy neve amit használni akar
+    @param game: a játék amin végrehajtjuk a parancsot
+    @param current: a játékban aktuálisan soron lévő játékos
+     */
     public static void things(String a, Game game, int current){
         boolean x = false;
         for(int i = 0; i < game.getPlayers().get(current).getThings().size(); i++){
@@ -229,6 +241,10 @@ public class Main {
         if(x == false) System.out.println("No item.");
     }
 
+    /*
+    Teszt beolvasása
+    @param test: a végrehajtandó teszt txt-je
+     */
     public static void read_test(String test) throws IOException {
         Game game = new Game();
         int current = 0;
@@ -252,7 +268,6 @@ public class Main {
                 //line = reader.readLine();
             }
         }
-
     }
 
     /*
