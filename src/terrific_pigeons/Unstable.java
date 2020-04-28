@@ -6,7 +6,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class  Unstable extends Tile{
-
+    /*Unstable konstruktora.*/
     public Unstable(int limit, int tileId)
     {
         super(tileId);
@@ -66,7 +66,7 @@ public class  Unstable extends Tile{
             System.out.println("Not neighbour!");
         }
     }
-
+    /*Kiírja a tile tartalmát fileba.*/
     public void save(PrintWriter writer){
         writer.print(getTileId()+":-:"+limit+":"+(safe?"I:":(safeByTent?"T:":"-:"))+snow+":");
         ArrayList<String> ids = new ArrayList<>();

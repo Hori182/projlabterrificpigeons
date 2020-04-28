@@ -200,10 +200,18 @@ public class Tile {
     public void setName(String s){this.name = s;}
     /*Visszaadja a name változó értékét.*/
     public String getName(){return this.name;}
-    /*Visszaadja a limit változó értékét.*/
+    /*Hozzáadunk egy új elemet a moveables-hrz
+    * @param MoveAble m: ezt adjuk a moveable-hez.
+    * */
     public void addMoveAbles(MoveAble m) { this.movables.add(m); }
+    /*
+     * Beállítja a safeByTent változó értékét a b értékére.
+     * @param: boolean b: ezzel az értékkel írja felül a name-et.
+     * */
     public void setSafeByTent(boolean b){safeByTent = b;}
+    /*Visszaadja a safeByTent értékét.*/
     public boolean getSafeByTent(){return this.safeByTent ;}
+    /*Visszaadja a tileId értékét.*/
     public int getTileId() {
         return tileId;
     }
@@ -244,7 +252,7 @@ public class Tile {
             }
         }
     }
-
+    /*Kiírja a tile tartalmát fileba.*/
     public void save(PrintWriter writer){
         writer.print(tileId+":+:"+limit+":"+(safe?"I:":(safeByTent?"T:":"-:"))+snow+":");
         ArrayList<String> ids = new ArrayList<>();

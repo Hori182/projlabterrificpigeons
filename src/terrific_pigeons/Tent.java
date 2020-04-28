@@ -11,6 +11,7 @@ public class Tent extends Thing{
         owner.removeThing(this);
         owner.work();
     }
+    /*Visszaadja a Tent nevét.*/
     public String Name(){
         return "T";
     }
