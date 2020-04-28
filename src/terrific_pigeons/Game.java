@@ -9,7 +9,6 @@ import java.util.Scanner;
 
 public class Game {
     private Map gameMap = new Map();
-
     ArrayList<Player> players = new ArrayList<>();
     ArrayList<PolarBear> polarbears = new ArrayList<>();
     private int currentPlayer = 0;
@@ -18,13 +17,23 @@ public class Game {
     private int usedParts;
     ArrayList<PistolPart> pistolParts = new ArrayList<>(3);
 
+    /*
+    Konstruktor
+     */
     public Game() {}
 
-
+    /*
+    Beállítja a játék pályáját
+    @param m: a beállítandó térkép/pálya
+     */
     public void setGameMap(Map m)
     {
        gameMap = m;
     }
+    /*
+    Hozzáad a jegesmedvék listájához egy újabbat
+    @param p: a hozzáadandó jegesmedve
+     */
     public void addPolarBear(PolarBear p)
     {
         polarbears.add(p);
@@ -91,6 +100,11 @@ public class Game {
         this.draw();
     }
 
+    /*
+    Kötél használata
+    @param t: a Tile amire kihúzzuk a játékost
+    @param p: a játékos akit kihúzunk
+     */
     public void useRope(Tile t, Player p){
         Tile t_owner = p.getTile();
         boolean x = false;
@@ -118,7 +132,7 @@ public class Game {
     }
 
     /*
-    * Pistoly összeszerelése.
+    * Pisztoly összeszerelése.
     * */
     public void assemble() {
             int id1 = pistolParts.get(0).owner.getTile().getTileId();
@@ -130,6 +144,10 @@ public class Game {
         players.get(currentPlayer).work();
     }
 
+    /*
+    Hozzáad a pisztolydarabok listájához egy újabbat
+    @param pp: a hozzáadandó pisztolydarab
+     */
     public void addPistolPart(PistolPart pp){pistolParts.add(pp);}
 
     /*
@@ -140,6 +158,9 @@ public class Game {
         //System.exit(0);
     }
 
+    /*
+    Visszadja a játékban lévő játékosok listáját
+     */
     public ArrayList<Player> getPlayers() {
         return players;
     }
@@ -159,7 +180,9 @@ public class Game {
         this.win = win;
         System.out.println("You won!");
     }
-
+    /*
+       Visszadja a win értékét
+     */
     public boolean getWin()
     {
         return win;
@@ -177,12 +200,17 @@ public class Game {
     public void setUsedParts(int i) {
         this.usedParts = i;
     }
-
+    /*
+       Beállítja a die értékét.
+    */
     public void setDie(boolean die) {
         this.die = die;
         endGame();
     }
-
+    /*
+    Létrehoz egy játékhoz tartozó mezőket
+    @param tiles: a mezők száma
+     */
     public void create_tiles(int tiles){
         Random rand = new Random();
 
@@ -207,6 +235,9 @@ public class Game {
         gameMap.shuffle();
     }
 
+    /*
+    Beállítja a mezők szomszédságait.
+     */
     public void initNeighbours(){
         Random rand = new Random();
         int num = 0;
@@ -232,6 +263,10 @@ public class Game {
         }
     }
 
+    /*
+    Létrehoz a játékhoz egy mapot
+    @param: a mezők száma
+     */
     public void initMap(int tiles){
         Random rand = new Random();
         int num =  0, rand_thing;
@@ -289,7 +324,9 @@ public class Game {
             }
         }
     }
-
+    /*
+    Kirajzolja a játék állását
+     */
     public void draw() {
         System.out.println("Tiles\n" + "TileID:safe:snow:standing on:neighbours:visible things;\n");
         for (Tile t : gameMap.getTiles()){
@@ -308,13 +345,23 @@ public class Game {
         System.out.println("");
     }
 
+    /*
+    Visszaadja az aktuális játékos számát.
+     */
     public int getCurrentPlayer() {
         return currentPlayer;
     }
+
+    /*
+    Visszaadja a játék mapját
+     */
     public Map getGameMap() {
         return gameMap;
     }
 
+    /*
+    Kimenti a játék állását egy fájlba
+     */
     public void save(String filename) throws FileNotFoundException, UnsupportedEncodingException {
         PrintWriter writer = new PrintWriter(filename, "UTF-8");
         for (Player m : players){
