@@ -137,6 +137,7 @@ public class Game {
     * */
     public void endGame(){
         System.out.println("Game Over!");
+        System.exit(0);
     }
 
     public ArrayList<Player> getPlayers() {

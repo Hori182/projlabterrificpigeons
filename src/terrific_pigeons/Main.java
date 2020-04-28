@@ -46,6 +46,8 @@ public class Main {
                     }
                     System.out.println("Results are in allTestResults.txt");
                     testAll();
+                    game.endGame();
+
                 }
                 else {
                         read_test("./src/tests/" + load[1] + ".txt");
@@ -65,6 +67,7 @@ public class Main {
                             System.out.println("The test was successful");
                         }
                         else System.out.println("Unsuccessful test");
+                    game.endGame();
                 }
             }
 
@@ -84,6 +87,7 @@ public class Main {
             commandparam = command.split(" ");
         }
         game.endGame();
+
     }
 
     public static void Command(String[] commandparam, Game game, int current) throws FileNotFoundException, UnsupportedEncodingException {
