@@ -46,7 +46,7 @@ public class Main {
                     }
                     System.out.println("Results are in allTestResults.txt");
                     testAll();
-                    game.endGame();
+
 
                 }
                 else {
@@ -67,8 +67,9 @@ public class Main {
                             System.out.println("The test was successful");
                         }
                         else System.out.println("Unsuccessful test");
-                    game.endGame();
+
                 }
+                System.exit(0);
             }
 
         }
@@ -254,13 +255,10 @@ public class Main {
 
     }
 
-    public static void promptEnterKey(){
-        System.out.println("Press \"ENTER\" to continue...");
-        Scanner scanner = new Scanner(System.in);
-        scanner.nextLine();
-    }
-
-    //Betölti a felhasználó által megadott testesetet
+    /*
+     * Betölti a parameterben megadott terkepet.
+     * @param test: a betöltendő térkép elérési útvonala.
+     * */
     public static Game loadTestMap(String test)
     {
         Game g = new Game();
@@ -276,8 +274,6 @@ public class Main {
                 {
                     System.out.println(line);
                     String[] moveableParams = line.split(":");
-
-
                         //Megnezzuk milyen tipusu karaktert kene felvenni
                         String characterType = Character.toString( moveableParams[0].charAt(0));
                         if(characterType.equals("R"))
@@ -355,7 +351,6 @@ public class Main {
                     line = reader.readLine();
                 }
                 line = reader.readLine();
-
                 while(!line.equals("tiles end")) {
                     String[] tileParams = line.split(":");
                    System.out.println("TileID: " + tileParams[0] + " stabil: " + tileParams[1] +
@@ -366,8 +361,8 @@ public class Main {
                     if(tileParams[1].equals("+"))
                     {
                         Tile temp = new Tile(Integer.parseInt(tileParams[0]));
-                        setTileParams(temp,tileParams,moveAbles);
-                        m.addTile(temp);
+                       setTileParams(temp,tileParams,moveAbles);
+                       m.addTile(temp);
                     }
                     else
                     {
@@ -385,6 +380,12 @@ public class Main {
         return g;
     }
 
+    /*
+    Beállítja egy Tile adatait, az átadott paraméterek alapján
+    @param temp: a Tile amit paraméterezünk
+    @param tileParams: a paraméterek amikkel be akarjuk állítani
+    @param moveAbles: a potenciálisan rárakható karakterek listája
+     */
     public static Tile setTileParams(Tile temp,String[] tileParams, ArrayList<MoveAble> moveAbles)
     {
         String[] tempNeighbors = tileParams[7].split(",");
@@ -399,10 +400,9 @@ public class Main {
         //szomszedok beallitasa a beolvasas alapjan
         for (int i = 0; i < tempNeighbors.length; i++ )
         {
-            Tile neighbortemp = new Tile(Integer.parseInt(tempNeighbors[i]));
-            temp.addNeighbour(neighbortemp);
+                Tile neighbortemp = new Tile(Integer.parseInt(tempNeighbors[i]));
+                temp.addNeighbour(neighbortemp);
         }
-
         //Rajta allo karakterek
         if(tempMovables != null){
             for (int i = 0; i < tempMovables.length; i++ )
@@ -433,6 +433,12 @@ public class Main {
         return temp;
     }
 
+    /*
+    Beállítja egy UnStable adatait, az átadott paraméterek alapján
+    @param temp: az Unstable amit paraméterezünk
+    @param tileParams: a paraméterek amikkel be akarjuk állítani
+    @param moveAbles: a potenciálisan rárakható karakterek listája
+     */
     public static Unstable setUnstableParams(Unstable temp,String[] tileParams, ArrayList<MoveAble> moveAbles)
     {
         String[] tempNeighbors = tileParams[7].split(",");
@@ -441,7 +447,6 @@ public class Main {
         if(!tileParams[5].equals("-")) {
             tempMovables = tileParams[5].split(",");
         }
-
         //vedettseg
         if(tileParams[3].equals("I")) temp.setSafe(true);
         else if(tileParams[3].equals("T")) temp.setSafeByTent(true);
@@ -449,8 +454,8 @@ public class Main {
         //szomszedok beallitasa a beolvasas alapjan
         for (int i = 0; i < tempNeighbors.length; i++ )
         {
-            Tile neighbortemp = new Tile(Integer.parseInt(tempNeighbors[i]));
-            temp.addNeighbour(neighbortemp);
+                Tile neighbortemp = new Tile(Integer.parseInt(tempNeighbors[i]));
+                temp.addNeighbour(neighbortemp);
         }
         //Rajta allo karakterek
         if(tempMovables != null){
@@ -481,8 +486,11 @@ public class Main {
         }
         return temp;
     }
-
-    //Összehasonlítja a teszt végrahajtása után kapott txt-t egy txt-vel ami az elvárt kimenetet tartalmazza
+    /*
+    Összehasonlítja a teszt végrahajtása után kapott txt-t egy txt-vel ami az elvárt kimenetet tartalmazza
+    @param result: a teszt után létrejött txt
+    @param expectation: a teszt után elvárt kimenet txt-je
+     */
     public static boolean compareResult(String result, String expectation) throws IOException {
         BufferedReader reader1 = new BufferedReader(new FileReader(result));
         BufferedReader reader2 = new BufferedReader(new FileReader(expectation));
@@ -519,8 +527,9 @@ public class Main {
         reader2.close();
         return areEqual;
     }
-
-    //Osszehasonlitja az osszes tesztesetet es kiirja az eredmenyt
+    /*
+    Osszehasonlitja az osszes tesztesetet es kiirja az eredmenyt
+     */
     public static void testAll() throws IOException {
         FileWriter fw = new FileWriter("src/allTestResults.txt");
         String resultBase ="src/results/result_map_";
