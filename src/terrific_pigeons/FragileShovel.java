@@ -30,6 +30,9 @@ public class FragileShovel extends Shovel{
         }
 
     }
+    /*
+     * Visszaadja a FragileShovel nevét.
+     * */
     public String Name(){
         return "FR";
     }

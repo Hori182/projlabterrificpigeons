@@ -7,14 +7,17 @@ public abstract class MoveAble {
     protected int work = 0;
     protected Tile myTile;
     protected String moveableid;
-
+    /*Mozgás függvénye*/
     protected  void move(Tile t){
 
     }
-
+    /*Visszaadja a getDrown változó értékét.*/
     public int getDrown(){
         return drown;
     }
+    /*Beállítja a drown értékét a paraméterként kapott értékre
+    * @param int x: Ez lesz a drown változó új értéke.
+    * */
     public void setDrown(int x){
         this.drown = x;
     }
@@ -75,7 +78,9 @@ public abstract class MoveAble {
         this.myTile = t;
         //t.getMovables().add(this);
     }
-
+    /*
+    *Kirajzolás fügvénye.
+    * */
     protected void draw(){}
 
 
@@ -124,9 +129,13 @@ public abstract class MoveAble {
     {
         this.life = life;
     }
-
+    /*
+    * Megtámadás függvénye.
+    * */
     public void attacked(){}
-
+    /*
+    * Visszaadja a moveableid értékét.
+    * */
     public String getId(){return moveableid;}
 
 }

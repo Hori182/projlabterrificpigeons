@@ -11,7 +11,7 @@ public class Map {
     private Thing[] things = new Thing[6];
     private PistolPart[] ppt = new PistolPart[3];
     private int num_of_tiles;
-
+    /*Map konstruktora*/
     public Map() {
         tiles = new ArrayList<>();
     }
@@ -33,7 +33,10 @@ public class Map {
             }
         }
     }
-
+    /*
+    Hozzáad egy tile-t a tiles arraylist-hez.
+    * @param Tile t: Ezt a tile adja hozzá a tileshoz.
+    * */
     public void addTile(Tile t) {
         this.tiles.add(t);
     }
@@ -52,7 +55,9 @@ public class Map {
     public void setTiles(ArrayList<Tile> tiles) {
         this.tiles = tiles;
     }
-
+    /*
+    * Térkép generálásának függvénye
+    * */
     public void generateMap(int tiles) {
         num_of_tiles = tiles;
 
@@ -64,7 +69,9 @@ public class Map {
         map_data[1] = unstabile;
         map_data[2] = water;
     }
-
+    /*
+    * PistolPartok létrehozása.
+    * */
     public void initPistolParts() {
         ppt[0] = new PistolPart();
         ppt[1] = new PistolPart();
@@ -74,23 +81,33 @@ public class Map {
         ppt[1].setId(1);
         ppt[2].setId(2);
     }
-
+    /*
+    * Visszaadja a Map_data tartalmát.
+    * */
     public int[] getMap_data() {
         return map_data;
     }
-
+    /*
+    * Visszaadja a things tartalmát.
+    * */
     public Thing[] getThings() {
         return things;
     }
-
+    /*
+    * Visszaadja a ppt tartalmát.
+    * */
     public PistolPart[] getPpt() {
         return ppt;
     }
-
+    /*
+    * Összekeveri a tiles tartalmát.
+    * */
     public void shuffle() {
         Collections.shuffle(tiles);
     }
-
+    /*
+    * Visszaadja, hogy num_of_tiles értékét.
+    * */
     public int getNum_of_tiles() {
         return num_of_tiles;
     }

@@ -19,6 +19,9 @@ public class Food extends Thing{
         }
         else System.out.println("Your health is at max!");
     }
+    /*
+     * Visszaadja a Food nevét.
+     * */
     public String Name(){
         return "F";
     }

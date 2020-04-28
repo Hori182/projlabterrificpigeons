@@ -18,7 +18,9 @@ public class Eskimo extends Player {
         myTile.setSafe(true);
         work();
     }
-
+    /*
+    * Visszaadja, hogy tud e növelni az életén az eszkimónak, vagy már maxon van neki.
+    * */
     public boolean addLife()
     {
         if(this.life+1 <= 5)
