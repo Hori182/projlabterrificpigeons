@@ -174,12 +174,14 @@ public class Tile {
         return movables;
     }
 
-
+    /*Beállítja a thing változó értékét a t értékére.
+    * @param: Thing t: ezzel az értékkel írja felül a thing-et.
+    * */
     public void setThing(Thing t)
     {
         this.thing = t;
     }
-
+    /*Visszaadja a thing változó értékét.*/
     public Thing getThing()
     {
         if(thing!=null){
@@ -187,13 +189,18 @@ public class Tile {
         }
         return null;
     }
-
+    /*Visszaadja a limit változó értékét.*/
     public int getLimit() {
         return limit;
     }
-
+    /*
+    * Beállítja a name változó értékét az s étékére.
+     * @param: String s: ezzel az értékkel írja felül a name-et.
+    * */
     public void setName(String s){this.name = s;}
+    /*Visszaadja a name változó értékét.*/
     public String getName(){return this.name;}
+    /*Visszaadja a limit változó értékét.*/
     public void addMoveAbles(MoveAble m) { this.movables.add(m); }
     public void setSafeByTent(boolean b){safeByTent = b;}
     public boolean getSafeByTent(){return this.safeByTent ;}

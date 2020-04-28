@@ -4,12 +4,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 
 public abstract class Player extends MoveAble {
-    //protected int life;
-    //protected int work = 0;
-    //protected Tile myTile;
     protected ArrayList<Thing> things = new ArrayList<>();
-    //protected String playerid;
-    //protected boolean inWater = false;
 
     /*Ez a függvény felel a Player egyik tile-ról
      * a másikra való mozgatásáért.
@@ -29,11 +24,11 @@ public abstract class Player extends MoveAble {
         myTile.subSnow(1);
         work();
     }
-
+    /*Iglu építés Resercherrel*/
     public void build() {
         System.out.println("Current player is not an eskimo!");
     }
-
+    /*Nézelődés Eszkimóval.*/
     public void look(Tile t) {
         System.out.println("Current player is not a researcher!");
     }

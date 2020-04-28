@@ -20,6 +20,9 @@ public class DivingSuit extends Thing{
             this.owner.work();
         }
     }
+    /*
+    * Visszaadja a DivingSuit nevét.
+    * */
     public String Name(){
         return "D";
     }

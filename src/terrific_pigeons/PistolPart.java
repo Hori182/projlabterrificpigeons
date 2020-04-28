@@ -16,15 +16,15 @@ public class PistolPart extends Thing{
     public void UseThing(Game g) {
         g.assemble();
     }
-
+    /*Visszaadja a PistolPart nevét.*/
     public String Name(){
         return "P";
     }
-
+    /*Visszaadja a PistolPart Id-ját.*/
     public int getId() {
         return id;
     }
-
+    /*Beállítja a PistolPart id-ját.*/
     public void setId(int id) {
         this.id = id;
     }
