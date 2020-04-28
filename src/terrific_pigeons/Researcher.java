@@ -1,7 +1,7 @@
 package terrific_pigeons;
 
 public class Researcher extends Player {
-
+    /*Resercher konstuktora.*/
     public Researcher(String id)
     {
         life=4;
@@ -20,7 +20,9 @@ public class Researcher extends Player {
         else if(l == 0) System.out.println("TileID: " + t.getTileId() + " is water!");
         else System.out.println("TileID: " + t.getTileId() + "'s limit is unlimited");
     }
-
+    /*
+     * Visszaadja, hogy tud e növelni az életén az eszkimónak, vagy már maxon van neki.
+     * */
     public boolean addLife()
     {
         if(this.life+1 <= 4)

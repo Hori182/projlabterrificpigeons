@@ -28,7 +28,7 @@ public class Rope extends Thing{
         }
         owner.work();
     }
-
+    /*Visszaadja a Rope nevét*/
     public String Name(){
         return "R";
     }

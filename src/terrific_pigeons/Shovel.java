@@ -22,7 +22,7 @@ public class Shovel extends Thing{
         }
         owner.work();
     }
-
+    /*Visszaadja a Shovel nevét.*/
     public String Name(){
         return "Sh";
     }
