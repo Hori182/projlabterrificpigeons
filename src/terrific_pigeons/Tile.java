@@ -4,7 +4,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Tile {
+public class Tile implements IViewable{
 
     protected int snow;
     protected boolean safe = false;
@@ -272,5 +272,20 @@ public class Tile {
         else
             writer.println("-:");
 
+    }
+
+    @Override
+    public void notify(View v) {
+
+    }
+
+    @Override
+    public int GetX() {
+        return 0;
+    }
+
+    @Override
+    public int GetY() {
+        return 0;
     }
 }

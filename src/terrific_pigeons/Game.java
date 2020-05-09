@@ -8,6 +8,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Game {
+    private View gameView = new View();
     private Map gameMap = new Map();
     ArrayList<Player> players = new ArrayList<>();
     ArrayList<PolarBear> polarbears = new ArrayList<>();

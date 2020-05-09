@@ -1,6 +1,6 @@
 package terrific_pigeons;
 
-public abstract class MoveAble {
+public abstract class MoveAble implements IViewable{
     protected int life;
     protected boolean inWater = false;
     protected int drown = 0;
@@ -82,8 +82,6 @@ public abstract class MoveAble {
     *Kirajzolás fügvénye.
     * */
     protected void draw(){}
-
-
     
     /*
      * Növeli az életerőt eggyel.
@@ -137,5 +135,20 @@ public abstract class MoveAble {
     * Visszaadja a moveableid értékét.
     * */
     public String getId(){return moveableid;}
+
+    @Override
+    public void notify(View v) {
+
+    }
+
+    @Override
+    public int GetX() {
+        return 0;
+    }
+
+    @Override
+    public int GetY() {
+        return 0;
+    }
 
 }
