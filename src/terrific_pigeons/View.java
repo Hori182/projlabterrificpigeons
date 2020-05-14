@@ -36,14 +36,20 @@ public class View extends JPanel {
     public void drawTile(Graphics g, int x, int y, int r){
         g.setColor(Color.WHITE);
         g.fillOval(x,y, r,r);
+        g.setColor(Color.BLACK);
+        g.drawOval(x,y,r,r);
     }
     public void drawUnstable(Graphics g, int x, int y, int r){
         g.setColor(Color.RED);
         g.fillOval(x, y, r, r);
+        g.setColor(Color.BLACK);
+        g.drawOval(x,y,r,r);
     }
     public void drawWater(Graphics g, int x, int y, int r){
         g.setColor(Color.BLUE);
         g.fillOval(x, y, r, r);
+        g.setColor(Color.BLACK);
+        g.drawOval(x,y,r,r);
     }
     public void drawNieghbours(){}
 
