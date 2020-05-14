@@ -32,4 +32,14 @@ public class Researcher extends Player {
         }
         return false;
     }
+
+    @Override
+    public void SetX(int x) {
+
+    }
+
+    @Override
+    public void SetY(int y) {
+
+    }
 }

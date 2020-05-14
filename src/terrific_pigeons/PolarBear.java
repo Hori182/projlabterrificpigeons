@@ -52,4 +52,14 @@ public class PolarBear extends MoveAble {
     public void save(PrintWriter writer){
         writer.println(getId()+":"+getTile().getTileId()+":");
     }
+
+    @Override
+    public void SetX(int x) {
+
+    }
+
+    @Override
+    public void SetY(int y) {
+
+    }
 }

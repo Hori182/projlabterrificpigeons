@@ -1,4 +1,5 @@
 package terrific_pigeons;
+import javax.swing.*;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -8,7 +9,8 @@ public class Main {
     public static void main(String[] args) throws IOException {
 
         Game game = new Game();
-
+        JFrame jf = new JFrame();
+        jf.setVisible(true);
         boolean started = false;
         while(!started) {
             System.out.println("1. Start the game with your own map - type: load example.txt");

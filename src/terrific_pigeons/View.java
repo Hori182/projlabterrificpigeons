@@ -1,12 +1,15 @@
 package terrific_pigeons;
 
+import javax.swing.*;
 import java.util.List;
 
-public class View {
-    private int X;
-    private int Y;
+public class View extends JFrame {
     private List<IViewable> viewables;
-
+    private Game game;
+    public void setGame(Game g)
+    {
+        this.game = g;
+    }
     public void init(Map map){}
     public void drawPolarBear(){}
     public void drawEskimo(){}

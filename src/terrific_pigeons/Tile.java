@@ -4,7 +4,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Tile implements IViewable{
+public class Tile {
 
     protected int snow;
     protected boolean safe = false;
@@ -275,27 +275,5 @@ public class Tile implements IViewable{
 
     }
 
-    @Override
-    public void notify(View v) {
 
-    }
-
-    @Override
-    public int GetX() {
-        return X;
-    }
-
-    @Override
-    public int GetY() {
-        return Y;
-    }
-
-    @Override
-    public void SetX(int x) {
-        X = x;
-    }
-    @Override
-    public void SetY(int y) {
-        Y = y;
-    }
 }

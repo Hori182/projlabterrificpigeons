@@ -325,6 +325,7 @@ public class Game {
                 ready = true;
             }
         }
+        gameView.init(gameMap);
     }
     //EZNEMTUTIHOGYJÓ MEG LEHET A TILE IS SZAR
     public void initMap2() {
