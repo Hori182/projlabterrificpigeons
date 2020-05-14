@@ -341,6 +341,16 @@ public class Game {
             Unstable u = new Unstable(randomNum, i);
             gameMap.addTile(u);
         }
+        Researcher r1 = new Researcher("0");
+        Researcher r2 = new Researcher("1");
+        Eskimo e1 = new Eskimo("0");
+        PolarBear p = new PolarBear("0");
+
+        this.addPlayers(r1);
+        this.addPlayers(r2);
+        this.addPlayers(e1);
+        polarbears.add(p);
+
         gameMap.getTiles().get(0).addNeighbour(gameMap.getTiles().get(7));
         gameMap.getTiles().get(0).addNeighbour(gameMap.getTiles().get(1));
         gameMap.getTiles().get(0).addNeighbour(gameMap.getTiles().get(8));
@@ -350,6 +360,8 @@ public class Game {
         gameMap.getTiles().get(1).addNeighbour(gameMap.getTiles().get(7));
         gameMap.getTiles().get(1).addNeighbour(gameMap.getTiles().get(9));
         gameMap.getTiles().get(1).addNeighbour(gameMap.getTiles().get(13));
+        gameMap.getTiles().get(1).addMoveAbles(polarbears.get(0));
+        polarbears.get(0).setMyTile(gameMap.getTiles().get(1));
         gameMap.getTiles().get(1).setSnow(2);
 
         gameMap.getTiles().get(2).addNeighbour(gameMap.getTiles().get(0));
@@ -378,6 +390,11 @@ public class Game {
         gameMap.getTiles().get(5).addNeighbour(gameMap.getTiles().get(3));
         gameMap.getTiles().get(5).addNeighbour(gameMap.getTiles().get(11));
         gameMap.getTiles().get(5).setSnow(3);
+        for(int i = 0; i < 3; i++) {
+            gameMap.getTiles().get(5).addMoveAbles(players.get(i));
+            players.get(i).setMyTile(gameMap.getTiles().get(5));
+        }
+
 
         gameMap.getTiles().get(6).addNeighbour(gameMap.getTiles().get(14));
         gameMap.getTiles().get(6).addNeighbour(gameMap.getTiles().get(10));
