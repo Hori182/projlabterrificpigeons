@@ -328,16 +328,113 @@ public class Game {
     }
     //EZNEMTUTIHOGYJÓ MEG LEHET A TILE IS SZAR
     public void initMap2() {
-        for(int i = 0; i < 5; i++) {
+        for(int i = 0; i < 7; i++) {
             Tile t = new Tile(i);
+            gameMap.addTile(t);
         }
-        for(int i = 5; i < 10; i++) {
+        for(int i = 7; i < 12; i++) {
             Unstable u = new Unstable(0, i);
+            gameMap.addTile(u);
         }
-        for(int i = 10; i < 13; i++) {
+        for(int i = 12; i < 15; i++) {
             int randomNum = ThreadLocalRandom.current().nextInt(1, 5);
             Unstable u = new Unstable(randomNum, i);
+            gameMap.addTile(u);
         }
+        gameMap.getTiles().get(0).addNeighbour(gameMap.getTiles().get(7));
+        gameMap.getTiles().get(0).addNeighbour(gameMap.getTiles().get(1));
+        gameMap.getTiles().get(0).addNeighbour(gameMap.getTiles().get(8));
+        gameMap.getTiles().get(0).addNeighbour(gameMap.getTiles().get(12));
+        gameMap.getTiles().get(0).setSnow(4);
+
+        gameMap.getTiles().get(1).addNeighbour(gameMap.getTiles().get(7));
+        gameMap.getTiles().get(1).addNeighbour(gameMap.getTiles().get(9));
+        gameMap.getTiles().get(1).addNeighbour(gameMap.getTiles().get(13));
+        gameMap.getTiles().get(1).setSnow(2);
+
+        gameMap.getTiles().get(2).addNeighbour(gameMap.getTiles().get(0));
+        gameMap.getTiles().get(2).addNeighbour(gameMap.getTiles().get(7));
+        gameMap.getTiles().get(2).addNeighbour(gameMap.getTiles().get(8));
+        gameMap.getTiles().get(2).addNeighbour(gameMap.getTiles().get(4));
+        gameMap.getTiles().get(2).addNeighbour(gameMap.getTiles().get(9));
+        gameMap.getTiles().get(2).addNeighbour(gameMap.getTiles().get(13));
+        gameMap.getTiles().get(2).setSnow(3);
+
+        gameMap.getTiles().get(3).addNeighbour(gameMap.getTiles().get(12));
+        gameMap.getTiles().get(3).addNeighbour(gameMap.getTiles().get(8));
+        gameMap.getTiles().get(3).addNeighbour(gameMap.getTiles().get(4));
+        gameMap.getTiles().get(3).addNeighbour(gameMap.getTiles().get(11));
+        gameMap.getTiles().get(3).addNeighbour(gameMap.getTiles().get(5));
+        gameMap.getTiles().get(3).setSnow(3);
+
+        gameMap.getTiles().get(4).addNeighbour(gameMap.getTiles().get(3));
+        gameMap.getTiles().get(4).addNeighbour(gameMap.getTiles().get(8));
+        gameMap.getTiles().get(4).addNeighbour(gameMap.getTiles().get(2));
+        gameMap.getTiles().get(4).addNeighbour(gameMap.getTiles().get(10));
+        gameMap.getTiles().get(4).addNeighbour(gameMap.getTiles().get(14));
+        gameMap.getTiles().get(4).addNeighbour(gameMap.getTiles().get(11));
+        gameMap.getTiles().get(4).setSnow(4);
+
+        gameMap.getTiles().get(5).addNeighbour(gameMap.getTiles().get(3));
+        gameMap.getTiles().get(5).addNeighbour(gameMap.getTiles().get(11));
+        gameMap.getTiles().get(5).setSnow(3);
+
+        gameMap.getTiles().get(6).addNeighbour(gameMap.getTiles().get(14));
+        gameMap.getTiles().get(6).addNeighbour(gameMap.getTiles().get(10));
+        gameMap.getTiles().get(6).addNeighbour(gameMap.getTiles().get(9));
+        gameMap.getTiles().get(6).addNeighbour(gameMap.getTiles().get(13));
+        gameMap.getTiles().get(6).setSnow(3);
+
+        gameMap.getTiles().get(7).addNeighbour(gameMap.getTiles().get(0));
+        gameMap.getTiles().get(7).addNeighbour(gameMap.getTiles().get(1));
+        gameMap.getTiles().get(7).addNeighbour(gameMap.getTiles().get(2));
+        gameMap.getTiles().get(7).addNeighbour(gameMap.getTiles().get(13));
+        gameMap.getTiles().get(7).setSnow(0);
+
+        gameMap.getTiles().get(8).addNeighbour(gameMap.getTiles().get(0));
+        gameMap.getTiles().get(8).addNeighbour(gameMap.getTiles().get(2));
+        gameMap.getTiles().get(8).addNeighbour(gameMap.getTiles().get(3));
+        gameMap.getTiles().get(8).addNeighbour(gameMap.getTiles().get(4));
+        gameMap.getTiles().get(8).addNeighbour(gameMap.getTiles().get(12));
+        gameMap.getTiles().get(8).setSnow(0);
+
+        gameMap.getTiles().get(9).addNeighbour(gameMap.getTiles().get(1));
+        gameMap.getTiles().get(9).addNeighbour(gameMap.getTiles().get(6));
+        gameMap.getTiles().get(9).addNeighbour(gameMap.getTiles().get(13));
+        gameMap.getTiles().get(9).setSnow(0);
+
+        gameMap.getTiles().get(10).addNeighbour(gameMap.getTiles().get(2));
+        gameMap.getTiles().get(10).addNeighbour(gameMap.getTiles().get(4));
+        gameMap.getTiles().get(10).addNeighbour(gameMap.getTiles().get(6));
+        gameMap.getTiles().get(10).addNeighbour(gameMap.getTiles().get(13));
+        gameMap.getTiles().get(10).addNeighbour(gameMap.getTiles().get(14));
+        gameMap.getTiles().get(10).setSnow(0);
+
+        gameMap.getTiles().get(11).addNeighbour(gameMap.getTiles().get(3));
+        gameMap.getTiles().get(11).addNeighbour(gameMap.getTiles().get(4));
+        gameMap.getTiles().get(11).addNeighbour(gameMap.getTiles().get(5));
+        gameMap.getTiles().get(11).addNeighbour(gameMap.getTiles().get(14));
+        gameMap.getTiles().get(11).setSnow(0);
+
+        gameMap.getTiles().get(12).addNeighbour(gameMap.getTiles().get(0));
+        gameMap.getTiles().get(12).addNeighbour(gameMap.getTiles().get(3));
+        gameMap.getTiles().get(12).addNeighbour(gameMap.getTiles().get(8));
+        gameMap.getTiles().get(12).setSnow(2);
+
+        gameMap.getTiles().get(13).addNeighbour(gameMap.getTiles().get(1));
+        gameMap.getTiles().get(13).addNeighbour(gameMap.getTiles().get(2));
+        gameMap.getTiles().get(13).addNeighbour(gameMap.getTiles().get(6));
+        gameMap.getTiles().get(13).addNeighbour(gameMap.getTiles().get(7));
+        gameMap.getTiles().get(13).addNeighbour(gameMap.getTiles().get(9));
+        gameMap.getTiles().get(13).addNeighbour(gameMap.getTiles().get(10));
+        gameMap.getTiles().get(13).setSnow(3);
+
+        gameMap.getTiles().get(14).addNeighbour(gameMap.getTiles().get(4));
+        gameMap.getTiles().get(14).addNeighbour(gameMap.getTiles().get(6));
+        gameMap.getTiles().get(14).addNeighbour(gameMap.getTiles().get(10));
+        gameMap.getTiles().get(14).addNeighbour(gameMap.getTiles().get(11));
+        gameMap.getTiles().get(14).setSnow(3);
+
     }
 
     /*
