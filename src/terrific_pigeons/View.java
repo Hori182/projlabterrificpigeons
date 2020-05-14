@@ -23,15 +23,15 @@ public class View extends JPanel {
     public void init(Map map){}
     public void drawPolarBear(Graphics g, int x, int y, int eltolas){
         g.setColor(Color.RED);
-        g.drawRect(x+eltolas+5,y+25,10,10);
+        g.drawRect(x+eltolas+5,y+20,10,10);
     }
     public void drawEskimo(Graphics g, int x, int y, int eltolas){
         g.setColor(Color.GREEN);
-        g.drawRect(x+eltolas+5,y+25,10,10);
+        g.drawRect(x+eltolas+5,y+20,10,10);
     }
     public void drawResearcher(Graphics g, int x, int y, int eltolas){
         g.setColor(Color.BLUE);
-        g.drawRect(x+eltolas+5,y+25,10,10);
+        g.drawRect(x+eltolas+5,y+20,10,10);
     }
     public void drawTile(Graphics g, int x, int y, int r){
         g.setColor(Color.WHITE);
