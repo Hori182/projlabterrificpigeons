@@ -11,7 +11,7 @@ public class Main extends JFrame{
 
         Game game = new Game();
         game.startGame();
-        JFrame jf = new JFrame();
+        JFrame jf = new JFrame("Deadly Ice Tiles");
         //jf.getContentPane().setBackground(Color.cyan);
         View v = new View();
         v.setGame(game);
