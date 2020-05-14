@@ -72,13 +72,10 @@ public class View extends JPanel {
             {
                 drawTile(g,x,y,50);
             }
-            else if(i < 12)
+            else if(i < 15)
             {
-                drawWater(g,x,y,50);
-            }
-            else
-            {
-                drawUnstable(g,x,y,50);
+                if(game.getGameMap().getTiles().get(i).getLimit() == 0) drawWater(g,x,y,50);
+                else drawUnstable(g,x,y,50);
             }
             if(game.getGameMap().getTiles().get(i).getMovables().size() > 0) {
                 int eltolas = 0;
