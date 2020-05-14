@@ -25,15 +25,15 @@ public class View extends JPanel {
     public void drawEskimo(){}
     public void drawResearcher(){}
     public void drawTile(Graphics g, int x, int y, int r){
-       setForeground(Color.BLACK);
+        g.setColor(Color.BLACK);
         g.drawOval(x,y, r,r);
     }
     public void drawUnstable(Graphics g, int x, int y, int r){
-        setForeground(Color.GRAY);
+        g.setColor(Color.RED);
         g.fillOval(x, y, r, r);
     }
     public void drawWater(Graphics g, int x, int y, int r){
-        setForeground(Color.BLUE);
+        g.setColor(Color.BLUE);
         g.fillOval(x, y, r, r);
     }
     public void drawNieghbours(){}
@@ -48,14 +48,45 @@ public class View extends JPanel {
             int y = game.getGameMap().getTiles().get(i).GetY();
             if(i < 7)
             {
+                if(y ==150 || y==450)
+                {
+                    game.getGameMap().getTiles().get(i).SetX(x+40);
+                    x = x+40;
+                }
                 drawTile(g,x,y,50);
             }
-            else if(7 < i && i < 12)
+            else if(i < 12)
             {
+                if(y ==150 || y==450)
+                {
+                    game.getGameMap().getTiles().get(i).SetX(x+40);
+                    x = x+40;
+                }
                 drawWater(g,x,y,50);
             }
-            else drawUnstable(g,x,y,50);
-            System.out.println("X: " + x + " Y: " + y);
+            else
+            {
+                if(y ==150 || y==450)
+                {
+                    game.getGameMap().getTiles().get(i).SetX(x+40);
+                    x = x+40;
+                }
+                drawUnstable(g,x,y,50);
+            }
+           //System.out.println("X: " + x + " Y: " + y);
+        }
+
+        for(int i = 0; i < game.getGameMap().getTiles().size(); i++)
+        {
+            int startX = game.getGameMap().getTiles().get(i).GetX();
+            int startY = game.getGameMap().getTiles().get(i).GetY();
+            int neigborsize =  game.getGameMap().getTiles().get(i).getNeighbours().size();
+            for(int j = 0; j < neigborsize; j++)
+            {
+                int endX = game.getGameMap().getTiles().get(i).getNeighbours().get(j).GetX();
+                int endY = game.getGameMap().getTiles().get(i).getNeighbours().get(j).GetY();
+                g.drawLine(startX+25,startY+25,endX+25,endY+25);
+            }
         }
     }
 
