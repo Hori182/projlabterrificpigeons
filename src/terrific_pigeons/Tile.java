@@ -283,21 +283,21 @@ public class Tile implements IViewable{
 
     @Override
     public int GetX() {
-        return 0;
+        return X;
     }
 
     @Override
     public int GetY() {
-        return 0;
+        return Y;
     }
 
     @Override
     public void SetX(int x) {
-
+            this.X = x;
     }
 
     @Override
     public void SetY(int y) {
-
+            this.Y = y;
     }
 }

@@ -9,13 +9,15 @@ public class Main extends JFrame{
     public static void main(String[] args) throws IOException {
 
         Game game = new Game();
+        game.startGame();
         JFrame jf = new JFrame();
         View v = new View();
+        v.setGame(game);
         jf.add(v);
-        jf.setSize(300,300);
+        jf.setSize(800,800);
         jf.setVisible(true);
 
-        boolean started = false;
+        /*boolean started = false;
         while(!started) {
             System.out.println("1. Start the game with your own map - type: load example.txt");
             System.out.println("2. Start the game with generated map - type: init");
@@ -93,7 +95,7 @@ public class Main extends JFrame{
             command = input.nextLine();
             commandparam = command.split(" ");
         }
-        game.endGame();
+        game.endGame();*/
 
     }
 

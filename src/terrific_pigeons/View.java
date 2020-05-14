@@ -2,6 +2,7 @@ package terrific_pigeons;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.Console;
 import java.util.List;
 
 public class View extends JPanel {
@@ -22,8 +23,9 @@ public class View extends JPanel {
     public void init(Map map){}
     public void drawPolarBear(){}
     public void drawEskimo(){}
-    public void drawPResearcher(){}
+    public void drawResearcher(){}
     public void drawTile(Graphics g, int x, int y, int r){
+       setForeground(Color.BLACK);
         g.drawOval(x,y, r,r);
     }
     public void drawUnstable(Graphics g, int x, int y, int r){
@@ -39,9 +41,26 @@ public class View extends JPanel {
     @Override
     public void paintComponent(Graphics g){
         super.paintComponent(g);
-        drawUnstable(g, 0, 0, 50);
+
+        for(int i = 0; i< game.getGameMap().getTiles().size(); i++)
+        {
+            int x = game.getGameMap().getTiles().get(i).GetX();
+            int y = game.getGameMap().getTiles().get(i).GetY();
+            if(i < 7)
+            {
+                drawTile(g,x,y,50);
+            }
+            else if(7 < i && i < 12)
+            {
+                drawWater(g,x,y,50);
+            }
+            else drawUnstable(g,x,y,50);
+            System.out.println("X: " + x + " Y: " + y);
+        }
     }
 
-    public void drawMap(Graphics g){}
+    public void drawMap(Graphics g){
+
+    }
 
 }

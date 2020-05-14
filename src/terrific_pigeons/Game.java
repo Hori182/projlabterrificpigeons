@@ -46,7 +46,7 @@ public class Game {
     * Játék indítása.
     * */
     public void startGame(){
-        Scanner input = new Scanner(System.in);
+        /*Scanner input = new Scanner(System.in);
         System.out.println("Number of eskimos: ");
         int numOfEskimos = Integer.parseInt(input.nextLine());
         System.out.println("Number of researchers: ");
@@ -66,7 +66,8 @@ public class Game {
         }
         this.initMap(20);
         this.getPlayers().get(currentPlayer).setWork(0);
-        this.draw();
+        this.draw();*/
+        this.initMap2();
     }
 
     /*
