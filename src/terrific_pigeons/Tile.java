@@ -16,7 +16,8 @@ public class Tile implements IViewable{
     private int tileId;
     //csak a szkeletonhoz hoztuk létre ezt a változót
     private String name;
-
+    protected int X;
+    protected int Y;
     public Tile(int id){ tileId = id; }
 
     /*
@@ -281,11 +282,20 @@ public class Tile implements IViewable{
 
     @Override
     public int GetX() {
-        return 0;
+        return X;
     }
 
     @Override
     public int GetY() {
-        return 0;
+        return Y;
+    }
+
+    @Override
+    public void SetX(int x) {
+        X = x;
+    }
+    @Override
+    public void SetY(int y) {
+        Y = y;
     }
 }

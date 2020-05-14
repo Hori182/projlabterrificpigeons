@@ -6,6 +6,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Game {
     private View gameView = new View();
@@ -325,6 +326,20 @@ public class Game {
             }
         }
     }
+    //EZNEMTUTIHOGYJÓ MEG LEHET A TILE IS SZAR
+    public void initMap2() {
+        for(int i = 0; i < 5; i++) {
+            Tile t = new Tile(i);
+        }
+        for(int i = 5; i < 10; i++) {
+            Unstable u = new Unstable(0, i);
+        }
+        for(int i = 10; i < 13; i++) {
+            int randomNum = ThreadLocalRandom.current().nextInt(1, 5);
+            Unstable u = new Unstable(randomNum, i);
+        }
+    }
+
     /*
     Kirajzolja a játék állását
      */
