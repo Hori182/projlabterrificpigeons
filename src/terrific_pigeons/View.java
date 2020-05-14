@@ -2,12 +2,16 @@ package terrific_pigeons;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
 import java.io.Console;
 import java.util.List;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class View extends JPanel {
     JFrame jf = new JFrame();
     Graphics g;
+
 
     public View(){
         /*jf.setSize(500,500);
@@ -51,7 +55,48 @@ public class View extends JPanel {
         g.setColor(Color.BLACK);
         g.drawOval(x,y,r,r);
     }
-    public void drawNieghbours(){}
+
+    public void mouse_click(){
+        Player p = game.getPlayers().get(game.getCurrentPlayer());
+        int tile_id = -1;
+
+
+        if (p.getWork() < 4){
+            System.out.println(game.getPlayers().get(game.getCurrentPlayer()).getId().toString() + " " + game.getPlayers().get(game.getCurrentPlayer()).getTile().getTileId());
+
+            addMouseListener(new MouseAdapter() {
+                public void mousePressed(MouseEvent me) {
+                    int tile_id = -1;
+                    int x = me.getX();
+                    int y = me.getY();
+                    boolean b = false;
+
+                    for (int i = 0; i < game.getGameMap().getTiles().size(); i++){
+                        if(x < game.getGameMap().getTiles().get(i).X + 50 &&
+                                x > game.getGameMap().getTiles().get(i).X - 50){
+                            if(y < game.getGameMap().getTiles().get(i).Y + 50 &&
+                                    y > game.getGameMap().getTiles().get(i).Y - 50){
+                                if(game.getGameMap().getTiles().get(i) != game.getPlayers().get(game.getCurrentPlayer()).getTile()){
+                                    b = true;
+                                    tile_id = i;
+                                    break;
+                                }
+                            }
+                        }
+                    }
+
+                    if(b){
+                        game.getPlayers().get(game.getCurrentPlayer()).move(game.getGameMap().getTiles().get(tile_id));
+                    }
+                    System.out.println(game.getPlayers().get(game.getCurrentPlayer()).getTile().getMovables().size());
+                }
+            });
+        }
+    }
+
+    public void drawNieghbours(){
+
+    }
 
     @Override
     public void paintComponent(Graphics g){
@@ -69,7 +114,6 @@ public class View extends JPanel {
                 g.drawLine(startX+25,startY+25,endX+25,endY+25);
             }
         }
-
         for(int i = 0; i< game.getGameMap().getTiles().size(); i++)
         {
             int x = game.getGameMap().getTiles().get(i).GetX();
@@ -83,6 +127,7 @@ public class View extends JPanel {
                 if(game.getGameMap().getTiles().get(i).getLimit() == 0) drawWater(g,x,y,50);
                 else drawUnstable(g,x,y,50);
             }
+
             if(game.getGameMap().getTiles().get(i).getMovables().size() > 0) {
                 int eltolas = 0;
                 System.out.println(game.getGameMap().getTiles().get(i).getMovables().size());
@@ -101,10 +146,8 @@ public class View extends JPanel {
                     }
                 }
             }
-           //System.out.println("X: " + x + " Y: " + y);
         }
-
-
+        mouse_click();
     }
 
     public void drawMap(Graphics g){

@@ -7,6 +7,7 @@ public abstract class MoveAble implements IViewable{
     protected int work = 0;
     protected Tile myTile;
     protected String moveableid;
+
     /*Mozgás függvénye*/
     protected  void move(Tile t){
 
