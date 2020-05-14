@@ -352,11 +352,22 @@ public class Game {
         this.addPlayers(e1);
         polarbears.add(p);
 
+        PistolPart p1 = new PistolPart();
+        PistolPart p2 = new PistolPart();
+        PistolPart p3 = new PistolPart();
+        DivingSuit ds = new DivingSuit();
+        Food f = new Food();
+        FragileShovel fs = new FragileShovel();
+        Rope r = new Rope();
+        Shovel s = new Shovel();
+        Tent t = new Tent();
+
         gameMap.getTiles().get(0).addNeighbour(gameMap.getTiles().get(7));
         gameMap.getTiles().get(0).addNeighbour(gameMap.getTiles().get(1));
         gameMap.getTiles().get(0).addNeighbour(gameMap.getTiles().get(8));
         gameMap.getTiles().get(0).addNeighbour(gameMap.getTiles().get(12));
         gameMap.getTiles().get(0).setSnow(4);
+        gameMap.getTiles().get(0).setThing(p1);
 
         gameMap.getTiles().get(1).addNeighbour(gameMap.getTiles().get(7));
         gameMap.getTiles().get(1).addNeighbour(gameMap.getTiles().get(9));
@@ -364,6 +375,7 @@ public class Game {
         gameMap.getTiles().get(1).addMoveAbles(polarbears.get(0));
         polarbears.get(0).setMyTile(gameMap.getTiles().get(1));
         gameMap.getTiles().get(1).setSnow(2);
+        gameMap.getTiles().get(1).setThing(p2);
 
         gameMap.getTiles().get(2).addNeighbour(gameMap.getTiles().get(0));
         gameMap.getTiles().get(2).addNeighbour(gameMap.getTiles().get(7));
@@ -372,6 +384,7 @@ public class Game {
         gameMap.getTiles().get(2).addNeighbour(gameMap.getTiles().get(9));
         gameMap.getTiles().get(2).addNeighbour(gameMap.getTiles().get(13));
         gameMap.getTiles().get(2).setSnow(3);
+        gameMap.getTiles().get(2).setThing(f);
 
         gameMap.getTiles().get(3).addNeighbour(gameMap.getTiles().get(12));
         gameMap.getTiles().get(3).addNeighbour(gameMap.getTiles().get(8));
@@ -379,6 +392,7 @@ public class Game {
         gameMap.getTiles().get(3).addNeighbour(gameMap.getTiles().get(11));
         gameMap.getTiles().get(3).addNeighbour(gameMap.getTiles().get(5));
         gameMap.getTiles().get(3).setSnow(3);
+        gameMap.getTiles().get(3).setThing(t);
 
         gameMap.getTiles().get(4).addNeighbour(gameMap.getTiles().get(3));
         gameMap.getTiles().get(4).addNeighbour(gameMap.getTiles().get(8));
@@ -395,13 +409,14 @@ public class Game {
             gameMap.getTiles().get(5).addMoveAbles(players.get(i));
             players.get(i).setMyTile(gameMap.getTiles().get(5));
         }
-
+        gameMap.getTiles().get(5).setThing(r);
 
         gameMap.getTiles().get(6).addNeighbour(gameMap.getTiles().get(14));
         gameMap.getTiles().get(6).addNeighbour(gameMap.getTiles().get(10));
         gameMap.getTiles().get(6).addNeighbour(gameMap.getTiles().get(9));
         gameMap.getTiles().get(6).addNeighbour(gameMap.getTiles().get(13));
         gameMap.getTiles().get(6).setSnow(3);
+        gameMap.getTiles().get(6).setThing(s);
 
         gameMap.getTiles().get(7).addNeighbour(gameMap.getTiles().get(0));
         gameMap.getTiles().get(7).addNeighbour(gameMap.getTiles().get(1));
@@ -438,6 +453,7 @@ public class Game {
         gameMap.getTiles().get(12).addNeighbour(gameMap.getTiles().get(3));
         gameMap.getTiles().get(12).addNeighbour(gameMap.getTiles().get(8));
         gameMap.getTiles().get(12).setSnow(2);
+        gameMap.getTiles().get(12).setThing(ds);
 
         gameMap.getTiles().get(13).addNeighbour(gameMap.getTiles().get(1));
         gameMap.getTiles().get(13).addNeighbour(gameMap.getTiles().get(2));
@@ -446,13 +462,14 @@ public class Game {
         gameMap.getTiles().get(13).addNeighbour(gameMap.getTiles().get(9));
         gameMap.getTiles().get(13).addNeighbour(gameMap.getTiles().get(10));
         gameMap.getTiles().get(13).setSnow(3);
+        gameMap.getTiles().get(13).setThing(fs);
 
         gameMap.getTiles().get(14).addNeighbour(gameMap.getTiles().get(4));
         gameMap.getTiles().get(14).addNeighbour(gameMap.getTiles().get(6));
         gameMap.getTiles().get(14).addNeighbour(gameMap.getTiles().get(10));
         gameMap.getTiles().get(14).addNeighbour(gameMap.getTiles().get(11));
         gameMap.getTiles().get(14).setSnow(3);
-
+        gameMap.getTiles().get(14).setThing(p3);
     }
 
     /*
