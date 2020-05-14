@@ -25,8 +25,8 @@ public class View extends JPanel {
     public void drawEskimo(){}
     public void drawResearcher(){}
     public void drawTile(Graphics g, int x, int y, int r){
-        g.setColor(Color.BLACK);
-        g.drawOval(x,y, r,r);
+        g.setColor(Color.WHITE);
+        g.fillOval(x,y, r,r);
     }
     public void drawUnstable(Graphics g, int x, int y, int r){
         g.setColor(Color.RED);
@@ -41,6 +41,19 @@ public class View extends JPanel {
     @Override
     public void paintComponent(Graphics g){
         super.paintComponent(g);
+
+        for(int i = 0; i < game.getGameMap().getTiles().size(); i++)
+        {
+            int startX = game.getGameMap().getTiles().get(i).GetX();
+            int startY = game.getGameMap().getTiles().get(i).GetY();
+            int neigborsize =  game.getGameMap().getTiles().get(i).getNeighbours().size();
+            for(int j = 0; j < neigborsize; j++)
+            {
+                int endX = game.getGameMap().getTiles().get(i).getNeighbours().get(j).GetX();
+                int endY = game.getGameMap().getTiles().get(i).getNeighbours().get(j).GetY();
+                g.drawLine(startX+25,startY+25,endX+25,endY+25);
+            }
+        }
 
         for(int i = 0; i< game.getGameMap().getTiles().size(); i++)
         {
@@ -61,18 +74,7 @@ public class View extends JPanel {
            //System.out.println("X: " + x + " Y: " + y);
         }
 
-        for(int i = 0; i < game.getGameMap().getTiles().size(); i++)
-        {
-            int startX = game.getGameMap().getTiles().get(i).GetX();
-            int startY = game.getGameMap().getTiles().get(i).GetY();
-            int neigborsize =  game.getGameMap().getTiles().get(i).getNeighbours().size();
-            for(int j = 0; j < neigborsize; j++)
-            {
-                int endX = game.getGameMap().getTiles().get(i).getNeighbours().get(j).GetX();
-                int endY = game.getGameMap().getTiles().get(i).getNeighbours().get(j).GetY();
-                g.drawLine(startX+25,startY+25,endX+25,endY+25);
-            }
-        }
+
     }
 
     public void drawMap(Graphics g){

@@ -1,5 +1,6 @@
 package terrific_pigeons;
 import javax.swing.*;
+import java.awt.*;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -11,6 +12,7 @@ public class Main extends JFrame{
         Game game = new Game();
         game.startGame();
         JFrame jf = new JFrame();
+        //jf.getContentPane().setBackground(Color.cyan);
         View v = new View();
         v.setGame(game);
         jf.add(v);
