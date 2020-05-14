@@ -62,9 +62,8 @@ public class View extends JPanel {
 
 
         if (p.getWork() < 4){
-            System.out.println(game.getPlayers().get(game.getCurrentPlayer()).getId().toString() + " " + game.getPlayers().get(game.getCurrentPlayer()).getTile().getTileId());
 
-            addMouseListener(new MouseAdapter() {
+            this.addMouseListener(new MouseAdapter() {
                 public void mousePressed(MouseEvent me) {
                     int tile_id = -1;
                     int x = me.getX();
@@ -85,12 +84,12 @@ public class View extends JPanel {
                         }
                     }
 
-                    if(b){
+                    if(b) {
                         game.getPlayers().get(game.getCurrentPlayer()).move(game.getGameMap().getTiles().get(tile_id));
                     }
-                    System.out.println(game.getPlayers().get(game.getCurrentPlayer()).getTile().getMovables().size());
                 }
             });
+            this.repaint();
         }
     }
 
@@ -130,7 +129,6 @@ public class View extends JPanel {
 
             if(game.getGameMap().getTiles().get(i).getMovables().size() > 0) {
                 int eltolas = 0;
-                System.out.println(game.getGameMap().getTiles().get(i).getMovables().size());
                 for(int j = 0; j < game.getGameMap().getTiles().get(i).getMovables().size(); j++) {
                     if(game.getGameMap().getTiles().get(i).getMovables().get(j).getId().contains("e")) {
                         drawEskimo(g, game.getGameMap().getTiles().get(i).GetX(), game.getGameMap().getTiles().get(i).GetY(), eltolas);
