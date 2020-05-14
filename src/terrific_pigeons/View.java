@@ -23,17 +23,23 @@ public class View extends JPanel {
     public void drawPolarBear(){}
     public void drawEskimo(){}
     public void drawPResearcher(){}
-    public void drawTile(Graphics g, int x, int y, int l, int w){
-        g.fillOval(x,y, l,w);
+    public void drawTile(Graphics g, int x, int y, int r){
+        g.drawOval(x,y, r,r);
     }
-    public void drawUnstable(){}
-    public void drawWater(){}
+    public void drawUnstable(Graphics g, int x, int y, int r){
+        setForeground(Color.GRAY);
+        g.fillOval(x, y, r, r);
+    }
+    public void drawWater(Graphics g, int x, int y, int r){
+        setForeground(Color.BLUE);
+        g.fillOval(x, y, r, r);
+    }
     public void drawNieghbours(){}
 
     @Override
     public void paintComponent(Graphics g){
         super.paintComponent(g);
-        drawTile(g, 0, 0, 50, 50);
+        drawUnstable(g, 0, 0, 50);
     }
 
     public void drawMap(Graphics g){}
