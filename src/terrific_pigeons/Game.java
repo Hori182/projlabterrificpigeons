@@ -1,5 +1,6 @@
 package terrific_pigeons;
 
+import javax.swing.*;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
@@ -10,6 +11,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Game {
     private View gameView = new View();
+    private JFrame jf = new JFrame();
     private Map gameMap = new Map();
     ArrayList<Player> players = new ArrayList<>();
     ArrayList<PolarBear> polarbears = new ArrayList<>();

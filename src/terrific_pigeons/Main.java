@@ -4,13 +4,17 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Main {
+public class Main extends JFrame{
 
     public static void main(String[] args) throws IOException {
 
         Game game = new Game();
         JFrame jf = new JFrame();
+        View v = new View();
+        jf.add(v);
+        jf.setSize(300,300);
         jf.setVisible(true);
+
         boolean started = false;
         while(!started) {
             System.out.println("1. Start the game with your own map - type: load example.txt");
