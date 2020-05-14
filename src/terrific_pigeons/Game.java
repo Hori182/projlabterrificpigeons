@@ -345,10 +345,10 @@ public class Game {
             Unstable u = new Unstable(randomNum, i);
             gameMap.addTile(u);
         }
-        Researcher r1 = new Researcher("0");
-        Researcher r2 = new Researcher("1");
-        Eskimo e1 = new Eskimo("0");
-        PolarBear p = new PolarBear("0");
+        Researcher r1 = new Researcher("r0");
+        Researcher r2 = new Researcher("r1");
+        Eskimo e1 = new Eskimo("e0");
+        PolarBear p = new PolarBear("p0");
 
         this.addPlayers(r1);
         this.addPlayers(r2);
@@ -372,6 +372,8 @@ public class Game {
         gameMap.getTiles().get(0).setSnow(4);
         gameMap.getTiles().get(0).setThing(p1);
         gameMap.getTiles().get(0).SetX(150);gameMap.getTiles().get(0).SetY(0);
+
+
 
         gameMap.getTiles().get(1).addNeighbour(gameMap.getTiles().get(7));
         gameMap.getTiles().get(1).addNeighbour(gameMap.getTiles().get(9));

@@ -21,9 +21,18 @@ public class View extends JPanel {
         this.game = g;
     }
     public void init(Map map){}
-    public void drawPolarBear(){}
-    public void drawEskimo(){}
-    public void drawResearcher(){}
+    public void drawPolarBear(Graphics g, int x, int y, int eltolas){
+        g.setColor(Color.RED);
+        g.drawRect(x+eltolas+5,y+25,10,10);
+    }
+    public void drawEskimo(Graphics g, int x, int y, int eltolas){
+        g.setColor(Color.GREEN);
+        g.drawRect(x+eltolas+5,y+25,10,10);
+    }
+    public void drawResearcher(Graphics g, int x, int y, int eltolas){
+        g.setColor(Color.BLUE);
+        g.drawRect(x+eltolas+5,y+25,10,10);
+    }
     public void drawTile(Graphics g, int x, int y, int r){
         g.setColor(Color.WHITE);
         g.fillOval(x,y, r,r);
@@ -70,6 +79,24 @@ public class View extends JPanel {
             else
             {
                 drawUnstable(g,x,y,50);
+            }
+            if(game.getGameMap().getTiles().get(i).getMovables().size() > 0) {
+                int eltolas = 0;
+                System.out.println(game.getGameMap().getTiles().get(i).getMovables().size());
+                for(int j = 0; j < game.getGameMap().getTiles().get(i).getMovables().size(); j++) {
+                    if(game.getGameMap().getTiles().get(i).getMovables().get(j).getId().contains("e")) {
+                        drawEskimo(g, game.getGameMap().getTiles().get(i).GetX(), game.getGameMap().getTiles().get(i).GetY(), eltolas);
+                        eltolas += 15;
+                    }
+                    else if(game.getGameMap().getTiles().get(i).getMovables().get(j).getId().contains("r")) {
+                        drawResearcher(g, game.getGameMap().getTiles().get(i).GetX(), game.getGameMap().getTiles().get(i).GetY(), eltolas);
+                        eltolas += 15;
+                    }
+                    else if(game.getGameMap().getTiles().get(i).getMovables().get(j).getId().contains("p")) {
+                        drawPolarBear(g, game.getGameMap().getTiles().get(i).GetX(), game.getGameMap().getTiles().get(i).GetY(), eltolas);
+                        eltolas += 15;
+                    }
+                }
             }
            //System.out.println("X: " + x + " Y: " + y);
         }
