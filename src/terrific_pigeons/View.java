@@ -48,29 +48,14 @@ public class View extends JPanel {
             int y = game.getGameMap().getTiles().get(i).GetY();
             if(i < 7)
             {
-                if(y ==150 || y==450)
-                {
-                    game.getGameMap().getTiles().get(i).SetX(x+40);
-                    x = x+40;
-                }
                 drawTile(g,x,y,50);
             }
             else if(i < 12)
             {
-                if(y ==150 || y==450)
-                {
-                    game.getGameMap().getTiles().get(i).SetX(x+40);
-                    x = x+40;
-                }
                 drawWater(g,x,y,50);
             }
             else
             {
-                if(y ==150 || y==450)
-                {
-                    game.getGameMap().getTiles().get(i).SetX(x+40);
-                    x = x+40;
-                }
                 drawUnstable(g,x,y,50);
             }
            //System.out.println("X: " + x + " Y: " + y);
