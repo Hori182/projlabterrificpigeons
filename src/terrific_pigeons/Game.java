@@ -402,6 +402,8 @@ public class Game {
         gameMap.getTiles().get(3).setSnow(3);
         gameMap.getTiles().get(3).setThing(t);
         gameMap.getTiles().get(3).SetX(0);gameMap.getTiles().get(3).SetY(300);
+        //gameMap.getTiles().get(3).setSafe(true);
+        //gameMap.getTiles().get(4).setSafeByTent(true);
 
         gameMap.getTiles().get(4).addNeighbour(gameMap.getTiles().get(3));
         gameMap.getTiles().get(4).addNeighbour(gameMap.getTiles().get(8));

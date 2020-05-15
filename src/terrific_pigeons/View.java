@@ -9,10 +9,6 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 public class View extends JPanel {
-    JFrame jf = new JFrame();
-    Graphics g;
-
-
     public View(){
         /*jf.setSize(500,500);
         jf.setVisible(true);*/
@@ -37,16 +33,17 @@ public class View extends JPanel {
         g.setColor(Color.BLUE);
         g.drawRect(x+eltolas+5,y+20,10,10);
     }
-    public void drawTile(Graphics g, int x, int y, int r){
+    public void drawTile(Graphics g, int x, int y, int r, Color c){
         g.setColor(Color.WHITE);
         g.fillOval(x,y, r,r);
-        g.setColor(Color.BLACK);
+        g.setColor(c);
         g.drawOval(x,y,r,r);
     }
-    public void drawUnstable(Graphics g, int x, int y, int r){
+    public void drawUnstable(Graphics g, int x, int y, int r, Color c){
         g.setColor(Color.RED);
         g.fillOval(x, y, r, r);
-        g.setColor(Color.BLACK);
+        g.setColor(c);
+        //System.out.println(c.toString());
         g.drawOval(x,y,r,r);
     }
     public void drawWater(Graphics g, int x, int y, int r){
@@ -57,6 +54,7 @@ public class View extends JPanel {
     }
     public void drawSideBar(Graphics g)
     {
+        g.setColor(Color.BLACK);
         int fontSize = 15;
         Font f = new Font("Courier", Font.BOLD, fontSize);
         g.setFont(f);
@@ -143,12 +141,19 @@ public class View extends JPanel {
             int y = game.getGameMap().getTiles().get(i).GetY();
             if(i < 7)
             {
-                drawTile(g,x,y,50);
+                if(game.getGameMap().getTiles().get(i).getSafe()){ drawTile(g,x,y,50,Color.GREEN); }
+                else if(game.getGameMap().getTiles().get(i).getSafeByTent()){ drawTile(g,x,y,50,Color.BLUE); }
+                else drawTile(g,x,y,50,Color.BLACK);
             }
             else if(i < 15)
             {
                 if(game.getGameMap().getTiles().get(i).getLimit() == 0) drawWater(g,x,y,50);
-                else drawUnstable(g,x,y,50);
+                else
+                {
+                    if(game.getGameMap().getTiles().get(i).getSafe()){ drawUnstable(g,x,y,50,Color.GREEN); }
+                    else if(game.getGameMap().getTiles().get(i).getSafeByTent()){ drawUnstable(g,x,y,50,Color.BLUE); }
+                    else drawUnstable(g,x,y,50,Color.BLACK);
+                }
             }
 
             if(game.getGameMap().getTiles().get(i).getMovables().size() > 0) {
