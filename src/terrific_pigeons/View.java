@@ -71,6 +71,10 @@ public class View extends JPanel {
         else g.drawString("Thing on Tile: -",720,330);
     }
 
+    public void update(){
+        this.repaint();
+    }
+
     public void mouse_click(){
         Player p = game.getPlayers().get(game.getCurrentPlayer());
         int tile_id = -1;
@@ -89,10 +93,12 @@ public class View extends JPanel {
                                 x > game.getGameMap().getTiles().get(i).X - 50){
                             if(y < game.getGameMap().getTiles().get(i).Y + 50 &&
                                     y > game.getGameMap().getTiles().get(i).Y - 50){
-                                if(game.getGameMap().getTiles().get(i) != game.getPlayers().get(game.getCurrentPlayer()).getTile()){
-                                    b = true;
-                                    tile_id = i;
-                                    break;
+                                if(game.getGameMap().getTiles().get(i).getLimit() != 0){
+                                    if(game.getGameMap().getTiles().get(i) != game.getPlayers().get(game.getCurrentPlayer()).getTile()){
+                                         b = true;
+                                        tile_id = i;
+                                        break;
+                                    }
                                 }
                             }
                         }
@@ -100,10 +106,17 @@ public class View extends JPanel {
 
                     if(b) {
                         game.getPlayers().get(game.getCurrentPlayer()).move(game.getGameMap().getTiles().get(tile_id));
+                        update();
                     }
                 }
             });
-            this.repaint();
+        } else{
+            game.nextPlayer();
+
+            if(game.getCurrentPlayer() == 0){
+                game.polarbears.get(0).moveToRandom();
+                update();
+            }
         }
     }
 

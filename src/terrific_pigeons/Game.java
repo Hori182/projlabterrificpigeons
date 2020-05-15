@@ -102,7 +102,7 @@ public class Game {
         getPlayers().get(currentPlayer).setWork(0);
         if(getPlayers().get(currentPlayer).getInWater() && getPlayers().size() > 1)
             nextPlayer();
-        this.draw();
+        //this.draw();
     }
 
     /*
