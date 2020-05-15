@@ -55,11 +55,27 @@ public class View extends JPanel {
         g.setColor(Color.BLACK);
         g.drawOval(x,y,r,r);
     }
+    public void drawSideBar(Graphics g)
+    {
+        int fontSize = 15;
+        Font f = new Font("Courier", Font.BOLD, fontSize);
+        g.setFont(f);
+        g.drawRect(650,50,250,400);
+        g.drawString("Current player: "+game.getPlayers().get(game.getCurrentPlayer()).getId(),720,170);
+        g.drawString("Life: " + game.getPlayers().get(game.getCurrentPlayer()).getLife(),720,210);
+        g.drawString("Work: " + game.getPlayers().get(game.getCurrentPlayer()).getWork(),720,250);
+        //g.drawString("TileID: " + game.getPlayers().get(game.getCurrentPlayer()).getTile().getName(),720,220);
+        g.drawString("Snow: " + game.getPlayers().get(game.getCurrentPlayer()).getTile().getSnow(),720,290);
+        if(game.getPlayers().get(game.getCurrentPlayer()).getTile().getSnow() == 0)
+        {
+            g.drawString("Thing on Tile: " + game.getPlayers().get(game.getCurrentPlayer()).getTile().getThing().getName(),720,330);
+        }
+        else g.drawString("Thing on Tile: -",720,330);
+    }
 
     public void mouse_click(){
         Player p = game.getPlayers().get(game.getCurrentPlayer());
         int tile_id = -1;
-
 
         if (p.getWork() < 4){
 
@@ -102,6 +118,7 @@ public class View extends JPanel {
 
         super.paintComponent(g);
         drawMap(g);
+        drawSideBar(g);
 
         mouse_click();
     }
@@ -152,6 +169,7 @@ public class View extends JPanel {
                 }
             }
         }
+
     }
 
 }
