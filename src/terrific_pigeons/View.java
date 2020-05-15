@@ -99,12 +99,19 @@ public class View extends JPanel {
 
     @Override
     public void paintComponent(Graphics g){
-        super.paintComponent(g);
 
+        super.paintComponent(g);
+        drawMap(g);
+
+        mouse_click();
+    }
+
+    public void drawMap(Graphics g){
         for(int i = 0; i < game.getGameMap().getTiles().size(); i++)
         {
             int startX = game.getGameMap().getTiles().get(i).GetX();
             int startY = game.getGameMap().getTiles().get(i).GetY();
+
             int neigborsize =  game.getGameMap().getTiles().get(i).getNeighbours().size();
             for(int j = 0; j < neigborsize; j++)
             {
@@ -145,11 +152,6 @@ public class View extends JPanel {
                 }
             }
         }
-        mouse_click();
-    }
-
-    public void drawMap(Graphics g){
-
     }
 
 }

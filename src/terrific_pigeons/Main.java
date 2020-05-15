@@ -16,7 +16,7 @@ public class Main extends JFrame{
         View v = new View();
         v.setGame(game);
         jf.add(v);
-        jf.setSize(800,800);
+        jf.setSize(1000,700);
         jf.setVisible(true);
 
         /*boolean started = false;
