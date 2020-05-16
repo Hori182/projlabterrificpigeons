@@ -135,8 +135,9 @@ public class View extends JPanel {
 
     public void addButtons(){
         JButton bPass = new JButton("Pass");
-        add(bPass);
-        bPass.setBounds(650, 450, 125, 25);
+        bPass.setVisible(true);
+       // add(bPass);
+        bPass.setBounds(650, 450, 125, 22);
         buttons.add(bPass);
         bPass.addActionListener(new ActionListener() {
             @Override
@@ -147,8 +148,8 @@ public class View extends JPanel {
         });
 
         JButton bDig = new JButton("Dig");
-        add(bDig);
-        bDig.setBounds(650,475,125,25);
+       // add(bDig);
+        bDig.setBounds(650,475,125,22);
         buttons.add(bDig);
         bDig.addActionListener(new ActionListener() {
             @Override
@@ -159,8 +160,8 @@ public class View extends JPanel {
         });
 
         JButton bEquip = new JButton("Equip");
-        add(bEquip);
-        bEquip.setBounds(650,500,125,25);
+      //  add(bEquip);
+        bEquip.setBounds(650,500,125,22);
         buttons.add(bEquip);
         bEquip.addActionListener(new ActionListener() {
             @Override
@@ -169,6 +170,48 @@ public class View extends JPanel {
                 update();
             }
         });
+
+        JButton bSpecial = new JButton ("Special ability");
+       // add(bSpecial);
+        bSpecial.setBounds(650,525, 125, 22);
+        buttons.add(bSpecial);
+        bSpecial.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                game.getPlayers().get(game.getCurrentPlayer()).build();
+                update();
+            }
+        });
+
+        JButton bThing1 = new JButton ("elso");
+       // add(bThing1);
+        buttons.add(bThing1);
+        bThing1.setBounds(650,550, 125, 22);
+
+        JButton bThing2 = new JButton ("masodik");
+       // add(bThing2);
+        buttons.add(bThing2);
+        bThing2.setBounds(650,575, 125, 22);
+
+        JButton bThing3 = new JButton ("harmadik");
+       // add(bThing3);
+        buttons.add(bThing3);
+        bThing3.setBounds(650,600, 125, 22);
+    }
+
+    public void editButtons(){
+        for (int i=0; i<buttons.size(); i++){
+            if (i>=buttons.size()-3 && i<buttons.size()-(3-game.getPlayers().get(game.getCurrentPlayer()).getThings().size())) {
+                buttons.get(i).setText("Use " + game.getPlayers().get(game.getCurrentPlayer()).getThings().get(i - 4).Name());
+                buttons.get(i).setEnabled(true);
+            }
+            if (i>=buttons.size()-(3-game.getPlayers().get(game.getCurrentPlayer()).getThings().size())) {
+
+                buttons.get(i).setText("");
+                buttons.get(i).setEnabled(false);
+            }
+
+        }
     }
 
     public ArrayList<JButton> getButtons(){
@@ -185,6 +228,7 @@ public class View extends JPanel {
         super.paintComponent(g);
         drawMap(g);
         drawSideBar(g);
+        editButtons();
 
         mouse_click();
     }
