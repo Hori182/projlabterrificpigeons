@@ -71,7 +71,13 @@ public class View extends JPanel {
         {
             g.drawString("Thing on Tile: " + game.getPlayers().get(game.getCurrentPlayer()).getTile().getThing().getName(),720,330);
         }
-        else g.drawString("Thing on Tile: -",720,330);
+        else g.drawString("Thing on Tile: snow",720,330);
+
+        String things ="";
+        for (Thing t : game.getPlayers().get(game.getCurrentPlayer()).getThings()){
+            things+=t.getName();
+        }
+        g.drawString(("Own things: " + things), 720, 370);
     }
 
     public void update(){
@@ -97,7 +103,7 @@ public class View extends JPanel {
                             if(y < game.getGameMap().getTiles().get(i).Y + 50 &&
                                     y > game.getGameMap().getTiles().get(i).Y - 50){
                                 if(game.getGameMap().getTiles().get(i).getLimit() != 0){
-                                    if(game.getGameMap().getTiles().get(i) != game.getPlayers().get(game.getCurrentPlayer()).getTile()){
+                                    if(game.getGameMap().getTiles().get(i) != game.getPlayers().get(game.getCurrentPlayer()).getTile() && game.getPlayers().get(game.getCurrentPlayer()).getTile().getNeighbours().contains(game.getGameMap().getTiles().get(i)) ){
                                          b = true;
                                         tile_id = i;
                                         break;
