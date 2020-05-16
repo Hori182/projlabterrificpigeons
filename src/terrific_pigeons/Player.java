@@ -48,10 +48,12 @@ public abstract class Player extends MoveAble {
     public void equip()
     {
         Thing th = myTile.getThing();
-        th.setOwner(this);
-        addThing(th);
-        myTile.removeThing();
-        this.work();
+        if (th!=null) {
+            th.setOwner(this);
+            addThing(th);
+            myTile.removeThing();
+            this.work();
+        }
     }
 
     /*

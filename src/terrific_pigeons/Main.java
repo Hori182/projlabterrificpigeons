@@ -26,6 +26,8 @@ public class Main extends JFrame{
         jf.setSize(1000,700);
         jf.setVisible(true);
 
+        game.draw();
+
         /*boolean started = false;
         while(!started) {
             System.out.println("1. Start the game with your own map - type: load example.txt");

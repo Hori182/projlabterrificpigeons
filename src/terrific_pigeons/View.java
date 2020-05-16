@@ -69,13 +69,17 @@ public class View extends JPanel {
         g.drawString("Snow: " + game.getPlayers().get(game.getCurrentPlayer()).getTile().getSnow(),720,290);
         if(game.getPlayers().get(game.getCurrentPlayer()).getTile().getSnow() == 0)
         {
-            g.drawString("Thing on Tile: " + game.getPlayers().get(game.getCurrentPlayer()).getTile().getThing().getName(),720,330);
+            if (game.getPlayers().get(game.getCurrentPlayer()).getTile().getThing()!=null)
+                g.drawString("Thing on Tile: " + game.getPlayers().get(game.getCurrentPlayer()).getTile().getThing().Name(),720,330);
+            else
+                g.drawString("Thing on Tile: -", 720, 330);
         }
         else g.drawString("Thing on Tile: snow",720,330);
 
         String things ="";
-        for (Thing t : game.getPlayers().get(game.getCurrentPlayer()).getThings()){
-            things+=t.getName();
+        if (game.getPlayers().get(game.getCurrentPlayer()).getThings().size()!=0)
+        for (Thing t : game.getPlayers().get(game.getCurrentPlayer()).getThings()) {
+            things = things + t.Name();
         }
         g.drawString(("Own things: " + things), 720, 370);
     }
@@ -150,6 +154,18 @@ public class View extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 game.getPlayers().get(game.getCurrentPlayer()).dig();
+                update();
+            }
+        });
+
+        JButton bEquip = new JButton("Equip");
+        add(bEquip);
+        bEquip.setBounds(650,500,125,25);
+        buttons.add(bEquip);
+        bEquip.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                game.getPlayers().get(game.getCurrentPlayer()).equip();
                 update();
             }
         });
