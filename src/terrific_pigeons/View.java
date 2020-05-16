@@ -135,6 +135,18 @@ public class View extends JPanel {
                 update();
             }
         });
+
+        JButton bDig = new JButton("Dig");
+        add(bDig);
+        bDig.setBounds(650,475,125,25);
+        buttons.add(bDig);
+        bDig.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                game.getPlayers().get(game.getCurrentPlayer()).dig();
+                update();
+            }
+        });
     }
 
     public ArrayList<JButton> getButtons(){
