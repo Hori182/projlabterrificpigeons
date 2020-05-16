@@ -2,11 +2,11 @@ package terrific_pigeons;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseAdapter;
+import java.awt.event.*;
 import java.io.Console;
+import java.util.ArrayList;
 import java.util.List;
 import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
 public class View extends JPanel {
     public View(){
@@ -16,6 +16,9 @@ public class View extends JPanel {
 
     private List<IViewable> viewables;
     private Game game;
+    protected ArrayList<JButton> buttons = new ArrayList<>();
+
+
     public void setGame(Game g)
     {
         this.game = g;
@@ -118,6 +121,24 @@ public class View extends JPanel {
                 update();
             }
         }
+    }
+
+    public void addButtons(){
+        JButton bPass = new JButton("Pass");
+        add(bPass);
+        bPass.setBounds(650, 450, 125, 25);
+        buttons.add(bPass);
+        bPass.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                game.getPlayers().get(game.getCurrentPlayer()).pass();
+                update();
+            }
+        });
+    }
+
+    public ArrayList<JButton> getButtons(){
+        return buttons;
     }
 
     public void drawNieghbours(){

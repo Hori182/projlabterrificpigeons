@@ -16,6 +16,12 @@ public class Main extends JFrame{
         //jf.getContentPane().setBackground(Color.cyan);
         View v = new View();
         v.setGame(game);
+
+        v.addButtons();
+        for (JButton b : v.getButtons()){
+            jf.add(b);
+        }
+
         jf.add(v);
         jf.setSize(1000,700);
         jf.setVisible(true);
