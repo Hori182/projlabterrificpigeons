@@ -26,7 +26,7 @@ public class Main extends JFrame{
         jf.setSize(1000,700);
         jf.setVisible(true);
 
-        game.draw();
+        game.draw();  // Csak az ellenőrzésekhez, Arnold
 
         /*boolean started = false;
         while(!started) {

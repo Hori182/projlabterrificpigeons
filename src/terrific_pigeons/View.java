@@ -200,17 +200,27 @@ public class View extends JPanel {
     }
 
     public void editButtons(){
-        for (int i=0; i<buttons.size(); i++){
-            if (i>=buttons.size()-3 && i<buttons.size()-(3-game.getPlayers().get(game.getCurrentPlayer()).getThings().size())) {
+        for (int i=0; i<buttons.size(); i++) {
+            if (i >= buttons.size() - 3 && i < buttons.size() - (3 - game.getPlayers().get(game.getCurrentPlayer()).getThings().size())) {
                 buttons.get(i).setText("Use " + game.getPlayers().get(game.getCurrentPlayer()).getThings().get(i - 4).Name());
                 buttons.get(i).setEnabled(true);
+                for (ActionListener al : buttons.get(i).getActionListeners()) {
+                    buttons.get(i).removeActionListener(al);
+                }
+                Thing th = game.getPlayers().get(game.getCurrentPlayer()).getThings().get(i-4);
+                buttons.get(i).addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        game.getPlayers().get(game.getCurrentPlayer()).use(th);
+                        update();
+                    }
+                });
             }
-            if (i>=buttons.size()-(3-game.getPlayers().get(game.getCurrentPlayer()).getThings().size())) {
+            if (i >= buttons.size() - (3 - game.getPlayers().get(game.getCurrentPlayer()).getThings().size())) {
 
                 buttons.get(i).setText("");
                 buttons.get(i).setEnabled(false);
             }
-
         }
     }
 
