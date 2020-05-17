@@ -93,6 +93,9 @@ public class View extends JPanel {
 
     public void update(){
         this.repaint();
+        for (int i = 0; i < buttons.size(); i++){
+            buttons.get(i).updateUI();
+        }
     }
 
     public void mouse_click(){
@@ -286,7 +289,7 @@ public class View extends JPanel {
         drawMap(g);
         drawSideBar(g);
         editButtons();
-        addButtons();
+        //addButtons();
 
         mouse_click();
     }
