@@ -144,15 +144,18 @@ public class Game {
     * Pisztoly összeszerelése.
     * */
     public void assemble() {
-            int id1 = pistolParts.get(0).owner.getTile().getTileId();
-            int id2 = pistolParts.get(1).owner.getTile().getTileId();
-            int id3 = pistolParts.get(2).owner.getTile().getTileId();
+        if (pistolParts.get(0).getOwner()!=null && pistolParts.get(1).getOwner()!=null && pistolParts.get(2).getOwner()!=null) {
+
+            int id1 = pistolParts.get(0).getOwner().getTile().getTileId();
+            int id2 = pistolParts.get(1).getOwner().getTile().getTileId();
+            int id3 = pistolParts.get(2).getOwner().getTile().getTileId();
             if (id1 == id2 && id1 == id3) {
 
                 setWin(true);
                 players.get(currentPlayer).work();
+                System.out.println("Nyertél!");
             }
-
+        }
     }
 
     /*
@@ -369,6 +372,9 @@ public class Game {
         PistolPart p1 = new PistolPart();
         PistolPart p2 = new PistolPart();
         PistolPart p3 = new PistolPart();
+        pistolParts.add(p1);
+        pistolParts.add(p2);
+        pistolParts.add(p3);
         DivingSuit ds = new DivingSuit();
         Food f = new Food();
         FragileShovel fs = new FragileShovel();
