@@ -148,9 +148,11 @@ public class Game {
             int id2 = pistolParts.get(1).owner.getTile().getTileId();
             int id3 = pistolParts.get(2).owner.getTile().getTileId();
             if (id1 == id2 && id1 == id3) {
+
                 setWin(true);
+                players.get(currentPlayer).work();
             }
-        players.get(currentPlayer).work();
+
     }
 
     /*
