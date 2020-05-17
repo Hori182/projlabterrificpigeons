@@ -198,6 +198,17 @@ public class View extends JPanel {
             }
         });
 
+        JButton bPistol = new JButton("Assemble pistol");
+        bPistol.setBounds(650,550,125,22);
+        buttons.add(bPistol);
+        bPistol.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                game.assemble();
+                update();
+            }
+        });
+
         actualTile = game.getPlayers().get(game.getCurrentPlayer()).getTile();
         combo.setBounds(775,525,125,22);
         for (Tile t : game.getPlayers().get(game.getCurrentPlayer()).getTile().getNeighbours()){
@@ -211,17 +222,17 @@ public class View extends JPanel {
         JButton bThing1 = new JButton ("elso");
        // add(bThing1);
         buttons.add(bThing1);
-        bThing1.setBounds(650,550, 125, 22);
+        bThing1.setBounds(650,575, 125, 22);
 
         JButton bThing2 = new JButton ("masodik");
        // add(bThing2);
         buttons.add(bThing2);
-        bThing2.setBounds(650,575, 125, 22);
+        bThing2.setBounds(650,600, 125, 22);
 
         JButton bThing3 = new JButton ("harmadik");
        // add(bThing3);
         buttons.add(bThing3);
-        bThing3.setBounds(650,600, 125, 22);
+        bThing3.setBounds(650,625, 125, 22);
     }
 
     public void editButtons(){
