@@ -36,6 +36,7 @@ public class Main extends JFrame{
 
         game.draw();  // Csak az ellenőrzésekhez
 
+
         /*boolean started = false;
         while(!started) {
             System.out.println("1. Start the game with your own map - type: load example.txt");

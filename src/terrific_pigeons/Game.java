@@ -78,9 +78,11 @@ public class Game {
             polarbears.get(i).moveToRandom();
         }*/
         Random rand = new Random();
-        rand.nextInt(10);
-        if( rand.equals(3))
+        int r = rand.nextInt(10);
+        if( r==1) {
             gameMap.snowStorm();
+            System.out.println("SNOWSTORM");
+        }
         if(currentPlayer < players.size()-1) {
             currentPlayer++;
         }

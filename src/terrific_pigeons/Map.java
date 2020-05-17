@@ -21,15 +21,19 @@ public class Map {
      * valamint növeli a hó mennyiségét a jégtáblákon.
      * */
     public void snowStorm() {
-        for (Tile t : tiles) {
-            t.addSnow(1);
+        Random rand = new Random();
 
-            ArrayList<MoveAble> temp;
-            if(t.getMovables()!=null) temp = t.getMovables();
-            else temp = null;
-            for (MoveAble m : temp) {
-                if (!m.myTile.getSafe() || !m.myTile.getSafeByTent())
-                    m.subLife();
+        for (Tile t : tiles) {
+            int r = rand.nextInt(4);
+            if (r==1) {
+                t.addSnow(1);
+                ArrayList<MoveAble> temp;
+                if (t.getMovables() != null) temp = t.getMovables();
+                else temp = null;
+                for (MoveAble m : temp) {
+                    if (!m.myTile.getSafe() && !m.myTile.getSafeByTent())
+                        m.subLife();
+                }
             }
         }
     }

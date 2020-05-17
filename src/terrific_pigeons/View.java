@@ -306,6 +306,7 @@ public class View extends JPanel {
                 if(game.getGameMap().getTiles().get(i).getSafe()){ drawTile(g,x,y,50,Color.GREEN); }
                 else if(game.getGameMap().getTiles().get(i).getSafeByTent()){ drawTile(g,x,y,50,Color.BLUE); }
                 else drawTile(g,x,y,50,Color.BLACK);
+                g.setColor(Color.BLACK);
                 g.drawString(String.valueOf(game.getGameMap().getTiles().get(i).getTileId()), x+50, y+50);
             }
             else if(i < 15)
