@@ -27,16 +27,16 @@ public class View extends JPanel {
     }
     public void init(Map map){}
     public void drawPolarBear(Graphics g, int x, int y, int eltolas){
-        g.setColor(Color.RED);
-        g.drawRect(x+eltolas+5,y+20,10,10);
+        g.setColor(Color.BLACK);
+        g.fillRect(x+eltolas+5,y+20,10,10);
     }
     public void drawEskimo(Graphics g, int x, int y, int eltolas){
         g.setColor(Color.GREEN);
-        g.drawRect(x+eltolas+5,y+20,10,10);
+        g.fillRect(x+eltolas+5,y+20,10,10);
     }
     public void drawResearcher(Graphics g, int x, int y, int eltolas){
         g.setColor(Color.BLUE);
-        g.drawRect(x+eltolas+5,y+20,10,10);
+        g.fillRect(x+eltolas+5,y+20,10,10);
     }
     public void drawTile(Graphics g, int x, int y, int r, Color c){
         g.setColor(Color.WHITE);
@@ -130,6 +130,10 @@ public class View extends JPanel {
 
             if(game.getCurrentPlayer() == 0){
                 game.polarbears.get(0).moveToRandom();
+                for (Player pl : game.getPlayers()){
+                    if (pl.getLife()==0)
+                        game.setDie(true);
+                }
                 update();
             }
         }
@@ -321,7 +325,11 @@ public class View extends JPanel {
                 }
             }
         }
-
+        if (game.getDie()) {
+            g.setFont(new Font("Courier", Font.BOLD, 120));
+            g.setColor(Color.BLACK);
+            g.drawString("GAME OVER", 0,300);
+        }
     }
 
 }

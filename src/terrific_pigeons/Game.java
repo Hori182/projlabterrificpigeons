@@ -96,8 +96,12 @@ public class Game {
 
         if((players.get(currentPlayer).getDrown() == 2) || players.get(currentPlayer).getLife() == 0 )
         {
-            players.get(currentPlayer).die();
-            this.endGame();
+            players.get(currentPlayer).setLife(0);
+            this.setDie(true);
+        }
+        for (Player p : players){
+            if (p.getLife()==0)
+                setDie(true);
         }
         getPlayers().get(currentPlayer).setWork(0);
         if(getPlayers().get(currentPlayer).getInWater() && getPlayers().size() > 1)
@@ -210,7 +214,12 @@ public class Game {
     */
     public void setDie(boolean die) {
         this.die = die;
-        endGame();
+        if(die)
+            endGame();
+    }
+
+    public boolean getDie(){
+        return die;
     }
     /*
     Létrehoz egy játékhoz tartozó mezőket
