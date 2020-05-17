@@ -20,6 +20,7 @@ public class View extends JPanel {
     protected JTextArea area = new JTextArea();
     protected Tile actualTile;
     protected JButton bRestart = new JButton("RESTART");
+    protected int basicbuttons = 5; //azt jelöli, hány db alapvető gomb van
 
 
 

@@ -23,11 +23,13 @@ public class Main extends JFrame{
         JPanel pPanel = new JPanel (new GridLayout(2,1));
         pPanel.add(pButtons);
         pPanel.add(pArea);
+
         for (JButton b : v.getButtons()){
             pButtons.add(b);
+            if (b.equals(v.buttons.get(3)))
+                pButtons.add(v.combo);
         }
         pButtons.add(v.bRestart);
-        pButtons.add(v.combo);
         pArea.add(v.area);
 
         jf.add(v, BorderLayout.CENTER);
