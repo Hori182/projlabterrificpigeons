@@ -31,13 +31,17 @@ public class View extends JPanel {
         g.setColor(Color.BLACK);
         g.fillRect(x+eltolas+5,y+20,10,10);
     }
-    public void drawEskimo(Graphics g, int x, int y, int eltolas){
+    public void drawEskimo(Graphics g, int x, int y, int eltolas, Color c){
         g.setColor(Color.GREEN);
         g.fillRect(x+eltolas+5,y+20,10,10);
+        g.setColor(c);
+        g.drawRect(x+eltolas+5,y+20,10,10);
     }
-    public void drawResearcher(Graphics g, int x, int y, int eltolas){
+    public void drawResearcher(Graphics g, int x, int y, int eltolas, Color c){
         g.setColor(Color.BLUE);
         g.fillRect(x+eltolas+5,y+20,10,10);
+        g.setColor(c);
+        g.drawRect(x+eltolas+5,y+20,10,10);
     }
     public void drawTile(Graphics g, int x, int y, int r, Color c){
         g.setColor(Color.WHITE);
@@ -282,6 +286,7 @@ public class View extends JPanel {
         drawMap(g);
         drawSideBar(g);
         editButtons();
+        addButtons();
 
         mouse_click();
     }
@@ -327,11 +332,17 @@ public class View extends JPanel {
                 int eltolas = 0;
                 for(int j = 0; j < game.getGameMap().getTiles().get(i).getMovables().size(); j++) {
                     if(game.getGameMap().getTiles().get(i).getMovables().get(j).getId().contains("e")) {
-                        drawEskimo(g, game.getGameMap().getTiles().get(i).GetX(), game.getGameMap().getTiles().get(i).GetY(), eltolas);
+                        if(game.getGameMap().getTiles().get(i).getMovables().get(j) == game.getPlayers().get(game.getCurrentPlayer())) {
+                            drawEskimo(g, game.getGameMap().getTiles().get(i).GetX(), game.getGameMap().getTiles().get(i).GetY(), eltolas, Color.ORANGE);
+                        }
+                       else drawEskimo(g, game.getGameMap().getTiles().get(i).GetX(), game.getGameMap().getTiles().get(i).GetY(), eltolas, Color.GREEN);
                         eltolas += 15;
                     }
                     else if(game.getGameMap().getTiles().get(i).getMovables().get(j).getId().contains("r")) {
-                        drawResearcher(g, game.getGameMap().getTiles().get(i).GetX(), game.getGameMap().getTiles().get(i).GetY(), eltolas);
+                        if(game.getGameMap().getTiles().get(i).getMovables().get(j) == game.getPlayers().get(game.getCurrentPlayer())) {
+                            drawResearcher(g, game.getGameMap().getTiles().get(i).GetX(), game.getGameMap().getTiles().get(i).GetY(), eltolas, Color.ORANGE);
+                        }
+                        else drawResearcher(g,game.getGameMap().getTiles().get(i).GetX(), game.getGameMap().getTiles().get(i).GetY(), eltolas, Color.BLUE);
                         eltolas += 15;
                     }
                     else if(game.getGameMap().getTiles().get(i).getMovables().get(j).getId().contains("p")) {

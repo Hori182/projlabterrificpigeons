@@ -390,8 +390,6 @@ public class Game {
         gameMap.getTiles().get(0).setThing(p1);
         gameMap.getTiles().get(0).SetX(150);gameMap.getTiles().get(0).SetY(0);
 
-
-
         gameMap.getTiles().get(1).addNeighbour(gameMap.getTiles().get(7));
         gameMap.getTiles().get(1).addNeighbour(gameMap.getTiles().get(9));
         gameMap.getTiles().get(1).addNeighbour(gameMap.getTiles().get(13));
