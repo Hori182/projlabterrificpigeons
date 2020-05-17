@@ -245,6 +245,10 @@ public class Main extends JFrame{
             }
     }
 
+    public void buttonStuff()
+    {
+
+    }
     /*
     A felhasználó tárgyat használ
     @param a: a tárgy neve amit használni akar
