@@ -363,6 +363,11 @@ public class View extends JPanel {
             g.setColor(Color.BLACK);
             g.drawString("GAME OVER", 0,300);
         }
+        if (game.getWin()){
+            g.setFont(new Font("Courier", Font.BOLD, 120));
+            g.setColor(Color.ORANGE);
+            g.drawString("YOU WON!", 0,300);
+        }
     }
 
 }

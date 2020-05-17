@@ -119,7 +119,6 @@ public class Main extends JFrame{
             commandparam = command.split(" ");
         }
         game.endGame();*/
-
     }
 
     /*
