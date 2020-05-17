@@ -57,7 +57,7 @@ public class View extends JPanel {
         g.drawOval(x,y,r,r);
     }
     public void drawWater(Graphics g, int x, int y, int r){
-        g.setColor(Color.BLUE);
+        g.setColor(Color.cyan);
         g.fillOval(x, y, r, r);
         g.setColor(Color.BLACK);
         g.drawOval(x,y,r,r);
