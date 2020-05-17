@@ -289,7 +289,7 @@ public class View extends JPanel {
         drawMap(g);
         drawSideBar(g);
         editButtons();
-        //addButtons();
+        addButtons();
 
         mouse_click();
     }
