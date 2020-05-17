@@ -49,7 +49,7 @@ public abstract class Player extends MoveAble {
     public void equip()
     {
         Thing th = myTile.getThing();
-        if (th!=null) {
+        if (th!=null && myTile.getSnow() == 0) {
             th.setOwner(this);
             addThing(th);
             myTile.removeThing();
