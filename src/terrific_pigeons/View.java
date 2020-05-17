@@ -234,6 +234,7 @@ public class View extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 game.getPlayers().get(game.getCurrentPlayer()).equip();
+
                 update();
             }
         });
@@ -392,7 +393,7 @@ public class View extends JPanel {
             }
             else if(i < 15)
             {
-                if(game.getGameMap().getTiles().get(i).getLimit() == 0) drawWater(g,x,y,50);
+                if(game.getGameMap().getTiles().get(i).getLimit() == game.getGameMap().getTiles().get(i).getMovables().size()) drawWater(g,x,y,50);
                 else
                 {
                     if(game.getGameMap().getTiles().get(i).getSafe()){ drawUnstable(g,x,y,50,Color.GREEN); }

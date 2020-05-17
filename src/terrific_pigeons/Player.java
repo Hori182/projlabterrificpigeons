@@ -50,7 +50,7 @@ public abstract class Player extends MoveAble {
     {
         Thing th = myTile.getThing();
         if (th!=null && myTile.getSnow() == 0) {
-            th.setOwner(this);
+            myTile.getThing().setOwner(this);
             addThing(th);
             myTile.removeThing();
             this.work();
