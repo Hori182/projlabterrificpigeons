@@ -12,8 +12,10 @@ public abstract class Player extends MoveAble {
      */
     public void move(Tile t)
     {
-        t.moveRequest( this);
-        work();
+        if (t.getLimit() != 0) {
+            t.moveRequest(this);
+            work();
+        }
     }
 
     /*
