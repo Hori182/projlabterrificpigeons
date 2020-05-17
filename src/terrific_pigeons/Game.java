@@ -452,7 +452,7 @@ public class Game {
         gameMap.getTiles().get(7).addNeighbour(gameMap.getTiles().get(2));
         gameMap.getTiles().get(7).addNeighbour(gameMap.getTiles().get(13));
         gameMap.getTiles().get(7).setSnow(0);
-        gameMap.getTiles().get(7).SetX(300);gameMap.getTiles().get(7).SetY(0);
+        gameMap.getTiles().get(7).SetX(300);gameMap.getTiles().get(7).SetY(40);
 
         gameMap.getTiles().get(8).addNeighbour(gameMap.getTiles().get(0));
         gameMap.getTiles().get(8).addNeighbour(gameMap.getTiles().get(2));
