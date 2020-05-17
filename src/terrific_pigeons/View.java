@@ -241,7 +241,7 @@ public class View extends JPanel {
 
     public void editButtons(){
         for (int i=0; i<buttons.size(); i++) {
-            if (i >= buttons.size() - 3 && i < buttons.size() - (3 - game.getPlayers().get(game.getCurrentPlayer()).getThings().size())) {
+            if (i >= buttons.size() - 3 && i < buttons.size() - (4 - game.getPlayers().get(game.getCurrentPlayer()).getThings().size())) {
                 buttons.get(i).setText("Use " + game.getPlayers().get(game.getCurrentPlayer()).getThings().get(i - 4).Name());
                 buttons.get(i).setEnabled(true);
                 for (ActionListener al : buttons.get(i).getActionListeners()) {
