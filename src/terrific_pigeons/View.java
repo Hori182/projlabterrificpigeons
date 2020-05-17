@@ -21,6 +21,7 @@ public class View extends JPanel {
     protected Tile actualTile;
 
 
+
     public void setGame(Game g)
     {
         this.game = g;
@@ -271,7 +272,8 @@ public class View extends JPanel {
 
     @Override
     public void paintComponent(Graphics g){
-
+        Graphics2D g2 = (Graphics2D) g;
+        g2.setStroke(new BasicStroke(2));
         super.paintComponent(g);
         drawMap(g);
         drawSideBar(g);
@@ -281,6 +283,7 @@ public class View extends JPanel {
     }
 
     public void drawMap(Graphics g){
+
         for(int i = 0; i < game.getGameMap().getTiles().size(); i++)
         {
             int startX = game.getGameMap().getTiles().get(i).GetX();
