@@ -12,13 +12,24 @@ public class Researcher extends Player {
      * Megnézi, hogy az adott táblának mennyi a teherbírása.
      * @param t A megviszgált jégtábla.
      * */
-    public void look(Tile t)
+    public String look(Tile t)
     {
         int l = t.getLimit();
+        String out;
         work();
-        if(l > 0) System.out.println("TileID: " + t.getTileId() + "'s limit is " + l);
-        else if(l == 0) System.out.println("TileID: " + t.getTileId() + " is water!");
-        else System.out.println("TileID: " + t.getTileId() + "'s limit is unlimited");
+        if(l > 0) {
+            System.out.println("TileID: " + t.getTileId() + "'s limit is " + l);
+            out = "limit "+l;
+        }
+        else if(l == 0){
+            System.out.println("TileID: " + t.getTileId() + " is water!");
+            out = "limit "+l;
+        }
+        else{
+            System.out.println("TileID: " + t.getTileId() + "'s limit is unlimited");
+            out = "unlimited";
+        }
+        return (t.getTileId()+": "+out);
     }
     /*
      * Visszaadja, hogy tud e növelni az életén az eszkimónak, vagy már maxon van neki.

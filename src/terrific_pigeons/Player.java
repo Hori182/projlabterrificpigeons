@@ -29,8 +29,9 @@ public abstract class Player extends MoveAble {
         System.out.println("Current player is not an eskimo!");
     }
     /*Nézelődés Eszkimóval.*/
-    public void look(Tile t) {
+    public String look(Tile t) {
         System.out.println("Current player is not a researcher!");
+        return "";
     }
 
     /*

@@ -22,6 +22,7 @@ public class Main extends JFrame{
             jf.add(b);
         }
         jf.add(v.combo);
+        jf.add(v.area);
 
         jf.add(v);
         jf.setSize(1000,700);

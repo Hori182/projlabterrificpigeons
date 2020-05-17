@@ -17,7 +17,8 @@ public class View extends JPanel {
     private List<IViewable> viewables;
     private Game game;
     protected ArrayList<JButton> buttons = new ArrayList<>();
-    protected JComboBox combo;
+    protected JComboBox combo = new JComboBox<>();
+    protected JTextArea area = new JTextArea();
     protected Tile actualTile;
 
 
@@ -185,22 +186,26 @@ public class View extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 game.getPlayers().get(game.getCurrentPlayer()).build();
-
+                String limit;
                 for (Tile t: game.getGameMap().getTiles()){
-                    if (t.getTileId()==(int)combo.getSelectedItem())
-                        game.getPlayers().get(game.getCurrentPlayer()).look(t);
+                    if (t.getTileId()==(int)combo.getSelectedItem()) {
+                        limit = game.getPlayers().get(game.getCurrentPlayer()).look(t);
+                        if (limit!="")
+                            area.append(limit+"\n");
+                    }
                 }
                 update();
             }
         });
 
         actualTile = game.getPlayers().get(game.getCurrentPlayer()).getTile();
-        JComboBox cb = new JComboBox<>();
-        cb.setBounds(775,525,125,22);
-        combo = cb;
+        combo.setBounds(775,525,125,22);
         for (Tile t : game.getPlayers().get(game.getCurrentPlayer()).getTile().getNeighbours()){
             combo.addItem(t.getTileId());
         }
+
+        area.setBounds(775,550, 125, 100);
+        area.setEditable(false);
 
 
         JButton bThing1 = new JButton ("elso");
