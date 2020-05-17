@@ -23,74 +23,34 @@ public class View extends JPanel {
     protected int basicbuttons = 5; //azt jelöli, hány db alapvető gomb van
 
 
-    /*
-    * Beállítja a game változó értékét.
-    * @param g: Game - erre állítja be a game változó értékét.
-    * */
+
     public void setGame(Game g)
     {
         this.game = g;
     }
     public void init(Map map){}
-    /*
-    * Jegesmedvét kirajzoló függvény.
-    * @param Graphics g
-    * @param int x - Ebbe az x pozícióba rajzolja ki.
-    * @param int y - Ebbe az y pozícióba rajzolja ki.
-    * @param int eltolas - eltolás értéke.
-    * */
     public void drawPolarBear(Graphics g, int x, int y, int eltolas){
         g.setColor(Color.BLACK);
         g.fillRect(x+eltolas+5,y+20,10,10);
     }
-    /*
-     * Eszkimót kirajzoló függvény.
-     * @param Graphics g
-     * @param int x - Ebbe az x pozícióba rajzolja ki.
-     * @param int y - Ebbe az y pozícióba rajzolja ki.
-     * @param int eltolas - eltolás értéke.
-     * */
     public void drawEskimo(Graphics g, int x, int y, int eltolas, Color c){
         g.setColor(Color.GREEN);
         g.fillRect(x+eltolas+5,y+20,10,10);
         g.setColor(c);
         g.drawRect(x+eltolas+5,y+20,10,10);
     }
-    /*
-     * Kutatót kirajzoló függvény.
-     * @param Graphics g
-     * @param int x - Ebbe az x pozícióba rajzolja ki.
-     * @param int y - Ebbe az y pozícióba rajzolja ki.
-     * @param int eltolas - eltolás értéke.
-     * */
     public void drawResearcher(Graphics g, int x, int y, int eltolas, Color c){
         g.setColor(Color.BLUE);
         g.fillRect(x+eltolas+5,y+20,10,10);
         g.setColor(c);
         g.drawRect(x+eltolas+5,y+20,10,10);
     }
-    /*
-     * Tileokat kirajzoló függvény.
-     * @param Graphics g
-     * @param int x - Ebbe az x pozícióba rajzolja ki.
-     * @param int y - Ebbe az y pozícióba rajzolja ki.
-     * @param int r - sugár mérete.
-     * @param Color c - tile színe.
-     * */
     public void drawTile(Graphics g, int x, int y, int r, Color c){
         g.setColor(Color.WHITE);
         g.fillOval(x,y, r,r);
         g.setColor(c);
         g.drawOval(x,y,r,r);
     }
-    /*
-     * Unstable tileokat kirajzoló függvény.
-     * @param Graphics g
-     * @param int x - Ebbe az x pozícióba rajzolja ki.
-     * @param int y - Ebbe az y pozícióba rajzolja ki.
-     * @param int r - sugár mérete.
-     * @param Color c - tile színe.
-     * */
     public void drawUnstable(Graphics g, int x, int y, int r, Color c){
         g.setColor(Color.RED);
         g.fillOval(x, y, r, r);
@@ -98,24 +58,12 @@ public class View extends JPanel {
         //System.out.println(c.toString());
         g.drawOval(x,y,r,r);
     }
-    /*
-     * Vizet kirajzoló függvény.
-     * @param Graphics g
-     * @param int x - Ebbe az x pozícióba rajzolja ki.
-     * @param int y - Ebbe az y pozícióba rajzolja ki.
-     * @param int r - sugár mérete.
-     * @param Color c - tile színe.
-     * */
     public void drawWater(Graphics g, int x, int y, int r){
         g.setColor(Color.cyan);
         g.fillOval(x, y, r, r);
         g.setColor(Color.BLACK);
         g.drawOval(x,y,r,r);
     }
-    /*
-    * Információkat megjelenítő sidebart kirajzoló függvény.
-    * @param Graphics g
-    * */
     public void drawSideBar(Graphics g)
     {
         g.setColor(Color.BLACK);
@@ -144,18 +92,14 @@ public class View extends JPanel {
         }
         g.drawString(("Own things: " + things), 645, 345);
     }
-    /*
-    * Repaint-el.
-    * */
+
     public void update(){
         this.repaint();
         for (int i = 0; i < buttons.size(); i++){
             buttons.get(i).updateUI();
         }
     }
-    /*
-    * Karakterek mozgatásához használt függvény.
-    * */
+
     public void mouse_click(){
         Player p = game.getPlayers().get(game.getCurrentPlayer());
         int tile_id = -1;
@@ -204,9 +148,7 @@ public class View extends JPanel {
             }
         }
     }
-    /*
-    * Gombok hozzáadása.
-    * */
+
     public void addButtons(){
         JButton bPass = new JButton("Pass");
         buttons.add(bPass);
@@ -299,13 +241,12 @@ public class View extends JPanel {
                 for (JButton b :buttons)
                     b.setEnabled(true);
                 combo.setEnabled(true);
+                area.setText("");
                 update();
             }
         });
     }
-    /*
-     * Gombok szerkesztése.
-     * */
+
     public void editButtons(){
         for (int i=0; i<buttons.size(); i++) {
             if (i >= buttons.size() - 5 && i < buttons.size() - (5 - game.getPlayers().get(game.getCurrentPlayer()).getThings().size())) {
@@ -337,11 +278,13 @@ public class View extends JPanel {
             actualTile = game.getPlayers().get(game.getCurrentPlayer()).getTile();
         }
     }
-    /*
-     * Gombok tömbjét adja vissza.
-     * */
+
     public ArrayList<JButton> getButtons(){
         return buttons;
+    }
+
+    public void drawNieghbours(){
+
     }
 
     @Override
@@ -355,9 +298,7 @@ public class View extends JPanel {
 
         mouse_click();
     }
-    /*
-    * Térkép kirajzolása.
-    * */
+
     public void drawMap(Graphics g){
 
         for(int i = 0; i < game.getGameMap().getTiles().size(); i++)
@@ -437,7 +378,6 @@ public class View extends JPanel {
                 b.setEnabled(false);
             combo.setEnabled(false);
         }
-        addButtons();
     }
 
 }

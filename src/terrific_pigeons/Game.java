@@ -20,6 +20,7 @@ public class Game {
     private int usedParts;
     ArrayList<PistolPart> pistolParts = new ArrayList<>(3);
 
+
     /*
     Konstruktor
      */
@@ -154,7 +155,7 @@ public class Game {
 
                 setWin(true);
                 players.get(currentPlayer).work();
-                System.out.println("Nyertél!");
+                //System.out.println("Nyertél!");
             }
         }
     }
@@ -505,6 +506,7 @@ public class Game {
         gameMap.getTiles().get(14).addNeighbour(gameMap.getTiles().get(10));
         gameMap.getTiles().get(14).addNeighbour(gameMap.getTiles().get(11));
         gameMap.getTiles().get(14).setSnow(3);
+        //gameMap.getTiles().get(14).limit = 2;
         gameMap.getTiles().get(14).setThing(p3);
         gameMap.getTiles().get(14).SetX(340);gameMap.getTiles().get(14).SetY(450);
     }

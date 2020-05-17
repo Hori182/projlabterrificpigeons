@@ -21,6 +21,7 @@ public class  Unstable extends Tile{
         for(int i = 0; i < this.movables.size(); i++)
         {
             this.getMovables().get(i).setInWater(true);
+
         }
 
         System.out.println("Tile " + getTileId() + " turned over");
