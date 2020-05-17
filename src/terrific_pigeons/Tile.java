@@ -280,22 +280,30 @@ public class Tile implements IViewable{
     public void notify(View v) {
 
     }
-
+    /*
+    * Visszaadja az X értékét.
+    * */
     @Override
     public int GetX() {
         return X;
     }
-
+    /*
+     * Visszaadja az Y értékét.
+     * */
     @Override
     public int GetY() {
         return Y;
     }
-
+    /*Felülírja az X értékét.
+    * @param int x: X értkét ezzel írja felül.
+    * */
     @Override
     public void SetX(int x) {
             this.X = x;
     }
-
+    /*Felülírja az Y értékét.
+     * @param int y: Y értkét ezzel írja felül.
+     * */
     @Override
     public void SetY(int y) {
             this.Y = y;

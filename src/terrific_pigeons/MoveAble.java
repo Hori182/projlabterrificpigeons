@@ -142,12 +142,16 @@ public abstract class MoveAble implements IViewable{
     public void notify(View v) {
 
     }
-
+    /*
+     * Visszaadja az X értékét.
+     * */
     @Override
     public int GetX() {
         return 0;
     }
-
+    /*
+     * Visszaadja az Y értékét.
+     * */
     @Override
     public int GetY() {
         return 0;
