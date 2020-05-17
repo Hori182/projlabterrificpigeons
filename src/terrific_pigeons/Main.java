@@ -23,7 +23,6 @@ public class Main extends JFrame{
         JPanel pPanel = new JPanel (new GridLayout(2,1));
         pPanel.add(pButtons);
         pPanel.add(pArea);
-
         for (JButton b : v.getButtons()){
             pButtons.add(b);
         }
@@ -31,13 +30,11 @@ public class Main extends JFrame{
         pArea.add(v.area);
 
         jf.add(v, BorderLayout.CENTER);
-        v.setPreferredSize(new Dimension(200,500));
         jf.add(pPanel, BorderLayout.EAST);
-        jf.setSize(1000,600);
+        jf.setSize(975,600);
         jf.setVisible(true);
 
-        game.draw();  // Csak az ellenőrzésekhez, Arnold
-        System.out.println(v.getButtons().get(5).getText());
+        game.draw();  // Csak az ellenőrzésekhez
 
         /*boolean started = false;
         while(!started) {

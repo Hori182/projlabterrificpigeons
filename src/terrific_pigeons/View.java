@@ -67,7 +67,7 @@ public class View extends JPanel {
         int fontSize = 15;
         Font f = new Font("Courier", Font.BOLD, fontSize);
         g.setFont(f);
-        g.drawRect(575,25,250,400);
+        g.drawRect(600,50,200,350);
         g.drawString("Current player: "+game.getPlayers().get(game.getCurrentPlayer()).getId(),645,145);
         g.drawString("Life: " + game.getPlayers().get(game.getCurrentPlayer()).getLife(),645,185);
         g.drawString("Work: " + game.getPlayers().get(game.getCurrentPlayer()).getWork(),645,225);
@@ -231,7 +231,7 @@ public class View extends JPanel {
 
     public void editButtons(){
         for (int i=0; i<buttons.size(); i++) {
-            if (i >= buttons.size() - 5 && i < buttons.size() - (6 - game.getPlayers().get(game.getCurrentPlayer()).getThings().size())) {
+            if (i >= buttons.size() - 5 && i < buttons.size() - (5 - game.getPlayers().get(game.getCurrentPlayer()).getThings().size())) {
                 buttons.get(i).setText("Use " + game.getPlayers().get(game.getCurrentPlayer()).getThings().get(i - 5).Name());
                 buttons.get(i).setEnabled(true);
                 for (ActionListener al : buttons.get(i).getActionListeners()) {
@@ -276,7 +276,6 @@ public class View extends JPanel {
         drawMap(g);
         drawSideBar(g);
         editButtons();
-        addButtons();
 
         mouse_click();
     }
