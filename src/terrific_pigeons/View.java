@@ -19,6 +19,7 @@ public class View extends JPanel {
     protected JComboBox combo = new JComboBox<>();
     protected JTextArea area = new JTextArea();
     protected Tile actualTile;
+    protected JButton bRestart = new JButton("RESTART");
 
 
 
@@ -228,6 +229,17 @@ public class View extends JPanel {
 
         JButton bThing5 = new JButton("otodik");
         buttons.add(bThing5);
+
+        bRestart.setOpaque(true);
+        bRestart.setBackground(Color.RED);
+        bRestart.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                game = new Game();
+                game.startGame();
+                update();
+            }
+        });
     }
 
     public void editButtons(){

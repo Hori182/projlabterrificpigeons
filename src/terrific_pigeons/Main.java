@@ -18,7 +18,7 @@ public class Main extends JFrame{
         v.setGame(game);
         v.addButtons();
 
-        JPanel pButtons = new JPanel(new GridLayout(11,1));
+        JPanel pButtons = new JPanel(new GridLayout(12,1));
         JPanel pArea = new JPanel(new GridLayout(1,1));
         JPanel pPanel = new JPanel (new GridLayout(2,1));
         pPanel.add(pButtons);
@@ -26,6 +26,7 @@ public class Main extends JFrame{
         for (JButton b : v.getButtons()){
             pButtons.add(b);
         }
+        pButtons.add(v.bRestart);
         pButtons.add(v.combo);
         pArea.add(v.area);
 
