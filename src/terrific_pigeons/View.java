@@ -38,7 +38,7 @@ public class View extends JPanel {
         g.drawRect(x+eltolas+5,y+20,10,10);
     }
     public void drawResearcher(Graphics g, int x, int y, int eltolas, Color c){
-        g.setColor(Color.BLUE);
+        g.setColor(Color.cyan);
         g.fillRect(x+eltolas+5,y+20,10,10);
         g.setColor(c);
         g.drawRect(x+eltolas+5,y+20,10,10);
