@@ -109,13 +109,13 @@ public class View extends JPanel {
                                 x > game.getGameMap().getTiles().get(i).X - 50){
                             if(y < game.getGameMap().getTiles().get(i).Y + 50 &&
                                     y > game.getGameMap().getTiles().get(i).Y - 50){
-                                if(game.getGameMap().getTiles().get(i).getLimit() != 0){
+                                //if(game.getGameMap().getTiles().get(i).getLimit() != 0){
                                     if(game.getGameMap().getTiles().get(i) != game.getPlayers().get(game.getCurrentPlayer()).getTile() && game.getPlayers().get(game.getCurrentPlayer()).getTile().getNeighbours().contains(game.getGameMap().getTiles().get(i)) ){
                                          b = true;
                                         tile_id = i;
                                         break;
                                     }
-                                }
+                                //}
                             }
                         }
                     }

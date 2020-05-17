@@ -43,6 +43,7 @@ public abstract class MoveAble implements IViewable{
     {
         if(inWater){
             this.setDrown(1);
+            this.pass();
         } else{
             this.setDrown(0);
         }

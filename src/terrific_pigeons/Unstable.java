@@ -16,14 +16,13 @@ public class  Unstable extends Tile{
     /*
     *Ha túl sokan állnak egy tile-on akkor hívodik meg. A rajta állók beleesnek a vízbe.
     * */
-    public void turnOver(MoveAble m)
+    public void turnOver()
     {
         for(int i = 0; i < this.movables.size(); i++)
         {
             this.getMovables().get(i).setInWater(true);
         }
-        int temp = m.getWork();
-        m.setWork(temp);
+
         System.out.println("Tile " + getTileId() + " turned over");
     }
 
@@ -31,10 +30,10 @@ public class  Unstable extends Tile{
     * Ellenőrzi, hogy nem állnak e többen a tile-on mint amennyi a limit.
     * Ha igen, akkor átfordul.
     * */
-    public void check(MoveAble m)
+    public void check()
     {
         if(this.movables.size() > limit){
-            this.turnOver(m);
+            this.turnOver();
         }
     }
     /*
@@ -60,7 +59,7 @@ public class  Unstable extends Tile{
             t2.remove(m);
             m.setMyTile(this);
             this.receive(m);
-            this.check(m);
+            this.check();
         }
         else {
             System.out.println("Not neighbour!");

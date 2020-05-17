@@ -21,8 +21,9 @@ public class Rope extends Thing{
             for (int j = 0; j < wp.size(); j++) {
                 MoveAble m1 = wp.get(j);
                  if (m1.getInWater() == true) {
-                     m1.setMyTile(t);
                      m1.setInWater(false);
+                     t.moveRequest(m1);
+
                 }
             }
         }
