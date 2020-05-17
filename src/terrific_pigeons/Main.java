@@ -1,5 +1,6 @@
 package terrific_pigeons;
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 import java.io.*;
 import java.util.ArrayList;
@@ -13,22 +14,30 @@ public class Main extends JFrame{
         game.startGame();
         JFrame jf = new JFrame("Deadly Ice Tiles");
         jf.setResizable(false);
-        //jf.getContentPane().setBackground(Color.cyan);
         View v = new View();
         v.setGame(game);
-
         v.addButtons();
-        for (JButton b : v.getButtons()){
-            jf.add(b);
-        }
-        jf.add(v.combo);
-        jf.add(v.area);
 
-        jf.add(v);
-        jf.setSize(1000,700);
+        JPanel pButtons = new JPanel(new GridLayout(11,1));
+        JPanel pArea = new JPanel(new GridLayout(1,1));
+        JPanel pPanel = new JPanel (new GridLayout(2,1));
+        pPanel.add(pButtons);
+        pPanel.add(pArea);
+
+        for (JButton b : v.getButtons()){
+            pButtons.add(b);
+        }
+        pButtons.add(v.combo);
+        pArea.add(v.area);
+
+        jf.add(v, BorderLayout.CENTER);
+        v.setPreferredSize(new Dimension(200,500));
+        jf.add(pPanel, BorderLayout.EAST);
+        jf.setSize(1000,600);
         jf.setVisible(true);
 
         game.draw();  // Csak az ellenőrzésekhez, Arnold
+        System.out.println(v.getButtons().get(5).getText());
 
         /*boolean started = false;
         while(!started) {
