@@ -18,6 +18,7 @@ public class View extends JPanel {
     private Game game;
     protected ArrayList<JButton> buttons = new ArrayList<>();
     protected JComboBox combo;
+    protected Tile actualTile;
 
 
     public void setGame(Game g)
@@ -180,14 +181,22 @@ public class View extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 game.getPlayers().get(game.getCurrentPlayer()).build();
+
+                for (Tile t: game.getGameMap().getTiles()){
+                    if (t.getTileId()==(int)combo.getSelectedItem())
+                        game.getPlayers().get(game.getCurrentPlayer()).look(t);
+                }
                 update();
-                game.draw();
             }
         });
 
+        actualTile = game.getPlayers().get(game.getCurrentPlayer()).getTile();
         JComboBox cb = new JComboBox<>();
         cb.setBounds(775,525,125,22);
         combo = cb;
+        for (Tile t : game.getPlayers().get(game.getCurrentPlayer()).getTile().getNeighbours()){
+            combo.addItem(t.getTileId());
+        }
 
 
         JButton bThing1 = new JButton ("elso");
@@ -229,10 +238,12 @@ public class View extends JPanel {
                 buttons.get(i).setEnabled(false);
             }
         }
-
-        combo.removeAllItems();
-        for (Tile t : game.getPlayers().get(game.getCurrentPlayer()).getTile().getNeighbours()){
-            combo.addItem(t.getTileId());
+        if (!actualTile.equals(game.getPlayers().get(game.getCurrentPlayer()).getTile())) {
+            combo.removeAllItems();
+            for (Tile t : game.getPlayers().get(game.getCurrentPlayer()).getTile().getNeighbours()) {
+                combo.addItem(t.getTileId());
+            }
+            actualTile = game.getPlayers().get(game.getCurrentPlayer()).getTile();
         }
     }
 
