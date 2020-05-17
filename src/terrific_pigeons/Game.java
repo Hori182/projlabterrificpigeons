@@ -10,7 +10,6 @@ import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Game {
-    private View gameView = new View();
     private JFrame jf = new JFrame();
     private Map gameMap = new Map();
     ArrayList<Player> players = new ArrayList<>();
@@ -344,7 +343,6 @@ public class Game {
                 ready = true;
             }
         }
-        gameView.init(gameMap);
     }
     //EZNEMTUTIHOGYJÓ MEG LEHET A TILE IS SZAR
     public void initMap2() {
