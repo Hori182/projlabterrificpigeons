@@ -129,7 +129,7 @@ public class View extends JPanel {
                         }
                     }
 
-                    if(b) {
+                    if(b && !game.getWin() && !game.getDie()) {
                         game.getPlayers().get(game.getCurrentPlayer()).move(game.getGameMap().getTiles().get(tile_id));
                         update();
                     }
@@ -238,6 +238,9 @@ public class View extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 game = new Game();
                 game.startGame();
+                for (JButton b :buttons)
+                    b.setEnabled(true);
+                combo.setEnabled(true);
                 update();
             }
         });
@@ -362,11 +365,17 @@ public class View extends JPanel {
             g.setFont(new Font("Courier", Font.BOLD, 120));
             g.setColor(Color.BLACK);
             g.drawString("GAME OVER", 0,300);
+            for (JButton b :buttons)
+                b.setEnabled(false);
+            combo.setEnabled(false);
         }
         if (game.getWin()){
             g.setFont(new Font("Courier", Font.BOLD, 120));
             g.setColor(Color.ORANGE);
             g.drawString("YOU WON!", 0,300);
+            for (JButton b :buttons)
+                b.setEnabled(false);
+            combo.setEnabled(false);
         }
     }
 
