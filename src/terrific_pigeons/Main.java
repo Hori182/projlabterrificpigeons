@@ -21,6 +21,7 @@ public class Main extends JFrame{
         for (JButton b : v.getButtons()){
             jf.add(b);
         }
+        jf.add(v.combo);
 
         jf.add(v);
         jf.setSize(1000,700);

@@ -17,6 +17,7 @@ public class View extends JPanel {
     private List<IViewable> viewables;
     private Game game;
     protected ArrayList<JButton> buttons = new ArrayList<>();
+    protected JComboBox combo;
 
 
     public void setGame(Game g)
@@ -180,8 +181,14 @@ public class View extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 game.getPlayers().get(game.getCurrentPlayer()).build();
                 update();
+                game.draw();
             }
         });
+
+        JComboBox cb = new JComboBox<>();
+        cb.setBounds(775,525,125,22);
+        combo = cb;
+
 
         JButton bThing1 = new JButton ("elso");
        // add(bThing1);
@@ -221,6 +228,11 @@ public class View extends JPanel {
                 buttons.get(i).setText("");
                 buttons.get(i).setEnabled(false);
             }
+        }
+
+        combo.removeAllItems();
+        for (Tile t : game.getPlayers().get(game.getCurrentPlayer()).getTile().getNeighbours()){
+            combo.addItem(t.getTileId());
         }
     }
 
@@ -266,6 +278,7 @@ public class View extends JPanel {
                 if(game.getGameMap().getTiles().get(i).getSafe()){ drawTile(g,x,y,50,Color.GREEN); }
                 else if(game.getGameMap().getTiles().get(i).getSafeByTent()){ drawTile(g,x,y,50,Color.BLUE); }
                 else drawTile(g,x,y,50,Color.BLACK);
+                g.drawString(String.valueOf(game.getGameMap().getTiles().get(i).getTileId()), x+50, y+50);
             }
             else if(i < 15)
             {
@@ -275,6 +288,7 @@ public class View extends JPanel {
                     if(game.getGameMap().getTiles().get(i).getSafe()){ drawUnstable(g,x,y,50,Color.GREEN); }
                     else if(game.getGameMap().getTiles().get(i).getSafeByTent()){ drawUnstable(g,x,y,50,Color.BLUE); }
                     else drawUnstable(g,x,y,50,Color.BLACK);
+                    g.drawString(String.valueOf(game.getGameMap().getTiles().get(i).getTileId()), x+50, y+50);
                 }
             }
 
