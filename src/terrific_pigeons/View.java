@@ -346,9 +346,6 @@ public class View extends JPanel {
         return buttons;
     }
 
-    public void drawNieghbours(){
-
-    }
 
     @Override
     public void paintComponent(Graphics g){

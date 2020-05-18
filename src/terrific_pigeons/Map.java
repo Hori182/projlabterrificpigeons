@@ -59,32 +59,7 @@ public class Map {
     public void setTiles(ArrayList<Tile> tiles) {
         this.tiles = tiles;
     }
-    /*
-    * Térkép generálásának függvénye
-    * */
-    public void generateMap(int tiles) {
-        num_of_tiles = tiles;
 
-        int unstabile = (int) (tiles * 0.3);
-        int water = (int) (tiles * 0.1);
-        int stabile = (tiles) - (unstabile + water);
-
-        map_data[0] = stabile;
-        map_data[1] = unstabile;
-        map_data[2] = water;
-    }
-    /*
-    * PistolPartok létrehozása.
-    * */
-    public void initPistolParts() {
-        ppt[0] = new PistolPart();
-        ppt[1] = new PistolPart();
-        ppt[2] = new PistolPart();
-
-        ppt[0].setId(0);
-        ppt[1].setId(1);
-        ppt[2].setId(2);
-    }
     /*
     * Visszaadja a Map_data tartalmát.
     * */
@@ -97,18 +72,7 @@ public class Map {
     public Thing[] getThings() {
         return things;
     }
-    /*
-    * Visszaadja a ppt tartalmát.
-    * */
-    public PistolPart[] getPpt() {
-        return ppt;
-    }
-    /*
-    * Összekeveri a tiles tartalmát.
-    * */
-    public void shuffle() {
-        Collections.shuffle(tiles);
-    }
+
     /*
     * Visszaadja, hogy num_of_tiles értékét.
     * */

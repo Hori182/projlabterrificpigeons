@@ -17,7 +17,7 @@ public class Food extends Thing{
             owner.removeThing(this);
             owner.work();
         }
-        else System.out.println("Your health is at max!");
+        //else System.out.println("Your health is at max!");
     }
     /*
      * Visszaadja a Food nevét.

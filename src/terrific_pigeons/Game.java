@@ -46,27 +46,6 @@ public class Game {
     * Játék indítása.
     * */
     public void startGame(){
-        /*Scanner input = new Scanner(System.in);
-        System.out.println("Number of eskimos: ");
-        int numOfEskimos = Integer.parseInt(input.nextLine());
-        System.out.println("Number of researchers: ");
-        int numOfResearchers = Integer.parseInt(input.nextLine());
-
-        for(int i = 0; i < numOfEskimos; i++) {
-            Integer.toString(i);
-            String id = "E"+i;
-            Eskimo e = new Eskimo(id);
-            this.addPlayers(e);
-        }
-        for(int i = 0; i < numOfResearchers; i++) {
-            Integer.toString(i);
-            String id = "R"+i;
-            Researcher r = new Researcher(id);
-            this.addPlayers(r);
-        }
-        this.initMap(20);
-        this.getPlayers().get(currentPlayer).setWork(0);
-        this.draw();*/
         this.initMap2();
     }
 
@@ -81,7 +60,6 @@ public class Game {
         int r = rand.nextInt(10);
         if( r==1) {
             gameMap.snowStorm();
-            System.out.println("SNOWSTORM");
         }
         if(currentPlayer < players.size()-1) {
             currentPlayer++;
@@ -94,7 +72,6 @@ public class Game {
                 }
             }
         }
-        System.out.println(currentPlayer + " " + players.get(currentPlayer).getTile().getTileId());
 
         if((players.get(currentPlayer).getDrown() == 2) || players.get(currentPlayer).getLife() == 0 )
         {
@@ -108,7 +85,6 @@ public class Game {
         getPlayers().get(currentPlayer).setWork(0);
         if(getPlayers().get(currentPlayer).getInWater() && getPlayers().size() > 1)
             nextPlayer();
-        //this.draw();
     }
 
     /*
@@ -228,124 +204,10 @@ public class Game {
     public boolean getDie(){
         return die;
     }
-    /*
-    Létrehoz egy játékhoz tartozó mezőket
-    @param tiles: a mezők száma
-     */
-    public void create_tiles(int tiles){
-        Random rand = new Random();
-
-        gameMap.generateMap(tiles);
-
-        int[] datas = gameMap.getMap_data();
-
-        for(int i = 0; i < datas[0]; i++){
-            Tile t = new Tile(i);
-            t.setSnow(rand.nextInt(5));
-            gameMap.addTile(t);
-        }
-        for(int i = 0; i < datas[1]; i++){
-            Tile t = new Unstable(rand.nextInt(players.size()),i + datas[0]);
-            t.setSnow(rand.nextInt(5));
-            gameMap.addTile(t);
-        }
-        for(int i = 0; i < datas[2]; i++){
-            Tile t = new Unstable(0, i + datas[0] + datas[1]);
-            gameMap.addTile(t);
-        }
-        gameMap.shuffle();
-    }
 
     /*
-    Beállítja a mezők szomszédságait.
-     */
-    public void initNeighbours(){
-        Random rand = new Random();
-        int num = 0;
-        int neighbours;
-
-        // Set at least one neighbour
-        for(int i = 0; i < gameMap.getNum_of_tiles(); i++){
-            num = gameMap.getTiles().get(i).getTileId();
-            while (num == gameMap.getTiles().get(i).getTileId() && gameMap.getTiles().get(num).getLimit()!=0){
-                num = rand.nextInt(gameMap.getTiles().size());
-            }
-            gameMap.getTiles().get(i).addNeighbour(gameMap.getTiles().get(num));
-        }
-
-        //Set plus neighbours
-        for(int i = 0; i < gameMap.getNum_of_tiles(); i++){
-            if(i != gameMap.getTiles().get(i).getTileId()){
-                num = rand.nextInt(10);
-                if(num <= 2){
-                    gameMap.getTiles().get(i).addNeighbour(gameMap.getTiles().get(num));
-                }
-            }
-        }
-    }
-
-    /*
-    Létrehoz a játékhoz egy mapot
-    @param: a mezők száma
-     */
-    public void initMap(int tiles){
-        Random rand = new Random();
-        int num =  0, rand_thing;
-        boolean ready = false;
-
-        create_tiles(tiles);
-        initNeighbours();
-
-        // Pistolparts
-        for (int i = 0; i < 3; i++){
-            while (gameMap.getTiles().get(num).getLimit() != 0 && gameMap.getTiles().get(num).getThing() != null)
-                num = rand.nextInt(gameMap.getTiles().size());
-
-            PistolPart p = new PistolPart();
-            pistolParts.add(p);
-            pistolParts.get(i).setId(i);
-            gameMap.getTiles().get(num).setThing(pistolParts.get(i));
-            num = 0;
-        }
-
-        // Generate things
-        int things_pct = (int)(tiles * 0.2);
-        boolean x = false;
-        for (int i = 0; i < things_pct; i++){
-            while(x == false){
-                num = rand.nextInt(gameMap.getTiles().size());
-                if(gameMap.getTiles().get(num).getLimit() != 0 && gameMap.getTiles().get(num).getThing() == null)
-                    x = true;
-            }
-
-            rand_thing = rand.nextInt(6);
-            gameMap.getTiles().get(num).setThing(rand_thing);
-            num = 0; x = false;
-        }
-
-        // Put the characters on it
-        for (int i = 0; i < players.size(); i++) {
-            while (ready != true) {
-                num = rand.nextInt(gameMap.getTiles().size());
-                if(gameMap.getTiles().get(num).getLimit() == -1){
-                    players.get(i).setMyTile(gameMap.getTiles().get(num));
-                    ready = true;
-                }
-            }
-            ready = false;
-        }
-
-        PolarBear p = new PolarBear("P0");
-        polarbears.add(p);
-        while (ready != true) {
-            num = rand.nextInt(gameMap.getTiles().size());
-            if (gameMap.getTiles().get(num).getLimit() == -1 && gameMap.getTiles().get(num).getMovables().size() == 0) {
-                p.setMyTile(gameMap.getTiles().get(num));
-                ready = true;
-            }
-        }
-    }
-    //EZNEMTUTIHOGYJÓ MEG LEHET A TILE IS SZAR
+    * Létrehozza a térképet.
+    * */
     public void initMap2() {
         for(int i = 0; i < 7; i++) {
             Tile t = new Tile(i);
@@ -515,7 +377,7 @@ public class Game {
     Kirajzolja a játék állását
      */
     public void draw() {
-        System.out.println("Tiles\n" + "TileID:safe:snow:standing on:neighbours:visible things;\n");
+        /*System.out.println("Tiles\n" + "TileID:safe:snow:standing on:neighbours:visible things;\n");
         for (Tile t : gameMap.getTiles()){
             t.draw();
         }
@@ -529,7 +391,7 @@ public class Game {
         }
         if(players.size() > 0)
             System.out.println("\nCurrent player: " + players.get(currentPlayer).getId());
-        System.out.println("");
+        System.out.println("");*/
     }
 
     /*
@@ -546,22 +408,4 @@ public class Game {
         return gameMap;
     }
 
-    /*
-    Kimenti a játék állását egy fájlba
-     */
-    public void save(String filename) throws FileNotFoundException, UnsupportedEncodingException {
-        PrintWriter writer = new PrintWriter(filename, "UTF-8");
-        for (Player m : players){
-            m.save(writer);
-        }
-        for (PolarBear p : polarbears){
-            p.save(writer);
-        }
-        writer.println("moveables end");
-        for (Tile t : gameMap.getTiles()){
-            t.save(writer);
-        }
-        writer.println("tiles end");
-        writer.close();
-    }
 }
